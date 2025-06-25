@@ -1,0 +1,23 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+  <rect width="200" height="200" fill="#ffffff" rx="15" ry="15"/>
+
+  <text x="50%" y="105" dominant-baseline="middle" text-anchor="middle" font-size="80" font-weight="bold" fill="#333333">
+    AM
+  </text>
+
+  <path d="M 30 140 L 45 140 L 45 155 L 30 155 L 30 140 Z M 170 140 L 155 140 L 155 155 L 170 155 L 170 140 Z" fill="#666666" opacity="0.15"/>
+  <text x="50%" y="165" dominant-baseline="middle" text-anchor="middle" font-size="16" fill="#666666" letter-spacing="1">
+    FULL STACK ENGINEER
+  </text>
+
+  <rect x="90" y="45" width="20" height="20" fill="#007bff" rx="5" ry="5" opacity="0.8"/>
+
+  <!-- Comments:
+    - The outer rectangle provides a clean background with rounded corners.
+    - 'AM' are the prominent initials, centered and bold for impact.
+    - The subtle bracket-like shapes and "FULL STACK ENGINEER" text provide context without clutter.
+    - The small blue square is an abstract representation of a pixel or code block, adding a modern touch.
+    - Colors are kept minimal: dark grey for text, a lighter grey for the subtitle, and a subtle blue accent.
+    - Font-family 'Inter, sans-serif' is specified for a clean, modern look.
+  -->
+</svg>

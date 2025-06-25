@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Orleans Mosque - Home</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Merriweather:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container header-content">
+        <div class="logo">
+          <!-- Replace with your actual logo image -->
+          <a href="index.html"
+            ><img src="/assets/images/mosque.jpeg" alt="Mosque Logo" /> New
+            Orleans Mosque</a
+          >
+        </div>
+        <nav class="main-nav">
+          <button class="nav-toggle" aria-label="toggle navigation">
+            <span class="hamburger"></span>
+          </button>
+          <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="events.html">Events & Announcements</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="documents.html">Documents & Archives</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+        <a href="#donate-link" class="donate-button" target="_blank"
+          >Donate Now</a
+        >
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <!-- Replace with your actual mosque photo -->
+          <img
+            src="/assets/images/mosque.jpeg"
+            alt="Photo of the Mosque"
+            class="mosque-image"
+          />
+          <div class="quote-container">
+            <blockquote class="quran-quote">
+              "Indeed, those who believe and do righteous deeds and establish
+              prayer and give zakah will have their reward with their Lord, and
+              there will be no fear concerning them, nor will they grieve."
+            </blockquote>
+            <cite>- Quran (2:277)</cite>
+          </div>
+        </div>
+      </section>
+
+      <section id="prayer-times" class="prayer-times-section">
+        <div class="container">
+          <h2>Today's Prayer Times (New Orleans, LA)</h2>
+          <div id="prayer-times-content">
+            <p>Loading prayer times...</p>
+          </div>
+          <p class="prayer-method-note">
+            Prayer times calculated using the ISNA (Islamic Society of North
+            America) method.
+          </p>
+          <p id="last-updated" class="last-updated-note"></p>
+        </div>
+      </section>
+
+      <section class="welcome-section">
+        <div class="container">
+          <h2>Welcome to Our Mosque</h2>
+          <p>
+            Welcome to the heart of our community in New Orleans. Our mosque
+            serves as a center for prayer, learning, and community engagement.
+            We strive to foster an environment of peace, understanding, and
+            service.
+          </p>
+          <p>
+            Explore our website to learn more about our services, events, and
+            how you can get involved.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>
+          © <span id="current-year"></span> New Orleans Mosque. All Rights
+          Reserved.
+        </p>
+        <p>123 Crescent City Ave, New Orleans, LA 70112</p>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
