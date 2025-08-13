@@ -1,0 +1,26 @@
+# Ignore build and dependency folders
+node_modules/
+dist/
+build/
+coverage/
+
+# Ignore version control and OS system files
+.git/
+.DS_Store
+
+# Ignore minified files
+*.min.js
+*.min.css
+
+# Ignore compiled assets
+*.bundle.js
+*.map
+
+# Optional: ignore your custom assets or data folders
+assets/img/
+assets/videos/
+public/
+
+# Ignore config files (optional)
+package-lock.json
+yarn.lock

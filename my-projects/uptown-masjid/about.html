@@ -1,0 +1,224 @@
+<!-- This is the about.html file for the Uptown Masjid al-Rahma project -->
+<!-- <h1>About Us</h1> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind CSS (Choose Option A or B from Setup) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Page Title -->
+    <title>About Us - Uptown Masjid al-Rahma</title>
+    <meta
+      name="description"
+      content="Learn about the mission, history, and leadership of [Mosque Name] in New Orleans."
+    />
+    <!-- Favicon (optional but recommended) -->
+    <!-- <link rel="icon" href="/img/favicon.ico" type="image/x-icon"> -->
+
+    <link href="./css/style.css" rel="stylesheet" />
+
+    <!-- Font Awesome for Icons (Optional, Example) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class="bg-gray-100 text-gray-800 font-sans">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+      <nav
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <!-- Logo -->
+        <a href="/" class="flex items-center space-x-2">
+          <img
+            src="./assets/img/image.png"
+            alt="Mosque Logo"
+            class="h-10 w-auto"
+          />
+          <span class="text-xl font-semibold text-green-700 hidden sm:inline"
+            >Mosque Name</span
+          >
+        </a>
+
+        <!-- Desktop Navigation - About Us Active -->
+        <ul class="hidden md:flex space-x-6 items-center">
+          <li>
+            <a href="/" class="text-gray-600 hover:text-green-600 font-medium"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="events.html"
+              class="text-gray-600 hover:text-green-600 font-medium"
+              >Events & News</a
+            >
+          </li>
+          <li>
+            <a
+              href="about.html"
+              class="text-green-600 hover:text-green-600 font-medium border-b-2 border-green-600 pb-1"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a
+              href="documents.html"
+              class="text-gray-600 hover:text-green-600 font-medium"
+              >Documents</a
+            >
+          </li>
+          <li>
+            <a
+              href="contact.html"
+              class="text-gray-600 hover:text-green-600 font-medium"
+              >Contact Us</a
+            >
+          </li>
+        </ul>
+
+        <!-- Donate Button -->
+        <a
+          href="#"
+          id="donate-button"
+          class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-5 rounded-full transition duration-300 text-sm"
+        >
+          Donate Now
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobile-menu-button"
+          class="md:hidden text-gray-700 hover:text-green-600 focus:outline-none"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile Menu (Initially Hidden) - About Us Active -->
+      <div
+        id="mobile-menu"
+        class="md:hidden bg-white absolute top-full left-0 w-full shadow-lg menu-hidden border-t border-gray-200"
+      >
+        <ul class="flex flex-col space-y-2 p-4">
+          <li>
+            <a
+              href="/"
+              class="block py-2 px-3 rounded text-gray-700 hover:bg-green-100 font-medium"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="events.html"
+              class="block py-2 px-3 rounded text-gray-700 hover:bg-green-100 font-medium"
+              >Events & News</a
+            >
+          </li>
+          <li>
+            <a
+              href="about.html"
+              class="block py-2 px-3 rounded text-gray-700 bg-green-50 hover:bg-green-100 font-medium"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a
+              href="documents.html"
+              class="block py-2 px-3 rounded text-gray-700 hover:bg-green-100 font-medium"
+              >Documents</a
+            >
+          </li>
+          <li>
+            <a
+              href="contact.html"
+              class="block py-2 px-3 rounded text-gray-700 hover:bg-green-100 font-medium"
+              >Contact Us</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Main Content - About Page Specific -->
+    <main class="container mx-auto px-4 py-8">
+      <h1 class="text-3xl font-bold text-green-700 mb-6 border-b pb-3">
+        About Us
+      </h1>
+
+      <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+        <h2 class="text-xl font-semibold text-green-800 mb-3">Our Mission</h2>
+        <p class="text-gray-700 leading-relaxed">
+          [Write a paragraph about the mosque's mission, values, and goals.
+          e.g., To provide a welcoming environment for worship, education, and
+          community building based on Islamic principles...] Lorem ipsum dolor
+          sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua.
+        </p>
+      </section>
+
+      <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+        <h2 class="text-xl font-semibold text-green-800 mb-3">Our History</h2>
+        <p class="text-gray-700 leading-relaxed">
+          [Write a paragraph or two about the history of the mosque and the
+          Muslim community it serves in New Orleans.] Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+          velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+        <p class="text-gray-700 leading-relaxed mt-4">
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+          officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde
+          omnis iste natus error sit voluptatem accusantium doloremque
+          laudantium.
+        </p>
+      </section>
+
+      <section class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-xl font-semibold text-green-800 mb-3">
+          Leadership / Imam
+        </h2>
+        <p class="text-gray-700 leading-relaxed">
+          [Introduce the Imam and any key leadership members, perhaps with brief
+          bios or roles.] Currently led by Imam [Imam's Name], who provides
+          spiritual guidance and leads prayers. Our board members are dedicated
+          volunteers committed to serving the community's needs...
+        </p>
+        <!-- Optionally add photos or more details here -->
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-8 mt-12">
+      <div class="container mx-auto px-4 text-center">
+        <p>
+          © <span id="current-year"></span> [Mosque Name], New Orleans. All
+          Rights Reserved.
+        </p>
+        <!-- Optional: Add social media links here -->
+        <div class="mt-4 space-x-4">
+          <!-- Example: <a href="#" class="hover:text-white"><i class="fab fa-facebook-f"></i></a> -->
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="./js/prayer-times.js" defer></script>
+    <script src="./js/script.js" defer></script>
+  </body>
+</html>

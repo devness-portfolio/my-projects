@@ -1,0 +1,48 @@
+/* css/input.css */
+
+/* 1. Tailwind Directives */
+/* These lines tell Tailwind to inject its base styles, component classes, */
+/* and utility classes into the final `style.css` file. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 2. Custom CSS Rules */
+/* Add any custom CSS rules that are not easily achievable with */
+/* Tailwind utility classes, or rules you want to apply globally. */
+
+/* Styles for the mobile menu animation (previously in HTML <style>) */
+#mobile-menu {
+  transition: transform 0.3s ease-in-out;
+}
+.menu-hidden {
+  transform: translateX(-100%);
+}
+.menu-visible {
+  transform: translateX(0);
+}
+
+/* Add any other custom styles below this line */
+/* For example: */
+/*
+body {
+  font-family: 'Your Custom Font', sans-serif; // If using a custom font not in Tailwind defaults
+}
+
+.special-highlight {
+  @apply bg-yellow-200 text-yellow-900 p-2 rounded; // Example of creating a custom component class using @apply
+}
+
+
+/* Global header styles */
+header {
+  @apply flex items-center justify-between px-6 py-4 bg-white shadow-md;
+}
+
+header .logo {
+  @apply h-12 w-12;
+}
+
+header .mosque-name {
+  @apply text-xl font-semibold text-gray-800;
+}

@@ -1,0 +1,302 @@
+<!-- This is the (EVENTS & ANNOUNCEMENTS PAGE) events.html file for the Uptown Masjid al-Rahma project -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind CSS (Choose Option A or B from Setup) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Page Title -->
+    <title>Events & News - Uptown Masjid al-Rahma</title>
+    <meta
+      name="description"
+      content="Upcoming events, announcements, and news from [Mosque Name] in New Orleans."
+    />
+    <!-- Favicon (optional but recommended) -->
+    <!-- <link rel="icon" href="/img/favicon.ico" type="image/x-icon"> -->
+
+    <!-- Link to the compiled Tailwind CSS -->
+    <link href="./css/style.css" rel="stylesheet" />
+
+    <!-- Font Awesome for Icons (Optional, if you use icons like in documents.html) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class="bg-gray-100 text-gray-800 font-sans">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+      <nav
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <!-- Logo -->
+        <a href="/" class="flex items-center space-x-2">
+          <img
+            src="./assets/img/image.png"
+            alt="Mosque Logo"
+            class="h-10 w-auto"
+          />
+          <span class="text-xl font-semibold text-green-700 hidden sm:inline"
+            >Mosque Name</span
+          >
+        </a>
+
+        <!-- Desktop Navigation - Events & News Active -->
+        <ul class="hidden md:flex space-x-6 items-center">
+          <li>
+            <a href="/" class="text-gray-600 hover:text-green-600 font-medium"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="events.html"
+              class="text-green-600 hover:text-green-600 font-medium border-b-2 border-green-600 pb-1"
+              >Events & News</a
+            >
+            <a
+              href="about.html"
+              class="text-gray-600 hover:text-green-600 font-medium"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a
+              href="documents.html"
+              class="text-gray-600 hover:text-green-600 font-medium"
+              >Documents</a
+            >
+          </li>
+          <li>
+            <a
+              href="contact.html"
+              class="text-gray-600 hover:text-green-600 font-medium"
+              >Contact Us</a
+            >
+          </li>
+        </ul>
+
+        <!-- Donate Button -->
+        <a
+          href="#"
+          id="donate-button"
+          class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-5 rounded-full transition duration-300 text-sm"
+        >
+          Donate Now
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobile-menu-button"
+          class="md:hidden text-gray-700 hover:text-green-600 focus:outline-none"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile Menu (Initially Hidden) - Events & News Active -->
+      <div
+        id="mobile-menu"
+        class="md:hidden bg-white absolute top-full left-0 w-full shadow-lg menu-hidden border-t border-gray-200"
+      >
+        <ul class="flex flex-col space-y-2 p-4">
+          <li>
+            <a
+              href="/"
+              class="block py-2 px-3 rounded text-gray-700 hover:bg-green-100 font-medium"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="events.html"
+              class="block py-2 px-3 rounded text-gray-700 bg-green-50 hover:bg-green-100 font-medium"
+              >Events & News</a
+            >
+          </li>
+          {/* <-- Active Link */}
+          <li>
+            <a
+              href="about.html"
+              class="block py-2 px-3 rounded text-gray-700 hover:bg-green-100 font-medium"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a
+              href="documents.html"
+              class="block py-2 px-3 rounded text-gray-700 hover:bg-green-100 font-medium"
+              >Documents</a
+            >
+          </li>
+          <li>
+            <a
+              href="contact.html"
+              class="block py-2 px-3 rounded text-gray-700 hover:bg-green-100 font-medium"
+              >Contact Us</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Main Content - Events Page Specific -->
+    <main class="container mx-auto px-4 py-8">
+      <h1 class="text-3xl font-bold text-green-700 mb-6 border-b pb-3">
+        Events & Announcements
+      </h1>
+
+      {/*
+      <!-- Add a section for upcoming events -->
+      */}
+      <section class="mb-10">
+        <h2 class="text-2xl font-semibold text-green-800 mb-4">
+          Upcoming Events
+        </h2>
+
+        {/*
+        <!-- Example Event Card 1 -->
+        */}
+        <article
+          class="bg-white p-6 rounded-lg shadow-md mb-6 transition duration-300 hover:shadow-lg"
+        >
+          <h3 class="text-xl font-semibold text-green-700 mb-2">
+            Community Iftar Dinner
+          </h3>
+          <p class="text-sm text-gray-500 mb-3">
+            <i class="far fa-calendar-alt mr-1"></i> Date: [Date, e.g.,
+            Saturday, April 15th] | <i class="far fa-clock ml-2 mr-1"></i> Time:
+            [Time, e.g., 7:00 PM]
+          </p>
+          <p class="text-gray-700 mb-4">
+            Join us for a community iftar during Ramadan. Share blessings and
+            break bread together. All are welcome. Please RSVP so we can get an
+            accurate headcount for catering.
+          </p>
+          <a href="#" class="text-blue-600 hover:underline font-medium"
+            >Read More / RSVP <i class="fas fa-arrow-right text-xs ml-1"></i
+          ></a>
+        </article>
+
+        {/*
+        <!-- Example Event Card 2 -->
+        */}
+        <article
+          class="bg-white p-6 rounded-lg shadow-md mb-6 transition duration-300 hover:shadow-lg"
+        >
+          <h3 class="text-xl font-semibold text-green-700 mb-2">
+            Weekend Quran Class for Children
+          </h3>
+          <p class="text-sm text-gray-500 mb-3">
+            <i class="far fa-calendar-alt mr-1"></i> Date: Every Saturday |
+            <i class="far fa-clock ml-2 mr-1"></i> Time: 10:00 AM - 12:00 PM
+          </p>
+          <p class="text-gray-700 mb-4">
+            Enroll your children in our weekend classes focusing on Quranic
+            recitation, basic Islamic studies, and character building in a
+            supportive environment.
+          </p>
+          <a
+            href="contact.html"
+            class="text-blue-600 hover:underline font-medium"
+            >Contact for Registration
+            <i class="fas fa-arrow-right text-xs ml-1"></i
+          ></a>
+        </article>
+
+        {/*
+        <!-- Add more event cards here as needed -->
+        */}
+        <p class="text-center text-gray-600 mt-8">
+          Check back regularly for more event updates!
+        </p>
+      </section>
+
+      {/*
+      <!-- Add a section for general announcements/news -->
+      */}
+      <section>
+        <h2 class="text-2xl font-semibold text-green-800 mb-4">
+          Announcements & News
+        </h2>
+
+        {/*
+        <!-- Example Announcement 1 -->
+        */}
+        <article
+          class="bg-blue-50 p-6 rounded-lg shadow-sm mb-6 border-l-4 border-blue-500"
+        >
+          <h3 class="text-xl font-semibold text-blue-800 mb-2">
+            Eid Prayer Announcement
+          </h3>
+          <p class="text-sm text-gray-500 mb-3">Posted: [Date]</p>
+          <p class="text-gray-700">
+            Insha'Allah, details regarding the Eid al-Fitr (or Eid al-Adha)
+            prayer location and time will be announced closer to the date.
+            Please monitor this page and mosque announcements.
+          </p>
+        </article>
+
+        {/*
+        <!-- Example Announcement 2 -->
+        */}
+        <article
+          class="bg-yellow-50 p-6 rounded-lg shadow-sm mb-6 border-l-4 border-yellow-500"
+        >
+          <h3 class="text-xl font-semibold text-yellow-800 mb-2">
+            Call for Volunteers
+          </h3>
+          <p class="text-sm text-gray-500 mb-3">Posted: [Date]</p>
+          <p class="text-gray-700">
+            We are looking for dedicated volunteers to help with [Specific Task,
+            e.g., event setup, cleaning, youth programs]. Your time and effort
+            are greatly appreciated! Please contact the office if you can
+            assist.
+          </p>
+          <a
+            href="contact.html"
+            class="text-blue-600 hover:underline font-medium mt-3 inline-block"
+            >Contact Us to Volunteer
+            <i class="fas fa-arrow-right text-xs ml-1"></i
+          ></a>
+        </article>
+
+        {/*
+        <!-- Add more announcements here -->
+        */}
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-8 mt-12">
+      <div class="container mx-auto px-4 text-center">
+        <p>
+          © <span id="current-year"></span> [Mosque Name], New Orleans. All
+          Rights Reserved.
+        </p>
+        <!-- Optional: Add social media links here -->
+        <div class="mt-4 space-x-4">
+          <!-- Example: <a href="#" class="hover:text-white"><i class="fab fa-facebook-f"></i></a> -->
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript Files (Add defer for better performance) -->
+    <script src="./js/prayer-times.js" defer></script>
+    <script src="./js/script.js" defer></script>
+  </body>
+</html>

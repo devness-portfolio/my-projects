@@ -1,0 +1,84 @@
+/* GENERAL */
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  /* Sets a neutral background color for the page */
+  background-color: #f8f9fa;
+}
+
+html {
+  /* Enables smooth scrolling for anchor links */
+  scroll-behavior: smooth;
+}
+
+p {
+  /* Improves readability for paragraph text by providing adequate spacing between lines */
+  line-height: 1.6;
+  color: rgb(85, 85, 85);
+}
+
+/* TRANSITION */
+
+a,
+.btn {
+  /* Adds a transition effect to links and buttons for a smoother user experience */
+  transition: all 0.3s ease;
+}
+
+/* DESKTOP NAVIGATION */
+
+nav,
+.nav-links {
+  /* Sets a background color and padding for the navigation bar */
+  background-color: #0a192f;
+  padding: 10px 20px;
+  display: flex;
+}
+
+nav {
+  /* Positions the navigation bar at the top of the page */
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  height: 23vh;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-links {
+  /* Aligns navigation links in a row */
+  gap: 2rem; /* Adds space between the links */
+  list-style: none;
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  /* Sets the color and text decoration for links */
+  color: #fff;
+  text-decoration: none;
+  text-decoration-color: whitesmoke;
+}
+
+a:hover {
+  /* Changes the color of links on hover */
+  color: #64ffda;
+  text-decoration: underline;
+  text-underline-offset: 1rem;
+}
+
+.logo {
+  /* Styles the logo in the navigation bar */
+  color: #64ffda;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.logo:hover {
+  /* Changes the color of the logo on hover */
+  cursor: default;
+}

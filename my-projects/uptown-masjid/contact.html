@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind CSS (Choose Option A or B from Setup) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Page Title -->
+    <title>Contact Us - Uptown Masjid al-Rahma</title>
+    <meta
+      name="description"
+      content="Find the address, phone number, email, and location of [Mosque Name] in New Orleans."
+    />
+    <!-- Favicon (optional but recommended) -->
+    <!-- <link rel="icon" href="/img/favicon.ico" type="image/x-icon"> -->
+
+    <link href="./css/style.css" rel="stylesheet" />
+
+    <!-- Font Awesome for Icons (Optional, Example) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class="bg-gray-100 text-gray-800 font-sans">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+      <nav
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <!-- Logo -->
+        <a href="/" class="flex items-center space-x-2">
+          <img
+            src="./assets/img/image.png"
+            alt="Mosque Logo"
+            class="h-10 w-auto"
+          />
+          <span class="text-xl font-semibold text-green-700 hidden sm:inline"
+            >Uptown Masjid al-Rahma</span
+          >
+        </a>
+
+        <!-- Desktop Navigation - Contact Us Active -->
+        <ul class="hidden md:flex space-x-6 items-center">
+          <li>
+            <a href="/" class="text-gray-600 hover:text-green-600 font-medium"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="events.html"
+              class="text-gray-600 hover:text-green-600 font-medium"
+              >Events & News</a
+            >
+          </li>
+          <li>
+            <a
+              href="about.html"
+              class="text-gray-600 hover:text-green-600 font-medium"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a
+              href="documents.html"
+              class="text-gray-600 hover:text-green-600 font-medium"
+              >Documents</a
+            >
+          </li>
+          <li>
+            <a
+              href="contact.html"
+              class="text-green-600 hover:text-green-600 font-medium border-b-2 border-green-600 pb-1"
+              >Contact Us</a
+            >
+          </li>
+        </ul>
+
+        <!-- Donate Button -->
+        <a
+          href="#"
+          id="donate-button"
+          class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-5 rounded-full transition duration-300 text-sm"
+        >
+          Donate Now
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobile-menu-button"
+          class="md:hidden text-gray-700 hover:text-green-600 focus:outline-none"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile Menu (Initially Hidden) - Contact Us Active -->
+      <div
+        id="mobile-menu"
+        class="md:hidden bg-white absolute top-full left-0 w-full shadow-lg menu-hidden border-t border-gray-200"
+      >
+        <ul class="flex flex-col space-y-2 p-4">
+          <li>
+            <a
+              href="/"
+              class="block py-2 px-3 rounded text-gray-700 hover:bg-green-100 font-medium"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="events.html"
+              class="block py-2 px-3 rounded text-gray-700 hover:bg-green-100 font-medium"
+              >Events & News</a
+            >
+          </li>
+          <li>
+            <a
+              href="about.html"
+              class="block py-2 px-3 rounded text-gray-700 hover:bg-green-100 font-medium"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a
+              href="documents.html"
+              class="block py-2 px-3 rounded text-gray-700 hover:bg-green-100 font-medium"
+              >Documents</a
+            >
+          </li>
+          <li>
+            <a
+              href="contact.html"
+              class="block py-2 px-3 rounded text-gray-700 bg-green-50 hover:bg-green-100 font-medium"
+              >Contact Us</a
+            >
+          </li>
+          {/* Active Link */}
+        </ul>
+      </div>
+    </header>
+
+    <!-- Main Content - Simplified Contact Page -->
+    <main class="container mx-auto px-4 py-8">
+      <h1 class="text-3xl font-bold text-green-700 mb-6 border-b pb-3">
+        Contact Us
+      </h1>
+
+      <!-- Contact Info & Map Section -->
+      <section class="bg-white p-6 rounded-lg shadow-md max-w-4xl mx-auto">
+        {/* Added max-w-4xl and mx-auto for centering */}
+        <h2 class="text-2xl font-semibold text-green-800 mb-6 text-center">
+          Our Location & Contact Information
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-8 items-start">
+          {/* Use grid to place info beside map on medium screens */}
+
+          <!-- Contact Details -->
+          <div class="space-y-4 text-gray-700 text-base md:text-lg">
+            {/* Slightly larger text */}
+            <div class="flex items-start space-x-3">
+              <i
+                class="fas fa-map-marker-alt mt-1 text-green-600 w-5 text-center"
+              ></i>
+              <div>
+                <strong class="font-medium block">Address:</strong>
+                <span>[Full Mosque Address], New Orleans, LA [Zip Code]</span>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3">
+              <i class="fas fa-phone-alt text-green-600 w-5 text-center"></i>
+              <div>
+                <strong class="font-medium block">Phone:</strong>
+                <a
+                  href="tel:[PhoneNumber]"
+                  class="text-blue-600 hover:underline"
+                  >[Phone Number]</a
+                >
+              </div>
+            </div>
+            <div class="flex items-center space-x-3">
+              <i class="fas fa-envelope text-green-600 w-5 text-center"></i>
+              <div>
+                <strong class="font-medium block">Email:</strong>
+                <a
+                  href="mailto:[ContactEmail]"
+                  class="text-blue-600 hover:underline"
+                  >[Contact Email Address]</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Map Area -->
+          <div class="mt-6 md:mt-0">
+            <h3
+              class="text-xl font-semibold text-green-800 mb-3 text-center md:text-left"
+            >
+              Find Us on the Map
+            </h3>
+            <!-- Replace with Google Maps Embed Code -->
+            <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded shadow">
+              <p
+                class="p-4 text-gray-500 text-center flex items-center justify-center h-full"
+              >
+                Map placeholder - Embed Google Maps iframe here
+              </p>
+              <!-- Example Google Maps Embed:
+                       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d[YOUR_MAP_DATA]" width="100%" height="300" style="border:0; border-radius: 0.25rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                       -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-8 mt-12">
+      <div class="container mx-auto px-4 text-center">
+        <p>
+          © <span id="current-year"></span> [Mosque Name], New Orleans. All
+          Rights Reserved.
+        </p>
+        <!-- Optional: Add social media links here -->
+        <div class="mt-4 space-x-4">
+          <!-- Example: <a href="#" class="hover:text-white"><i class="fab fa-facebook-f"></i></a> -->
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="./js/prayer-times.js" defer></script>
+    <script src="./js/script.js" defer></script>
+  </body>
+</html>
