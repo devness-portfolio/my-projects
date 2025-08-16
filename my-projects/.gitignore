@@ -107,3 +107,4 @@ hs_err_pid*            # Java crash logs
 # Windows specific
 Thumbs.db
 ehthumbs.db
+.DS_Store
