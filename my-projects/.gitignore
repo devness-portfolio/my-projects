@@ -108,3 +108,5 @@ hs_err_pid*            # Java crash logs
 Thumbs.db
 ehthumbs.db
 .DS_Store
+.DS_Store
+.DS_Store
