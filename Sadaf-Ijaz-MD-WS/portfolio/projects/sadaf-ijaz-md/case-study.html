@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Case study for the Dr. Sadaf Ijaz MD static website, covering project goals, role, technical stack, frontend decisions, accessibility, and handoff."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Case Study | Dr. Sadaf Ijaz MD Website</title>
+    <link
+      rel="icon"
+      href="assets/images/icons/favicon/favicon.ico"
+      sizes="any"
+    />
+    <link rel="stylesheet" href="../../assets/css/portfolio.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <a class="brand" href="../../" aria-label="Portfolio home">
+        <span class="brand-mark" aria-hidden="true">AM</span>
+        <span>Anes Mehai</span>
+      </a>
+      <nav aria-label="Case study navigation">
+        <a href="../../">Portfolio</a>
+        <a href="#overview">Overview</a>
+        <a href="#decisions">Decisions</a>
+        <a href="index.html">Live Site</a>
+      </nav>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="hero">
+        <video
+          class="hero-media"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-hidden="true"
+        >
+          <source src="assets/videos/flower-path-fast.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Portfolio Case Study</p>
+          <h1>Dr. Sadaf Ijaz MD Website</h1>
+          <p>
+            A responsive static website for a physician specializing in
+            psychiatric care, women's mental health, reproductive psychiatry,
+            medication management, and virtual care.
+          </p>
+          <div class="hero-actions" aria-label="Primary project links">
+            <a class="button button-primary" href="index.html">
+              View Live Site
+            </a>
+            <a class="button button-secondary" href="../../index.html">
+              Back to Portfolio
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="summary-band" aria-label="Project summary">
+        <div>
+          <span>Role</span>
+          <strong>Frontend, UX, Accessibility</strong>
+        </div>
+        <div>
+          <span>Stack</span>
+          <strong>HTML5, CSS3, JavaScript</strong>
+        </div>
+        <div>
+          <span>Output</span>
+          <strong>Client-ready static deliverable</strong>
+        </div>
+      </section>
+
+      <section id="overview" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Overview</p>
+          <h2>Built for clarity, trust, and handoff.</h2>
+          <p>
+            The project presents credentials, care areas, booking paths, contact
+            details, and professional links in a calm single-page experience
+            that is easy for patients and referring audiences to scan.
+          </p>
+        </div>
+        <div class="card-grid">
+          <article class="info-card">
+            <h3>Frontend Implementation</h3>
+            <p>
+              Built the client-facing pages with semantic HTML, responsive CSS,
+              vanilla JavaScript, and static assets without a framework or build
+              step.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>UX Structure</h3>
+            <p>
+              Organized content around visitor intent: who the physician is,
+              what she treats, how care works, and how to book or get in touch.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>Client Handoff</h3>
+            <p>
+              Kept the client site self-contained with documentation for content
+              updates, launch review, deployment, and long-term maintenance.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="decisions" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Notable Decisions</p>
+          <h2>Small choices that support the whole site.</h2>
+        </div>
+        <ul class="handoff-list">
+          <li>
+            Kept the client site as a static deliverable so it can be hosted
+            widely and maintained easily.
+          </li>
+          <li>
+            Used a single-page content flow for the primary experience, with
+            simple redirect pages for legacy page URLs.
+          </li>
+          <li>
+            Split JavaScript into small focused modules for navigation, motion
+            preferences, video controls, contact behavior, and dynamic
+            experience-year copy.
+          </li>
+          <li>
+            Placed trust signals near the physician bio and credentials while
+            keeping the page readable and warm.
+          </li>
+          <li>
+            Included reduced-motion behavior and controls for the background
+            video experience.
+          </li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Employer Talking Points</p>
+          <h2>What the work demonstrates.</h2>
+        </div>
+        <div class="card-grid">
+          <article class="info-card">
+            <h3>Production Mindset</h3>
+            <p>
+              Delivered a client-ready website rather than only a visual mockup,
+              including local documentation and handoff structure.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>Healthcare Design</h3>
+            <p>
+              Balanced visual warmth with healthcare credibility, accessibility,
+              and clear calls to action.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>Maintainability</h3>
+            <p>
+              Separated portfolio presentation from client deliverables so the
+              project can be reviewed, hosted, or handed off independently.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

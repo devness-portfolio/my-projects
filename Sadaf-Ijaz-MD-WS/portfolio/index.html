@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Portfolio case study for the Dr. Sadaf Ijaz MD static website, including design, frontend implementation, accessibility, and client handoff details."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Dr. Sadaf Ijaz MD Website</title>
+    <link
+      rel="icon"
+      href="projects/sadaf-ijaz-md/assets/images/icons/favicon/favicon.ico"
+      sizes="any"
+    />
+    <link rel="stylesheet" href="assets/css/portfolio.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Portfolio home">
+        <span class="brand-mark" aria-hidden="true">AM</span>
+        <span>Anes Mehai</span>
+      </a>
+      <nav aria-label="Portfolio navigation">
+        <a href="#project">Project</a>
+        <a href="#case-study">Case Study</a>
+        <a href="#handoff">Handoff</a>
+        <a href="projects/sadaf-ijaz-md/index.html">Live Site</a>
+      </nav>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="hero">
+        <video
+          class="hero-media"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-hidden="true"
+        >
+          <source
+            src="projects/sadaf-ijaz-md/assets/videos/flower-path-fast.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Frontend Portfolio Project</p>
+          <h1>Dr. Sadaf Ijaz MD Website</h1>
+          <p>
+            A responsive, accessible static website for a board certified
+            psychiatrist, built with HTML, CSS, and vanilla JavaScript.
+          </p>
+          <div class="hero-actions" aria-label="Primary project links">
+            <a class="button button-primary" href="projects/sadaf-ijaz-md/">
+              View Live Project
+            </a>
+            <a
+              class="button button-secondary"
+              href="projects/sadaf-ijaz-md/case-study.html"
+            >
+              Read Case Study
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="summary-band" aria-label="Project summary">
+        <div>
+          <span>Role</span>
+          <strong>Frontend, UX, Accessibility</strong>
+        </div>
+        <div>
+          <span>Stack</span>
+          <strong>HTML, CSS, JavaScript</strong>
+        </div>
+        <div>
+          <span>Deliverable</span>
+          <strong>Client-ready static site</strong>
+        </div>
+      </section>
+
+      <section id="project" class="section project-feature">
+        <div class="section-copy">
+          <p class="eyebrow">Featured Work</p>
+          <h2>Healthcare website designed for trust and clarity.</h2>
+          <p>
+            The site presents credentials, services, care philosophy, booking
+            paths, contact details, and professional links in a calm, readable
+            experience for patients and referring audiences.
+          </p>
+          <div class="button-row">
+            <a class="button button-primary" href="projects/sadaf-ijaz-md/">
+              Open Client Site
+            </a>
+            <a
+              class="button button-secondary"
+              href="projects/sadaf-ijaz-md/case-study.html"
+            >
+              Project Details
+            </a>
+          </div>
+        </div>
+        <div class="site-preview" aria-label="Embedded preview of client site">
+          <iframe
+            title="Dr. Sadaf Ijaz MD website preview"
+            src="projects/sadaf-ijaz-md/index.html"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </section>
+
+      <section id="case-study" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Case Study</p>
+          <h2>What this project demonstrates.</h2>
+        </div>
+        <div class="card-grid">
+          <article class="info-card">
+            <h3>Information Architecture</h3>
+            <p>
+              Consolidated the site into a single-page flow with clear anchors
+              for about, credentials, services, approach, resources, and
+              contact.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>Frontend Craft</h3>
+            <p>
+              Implemented responsive sections, fixed navigation, motion
+              preferences, video controls, contact feedback, and dynamic
+              experience-year copy.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>Trust Signals</h3>
+            <p>
+              Surfaced licensing, training, professional profiles, multilingual
+              care, social channels, and booking options without crowding the
+              page.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="handoff" class="section handoff-section">
+        <div class="section-copy">
+          <p class="eyebrow">Client Handoff</p>
+          <h2>Prepared for ownership after delivery.</h2>
+          <p>
+            The client site remains self-contained in its project folder, with
+            documentation for deployment, launch QA, content updates, and asset
+            maintenance.
+          </p>
+        </div>
+        <ul class="handoff-list">
+          <li>Static files can be hosted on GitHub Pages, Netlify, S3, or any static host.</li>
+          <li>All site-specific assets live under the project folder.</li>
+          <li>Launch and maintenance documents are included with the deliverable.</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

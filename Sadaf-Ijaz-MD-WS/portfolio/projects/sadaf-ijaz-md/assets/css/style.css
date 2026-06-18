@@ -1154,6 +1154,7 @@ a.trust-badge:focus {
 }
 
 .credential-snapshot {
+  position: relative;
   display: grid;
   gap: 1.25rem;
   overflow: hidden;
