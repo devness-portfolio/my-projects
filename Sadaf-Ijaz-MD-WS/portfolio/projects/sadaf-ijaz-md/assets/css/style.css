@@ -838,6 +838,54 @@ section {
   margin: 0;
 }
 
+.expertise-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  align-items: start;
+  gap: 2.25rem;
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--border-soft);
+}
+
+.expertise-copy h3 {
+  margin-bottom: 0.75rem;
+  color: var(--primary-dark);
+  font-size: clamp(1.45rem, 2vw, 1.8rem);
+  line-height: 1.2;
+}
+
+.expertise-copy p {
+  margin: 0;
+  line-height: 1.75;
+}
+
+.expertise-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem 1.75rem;
+  list-style: none;
+}
+
+.expertise-list li {
+  position: relative;
+  min-width: 0;
+  padding-left: 1.2rem;
+  color: var(--text-primary);
+  line-height: 1.55;
+}
+
+.expertise-list li::before {
+  position: absolute;
+  top: 0.58em;
+  left: 0;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--accent-text);
+  content: "";
+}
+
 /* ABOUT */
 .about {
   padding: 8rem 0;
@@ -1793,6 +1841,18 @@ footer {
 
   .service-card-content {
     padding: 1.35rem 1.35rem 1.5rem;
+  }
+
+  .expertise-summary {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 2.35rem;
+    padding-top: 2.35rem;
+  }
+
+  .expertise-list {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
   }
 
   .contact-box {
