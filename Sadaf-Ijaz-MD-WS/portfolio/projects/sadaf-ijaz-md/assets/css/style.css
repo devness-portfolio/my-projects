@@ -1756,11 +1756,14 @@ footer {
 
   .hero {
     padding: 8.5rem 0 4.5rem;
+    background: #000000
+      url("../images/hero/cherry-blossom-hero-mobile.png") center / cover
+      no-repeat;
   }
 
+  .hero-video,
   .hero-video-toggle {
-    top: 5.8rem;
-    right: 1.25rem;
+    display: none;
   }
 
   .hero h1 {
