@@ -1,6 +1,6 @@
 # Dr. Sadaf Ijaz MD Website
 
-A responsive static website for Dr. Sadaf Ijaz MD, focused on psychiatric care, women's mental health, reproductive psychiatry, medication management, and virtual care.
+A responsive static website for Dr. Sadaf Ijaz MD, focused on comprehensive psychiatric care, diagnostic evaluations, medication management, supportive psychotherapy, and virtual care.
 
 ## Tech Stack
 
