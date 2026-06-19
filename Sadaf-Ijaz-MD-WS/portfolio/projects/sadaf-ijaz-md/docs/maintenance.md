@@ -38,7 +38,7 @@ Scripts live in:
 assets/js/
 ```
 
-Each file controls a focused behavior, including mobile navigation, scroll state, footer year, form feedback, experience years, video controls, and motion preferences.
+Each file controls a focused behavior, including mobile navigation, scroll state, footer year, experience years, video controls, and motion preferences.
 
 ## Updating Years In Practice
 
@@ -50,7 +50,6 @@ The site calculates experience years from:
 
 Update that year if the source year changes.
 
-## Contact Form Note
+## Contact CTA Note
 
-The current form submits through `mailto:`, which depends on the visitor's local email client. For production-grade submissions, replace it with a hosted form service or backend endpoint.
-
+The contact section intentionally avoids a form. It uses direct phone, email, and Headway links to keep the static site low-maintenance.

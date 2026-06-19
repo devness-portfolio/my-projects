@@ -51,6 +51,6 @@ sadaf-ijaz-md/
 
 - `index.html` is the main experience.
 - `about.html`, `services.html`, `resources.html`, and `contact.html` are lightweight redirect pages back to homepage sections.
-- The contact form currently uses `mailto:` behavior.
+- The contact section uses direct phone, email, and Headway calls to action.
 - Appointment booking links point to the Headway profile.
 - Update launch details in `docs/launch-checklist.md` before publishing.

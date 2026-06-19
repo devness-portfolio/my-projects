@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
   [
     new FooterYear(),
     new ExperienceYears(),
-    new ContactForm(),
     new MobileNavigation(),
     new MotionPreferences(),
     new HeroVideoControl(),

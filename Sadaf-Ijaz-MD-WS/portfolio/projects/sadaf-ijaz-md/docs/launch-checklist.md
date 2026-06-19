@@ -17,7 +17,7 @@
 - Test mobile menu open and close behavior.
 - Test reduced-motion setting.
 - Test background video pause/play control.
-- Test contact form behavior.
+- Test phone, email, and Headway contact links.
 - Confirm favicon and manifest files load.
 - Confirm all local images and videos load.
 
@@ -35,4 +35,3 @@
 - Confirm custom domain.
 - Confirm cache settings for images and videos.
 - Confirm fallback behavior for direct page URLs.
-

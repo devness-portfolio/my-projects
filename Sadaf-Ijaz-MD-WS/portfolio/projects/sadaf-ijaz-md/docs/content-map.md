@@ -16,14 +16,14 @@
 
 - Book an appointment through Headway
 - View specialties
-- Contact the practice
+- Call or email for a free consultation
 
 ## Key Content Locations
 
 - Physician bio: `index.html`, About section
 - Services: `index.html`, Services section
 - Credentials: `index.html`, Credentials section
-- Contact form: `index.html`, Contact section
+- Contact calls to action: `index.html`, Contact section
 - Footer contact/social links: `index.html`, Footer section
 - Visual styling: `assets/css/style.css`
 - Interactive behavior: `assets/js/`
@@ -38,4 +38,3 @@ These pages redirect users back to homepage sections:
 - `contact.html`
 
 They are useful if older links or search results point to page URLs, while the active site remains a one-page experience.
-
