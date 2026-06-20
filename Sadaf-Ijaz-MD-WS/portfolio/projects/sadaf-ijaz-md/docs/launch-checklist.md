@@ -25,13 +25,17 @@
 
 - Confirm page title.
 - Confirm meta description.
-- Add production canonical URL after domain is known.
-- Add Open Graph image and metadata if social sharing previews are needed.
+- Confirm the production canonical URL in `index.html`.
+- Confirm Open Graph and Twitter preview metadata render correctly.
+- Confirm social profile links used in structured data are current.
+- Confirm `robots.txt` and `sitemap.xml` use the final production URL.
+- Validate JSON-LD structured data before launch.
 
 ## Hosting
 
 - Confirm static host target.
 - Confirm HTTPS.
 - Confirm custom domain.
+- Update absolute SEO URLs after the custom domain is confirmed.
 - Confirm cache settings for images and videos.
 - Confirm fallback behavior for direct page URLs.

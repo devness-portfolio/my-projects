@@ -53,3 +53,7 @@ Update that year if the source year changes.
 ## Contact CTA Note
 
 The contact section intentionally avoids a form. It uses direct phone, email, and Headway links to keep the static site low-maintenance.
+
+## SEO URL Updates
+
+The homepage metadata, structured data, `robots.txt`, `sitemap.xml`, and redirect-page canonical links use absolute production URLs. When the site moves to a custom domain, update those URLs together so search engines and social previews point to the same canonical homepage. For search crawlers to read `robots.txt`, deploy this project folder at the domain root.

@@ -35,6 +35,8 @@ sadaf-ijaz-md/
 ├── services.html
 ├── resources.html
 ├── contact.html
+├── robots.txt
+├── sitemap.xml
 ├── README.md
 ├── docs/
 │   ├── content-map.md
@@ -53,4 +55,5 @@ sadaf-ijaz-md/
 - `about.html`, `services.html`, `resources.html`, and `contact.html` are lightweight redirect pages back to homepage sections.
 - The contact section uses direct phone, email, and Headway calls to action.
 - Appointment booking links point to the Headway profile.
+- SEO metadata, `robots.txt`, and `sitemap.xml` use the production domain `https://sadafijazmd.com/`.
 - Update launch details in `docs/launch-checklist.md` before publishing.
