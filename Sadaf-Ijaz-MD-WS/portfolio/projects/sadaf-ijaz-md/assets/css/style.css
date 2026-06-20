@@ -2399,14 +2399,15 @@ footer {
 
   .hero h1 {
     max-width: 100%;
-    font-size: 2.45rem;
+    font-size: clamp(2.15rem, 8vw, 2.45rem);
     line-height: 1.14;
     overflow-wrap: break-word;
+    text-wrap: wrap;
   }
 
   .hero p,
   .hero .hero-support {
-    max-width: 100%;
+    max-width: min(100%, 38ch);
   }
 
   .hero h1 br {
@@ -2652,12 +2653,27 @@ footer {
   }
 
   .hero-content {
-    padding-right: 1.75rem;
+    padding-right: 1rem;
   }
 
   .hero h1 {
-    max-width: 9.8em;
-    font-size: 2rem;
+    max-width: min(100%, 11.6em);
+    font-size: clamp(1.82rem, 8vw, 2rem);
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero-btns {
+    width: 100%;
+  }
+
+  .hero .btn-primary,
+  .hero .btn-secondary,
+  .hero .btn-tertiary {
+    width: 100%;
+    max-width: 20rem;
   }
 
   .section-title,
