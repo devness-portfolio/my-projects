@@ -35,6 +35,7 @@ sadaf-ijaz-md/
 ├── services.html
 ├── resources.html
 ├── contact.html
+├── privacy.html
 ├── robots.txt
 ├── sitemap.xml
 ├── README.md
@@ -53,8 +54,9 @@ sadaf-ijaz-md/
 
 - `index.html` is the main SPA-style patient experience.
 - `about.html`, `services.html`, `resources.html`, and `contact.html` are standalone SEO landing pages for direct visits and search discovery.
+- `privacy.html` provides the public website privacy policy and should be reviewed by the client or counsel before launch.
 - The contact section uses direct phone, email, and Headway calls to action.
 - Appointment booking links point to the Headway profile.
 - SEO metadata, `robots.txt`, and `sitemap.xml` use the production domain `https://sadafijazmd.com/`.
-- The sitemap includes the homepage plus the indexable About, Services, Resources, and Contact landing pages.
+- The sitemap includes the homepage, indexable About, Services, Resources, Contact landing pages, and the Privacy Policy page.
 - Update launch details in `docs/launch-checklist.md` before publishing.

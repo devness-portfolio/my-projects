@@ -8,12 +8,85 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio | Dr. Sadaf Ijaz MD Website</title>
+    <meta name="theme-color" content="#f7f4ee" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="author" content="Anes Mehai" />
+    <link rel="canonical" href="./" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Anes Mehai Portfolio" />
+    <meta property="og:title" content="Portfolio | Dr. Sadaf Ijaz MD Website" />
+    <meta
+      property="og:description"
+      content="Portfolio case study for the Dr. Sadaf Ijaz MD static website, including design, frontend implementation, accessibility, and client handoff details."
+    />
+    <meta
+      property="og:image"
+      content="projects/sadaf-ijaz-md/assets/images/logo/logo-og.jpg"
+    />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="1200" />
+    <meta property="og:image:alt" content="Dr. Sadaf Ijaz MD logo" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Portfolio | Dr. Sadaf Ijaz MD Website" />
+    <meta
+      name="twitter:description"
+      content="Portfolio case study for the Dr. Sadaf Ijaz MD static website, including design, frontend implementation, accessibility, and client handoff details."
+    />
+    <meta
+      name="twitter:image"
+      content="projects/sadaf-ijaz-md/assets/images/logo/logo-og.jpg"
+    />
+    <meta name="twitter:image:alt" content="Dr. Sadaf Ijaz MD logo" />
     <link
       rel="icon"
       href="projects/sadaf-ijaz-md/assets/images/icons/favicon/favicon.ico"
       sizes="any"
     />
     <link rel="stylesheet" href="assets/css/portfolio.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "#creator",
+            "name": "Anes Mehai",
+            "url": "https://devness.dev/"
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "#project",
+            "name": "Dr. Sadaf Ijaz MD Website",
+            "description": "A responsive, accessible static website for a psychiatrist, built with HTML, CSS, and vanilla JavaScript.",
+            "creator": {
+              "@id": "#creator"
+            },
+            "url": "projects/sadaf-ijaz-md/",
+            "image": "projects/sadaf-ijaz-md/assets/images/logo/logo-og.jpg",
+            "programmingLanguage": ["HTML", "CSS", "JavaScript"]
+          },
+          {
+            "@type": "WebPage",
+            "@id": "#webpage",
+            "url": "./",
+            "name": "Portfolio | Dr. Sadaf Ijaz MD Website",
+            "description": "Portfolio case study for the Dr. Sadaf Ijaz MD static website, including design, frontend implementation, accessibility, and client handoff details.",
+            "about": {
+              "@id": "#project"
+            },
+            "creator": {
+              "@id": "#creator"
+            },
+            "inLanguage": "en-US"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -123,9 +196,9 @@
           <article class="info-card">
             <h3>Information Architecture</h3>
             <p>
-              Consolidated the site into a single-page flow with clear anchors
-              for about, credentials, services, approach, resources, and
-              contact.
+              Kept the homepage as a SPA-style flow while adding focused
+              landing pages for About, Services, Resources, Contact, and
+              Privacy Policy discovery.
             </p>
           </article>
           <article class="info-card">

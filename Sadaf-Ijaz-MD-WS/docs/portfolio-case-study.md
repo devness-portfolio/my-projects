@@ -24,7 +24,7 @@ This project is a responsive static website for a physician specializing in psyc
 ## Notable Decisions
 
 - Kept the client site as a static deliverable so it can be hosted widely and maintained easily.
-- Used a single-page content flow for the primary experience, with simple redirect pages for legacy page URLs.
+- Kept the homepage as a SPA-style patient experience, with standalone About, Services, Resources, Contact, and Privacy Policy pages for search, sharing, and direct navigation.
 - Added JavaScript in small focused modules instead of one large script.
 - Used visible trust signals near the physician bio and credentials.
 - Included reduced-motion behavior and controls for background video.
@@ -35,4 +35,3 @@ This project is a responsive static website for a physician specializing in psyc
 - Balanced visual warmth with healthcare credibility.
 - Organized content around visitor intent: who the physician is, what she treats, how care works, and how to book.
 - Created a handoff structure that separates portfolio material from client deliverables.
-

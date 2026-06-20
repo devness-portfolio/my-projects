@@ -6,7 +6,7 @@ This repository is organized as both a professional portfolio piece and a client
 
 - Portfolio homepage: `portfolio/index.html`
 - Client website: `portfolio/projects/sadaf-ijaz-md/index.html`
-- Project case study: `portfolio/projects/sadaf-ijaz-md/case-study.html`
+- Portfolio case study: `portfolio/case-study.html`
 
 ## Project Structure
 
@@ -20,13 +20,18 @@ Sadaf-Ijaz-MD-WS/
 │   └── portfolio-case-study.md
 └── portfolio/
     ├── index.html
+    ├── case-study.html
     ├── assets/
     │   └── css/
     │       └── portfolio.css
     └── projects/
-        └── sadaf-ijaz-md/
+        └── sadaf-ijaz-md/        # client website only
             ├── index.html
-            ├── case-study.html
+            ├── about.html
+            ├── services.html
+            ├── resources.html
+            ├── contact.html
+            ├── privacy.html
             ├── README.md
             ├── docs/
             │   ├── content-map.md
@@ -72,4 +77,3 @@ Before handing this to the client, review:
 - `docs/deployment.md`
 - `portfolio/projects/sadaf-ijaz-md/docs/launch-checklist.md`
 - `portfolio/projects/sadaf-ijaz-md/docs/maintenance.md`
-

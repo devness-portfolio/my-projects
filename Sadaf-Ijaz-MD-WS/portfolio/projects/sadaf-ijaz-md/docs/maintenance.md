@@ -13,6 +13,7 @@ Common updates:
 - Email address
 - Booking link
 - Social links
+- Privacy policy copy
 - Footer text
 
 ## Editing Styles
@@ -47,8 +48,20 @@ Update that year if the source year changes.
 
 The contact section intentionally avoids a form. It uses direct phone, email, and Headway links to keep the static site low-maintenance.
 
+## Privacy Policy
+
+The public website privacy policy lives in:
+
+```text
+privacy.html
+```
+
+Have the client or legal counsel review the page before launch, especially if
+practice operations, booking platforms, email handling, or patient intake
+materials change.
+
 ## SEO URL Updates
 
-The homepage, About, Services, Resources, and Contact metadata, structured data, canonical links, `robots.txt`, and `sitemap.xml` use absolute production URLs. When the site moves to a custom domain, update those URLs together so search engines and social previews point to the correct canonical pages. For search crawlers to read `robots.txt`, deploy this project folder at the domain root.
+The homepage, About, Services, Resources, Contact, and Privacy Policy metadata, structured data, canonical links, `robots.txt`, and `sitemap.xml` use absolute production URLs. When the site moves to a custom domain, update those URLs together so search engines and social previews point to the correct canonical pages. For search crawlers to read `robots.txt`, deploy this project folder at the domain root.
 
 If a page becomes thin or redirects back to a homepage section, mark it `noindex`, remove it from `sitemap.xml`, and point its canonical URL at the destination page. Indexable landing pages should have unique metadata, a self-canonical URL, structured data as appropriate, and enough standalone patient-facing content to be useful.

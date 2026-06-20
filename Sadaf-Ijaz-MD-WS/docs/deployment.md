@@ -46,5 +46,4 @@ portfolio/
 
 ## Domain Notes
 
-After connecting a domain, update canonical URLs and any future Open Graph URLs to absolute production URLs.
-
+After connecting a domain, update canonical URLs and Open Graph URLs to absolute production URLs. The client site already uses `https://sadafijazmd.com/`; the portfolio layer currently keeps its canonicals relative until the final portfolio domain and path are confirmed.

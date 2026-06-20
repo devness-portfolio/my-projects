@@ -10,6 +10,7 @@
 - Treatment approach
 - Resources
 - Contact
+- Privacy Policy
 - Footer
 
 ## Primary Calls To Action
@@ -26,6 +27,7 @@
 - Patient resources: `index.html`, Resources section, and `resources.html`
 - Credentials: `index.html`, Credentials section
 - Contact calls to action: `index.html`, Contact section, and `contact.html`
+- Privacy policy: `privacy.html`
 - Footer contact/social links: `index.html`, Footer section
 - Visual styling: `assets/css/style.css`
 - Interactive behavior: `assets/js/`
@@ -38,5 +40,6 @@ The site keeps `index.html` as the main SPA-style experience while supporting fo
 - `services.html` is an indexable Services landing page.
 - `resources.html` is an indexable patient resources landing page.
 - `contact.html` is an indexable Contact and appointments landing page.
+- `privacy.html` is a public privacy policy page linked from every footer.
 
 Only pages with enough standalone patient-facing content should be indexed or added to `sitemap.xml`.

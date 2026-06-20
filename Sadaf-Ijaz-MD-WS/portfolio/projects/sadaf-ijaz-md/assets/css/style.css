@@ -721,7 +721,8 @@ section {
 .services-page-hero,
 .contact-page-hero,
 .about-page-hero,
-.resources-page-hero {
+.resources-page-hero,
+.privacy-page-hero {
   padding: 9.5rem 0 5.75rem;
 }
 
@@ -769,9 +770,21 @@ section {
     url("../images/services/therapy-support.jpg") center / cover;
 }
 
+.privacy-page-hero {
+  background:
+    linear-gradient(
+      110deg,
+      rgba(31, 41, 55, 0.86),
+      rgba(40, 107, 105, 0.68) 52%,
+      rgba(143, 75, 66, 0.44)
+    ),
+    url("../images/services/psychiatric-evaluation.jpg") center / cover;
+}
+
 .services-page-hero::before,
 .about-page-hero::before,
-.resources-page-hero::before {
+.resources-page-hero::before,
+.privacy-page-hero::before {
   background: rgba(0, 0, 0, 0.26);
 }
 
@@ -782,7 +795,8 @@ section {
 .services-page-hero .service-eyebrow,
 .contact-page-hero .service-eyebrow,
 .about-page-hero .service-eyebrow,
-.resources-page-hero .service-eyebrow {
+.resources-page-hero .service-eyebrow,
+.privacy-page-hero .service-eyebrow {
   margin-bottom: 1rem;
   color: var(--accent-on-dark);
   text-shadow: 0 8px 24px rgba(0, 0, 0, 0.36);
@@ -791,19 +805,22 @@ section {
 .services-page-hero h1,
 .contact-page-hero h1,
 .about-page-hero h1,
-.resources-page-hero h1 {
+.resources-page-hero h1,
+.privacy-page-hero h1 {
   max-width: 12ch;
 }
 
 .services-page-hero .hero-support,
 .about-page-hero .hero-support,
-.resources-page-hero .hero-support {
+.resources-page-hero .hero-support,
+.privacy-page-hero .hero-support {
   max-width: 42rem;
 }
 
 .services-page-hero .btn-secondary,
 .about-page-hero .btn-secondary,
-.resources-page-hero .btn-secondary {
+.resources-page-hero .btn-secondary,
+.privacy-page-hero .btn-secondary {
   background: rgba(255, 255, 255, 0.08);
 }
 
@@ -1933,6 +1950,105 @@ a.trust-badge:focus {
   background: var(--white);
 }
 
+.privacy-page-main {
+  padding: 6rem 0;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(216, 237, 236, 0.42),
+      rgba(255, 255, 255, 0.92) 44%,
+      rgba(231, 183, 169, 0.18)
+    ),
+    var(--background);
+}
+
+.privacy-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.36fr);
+  align-items: start;
+  gap: 2rem;
+}
+
+.privacy-content {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.privacy-card,
+.privacy-summary {
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 12px 36px rgba(31, 41, 55, 0.08);
+}
+
+.privacy-card {
+  padding: 1.65rem;
+}
+
+.privacy-card h2,
+.privacy-summary h2 {
+  margin-bottom: 0.85rem;
+  color: var(--primary-dark);
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  line-height: 1.2;
+}
+
+.privacy-card p {
+  max-width: none;
+  line-height: 1.75;
+}
+
+.privacy-card p + p {
+  margin-top: 0.95rem;
+}
+
+.privacy-card a {
+  color: var(--primary-dark);
+  font-weight: 600;
+  text-underline-offset: 0.18em;
+}
+
+.privacy-list {
+  display: grid;
+  gap: 0.75rem;
+  list-style: none;
+}
+
+.privacy-list li {
+  position: relative;
+  padding-left: 1.35rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.privacy-list li::before {
+  content: "";
+  position: absolute;
+  top: 0.68em;
+  left: 0;
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 50%;
+  background: var(--accent-text);
+}
+
+.privacy-sidebar {
+  position: sticky;
+  top: 7rem;
+}
+
+.privacy-summary {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.privacy-summary .btn-primary {
+  justify-content: center;
+  width: 100%;
+}
+
 /* FOOTER */
 footer {
   background: var(--primary-dark);
@@ -2306,7 +2422,8 @@ footer {
   .services-page-hero,
   .contact-page-hero,
   .about-page-hero,
-  .resources-page-hero {
+  .resources-page-hero,
+  .privacy-page-hero {
     padding: 8.4rem 0 4.6rem;
   }
 
@@ -2354,10 +2471,22 @@ footer {
       url("../images/services/therapy-support.jpg") center / cover;
   }
 
+  .privacy-page-hero {
+    background:
+      linear-gradient(
+        112deg,
+        rgba(31, 41, 55, 0.88),
+        rgba(40, 107, 105, 0.72) 54%,
+        rgba(143, 75, 66, 0.5)
+      ),
+      url("../images/services/psychiatric-evaluation.jpg") center / cover;
+  }
+
   .services-page-hero h1,
   .contact-page-hero h1,
   .about-page-hero h1,
-  .resources-page-hero h1 {
+  .resources-page-hero h1,
+  .privacy-page-hero h1 {
     max-width: min(100%, 12ch);
     font-size: clamp(2.05rem, 9.5vw, 2.32rem);
   }
@@ -2368,7 +2497,9 @@ footer {
   .services-page-hero .hero-support,
   .about-page-hero .hero-support,
   .resources-page-hero p,
-  .resources-page-hero .hero-support {
+  .resources-page-hero .hero-support,
+  .privacy-page-hero p,
+  .privacy-page-hero .hero-support {
     max-width: min(100%, 19.5rem);
   }
 
@@ -2479,6 +2610,23 @@ footer {
 
   .contact-actions {
     grid-template-columns: 1fr;
+  }
+
+  .privacy-page-main {
+    padding: 4.5rem 0;
+  }
+
+  .privacy-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .privacy-sidebar {
+    position: static;
+  }
+
+  .privacy-card,
+  .privacy-summary {
+    padding: 1.35rem;
   }
 
   .footer-grid {

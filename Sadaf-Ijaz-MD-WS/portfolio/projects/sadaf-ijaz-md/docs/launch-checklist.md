@@ -8,7 +8,7 @@
 - Confirm booking URL.
 - Confirm all social media profile links.
 - Confirm services and treatment language.
-- Confirm whether a privacy policy is required before launch.
+- Confirm privacy policy content with the client or legal counsel before launch.
 
 ## Technical
 
@@ -23,7 +23,7 @@
 
 ## SEO And Sharing
 
-- Confirm page titles for `index.html`, `about.html`, `services.html`, `resources.html`, and `contact.html`.
+- Confirm page titles for `index.html`, `about.html`, `services.html`, `resources.html`, `contact.html`, and `privacy.html`.
 - Confirm meta descriptions for each indexable page.
 - Confirm production canonical URLs for each indexable page.
 - Confirm Open Graph and Twitter preview metadata render correctly.
