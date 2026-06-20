@@ -533,7 +533,8 @@ section {
   position: relative;
   overflow: hidden;
   padding: 10rem 0 6rem;
-  background: #000000;
+  background: #000000 url("../images/hero/flower-path-poster.jpg") center /
+    cover no-repeat;
   isolation: isolate;
 }
 

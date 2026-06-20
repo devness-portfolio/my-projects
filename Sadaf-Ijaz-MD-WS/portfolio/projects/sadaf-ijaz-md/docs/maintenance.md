@@ -23,13 +23,6 @@ Main styling lives in:
 assets/css/style.css
 ```
 
-The additional CSS files currently exist for future modular expansion:
-
-```text
-assets/css/layout.css
-assets/css/components.css
-```
-
 ## Editing JavaScript
 
 Scripts live in:
