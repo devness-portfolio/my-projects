@@ -922,6 +922,58 @@ section {
   content: "";
 }
 
+.section-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-top: 2.35rem;
+}
+
+.section-actions--compact {
+  margin-top: 1.1rem;
+}
+
+.section-action-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.85rem;
+  padding: 0.78rem 1.2rem;
+  border: 1px solid rgba(40, 107, 105, 0.2);
+  border-radius: 999px;
+  background: var(--white);
+  box-shadow: 0 12px 30px rgba(31, 41, 55, 0.08);
+  color: var(--accent-text);
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.section-action-link svg {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+  fill: currentColor;
+}
+
+.section-action-link:hover,
+.section-action-link:focus {
+  border-color: rgba(40, 107, 105, 0.34);
+  background: rgba(216, 237, 236, 0.72);
+  box-shadow: 0 16px 34px rgba(31, 41, 55, 0.12);
+  color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
 /* ABOUT */
 .about {
   padding: 8rem 0;
@@ -1530,7 +1582,8 @@ footer {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: minmax(220px, 1fr) minmax(240px, auto);
+  grid-template-columns:
+    minmax(220px, 1fr) minmax(140px, auto) minmax(240px, auto);
   align-items: start;
   gap: 2rem 2.5rem;
 }
@@ -1547,6 +1600,36 @@ footer {
 .footer-bottom p {
   color: rgba(255, 255, 255, 0.78);
   line-height: 1.6;
+}
+
+.footer-links {
+  display: grid;
+  gap: 0.55rem;
+  min-width: 8rem;
+}
+
+.footer-links h4 {
+  margin-bottom: 0.1rem;
+  color: var(--accent-on-dark);
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.45;
+  text-decoration: none;
+}
+
+.footer-links a:hover,
+.footer-links a:focus,
+.footer-links a[aria-current="page"] {
+  color: var(--accent-on-dark);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
 }
 
 .footer-contact {

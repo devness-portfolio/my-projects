@@ -1,13 +1,75 @@
+<!-- =========================================
+Page: Services
+File: services.html
+Purpose: Service landing page for Dr. Sadaf Ijaz MD, focused on psychiatry services and appointment conversion.
+Last Updated: 2026-06-20
+========================================= -->
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Psychiatry services with Dr. Sadaf Ijaz MD, including telepsychiatry in Virginia and Pennsylvania, psychiatric evaluations, medication management, supportive psychotherapy, and care for anxiety, depression, mood disorders, trauma, and stress."
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Services | Dr. Sadaf Ijaz MD</title>
-    <meta name="robots" content="noindex, follow" />
+    <title>Psychiatry Services | Dr. Sadaf Ijaz MD</title>
+    <meta name="theme-color" content="#f9f7f2" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="author" content="Dr. Sadaf Ijaz MD" />
     <link
       rel="canonical"
-      href="https://sadafijazmd.com/"
+      href="https://sadafijazmd.com/services.html"
+    />
+    <link
+      rel="sitemap"
+      type="application/xml"
+      href="https://sadafijazmd.com/sitemap.xml"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Dr. Sadaf Ijaz MD" />
+    <meta
+      property="og:title"
+      content="Psychiatry Services | Dr. Sadaf Ijaz MD"
+    />
+    <meta
+      property="og:description"
+      content="Telepsychiatry in Virginia and Pennsylvania, including psychiatric evaluations, medication management, supportive psychotherapy, and care for anxiety, depression, mood disorders, trauma, stress, and life transitions."
+    />
+    <meta
+      property="og:url"
+      content="https://sadafijazmd.com/services.html"
+    />
+    <meta
+      property="og:image"
+      content="https://sadafijazmd.com/assets/images/logo/logo-og.png"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="2000" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Psychiatry Services | Dr. Sadaf Ijaz MD"
+    />
+    <meta
+      name="twitter:description"
+      content="Telepsychiatry in Virginia and Pennsylvania, including psychiatric evaluations, medication management, supportive psychotherapy, and care for anxiety, depression, mood disorders, trauma, stress, and life transitions."
+    />
+    <meta
+      name="twitter:image"
+      content="https://sadafijazmd.com/assets/images/logo/logo-og.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&amp;family=Poppins:wght@300;400;600&amp;display=swap"
+      rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link
@@ -15,14 +77,712 @@
       href="assets/images/icons/favicon/favicon.ico"
       sizes="any"
     />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="assets/images/icons/favicon/favicon-96x96.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="assets/images/icons/favicon/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="assets/images/icons/favicon/site.webmanifest" />
+    <style>
+      .services-page-hero {
+        padding: 9.5rem 0 5.75rem;
+        background:
+          linear-gradient(
+            110deg,
+            rgba(31, 41, 55, 0.82),
+            rgba(40, 107, 105, 0.7) 52%,
+            rgba(143, 75, 66, 0.42)
+          ),
+          url("assets/images/services/psychiatric-evaluation.jpg") center /
+            cover;
+      }
+
+      .services-page-hero::before {
+        background: rgba(0, 0, 0, 0.26);
+      }
+
+      .services-page-hero .service-eyebrow {
+        margin-bottom: 1rem;
+        color: var(--accent-on-dark);
+        text-shadow: 0 8px 24px rgba(0, 0, 0, 0.36);
+      }
+
+      .services-page-hero h1 {
+        max-width: 12ch;
+      }
+
+      .services-page-hero .hero-support {
+        max-width: 42rem;
+      }
+
+      .services-page-hero .btn-secondary {
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .services-landing-intro {
+        background:
+          linear-gradient(
+            135deg,
+            rgba(216, 237, 236, 0.42),
+            rgba(255, 255, 255, 0.92) 44%,
+            rgba(231, 183, 169, 0.18)
+          ),
+          var(--background);
+      }
+
+      .services-landing-intro .section-intro {
+        max-width: 52rem;
+      }
+
+      .service-detail-list {
+        display: grid;
+        gap: 0.95rem;
+        margin-top: 1.6rem;
+        list-style: none;
+      }
+
+      .service-detail-list li {
+        position: relative;
+        display: grid;
+        gap: 0.2rem;
+        padding-left: 1.35rem;
+        color: var(--text-primary);
+        line-height: 1.55;
+      }
+
+      .service-detail-list li::before {
+        content: "";
+        position: absolute;
+        top: 0.65em;
+        left: 0;
+        width: 0.48rem;
+        height: 0.48rem;
+        border-radius: 50%;
+        background: var(--accent-text);
+      }
+
+      .service-detail-list strong {
+        color: var(--primary-dark);
+        font-family: "Lora", serif;
+        font-size: 1.15rem;
+        line-height: 1.25;
+      }
+
+      .service-detail-list span {
+        color: var(--text-secondary);
+      }
+
+      .services-process {
+        background: var(--background);
+      }
+
+      .services-process .about-flex {
+        align-items: flex-start;
+      }
+
+      .services-process .about-text h2 {
+        max-width: 15ch;
+      }
+
+      @media (max-width: 768px) {
+        .services-page-hero {
+          padding: 8.4rem 0 4.6rem;
+        }
+
+        .services-page-hero h1 {
+          max-width: 100%;
+        }
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Physician",
+            "@id": "https://sadafijazmd.com/#physician",
+            "name": "Dr. Sadaf Ijaz MD",
+            "url": "https://sadafijazmd.com/",
+            "telephone": "+1-804-682-7319",
+            "email": "ssijaz@gmail.com",
+            "medicalSpecialty": "Psychiatry",
+            "areaServed": [
+              {
+                "@type": "State",
+                "name": "Virginia"
+              },
+              {
+                "@type": "State",
+                "name": "Pennsylvania"
+              }
+            ],
+            "availableLanguage": ["English", "Urdu", "Punjabi"],
+            "sameAs": [
+              "https://care.headway.co/providers/sadaf-ijaz",
+              "https://www.psychologytoday.com/us/psychiatrists/sadaf-sultana-ijaz-chester-va/1714501",
+              "https://www.linkedin.com/in/sadaf-ijaz-md-mph-14854a36/"
+            ]
+          },
+          {
+            "@type": "MedicalWebPage",
+            "@id": "https://sadafijazmd.com/services.html#webpage",
+            "url": "https://sadafijazmd.com/services.html",
+            "name": "Psychiatry Services | Dr. Sadaf Ijaz MD",
+            "description": "Telepsychiatry in Virginia and Pennsylvania, including psychiatric evaluations, medication management, supportive psychotherapy, and care for anxiety, depression, mood disorders, trauma, stress, and life transitions.",
+            "isPartOf": {
+              "@id": "https://sadafijazmd.com/#website"
+            },
+            "about": {
+              "@id": "https://sadafijazmd.com/services.html#psychiatry-services"
+            },
+            "primaryImageOfPage": {
+              "@type": "ImageObject",
+              "url": "https://sadafijazmd.com/assets/images/logo/logo-og.png",
+              "width": 2000,
+              "height": 2000
+            },
+            "inLanguage": "en-US"
+          },
+          {
+            "@type": "Service",
+            "@id": "https://sadafijazmd.com/services.html#psychiatry-services",
+            "name": "Psychiatry and Telepsychiatry Services",
+            "serviceType": "Psychiatry",
+            "provider": {
+              "@id": "https://sadafijazmd.com/#physician"
+            },
+            "areaServed": [
+              {
+                "@type": "State",
+                "name": "Virginia"
+              },
+              {
+                "@type": "State",
+                "name": "Pennsylvania"
+              }
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Psychiatry services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Psychiatric evaluations"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Medication management"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Supportive psychotherapy"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Telepsychiatry"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://sadafijazmd.com/services.html#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://sadafijazmd.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services",
+                "item": "https://sadafijazmd.com/services.html"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
-    <main class="redirect-page">
-      <h1>Services</h1>
-      <p>
-        I keep this content on the main page.
-        <a href="index.html#services">Continue to the Services section</a>.
-      </p>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="container">
+        <a href="index.html" class="logo">
+          <img
+            src="assets/images/icons/favicon/favicon-96x96.png"
+            alt=""
+            class="logo-img"
+            width="96"
+            height="96"
+            decoding="async"
+          />
+          <span class="logo-text">Dr. Sadaf <span>Ijaz MD</span></span>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#credentials">Credentials</a></li>
+          <li>
+            <a href="services.html" class="active" aria-current="page">
+              Services
+            </a>
+          </li>
+          <li><a href="index.html#approach">Approach</a></li>
+          <li><a href="index.html#resources">Resources</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li>
+            <a
+              href="https://care.headway.co/providers/sadaf-ijaz"
+              class="btn-primary"
+              target="_blank"
+              rel="noopener"
+            >
+              Book an Appointment</a
+            >
+          </li>
+        </ul>
+        <button
+          class="menu-toggle"
+          id="mobileMenu"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-controls="navLinks"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <main id="main-content" tabindex="-1">
+      <header class="hero services-page-hero">
+        <div class="container hero-content">
+          <span class="service-eyebrow">Psychiatry Services</span>
+          <h1>Care for mood, stress, and daily life.</h1>
+          <p>
+            I provide comprehensive telepsychiatry in Virginia and
+            Pennsylvania, including psychiatric evaluations, medication
+            management, supportive psychotherapy, and care for anxiety,
+            depression, mood disorders, trauma, stress, burnout, and life
+            transitions.
+          </p>
+          <div class="hero-btns">
+            <a
+              href="https://care.headway.co/providers/sadaf-ijaz"
+              class="btn-primary"
+              target="_blank"
+              rel="noopener"
+            >
+              Book an Appointment</a
+            >
+            <a href="#service-options" class="btn-secondary">View Services</a>
+            <a
+              href="tel:+18046827319"
+              class="btn-tertiary"
+              aria-label="Call Dr. Sadaf Ijaz at 804 682 7319"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M6.6 10.8c1.5 3 3.9 5.4 6.8 6.8l2.3-2.3c.3-.3.8-.4 1.2-.3 1.3.4 2.6.6 4 .6.6 0 1.1.5 1.1 1.1v3.6c0 .6-.5 1.1-1.1 1.1C10.5 21.4 2.6 13.5 2.6 3.1 2.6 2.5 3.1 2 3.7 2h3.6c.6 0 1.1.5 1.1 1.1 0 1.4.2 2.8.6 4 .1.4 0 .8-.3 1.2l-2.1 2.5Z"
+                />
+              </svg>
+              <span>Call Office</span>
+            </a>
+          </div>
+          <p class="hero-support">
+            Appointments are available through Headway, with direct phone and
+            email options when you are ready to ask about care.
+          </p>
+        </div>
+      </header>
+
+      <section id="service-options" class="services services-landing-intro">
+        <div class="container">
+          <h2 class="section-title">Psychiatry Care Services</h2>
+          <p class="section-intro">
+            Treatment begins with understanding the full picture: symptoms,
+            history, goals, current stressors, prior treatment, and what would
+            make care feel practical in your life.
+          </p>
+          <div class="services-grid services-grid--featured">
+            <article class="service-card service-card--image">
+              <figure class="service-media">
+                <img
+                  src="assets/images/services/psychiatric-evaluation.jpg"
+                  alt="Calm consultation desk with notebook, pen, plants, and tablet"
+                  width="1000"
+                  height="666"
+                  loading="eager"
+                  decoding="async"
+                />
+              </figure>
+              <div class="service-card-content">
+                <span class="service-eyebrow">Evaluation</span>
+                <h3>Psychiatric Evaluations</h3>
+                <p>
+                  A comprehensive evaluation helps clarify symptoms, diagnosis,
+                  strengths, concerns, and treatment options before next steps
+                  are chosen.
+                </p>
+              </div>
+            </article>
+
+            <article class="service-card service-card--image">
+              <figure class="service-media">
+                <img
+                  src="assets/images/services/medication-management.jpg"
+                  alt="Modern telehealth workspace with laptop, notebook, water, and plants"
+                  width="1000"
+                  height="666"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <div class="service-card-content">
+                <span class="service-eyebrow">Ongoing Care</span>
+                <h3>Medication Management</h3>
+                <p>
+                  Follow-up visits focus on medication response, effectiveness,
+                  side effects, questions, and thoughtful adjustment over time.
+                </p>
+              </div>
+            </article>
+
+            <article class="service-card service-card--image">
+              <figure class="service-media">
+                <img
+                  src="assets/images/services/mood-disorder-care.jpg"
+                  alt="Grounded still life with journal, stones, blanket, and greenery"
+                  width="1000"
+                  height="666"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <div class="service-card-content">
+                <span class="service-eyebrow">Mood &amp; Anxiety</span>
+                <h3>Anxiety, Depression &amp; Mood Care</h3>
+                <p>
+                  Care may address anxiety, depression, bipolar disorder,
+                  stress, burnout, trauma, PTSD, and life transitions that
+                  affect daily functioning.
+                </p>
+              </div>
+            </article>
+
+            <article class="service-card service-card--image">
+              <figure class="service-media">
+                <img
+                  src="assets/images/services/therapy-support.jpg"
+                  alt="Comfortable therapy room with two chairs, soft light, and plants"
+                  width="1000"
+                  height="666"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <div class="service-card-content">
+                <span class="service-eyebrow">Support</span>
+                <h3>Supportive Psychotherapy</h3>
+                <p>
+                  Supportive psychotherapy can help connect treatment decisions
+                  with coping skills, prevention, relationships, and real-life
+                  stressors.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div
+            class="expertise-summary"
+            aria-labelledby="services-focus-title"
+          >
+            <div class="expertise-copy">
+              <span class="service-eyebrow">Clinical Focus</span>
+              <h3 id="services-focus-title">Common reasons patients reach out</h3>
+              <p>
+                Mental health concerns often overlap. Care is individualized
+                around symptoms, context, and treatment history.
+              </p>
+            </div>
+            <ul
+              class="expertise-list"
+              aria-label="Psychiatry focus areas and conditions"
+            >
+              <li>Anxiety and stress</li>
+              <li>Depression and mood disorders</li>
+              <li>Bipolar disorder</li>
+              <li>Trauma and PTSD</li>
+              <li>Medication questions or adjustment</li>
+              <li>Coping skills and life transitions</li>
+              <li>Women's mental health</li>
+              <li>Psychosis and complex symptoms</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="about services-process">
+        <div class="container about-flex">
+          <div class="about-text">
+            <small>What to Expect</small>
+            <h2>Steady care from first visit to follow-up.</h2>
+            <p>
+              I use appointments to understand what is happening, explain
+              options in plain language, and build a plan that can be revisited
+              as symptoms, stressors, and goals change.
+            </p>
+            <ul class="service-detail-list">
+              <li>
+                <strong>Telepsychiatry access</strong>
+                <span>
+                  Virtual care is available for patients located in Virginia or
+                  Pennsylvania at the time of the visit.
+                </span>
+              </li>
+              <li>
+                <strong>Collaborative decisions</strong>
+                <span>
+                  Treatment planning may include medication, supportive
+                  psychotherapy, prevention strategies, or referrals when a
+                  different level of care is needed.
+                </span>
+              </li>
+              <li>
+                <strong>Clear communication</strong>
+                <span>
+                  Visits are designed to make next steps understandable, from
+                  evaluation through ongoing medication follow-up.
+                </span>
+              </li>
+            </ul>
+          </div>
+          <ol class="approach-panel" aria-label="Psychiatry care process">
+            <li class="approach-item">
+              <span aria-hidden="true">01</span>
+              <h3>Initial Evaluation</h3>
+              <p>
+                We review symptoms, history, medications, prior care, and what
+                you want treatment to help with now.
+              </p>
+            </li>
+            <li class="approach-item">
+              <span aria-hidden="true">02</span>
+              <h3>Treatment Plan</h3>
+              <p>
+                I explain options and help shape a plan that fits your needs,
+                preferences, and clinical picture.
+              </p>
+            </li>
+            <li class="approach-item">
+              <span aria-hidden="true">03</span>
+              <h3>Follow-Up Care</h3>
+              <p>
+                Ongoing visits track progress, medication response, side
+                effects, concerns, and changes in daily life.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="contact">
+        <div class="container">
+          <div class="contact-box contact-cta">
+            <small>Ready to Connect?</small>
+            <h2>Call or Email Me for a Free 15-Minute Consultation Now</h2>
+            <p>
+              Book an appointment through Headway or reach out directly when
+              you are ready to take the next step.
+            </p>
+            <div
+              class="contact-actions"
+              role="group"
+              aria-label="Contact options"
+            >
+              <a
+                class="contact-action contact-action--primary"
+                href="https://care.headway.co/providers/sadaf-ijaz"
+                target="_blank"
+                rel="noopener"
+                aria-label="Book an appointment with Dr. Sadaf Ijaz on Headway"
+              >
+                <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+                  <path
+                    d="M7 2.8v2H5.6c-1.2 0-2.2 1-2.2 2.2v11.4c0 1.2 1 2.2 2.2 2.2h12.8c1.2 0 2.2-1 2.2-2.2V7c0-1.2-1-2.2-2.2-2.2H17v-2h-2.2v2H9.2v-2H7Zm11.4 7.1v8.5H5.6V9.9h12.8Z"
+                  />
+                </svg>
+                <span>Book an Appointment</span>
+              </a>
+              <a
+                class="contact-action"
+                href="tel:+18046827319"
+                aria-label="Call Dr. Sadaf Ijaz at 804 682 7319"
+              >
+                <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+                  <path
+                    d="M6.6 10.8c1.5 3 3.9 5.4 6.8 6.8l2.3-2.3c.3-.3.8-.4 1.2-.3 1.3.4 2.6.6 4 .6.6 0 1.1.5 1.1 1.1v3.6c0 .6-.5 1.1-1.1 1.1C10.5 21.4 2.6 13.5 2.6 3.1 2.6 2.5 3.1 2 3.7 2h3.6c.6 0 1.1.5 1.1 1.1 0 1.4.2 2.8.6 4 .1.4 0 .8-.3 1.2l-2.1 2.5Z"
+                  />
+                </svg>
+                <span>Call Office</span>
+              </a>
+              <a
+                class="contact-action"
+                href="mailto:ssijaz@gmail.com?subject=Free%2015-minute%20consultation%20request"
+              >
+                <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+                  <path
+                    d="M4.6 5.2h14.8c1.2 0 2.2 1 2.2 2.2v9.2c0 1.2-1 2.2-2.2 2.2H4.6c-1.2 0-2.2-1-2.2-2.2V7.4c0-1.2 1-2.2 2.2-2.2Zm7.4 7.6 7.1-5.4H4.9l7.1 5.4Zm0 2.5L4.6 9.7v6.9h14.8V9.7L12 15.3Z"
+                  />
+                </svg>
+                <span>Email Me</span>
+              </a>
+            </div>
+            <p class="contact-note">
+              Please do not send medical or urgent information by email. If
+              this is an emergency, call 911 or go to the nearest emergency
+              department.
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h3>Dr. Sadaf Ijaz MD</h3>
+            <p>
+              I offer compassionate mental healthcare with clarity, respect, and
+              steady support.
+            </p>
+          </div>
+          <nav class="footer-links" aria-label="Footer navigation">
+            <h4>Pages</h4>
+            <a href="services.html" aria-current="page">Services</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+          <div class="footer-contact">
+            <p class="footer-phone">
+              <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M6.6 10.8c1.5 3 3.9 5.4 6.8 6.8l2.3-2.3c.3-.3.8-.4 1.2-.3 1.3.4 2.6.6 4 .6.6 0 1.1.5 1.1 1.1v3.6c0 .6-.5 1.1-1.1 1.1C10.5 21.4 2.6 13.5 2.6 3.1 2.6 2.5 3.1 2 3.7 2h3.6c.6 0 1.1.5 1.1 1.1 0 1.4.2 2.8.6 4 .1.4 0 .8-.3 1.2l-2.1 2.5Z"
+                />
+              </svg>
+              <span>(804) 682-7319</span>
+            </p>
+            <p class="footer-email">
+              <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M4.6 5.2h14.8c1.2 0 2.2 1 2.2 2.2v9.2c0 1.2-1 2.2-2.2 2.2H4.6c-1.2 0-2.2-1-2.2-2.2V7.4c0-1.2 1-2.2 2.2-2.2Zm7.4 7.6 7.1-5.4H4.9l7.1 5.4Zm0 2.5L4.6 9.7v6.9h14.8V9.7L12 15.3Z"
+                />
+              </svg>
+              <a href="mailto:ssijaz@gmail.com">ssijaz@gmail.com</a>
+            </p>
+          </div>
+          <nav class="footer-social" aria-label="Professional profile links">
+            <a
+              href="https://care.headway.co/providers/sadaf-ijaz"
+              target="_blank"
+              rel="noopener"
+              aria-label="Headway profile for Dr. Sadaf Ijaz"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M7 2.8v2H5.6c-1.2 0-2.2 1-2.2 2.2v11.4c0 1.2 1 2.2 2.2 2.2h12.8c1.2 0 2.2-1 2.2-2.2V7c0-1.2-1-2.2-2.2-2.2H17v-2h-2.2v2H9.2v-2H7Zm11.4 7.1v8.5H5.6V9.9h12.8Z"
+                />
+              </svg>
+              <span class="social-copy">
+                <span class="social-platform">Headway</span>
+                <span class="social-handle">Booking profile</span>
+              </span>
+            </a>
+            <a
+              href="https://www.psychologytoday.com/us/psychiatrists/sadaf-sultana-ijaz-chester-va/1714501"
+              target="_blank"
+              rel="noopener"
+              aria-label="Psychology Today profile for Dr. Sadaf Ijaz"
+            >
+              <span class="social-monogram" aria-hidden="true">PT</span>
+              <span class="social-copy">
+                <span class="social-platform">Psychology Today</span>
+                <span class="social-handle">Clinician profile</span>
+              </span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/sadaf-ijaz-md-mph-14854a36/"
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn profile for Dr. Sadaf Ijaz"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M6.8 8.8H3.5v10.7h3.3V8.8ZM5.1 7.3a1.9 1.9 0 1 0 0-3.8 1.9 1.9 0 0 0 0 3.8Zm14 7.1c0-3.2-1.7-5.2-4.4-5.2-1.8 0-2.8 1-3.2 1.8V8.8H8.3v10.7h3.3v-5.8c0-1.4.7-2.3 2-2.3s2.1.9 2.1 2.3v5.8H19v-5.1Z"
+                />
+              </svg>
+              <span class="social-copy">
+                <span class="social-platform">LinkedIn</span>
+                <span class="social-handle">Professional profile</span>
+              </span>
+            </a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; <span class="year">year</span> Dr. Sadaf Ijaz MD. All rights
+            reserved. Privacy Policy coming soon.
+          </p>
+          <p>
+            Website design by
+            <a href="https://devness.dev" target="_blank" rel="noopener"
+              >Anes Mehai</a
+            >.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/footer.js" defer></script>
+    <script src="assets/js/mobile-navigation.js" defer></script>
+    <script src="assets/js/navbarshrinker.js" defer></script>
+    <script src="assets/js/scroll-manager.js" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const navbarShrinker = new NavbarShrinker(".navbar", {
+          threshold: 80,
+        });
+        const scrollManager = new ScrollManager([navbarShrinker]);
+
+        [new FooterYear(), new MobileNavigation(), scrollManager].forEach(
+          (feature) => {
+            feature.start();
+          },
+        );
+      });
+    </script>
   </body>
 </html>
