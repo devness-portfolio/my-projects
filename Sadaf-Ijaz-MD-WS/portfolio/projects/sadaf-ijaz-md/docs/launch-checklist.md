@@ -23,9 +23,9 @@
 
 ## SEO And Sharing
 
-- Confirm page title.
-- Confirm meta description.
-- Confirm the production canonical URL in `index.html`.
+- Confirm page titles for `index.html`, `about.html`, `services.html`, `resources.html`, and `contact.html`.
+- Confirm meta descriptions for each indexable page.
+- Confirm production canonical URLs for each indexable page.
 - Confirm Open Graph and Twitter preview metadata render correctly.
 - Confirm social profile links used in structured data are current.
 - Confirm `robots.txt` and `sitemap.xml` use the final production URL.

@@ -51,9 +51,10 @@ sadaf-ijaz-md/
 
 ## Notes
 
-- `index.html` is the main experience.
-- `about.html`, `services.html`, `resources.html`, and `contact.html` are lightweight redirect pages back to homepage sections.
+- `index.html` is the main SPA-style patient experience.
+- `about.html`, `services.html`, `resources.html`, and `contact.html` are standalone SEO landing pages for direct visits and search discovery.
 - The contact section uses direct phone, email, and Headway calls to action.
 - Appointment booking links point to the Headway profile.
 - SEO metadata, `robots.txt`, and `sitemap.xml` use the production domain `https://sadafijazmd.com/`.
+- The sitemap includes the homepage plus the indexable About, Services, Resources, and Contact landing pages.
 - Update launch details in `docs/launch-checklist.md` before publishing.

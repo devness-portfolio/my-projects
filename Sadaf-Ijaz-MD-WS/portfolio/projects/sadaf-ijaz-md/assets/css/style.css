@@ -188,6 +188,7 @@ section {
   display: flex;
   align-items: center;
   gap: 10px;
+  min-width: 0;
   text-decoration: none;
   line-height: 1.15;
   color: var(--primary);
@@ -203,6 +204,9 @@ section {
 }
 
 .logo-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
@@ -715,7 +719,8 @@ section {
 
 .services-page-hero,
 .contact-page-hero,
-.about-page-hero {
+.about-page-hero,
+.resources-page-hero {
   padding: 9.5rem 0 5.75rem;
 }
 
@@ -752,8 +757,20 @@ section {
     url("../images/headshot/headshot.webp") center 22% / cover;
 }
 
+.resources-page-hero {
+  background:
+    linear-gradient(
+      110deg,
+      rgba(31, 41, 55, 0.84),
+      rgba(40, 107, 105, 0.68) 52%,
+      rgba(143, 75, 66, 0.44)
+    ),
+    url("../images/services/therapy-support.jpg") center / cover;
+}
+
 .services-page-hero::before,
-.about-page-hero::before {
+.about-page-hero::before,
+.resources-page-hero::before {
   background: rgba(0, 0, 0, 0.26);
 }
 
@@ -763,7 +780,8 @@ section {
 
 .services-page-hero .service-eyebrow,
 .contact-page-hero .service-eyebrow,
-.about-page-hero .service-eyebrow {
+.about-page-hero .service-eyebrow,
+.resources-page-hero .service-eyebrow {
   margin-bottom: 1rem;
   color: var(--accent-on-dark);
   text-shadow: 0 8px 24px rgba(0, 0, 0, 0.36);
@@ -771,17 +789,20 @@ section {
 
 .services-page-hero h1,
 .contact-page-hero h1,
-.about-page-hero h1 {
+.about-page-hero h1,
+.resources-page-hero h1 {
   max-width: 12ch;
 }
 
 .services-page-hero .hero-support,
-.about-page-hero .hero-support {
+.about-page-hero .hero-support,
+.resources-page-hero .hero-support {
   max-width: 42rem;
 }
 
 .services-page-hero .btn-secondary,
-.about-page-hero .btn-secondary {
+.about-page-hero .btn-secondary,
+.resources-page-hero .btn-secondary {
   background: rgba(255, 255, 255, 0.08);
 }
 
@@ -842,6 +863,7 @@ section {
 
 .section-title {
   color: var(--accent-text);
+  overflow-wrap: break-word;
 }
 
 .section-intro {
@@ -857,6 +879,7 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+  min-width: 0;
 }
 
 .services-grid--featured {
@@ -865,6 +888,7 @@ section {
 
 .service-card {
   display: flex;
+  min-width: 0;
   min-height: 280px;
   flex-direction: column;
   align-items: center;
@@ -882,12 +906,14 @@ section {
   color: var(--primary-dark);
   font-size: clamp(1.35rem, 2vw, 1.65rem);
   line-height: 1.2;
+  overflow-wrap: break-word;
 }
 
 .service-card p {
   margin: 0 auto;
   max-width: 32ch;
   line-height: 1.7;
+  overflow-wrap: break-word;
 }
 
 .service-card--image {
@@ -2198,6 +2224,7 @@ footer {
 
   .menu-toggle {
     display: inline-flex;
+    margin-left: 0.65rem;
   }
 
   .logo {
@@ -2244,7 +2271,7 @@ footer {
   .hero {
     padding: 8.5rem 0 4.5rem;
     background: #000000
-      url("../images/hero/cherry-blossom-hero-mobile.png") center / cover
+      url("../images/hero/cherry-blossom-hero-mobile.jpg") center / cover
       no-repeat;
   }
 
@@ -2277,7 +2304,8 @@ footer {
 
   .services-page-hero,
   .contact-page-hero,
-  .about-page-hero {
+  .about-page-hero,
+  .resources-page-hero {
     padding: 8.4rem 0 4.6rem;
   }
 
@@ -2314,9 +2342,21 @@ footer {
       url("../images/headshot/headshot.webp") 58% 18% / cover;
   }
 
+  .resources-page-hero {
+    background:
+      linear-gradient(
+        112deg,
+        rgba(31, 41, 55, 0.88),
+        rgba(40, 107, 105, 0.72) 54%,
+        rgba(143, 75, 66, 0.5)
+      ),
+      url("../images/services/therapy-support.jpg") center / cover;
+  }
+
   .services-page-hero h1,
   .contact-page-hero h1,
-  .about-page-hero h1 {
+  .about-page-hero h1,
+  .resources-page-hero h1 {
     max-width: min(100%, 12ch);
     font-size: clamp(2.05rem, 9.5vw, 2.32rem);
   }
@@ -2325,7 +2365,9 @@ footer {
   .contact-page-hero p,
   .about-page-hero p,
   .services-page-hero .hero-support,
-  .about-page-hero .hero-support {
+  .about-page-hero .hero-support,
+  .resources-page-hero p,
+  .resources-page-hero .hero-support {
     max-width: min(100%, 19.5rem);
   }
 
@@ -2452,6 +2494,10 @@ footer {
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
   .hero {
     padding-top: 8rem;
   }
@@ -2463,6 +2509,15 @@ footer {
   .hero h1 {
     max-width: 9.8em;
     font-size: 2rem;
+  }
+
+  .section-title,
+  .about-text h2 {
+    font-size: clamp(1.85rem, 8vw, 2.1rem);
+  }
+
+  .service-card {
+    padding: 1.65rem 1.25rem;
   }
 }
 
