@@ -524,6 +524,64 @@ section {
   color: var(--white);
 }
 
+.mobile-sticky-cta {
+  display: none;
+}
+
+.mobile-sticky-cta__link {
+  display: inline-flex;
+  min-height: 3.15rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  border-radius: 999px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.mobile-sticky-cta__link svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  flex: 0 0 auto;
+  fill: currentColor;
+}
+
+.mobile-sticky-cta__link--book {
+  background: var(--primary);
+  color: var(--white);
+  box-shadow: 0 10px 22px rgba(143, 75, 66, 0.2);
+}
+
+.mobile-sticky-cta__link--call {
+  border: 1px solid rgba(143, 75, 66, 0.28);
+  background: var(--white);
+  color: var(--primary-dark);
+}
+
+.mobile-sticky-cta__link:hover,
+.mobile-sticky-cta__link:focus {
+  transform: translateY(-1px);
+}
+
+.mobile-sticky-cta__link--book:hover,
+.mobile-sticky-cta__link--book:focus {
+  background: var(--primary-dark);
+}
+
+.mobile-sticky-cta__link--call:hover,
+.mobile-sticky-cta__link--call:focus {
+  border-color: rgba(143, 75, 66, 0.46);
+  background: #fff8f6;
+  color: var(--primary-dark);
+}
+
 /* =========================
    5. SECTIONS
 ========================= */
@@ -2381,8 +2439,30 @@ footer {
 }
 
 @media (max-width: 768px) {
+  body {
+    padding-bottom: calc(4.75rem + env(safe-area-inset-bottom));
+  }
+
   .container {
     padding: 0 1.25rem;
+  }
+
+  .mobile-sticky-cta {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1500;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+    padding: 0.65rem max(1rem, env(safe-area-inset-right))
+      calc(0.65rem + env(safe-area-inset-bottom))
+      max(1rem, env(safe-area-inset-left));
+    border-top: 1px solid var(--border-soft);
+    background: rgba(249, 247, 242, 0.96);
+    box-shadow: 0 -12px 34px rgba(31, 41, 55, 0.14);
+    backdrop-filter: blur(16px);
   }
 
   .hero {
