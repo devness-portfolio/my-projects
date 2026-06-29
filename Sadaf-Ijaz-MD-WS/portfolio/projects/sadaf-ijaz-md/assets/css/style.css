@@ -2311,11 +2311,7 @@ footer {
    6. UTILITIES
 ========================= */
 
-@media (max-width: 900px) {
-  .hero-petals {
-    display: none;
-  }
-
+@media (max-width: 1100px) {
   .navbar {
     padding: 0.65rem 0;
   }
@@ -2409,6 +2405,12 @@ footer {
 
   .logo-img {
     height: 34px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-petals {
+    display: none;
   }
 
   .credentials-layout {

@@ -13,7 +13,7 @@ class MobileNavigation {
   constructor(options = {}) {
     this.toggle = document.querySelector(options.toggleSelector || "#mobileMenu");
     this.navLinks = document.querySelector(options.navSelector || "#navLinks");
-    this.desktopQuery = options.desktopQuery || "(min-width: 901px)";
+    this.desktopQuery = options.desktopQuery || "(min-width: 1101px)";
   }
 
   setOpen(isOpen) {
