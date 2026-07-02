@@ -858,8 +858,8 @@ h1 {
   }
 
   .main-nav a {
-    font-size: 0.84rem;
-    min-height: 2.15rem;
+    font-size: 0.88rem;
+    min-height: 2.2rem;
     padding: 0.48rem 0.58rem;
   }
 
@@ -888,13 +888,14 @@ h1 {
 
 @media (max-width: 680px) {
   html {
-    scroll-padding-top: 172px;
+    scroll-padding-top: 152px;
   }
 
   .site-header {
-    border-radius: 28px;
+    border-radius: 24px;
+    gap: 0.32rem;
     grid-template-columns: 1fr auto;
-    padding: 0.7rem 0.8rem;
+    padding: 0.52rem 0.62rem;
     width: calc(100% - 1rem);
   }
 
@@ -905,7 +906,7 @@ h1 {
 
   .main-nav ul {
     display: grid;
-    gap: 0.35rem;
+    gap: 0.28rem;
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
@@ -929,13 +930,14 @@ h1 {
 
   .main-nav a {
     flex: 1;
-    font-size: 0.84rem;
-    min-height: 2.25rem;
-    padding: 0.48rem 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.05;
+    min-height: 2.02rem;
+    padding: 0.34rem 0.34rem;
   }
 
   main {
-    padding-top: 10.85rem;
+    padding-top: 9.45rem;
   }
 
   .hero {
@@ -970,12 +972,12 @@ h1 {
 
 @media (max-width: 520px) {
   html {
-    scroll-padding-top: 172px;
+    scroll-padding-top: 150px;
   }
 
   .site-header {
-    border-radius: 24px;
-    padding: 0.65rem 0.7rem;
+    border-radius: 22px;
+    padding: 0.48rem 0.55rem;
     top: 0.5rem;
   }
 
@@ -984,13 +986,13 @@ h1 {
   }
 
   .main-nav a {
-    font-size: 0.82rem;
-    min-height: 2.25rem;
-    padding: 0.48rem 0.36rem;
+    font-size: 0.9rem;
+    min-height: 1.95rem;
+    padding: 0.32rem 0.18rem;
   }
 
   main {
-    padding-top: 10.75rem;
+    padding-top: 9.35rem;
   }
 
   .hero {
