@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { getNextIndex, photographyImages } from "../portfolio/assets/js/carousel.js";
@@ -31,6 +31,7 @@ assert.doesNotMatch(sadafCaseStudyHtml, /\[Brief description|\[Link to GitHub Re
 assert.match(css, /--primary-color:/);
 assert.match(css, /\.project-card-featured/);
 assert.match(css, /\.case-hero/);
+assert.match(css, /\.carousel-slide-contained/);
 assert.doesNotMatch(css, /letter-spacing:\s*-/);
 
 assert.match(mainJs, /setupTheme\(\)/);
@@ -39,5 +40,16 @@ assert.match(mainJs, /setupCarousel\(\)/);
 assert.equal(getNextIndex(0, "previous", 3), 2);
 assert.equal(getNextIndex(2, "next", 3), 0);
 assert.ok(photographyImages.length >= 1);
+const photographyAssetPaths = readdirSync(join(root, "portfolio/assets/img/photography"))
+  .filter((file) => /\.(jpe?g|png|webp|avif)$/i.test(file))
+  .map((file) => `portfolio/assets/img/photography/${file}`)
+  .sort();
+assert.deepEqual([...photographyImages].sort(), photographyAssetPaths);
+photographyImages.forEach((imagePath) => {
+  assert.ok(
+    existsSync(join(root, imagePath)),
+    `Missing carousel image: ${imagePath}`,
+  );
+});
 
 console.log("Portfolio smoke test passed.");
