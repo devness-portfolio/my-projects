@@ -1,0 +1,8 @@
+{
+  "name": "anes-mehai-portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/site-smoke.test.mjs"
+  }
+}

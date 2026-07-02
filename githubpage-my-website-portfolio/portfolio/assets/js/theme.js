@@ -1,26 +1,38 @@
-// File: assets/js/theme.js
-// This script handles the theme switch functionality
-// and applies the saved theme on page load.
+const THEME_KEY = "theme";
 
-document.addEventListener("DOMContentLoaded", () => {
-  // --- Theme Switch ---
-  const themeToggle = document.getElementById("checkbox");
-  const body = document.body;
-  const currentTheme = localStorage.getItem("theme");
+function getStoredTheme(storage) {
+  try {
+    return storage.getItem(THEME_KEY);
+  } catch {
+    return null;
+  }
+}
 
-  // Apply saved theme on load
-  if (currentTheme === "dark") {
+function storeTheme(storage, theme) {
+  try {
+    storage.setItem(THEME_KEY, theme);
+  } catch {
+    // Private browsing and locked-down contexts can block localStorage.
+  }
+}
+
+export default function setupTheme({
+  body = document.body,
+  toggle = document.getElementById("theme-toggle"),
+  storage = window.localStorage,
+} = {}) {
+  if (!body || !toggle) return;
+
+  const savedTheme = getStoredTheme(storage);
+
+  if (savedTheme === "dark") {
     body.classList.add("dark-mode");
-    themeToggle.checked = true;
+    toggle.checked = true;
   }
 
-  // Toggle theme on switch change
-  themeToggle.addEventListener("change", () => {
-    body.classList.toggle("dark-mode");
-    let theme = "light";
-    if (body.classList.contains("dark-mode")) {
-      theme = "dark";
-    }
-    localStorage.setItem("theme", theme);
+  toggle.addEventListener("change", () => {
+    const isDark = toggle.checked;
+    body.classList.toggle("dark-mode", isDark);
+    storeTheme(storage, isDark ? "dark" : "light");
   });
-});
+}

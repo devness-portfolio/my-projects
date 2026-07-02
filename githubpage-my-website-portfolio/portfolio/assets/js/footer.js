@@ -1,10 +1,8 @@
-// File: assets/js/footer.js
-// This script updates the footer with the current year
+export default function updateFooterYear({
+  yearElement = document.getElementById("current-year"),
+  now = new Date(),
+} = {}) {
+  if (!yearElement) return;
 
-document.addEventListener("DOMContentLoaded", () => {
-  // --- Update Footer Year ---
-  const currentYearSpan = document.getElementById("current-year");
-  if (currentYearSpan) {
-    currentYearSpan.textContent = new Date().getFullYear();
-  }
-});
+  yearElement.textContent = String(now.getFullYear());
+}

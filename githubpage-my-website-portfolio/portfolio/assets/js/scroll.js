@@ -1,18 +1,16 @@
-// File: assets/js/scroll.js
-// This script ensures smooth scrolling for anchor links
+export default function setupScrolling({
+  root = document,
+  selector = '.main-nav a[href^="#"], .brand[href^="#"]',
+} = {}) {
+  root.querySelectorAll(selector).forEach((anchor) => {
+    anchor.addEventListener("click", (event) => {
+      const targetId = anchor.getAttribute("href");
+      const targetElement = targetId ? root.querySelector(targetId) : null;
 
-document.addEventListener("DOMContentLoaded", () => {
-  // --- Smooth Scrolling ---
-  document.querySelectorAll('nav a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute("href");
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: "smooth",
-        });
-      }
+      if (!targetElement) return;
+
+      event.preventDefault();
+      targetElement.scrollIntoView({ behavior: "smooth" });
     });
   });
-});
+}
