@@ -42,7 +42,8 @@ sadaf-ijaz-md/
 ├── docs/
 │   ├── content-map.md
 │   ├── launch-checklist.md
-│   └── maintenance.md
+│   ├── maintenance.md
+│   └── post-v1-enhancements.md
 └── assets/
     ├── css/
     ├── images/
@@ -60,3 +61,4 @@ sadaf-ijaz-md/
 - SEO metadata, `robots.txt`, and `sitemap.xml` use the production domain `https://sadafijazmd.com/`.
 - The sitemap includes the homepage, indexable About, Services, Resources, Contact landing pages, and the Privacy Policy page.
 - Update launch details in `docs/launch-checklist.md` before publishing.
+- Use `docs/post-v1-enhancements.md` as the handoff for security, performance, analytics, SEO, accessibility, and reliability work after V1 is live.
