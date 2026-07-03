@@ -5,11 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Los Latinos is a modern local barbershop in Kenner, Louisiana offering clean fades, sharp cuts, beard work, and easy appointment options."
+      content="Los Latinos Barbershop serves Kenner, Metairie, and New Orleans with haircuts, fades, beard trims, kids cuts, and hot towel grooming. Se habla español."
     >
-    <title>Los Latinos Barbershop | Kenner, Louisiana</title>
+    <meta
+      name="keywords"
+      content="barbershop Kenner LA, Latino barbershop New Orleans, barber Metairie, fades Kenner, beard trim Kenner, Spanish speaking barber, kids haircuts Kenner"
+    >
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#071c2f">
+    <meta property="og:type" content="business.business">
+    <meta property="og:site_name" content="Los Latinos Barbershop">
+    <meta property="og:title" content="Los Latinos Barbershop | Fades, Haircuts &amp; Beard Trims">
+    <meta
+      property="og:description"
+      content="Modern Latino barbershop serving Kenner, Metairie, and New Orleans with sharp fades, beard work, kids cuts, and hot towel grooming."
+    >
+    <meta property="og:image" content="assets/hero-shop.png">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="es_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Los Latinos Barbershop | Kenner, Metairie &amp; New Orleans">
+    <meta
+      name="twitter:description"
+      content="Haircuts, fades, beard trims, kids cuts, and hot towel grooming from a modern Latino barbershop. Se habla español."
+    >
+    <meta name="twitter:image" content="assets/hero-shop.png">
+    <title>Los Latinos Barbershop | Fades, Haircuts &amp; Beard Trims in Kenner</title>
     <link rel="preload" href="assets/hero-shop.png" as="image">
     <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HairSalon",
+        "name": "Los Latinos Barbershop",
+        "description": "Modern Latino barbershop serving Kenner, Metairie, and New Orleans with haircuts, fades, beard trims, kids cuts, and hot towel grooming.",
+        "image": [
+          "assets/hero-shop.png",
+          "assets/service-fade.jpg",
+          "assets/service-beard.jpg"
+        ],
+        "telephone": "+15045550198",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Kenner",
+          "addressRegion": "LA",
+          "addressCountry": "US"
+        },
+        "areaServed": [
+          "Kenner, LA",
+          "Metairie, LA",
+          "New Orleans, LA"
+        ],
+        "availableLanguage": [
+          "English",
+          "Spanish"
+        ],
+        "makesOffer": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Haircuts" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fades" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Beard trims" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kids cuts" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hot towel grooming" } }
+        ]
+      }
+    </script>
   </head>
   <body>
     <svg class="icon-sprite" aria-hidden="true" focusable="false">
@@ -29,26 +88,56 @@
       <symbol id="icon-star" viewBox="0 0 24 24">
         <path d="m12 3 2.6 5.5 6 .8-4.4 4.2 1.1 6-5.3-2.9-5.3 2.9 1.1-6-4.4-4.2 6-.8L12 3Z"></path>
       </symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24">
+        <path d="M12 6v6l4 2"></path>
+        <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+      </symbol>
+      <symbol id="icon-globe" viewBox="0 0 24 24">
+        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z"></path>
+        <path d="M2 12h20M12 2c2.5 2.8 3.8 6.1 3.8 10S14.5 19.2 12 22M12 2C9.5 4.8 8.2 8.1 8.2 12S9.5 19.2 12 22"></path>
+      </symbol>
     </svg>
 
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
-    <header class="site-header" aria-label="Site header">
-      <a class="brand" href="#top" aria-label="Los Latinos Barbershop home">
+    <header class="site-header" aria-label="Site header" data-i18n-aria-label="header.aria">
+      <a class="brand" href="#top" aria-label="Los Latinos Barbershop home" data-i18n-aria-label="brand.aria">
         <span class="brand-mark" aria-hidden="true">LL</span>
         <span class="brand-text">Los Latinos</span>
       </a>
 
-      <nav class="primary-nav" aria-label="Primary navigation">
-        <a href="#services">Services</a>
-        <a href="#book">Book</a>
-        <a href="#visit">Visit</a>
+      <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation" data-i18n-aria-label="nav.aria">
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#hours" data-i18n="nav.hours">Hours</a>
+        <a href="#book" data-i18n="nav.book">Book</a>
+        <a href="#visit" data-i18n="nav.contact">Contact</a>
       </nav>
 
-      <a class="header-call" href="tel:+15045550198">
-        <svg class="icon" aria-hidden="true"><use href="#icon-phone"></use></svg>
-        <span>Call</span>
-      </a>
+      <div class="header-actions">
+        <div class="language-toggle" data-language-toggle aria-label="Language selection" data-i18n-aria-label="language.aria">
+          <svg class="icon" aria-hidden="true"><use href="#icon-globe"></use></svg>
+          <button type="button" data-lang-option="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang-option="es" aria-pressed="false">ES</button>
+        </div>
+        <a class="header-call" href="tel:+15045550198">
+          <svg class="icon" aria-hidden="true"><use href="#icon-phone"></use></svg>
+          <span data-i18n="header.call">Call</span>
+        </a>
+        <button
+          class="menu-toggle"
+          type="button"
+          data-menu-toggle
+          aria-controls="primary-nav"
+          aria-expanded="false"
+          aria-label="Open menu"
+        >
+          <span class="menu-toggle-bars" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
     </header>
 
     <main id="main">
@@ -69,99 +158,179 @@
         </div>
 
         <div class="container hero-content">
-          <p class="eyebrow">Kenner, Louisiana</p>
+          <p class="eyebrow hero-area" data-i18n="hero.eyebrow">Kenner | Metairie | New Orleans</p>
           <h1 id="hero-title">Los Latinos Barbershop</h1>
-          <p class="hero-copy">
-            Clean fades, classic cuts, and sharp grooming from a neighborhood shop with Latino pride.
+          <p class="hero-copy" data-i18n="hero.copy">
+            Modern cuts, clean fades, and sharp grooming with Latino pride and luxury detail.
           </p>
 
-          <div class="hero-actions" aria-label="Primary actions">
+          <div class="hero-actions" aria-label="Primary actions" data-i18n-aria-label="hero.actions">
             <a class="button button-primary" href="#book">
               <svg class="icon" aria-hidden="true"><use href="#icon-calendar"></use></svg>
-              <span>Book</span>
+              <span data-i18n="hero.book">Book your chair</span>
             </a>
             <a class="button button-secondary" href="tel:+15045550198">
               <svg class="icon" aria-hidden="true"><use href="#icon-phone"></use></svg>
-              <span>Call the shop</span>
+              <span data-i18n="hero.call">Call the shop</span>
             </a>
           </div>
 
-          <div class="hero-points" aria-label="Shop highlights">
-            <span>Walk-ins welcome</span>
-            <span>Fades and tapers</span>
-            <span>Beard detail</span>
+          <div class="hero-points" aria-label="Shop highlights" data-i18n-aria-label="hero.points">
+            <span data-i18n="hero.point1">Haircuts and fades</span>
+            <span data-i18n="hero.point2">Beard trims</span>
+            <span data-i18n="hero.point3">Kids cuts</span>
+            <span data-i18n="hero.point4">Hot towel service</span>
+            <span data-i18n="hero.point5">Se habla español</span>
           </div>
         </div>
       </section>
 
       <section id="services" class="section section-services" aria-labelledby="services-title">
-        <div class="container split-layout">
-          <div class="section-intro">
-            <p class="eyebrow">Services</p>
-            <h2 id="services-title">Cuts that stay sharp after you leave the chair.</h2>
-            <p>
-              A focused menu for everyday grooming, special occasions, and quick cleanups before the weekend.
-            </p>
-          </div>
+        <div class="container section-heading">
+          <p class="eyebrow" data-i18n="services.eyebrow">Services</p>
+          <h2 id="services-title" data-i18n="services.title">Premium grooming for everyday confidence.</h2>
+          <p data-i18n="services.copy">
+            From sharp fades to family cuts, every service is built around clean detail, comfort, and a fresh finish.
+          </p>
+        </div>
 
-          <div class="service-grid" aria-label="Featured services">
-            <article class="service-card">
-              <svg class="icon service-icon" aria-hidden="true"><use href="#icon-star"></use></svg>
-              <h3>Signature Fade</h3>
-              <p>Low, mid, high, burst, or skin fades finished with clean edges.</p>
-            </article>
-            <article class="service-card">
-              <svg class="icon service-icon" aria-hidden="true"><use href="#icon-star"></use></svg>
-              <h3>Classic Cut</h3>
-              <p>Scissor and clipper work for a polished everyday style.</p>
-            </article>
-            <article class="service-card">
-              <svg class="icon service-icon" aria-hidden="true"><use href="#icon-star"></use></svg>
-              <h3>Beard Shape</h3>
-              <p>Lineup, taper, and detail work for a balanced profile.</p>
-            </article>
-            <article class="service-card">
-              <svg class="icon service-icon" aria-hidden="true"><use href="#icon-star"></use></svg>
-              <h3>Kids Cut</h3>
-              <p>Patient, clean cuts for young clients and busy families.</p>
-            </article>
-          </div>
+        <div class="container service-grid" aria-label="Featured services" data-i18n-aria-label="services.grid">
+          <article class="service-card service-card-featured">
+            <img
+              src="assets/service-fade.jpg"
+              alt="Barber blending a clean fade with clippers"
+              data-i18n-alt="service.fade.alt"
+              width="1536"
+              height="1024"
+            >
+            <div class="service-card-body">
+              <span class="service-tag" data-i18n="service.fade.tag">Most requested</span>
+              <h3 data-i18n="service.fade.title">Fades</h3>
+              <p data-i18n="service.fade.copy">Low, mid, high, burst, taper, or skin fades blended clean and finished with sharp edges.</p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img
+              src="assets/service-haircut.jpg"
+              alt="Barber cutting hair with scissors and comb"
+              data-i18n-alt="service.haircut.alt"
+              width="1536"
+              height="1024"
+              loading="lazy"
+            >
+            <div class="service-card-body">
+              <span class="service-tag" data-i18n="service.haircut.tag">Classic to modern</span>
+              <h3 data-i18n="service.haircut.title">Haircuts</h3>
+              <p data-i18n="service.haircut.copy">Clipper and scissor work for polished everyday styles, textured cuts, and clean shape-ups.</p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img
+              src="assets/service-beard.jpg"
+              alt="Barber shaping a beard with trimmers"
+              data-i18n-alt="service.beard.alt"
+              width="1536"
+              height="1024"
+              loading="lazy"
+            >
+            <div class="service-card-body">
+              <span class="service-tag" data-i18n="service.beard.tag">Lineup and detail</span>
+              <h3 data-i18n="service.beard.title">Beard Trims</h3>
+              <p data-i18n="service.beard.copy">Balanced shaping, neckline cleanup, and precise line work for a stronger profile.</p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img
+              src="assets/service-kids.jpg"
+              alt="Barber giving a child a clean haircut"
+              data-i18n-alt="service.kids.alt"
+              width="1536"
+              height="1024"
+              loading="lazy"
+            >
+            <div class="service-card-body">
+              <span class="service-tag" data-i18n="service.kids.tag">Family friendly</span>
+              <h3 data-i18n="service.kids.title">Kids Cuts</h3>
+              <p data-i18n="service.kids.copy">Patient, comfortable cuts for young clients, school days, photos, and weekend plans.</p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img
+              src="assets/service-hot-towel.jpg"
+              alt="Barber applying a hot towel during a shave service"
+              data-i18n-alt="service.towel.alt"
+              width="1535"
+              height="1024"
+              loading="lazy"
+            >
+            <div class="service-card-body">
+              <span class="service-tag" data-i18n="service.towel.tag">Relaxed finish</span>
+              <h3 data-i18n="service.towel.title">Hot Towel</h3>
+              <p data-i18n="service.towel.copy">A warm towel grooming ritual for a cleaner shave feel and a calmer chair experience.</p>
+            </div>
+          </article>
         </div>
       </section>
 
       <section id="book" class="section booking-section" aria-labelledby="booking-title">
         <div class="container booking-layout">
           <div>
-            <p class="eyebrow">Appointments</p>
-            <h2 id="booking-title">Online booking is coming soon.</h2>
-            <p>
-              Until the appointment link is connected, call the shop to reserve your chair or check same-day availability.
+            <p class="eyebrow" data-i18n="booking.eyebrow">Appointments</p>
+            <h2 id="booking-title" data-i18n="booking.title">Reserve your chair by phone today.</h2>
+            <p data-i18n="booking.copy">
+              Online booking is coming soon. For now, call the shop to check same-day openings, walk-in availability, and the best time to stop by.
             </p>
           </div>
 
-          <!-- Replace this block with the selected booking provider embed. -->
           <div class="booking-placeholder" data-booking-slot>
-            <p class="booking-label">Booking opening soon</p>
-            <h3>Reserve your chair by phone for now.</h3>
-            <p>Same-day appointments and walk-in availability can be confirmed with a quick call.</p>
+            <p class="booking-label" data-i18n="booking.label">Booking opening soon</p>
+            <h3 data-i18n="booking.cardTitle">Fastest way to book: call the shop.</h3>
+            <p data-i18n="booking.cardCopy">Tell us the service you need and whether you prefer English or Spanish.</p>
             <a class="button button-primary" href="tel:+15045550198">
               <svg class="icon" aria-hidden="true"><use href="#icon-phone"></use></svg>
-              <span>Call to book</span>
+              <span data-i18n="booking.call">Call to book</span>
             </a>
           </div>
         </div>
       </section>
 
-      <section class="section visit-strip" aria-labelledby="visit-title">
-        <div class="container visit-strip-inner">
+      <section id="hours" class="section hours-section" aria-labelledby="hours-title">
+        <div class="container hours-layout">
           <div>
-            <p class="eyebrow">Visit</p>
-            <h2 id="visit-title">Serving Kenner and nearby New Orleans neighborhoods.</h2>
+            <p class="eyebrow" data-i18n="hours.eyebrow">Hours &amp; Areas</p>
+            <h2 id="hours-title" data-i18n="hours.title">Serving Kenner, Metairie, and New Orleans.</h2>
+            <p data-i18n="hours.copy">
+              Hours will be posted soon. Call ahead for today's schedule, chair availability, and walk-in timing.
+            </p>
           </div>
-          <a class="button button-outline" href="#visit">
-            <svg class="icon" aria-hidden="true"><use href="#icon-map"></use></svg>
-            <span>Get directions</span>
-          </a>
+
+          <div class="hours-list" aria-label="Shop details" data-i18n-aria-label="hours.list">
+            <div class="hours-item">
+              <svg class="icon" aria-hidden="true"><use href="#icon-clock"></use></svg>
+              <div>
+                <strong data-i18n="hours.item1.title">Today's hours</strong>
+                <span data-i18n="hours.item1.copy">Call for current availability</span>
+              </div>
+            </div>
+            <div class="hours-item">
+              <svg class="icon" aria-hidden="true"><use href="#icon-map"></use></svg>
+              <div>
+                <strong data-i18n="hours.item2.title">Service area</strong>
+                <span data-i18n="hours.item2.copy">Kenner, Metairie, New Orleans</span>
+              </div>
+            </div>
+            <div class="hours-item">
+              <svg class="icon" aria-hidden="true"><use href="#icon-globe"></use></svg>
+              <div>
+                <strong data-i18n="hours.item3.title">Languages</strong>
+                <span data-i18n="hours.item3.copy">English and Spanish</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -169,25 +338,34 @@
     <footer id="visit" class="site-footer" aria-labelledby="footer-title">
       <div class="container footer-grid">
         <section class="footer-brand" aria-labelledby="footer-title">
-          <a class="brand brand-footer" href="#top" aria-label="Los Latinos Barbershop home">
+          <a class="brand brand-footer" href="#top" aria-label="Los Latinos Barbershop home" data-i18n-aria-label="brand.aria">
             <span class="brand-mark" aria-hidden="true">LL</span>
             <span class="brand-text" id="footer-title">Los Latinos</span>
           </a>
-          <p>Modern barbershop services in Kenner, Louisiana.</p>
-          <div class="footer-actions" aria-label="Footer actions">
+          <p data-i18n="footer.copy">Modern Latino barbershop services in Kenner, Louisiana.</p>
+          <div class="footer-actions" aria-label="Footer actions" data-i18n-aria-label="footer.actions">
             <a class="button button-primary" href="#book">
               <svg class="icon" aria-hidden="true"><use href="#icon-calendar"></use></svg>
-              <span>Book</span>
+              <span data-i18n="footer.book">Book</span>
             </a>
             <a class="button button-secondary footer-call" href="tel:+15045550198">
               <svg class="icon" aria-hidden="true"><use href="#icon-phone"></use></svg>
-              <span>Call</span>
+              <span data-i18n="footer.call">Call</span>
             </a>
           </div>
         </section>
 
+        <section class="footer-panel" aria-labelledby="contact-title">
+          <h2 id="contact-title" data-i18n="footer.contact.title">Contact</h2>
+          <ul class="link-list">
+            <li><a href="tel:+15045550198" data-i18n="footer.contact.phone">Call +1 (504) 555-0198</a></li>
+            <li><a href="#hours" data-i18n="footer.contact.hours">Hours: call for today's schedule</a></li>
+            <li><span data-i18n="footer.contact.language">Se habla español</span></li>
+          </ul>
+        </section>
+
         <section class="footer-panel" aria-labelledby="social-title">
-          <h2 id="social-title">Social</h2>
+          <h2 id="social-title" data-i18n="footer.social.title">Social</h2>
           <ul class="link-list">
             <li><a href="https://www.instagram.com/loslatinosbarbershop/">Instagram @loslatinosbarbershop</a></li>
             <li><a href="https://www.facebook.com/LosLatinosBarbershop/">Facebook /LosLatinosBarbershop</a></li>
@@ -196,8 +374,8 @@
         </section>
 
         <section class="footer-panel" aria-labelledby="directions-title">
-          <h2 id="directions-title">Directions</h2>
-          <p>Los Latinos Barbershop, Kenner, LA</p>
+          <h2 id="directions-title" data-i18n="footer.directions.title">Directions</h2>
+          <p data-i18n="footer.directions.copy">Los Latinos Barbershop, Kenner, LA</p>
           <div class="direction-links">
             <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Los%20Latinos%20Barbershop%2C%20Kenner%2C%20LA">
               <svg class="icon" aria-hidden="true"><use href="#icon-map"></use></svg>
@@ -210,9 +388,10 @@
           </div>
         </section>
 
-        <section class="map-panel" aria-label="Embedded map">
+        <section class="map-panel" aria-label="Embedded map" data-i18n-aria-label="map.aria">
           <iframe
             title="Map to Los Latinos Barbershop in Kenner, Louisiana"
+            data-i18n-title="map.title"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             src="https://www.google.com/maps?q=Los%20Latinos%20Barbershop%20Kenner%20LA&amp;output=embed"
@@ -221,8 +400,8 @@
       </div>
 
       <div class="container footer-bottom">
-        <p>&copy; <span data-current-year>2026</span> Los Latinos Barbershop. All rights reserved.</p>
-        <p>Kenner, LA</p>
+        <p>&copy; <span data-current-year>2026</span> Los Latinos Barbershop. <span data-i18n="footer.rights">All rights reserved.</span></p>
+        <p data-i18n="footer.area">Kenner, Metairie, New Orleans</p>
       </div>
     </footer>
 
