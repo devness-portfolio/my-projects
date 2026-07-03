@@ -50,11 +50,14 @@ assert.match(html, /https:\/\/maps\.apple\.com\/\?daddr=/, "Apple Maps direction
 assert.match(html, /output=embed/, "Embedded map is missing.");
 assert.match(html, /Instagram @loslatinosbarbershop/, "Instagram handle is missing.");
 assert.match(html, /href="tel:\+15045550198"/, "Call CTA is missing.");
+assert.match(html, /fonts\.googleapis\.com\/css2[\s\S]+family=Oswald[\s\S]+family=Rye/, "Western-inspired font pairing is missing.");
 
 assert.match(css, /--navy-980/, "Color system is missing navy palette variables.");
 assert.match(css, /--gold-450/, "Color system is missing gold palette variables.");
 assert.match(css, /--carmine-700/, "Color system is missing warm accent variables.");
 assert.match(css, /--jade-600/, "Color system is missing secondary accent variables.");
+assert.match(css, /--font-display: Rye/, "Display font variable should use Rye.");
+assert.match(css, /--font-accent: Oswald/, "Accent font variable should use Oswald.");
 assert.match(css, /\.service-card img[\s\S]+aspect-ratio/, "Service images need stable dimensions.");
 assert.match(css, /\.menu-toggle[\s\S]+display: none/, "Menu toggle should be hidden outside mobile.");
 assert.match(css, /\.brand-mark[\s\S]+display: none/, "Mobile header should hide the logo mark.");
