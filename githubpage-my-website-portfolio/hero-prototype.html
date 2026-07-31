@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Hero concept for Anes Mehai, a software engineer focused on Java, Spring, cloud infrastructure, DevOps, and reliable public-sector applications."
+    />
+    <title>Hero Prototype | Anes Mehai</title>
+    <script>
+      (() => {
+        const savedTheme = localStorage.getItem("hero-theme");
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+        document.documentElement.dataset.theme = savedTheme || systemTheme;
+      })();
+    </script>
+    <link rel="stylesheet" href="portfolio/assets/css/hero-prototype.css" />
+  </head>
+  <body>
+    <header class="prototype-header">
+      <a class="brand" href="./index.html" aria-label="Anes Mehai portfolio">
+        <span class="brand-logo-frame" aria-hidden="true">
+          <img
+            class="brand-logo"
+            src="portfolio/assets/img/devness-logo-transparent.svg"
+            alt=""
+          />
+        </span>
+        <span class="brand-wordmark" aria-hidden="true">devness</span>
+      </a>
+      <div class="header-actions">
+        <a class="back-link" href="./index.html">Current portfolio <span aria-hidden="true">↗</span></a>
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Switch color theme"
+          aria-pressed="false"
+        >
+          <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+          <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+          <span class="theme-thumb" aria-hidden="true"></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="availability">
+            <span class="status-dot" aria-hidden="true"></span>
+            Software Engineer
+          </p>
+          <h1 id="hero-title">
+            Building dependable software for
+            <span>systems that matter.</span>
+          </h1>
+          <p class="hero-summary">
+            I’m Anes Mehai, a software engineer focused on
+            <strong>Java, Spring, cloud infrastructure, and DevOps</strong>—with
+            experience delivering reliable, accessible public-sector
+            applications.
+          </p>
+
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button button-primary" href="./index.html#projects">
+              View projects
+              <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              class="button button-secondary"
+              href="mailto:nessworkdc@gmail.com"
+              aria-label="Email Anes Mehai at nessworkdc@gmail.com"
+            >
+              <svg
+                class="button-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path d="m3 6 9 7 9-7" />
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+              </svg>
+              nessworkdc@gmail.com
+            </a>
+            <a
+              class="button button-secondary"
+              href="tel:+12406606158"
+              aria-label="Call Anes Mehai at 240-660-6158"
+            >
+              <svg
+                class="button-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M7.1 3.5 9.4 8l-2.2 1.8a15.2 15.2 0 0 0 7 7l1.8-2.2 4.5 2.3-.8 3.1a2 2 0 0 1-2 1.5C9.3 20.9 3.1 14.7 2.5 6.3a2 2 0 0 1 1.5-2l3.1-.8Z"
+                />
+              </svg>
+              (240) 660-6158
+            </a>
+            <a
+              class="button button-secondary"
+              href="portfolio/assets/files/Anes-Mehai-SWE-2025-Resume.pdf"
+              download="Anes-Mehai-Resume.pdf"
+            >
+              Download Resume
+              <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+
+          <ul class="technology-list" aria-label="Core technologies">
+            <li>Java</li>
+            <li>Spring</li>
+            <li>Cloud</li>
+            <li>DevOps</li>
+            <li>Section 508</li>
+          </ul>
+        </div>
+
+        <div class="hero-visual">
+          <figure class="profile-card">
+            <div class="profile-image-wrap">
+              <img
+                class="profile-image"
+                src="portfolio/assets/img/ppic.jpg"
+                alt="Portrait of Anes Mehai"
+                width="1344"
+                height="1768"
+              />
+            </div>
+            <figcaption>
+              <span>Anes Mehai</span>
+              <span class="profile-details">
+                <span class="profile-role"
+                  >Software Engineer<br />AI-Assisted Development</span
+                >
+                <span class="profile-credentials">
+                  <span class="profile-credential">U.S. Citizen</span>
+                  <span class="profile-credential">Public Trust Clearance</span>
+                </span>
+              </span>
+            </figcaption>
+          </figure>
+
+          <div class="terminal-wrap" aria-label="Animated engineering profile">
+            <div class="terminal-glow" aria-hidden="true"></div>
+            <div class="terminal">
+              <div class="terminal-bar">
+                <div class="terminal-controls" aria-hidden="true">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <p>anes@portfolio: ~</p>
+                <span class="terminal-status">● online</span>
+              </div>
+              <div
+                id="terminal-output"
+                class="terminal-body"
+                role="log"
+                aria-live="off"
+                aria-label="Terminal animation showing engineering specialties"
+              ></div>
+            </div>
+            <p class="terminal-caption">
+              <span aria-hidden="true">↳</span>
+              Reliable by design. Clear in production.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Hero direction 01 · Interactive prototype</p>
+      <p>Move your pointer across the hero</p>
+    </footer>
+
+    <script type="module" src="portfolio/assets/js/hero-prototype.js"></script>
+  </body>
+</html>

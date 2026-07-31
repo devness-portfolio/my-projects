@@ -1,0 +1,19 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 170 180"
+  role="img"
+  aria-labelledby="devness-logo-title"
+>
+  <title id="devness-logo-title">Devness</title>
+  <g
+    fill="none"
+    stroke="#111a20"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="18"
+  >
+    <path d="M57 43 14 90l43 47" />
+    <path d="M96 29 68 151" />
+    <path d="m113 43 43 47-43 47" />
+  </g>
+</svg>
