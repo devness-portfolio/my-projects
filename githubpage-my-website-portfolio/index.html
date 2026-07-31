@@ -14,13 +14,20 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="portfolio/assets/css/style.css" />
+    <link rel="stylesheet" href="portfolio/assets/css/hero-live.css" />
     <link rel="stylesheet" href="portfolio/assets/fontawesome/css/all.min.css" />
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Anes Mehai home">
-        <span class="brand-mark">AM</span>
-        <span>Anes Mehai</span>
+        <span class="brand-logo-frame" aria-hidden="true">
+          <img
+            class="brand-logo"
+            src="portfolio/assets/img/devness-logo-transparent.svg"
+            alt=""
+          />
+        </span>
+        <span class="brand-wordmark" aria-hidden="true">devness</span>
       </a>
 
       <nav class="main-nav" aria-label="Main navigation">
@@ -46,53 +53,113 @@
     </header>
 
     <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-media">
-          <img
-            src="./portfolio/assets/img/ppic.jpg"
-            alt="Anes Mehai headshot"
-            class="headshot"
-          />
-        </div>
-
-        <div class="hero-copy">
-          <p class="eyebrow">Software Engineer · AI-Assisted Development</p>
-          <h1 id="hero-title">Anes Mehai</h1>
-          <p class="hero-title">
-            Full-stack engineer building maintainable apps across frontend,
-            backend, cloud, and modernization work.
+      <section class="hero portfolio-hero" aria-labelledby="hero-title">
+        <div class="hero-copy portfolio-hero-copy">
+          <p class="hero-availability">
+            <span class="hero-status-dot" aria-hidden="true"></span>
+            Software Engineer
           </p>
+          <h1 id="hero-title">
+            Building dependable software for
+            <span>systems that matter.</span>
+          </h1>
           <p class="hero-summary">
-            I bring 7+ years of software engineering experience across federal
-            systems, client websites, mobile products, accessibility, testing,
-            and cloud deployment. I use AI-assisted development to move faster
-            while keeping code readable, reviewed, and maintainable.
+            I’m Anes Mehai, a software engineer focused on
+            <strong>Java, Spring, cloud infrastructure, and DevOps</strong>—with
+            experience delivering reliable, accessible public-sector
+            applications.
           </p>
 
-          <div class="hero-actions" aria-label="Primary contact actions">
-            <a class="btn" href="mailto:nessworkdc@gmail.com">
-              <i class="fas fa-envelope" aria-hidden="true"></i>
-              Email Me
-            </a>
-            <a class="btn btn-secondary" href="tel:+12406606158">
-              <i class="fas fa-phone" aria-hidden="true"></i>
-              Call
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="hero-button hero-button-primary" href="#projects">
+              View projects
+              <span aria-hidden="true">↗</span>
             </a>
             <a
-              class="btn btn-muted"
-              href="portfolio/assets/files/Anes-Mehai-SWE-2025-Resume.pdf"
-              download="Anes-Mehai-SWE-2025-Resume.pdf"
+              class="hero-button hero-button-secondary"
+              href="mailto:nessworkdc@gmail.com"
+              aria-label="Email Anes Mehai at nessworkdc@gmail.com"
             >
-              <i class="fas fa-download" aria-hidden="true"></i>
-              Resume
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              nessworkdc@gmail.com
+            </a>
+            <a
+              class="hero-button hero-button-secondary"
+              href="tel:+12406606158"
+              aria-label="Call Anes Mehai at 240-660-6158"
+            >
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              (240) 660-6158
+            </a>
+            <a
+              class="hero-button hero-button-secondary"
+              href="portfolio/assets/files/Anes-Mehai-SWE-2025-Resume.pdf"
+              download="Anes-Mehai-Resume.pdf"
+            >
+              Download Resume
+              <span aria-hidden="true">↓</span>
             </a>
           </div>
 
-          <ul class="signal-list" aria-label="Professional signals">
-            <li>Java · Spring · SQL · REST APIs</li>
-            <li>React · HTML · CSS · JavaScript</li>
-            <li>AWS · GCP · Linux · CI/CD</li>
+          <ul class="hero-technology-list" aria-label="Core technologies">
+            <li>Java</li>
+            <li>Spring</li>
+            <li>Cloud</li>
+            <li>DevOps</li>
+            <li>Section 508</li>
           </ul>
+        </div>
+
+        <div class="hero-visual">
+          <figure class="profile-card">
+            <div class="profile-image-wrap">
+              <img
+                class="profile-image"
+                src="portfolio/assets/img/ppic.jpg"
+                alt="Portrait of Anes Mehai"
+                width="1344"
+                height="1768"
+              />
+            </div>
+            <figcaption>
+              <span>Anes Mehai</span>
+              <span class="profile-details">
+                <span class="profile-role"
+                  >Software Engineer<br />AI-Assisted Development</span
+                >
+                <span class="profile-credentials">
+                  <span class="profile-credential">U.S. Citizen</span>
+                  <span class="profile-credential">Public Trust Clearance</span>
+                </span>
+              </span>
+            </figcaption>
+          </figure>
+
+          <div class="terminal-wrap" aria-label="Animated engineering profile">
+            <div class="terminal-glow" aria-hidden="true"></div>
+            <div class="terminal">
+              <div class="terminal-bar">
+                <div class="terminal-controls" aria-hidden="true">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <p>anes@portfolio: ~</p>
+                <span class="terminal-status">● online</span>
+              </div>
+              <div
+                id="terminal-output"
+                class="terminal-body"
+                role="log"
+                aria-live="off"
+                aria-label="Terminal animation showing engineering specialties"
+              ></div>
+            </div>
+            <p class="terminal-caption">
+              <span aria-hidden="true">↳</span>
+              Reliable by design. Clear in production.
+            </p>
+          </div>
         </div>
       </section>
 
