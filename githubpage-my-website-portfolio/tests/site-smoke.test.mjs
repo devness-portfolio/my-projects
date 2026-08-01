@@ -31,6 +31,9 @@ const sadafCaseStudyHtml = readProjectFile("portfolio/case-study-sadaf-ijaz-md.h
 const css = readProjectFile("portfolio/assets/css/style.css");
 const mainJs = readProjectFile("portfolio/assets/js/main.js");
 const heroJs = readProjectFile("portfolio/assets/js/hero.js");
+const workJs = readProjectFile("portfolio/assets/js/work.js");
+const uiJs = readProjectFile("portfolio/assets/js/ui.js");
+const themeJs = readProjectFile("portfolio/assets/js/theme.js");
 const heroPrototypeHtml = readProjectFile("hero-prototype.html");
 const heroPrototypeCss = readProjectFile("portfolio/assets/css/hero-prototype.css");
 const logoV1Svg = readProjectFile("portfolio/assets/img/devness-logo-v1.svg");
@@ -38,11 +41,15 @@ const logoV2Svg = readProjectFile("portfolio/assets/img/devness-logo-v2.svg");
 const heroPrototypeJs = readProjectFile("portfolio/assets/js/hero-prototype.js");
 
 assert.match(html, /<section class="hero portfolio-hero"/);
-assert.match(html, /Building dependable software for/);
-assert.match(html, /id="terminal-output"/);
-assert.match(html, /class="profile-credential">U\.S\. Citizen/);
-assert.match(html, /class="profile-credential">Public Trust Clearance/);
-assert.match(html, /Software Engineer<br \/>AI-Assisted Development/);
+assert.match(html, /<meta name="theme-color" content="#f5f8f6" \/>/);
+assert.match(html, /I build reliable software for systems that/);
+assert.match(html, /class="proof-strip"/);
+assert.match(html, /data-console-tab="overview"/);
+assert.match(html, /data-console-tab="impact"/);
+assert.match(html, /data-console-tab="stack"/);
+assert.match(html, /src="portfolio\/assets\/img\/ppic\.jpg"/);
+assert.match(html, /<li>U\.S\. Citizen<\/li>/);
+assert.match(html, /<li>Public Trust Clearance<\/li>/);
 assert.match(html, /src="portfolio\/assets\/img\/devness-logo-v2\.svg"/);
 assert.match(logoV1Svg, /<title id="devness-logo-title">Devness<\/title>/);
 assert.match(logoV1Svg, /<path d="M92 29 78 151" \/>/);
@@ -65,8 +72,14 @@ assert.match(html, /href="mailto:nessworkdc@gmail\.com"/);
 assert.match(html, /href="tel:\+12406606158"/);
 assert.match(html, /Dr\. Sadaf Ijaz MD Website/);
 assert.match(html, /https:\/\/sadafijazmd\.com\//);
-assert.match(html, /id="sadaf-case-study"/);
 assert.match(html, /portfolio\/case-study-sadaf-ijaz-md\.html/);
+assert.match(html, /Secure Request Path Explorer/);
+assert.equal((html.match(/data-flow-step=/g) || []).length, 4);
+assert.match(html, /class="experience-row" open/);
+assert.match(html, /data-copy-email="nessworkdc@gmail\.com"/);
+assert.ok(html.indexOf('id="projects"') < html.indexOf('id="experience"'));
+assert.ok(html.indexOf('id="experience"') < html.indexOf('id="skills"'));
+assert.ok(html.indexOf('id="skills"') < html.indexOf('id="about"'));
 assert.match(html, /type="module" src="portfolio\/assets\/js\/main\.js"/);
 assert.doesNotMatch(html, /fontawesome|class="(?:fas|fab|far)\b/);
 assert.match(html, /class="inline-icon"/);
@@ -85,24 +98,32 @@ assertLocalReferencesExist(
 );
 
 assert.match(css, /--primary-color:/);
-assert.match(css, /\.project-card-featured/);
+assert.match(css, /\.work-card-featured/);
 assert.match(css, /\.case-hero/);
 assert.match(css, /\.carousel-slide-contained/);
 assert.match(css, /\.portfolio-hero/);
 assert.match(css, /\.terminal-glow/);
 assert.match(css, /\.inline-icon/);
+assert.match(css, /\.proof-strip/);
+assert.match(css, /\.about-grid/);
+assert.match(css, /\.scroll-progress/);
+assert.match(css, /prefers-reduced-motion: reduce/);
 assert.doesNotMatch(css, /letter-spacing:\s*-/);
 assert.doesNotMatch(css, /\.(?:brand-mark|btn-muted|headshot|hero-media|signal-list)\b/);
 
 assert.match(mainJs, /setupTheme\(\)/);
 assert.match(mainJs, /setupHero\(\)/);
+assert.match(mainJs, /setupWorkDemo\(\)/);
+assert.match(mainJs, /setupUi\(\)/);
 assert.match(mainJs, /setupCarousel\(\)/);
-assert.match(heroJs, /deploy --target public-sector/);
 assert.match(heroJs, /prefers-reduced-motion: reduce/);
-assert.match(
-  css,
-  /@media \(max-width: 540px\)[\s\S]*?\.profile-image-wrap\s*\{[^}]*align-self: center;[^}]*aspect-ratio: 4 \/ 5;[^}]*height: auto;[^}]*width: clamp\(9\.37125rem, 41\.895vw, 11\.57625rem\);/,
-);
+assert.match(heroJs, /ArrowLeft/);
+assert.match(workJs, /SecurityFilterChain → MFA/);
+assert.match(uiJs, /IntersectionObserver/);
+assert.match(uiJs, /navigator\.clipboard/);
+assert.match(themeJs, /savedTheme === "dark"/);
+assert.match(themeJs, /light: "#f5f8f6"/);
+assert.doesNotMatch(themeJs, /matchMedia\("\(prefers-color-scheme: dark\)"\)/);
 
 assert.match(heroPrototypeHtml, /Building dependable software for/);
 assert.match(heroPrototypeHtml, /id="terminal-output"/);

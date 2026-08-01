@@ -5,7 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Anes Mehai is a software engineer focused on full-stack delivery, AI-assisted development, frontend polish, backend systems, and maintainable web applications."
+      content="Portfolio of Anes Mehai, a Java and Spring software engineer with 7+ years in application modernization, cloud delivery, accessibility, and production support."
+    />
+    <meta name="theme-color" content="#f5f8f6" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Anes Mehai | Software Engineer" />
+    <meta
+      property="og:description"
+      content="Reliable Java, Spring, full-stack, and cloud engineering for systems that matter."
     />
     <title>Anes Mehai | Software Engineer</title>
     <link
@@ -30,15 +37,22 @@
 
       <nav class="main-nav" aria-label="Main navigation">
         <ul>
-          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Work</a></li>
           <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#about">About</a></li>
         </ul>
       </nav>
 
-      <div class="theme-switch-wrapper">
+      <div class="header-actions">
+        <a
+          class="header-resume"
+          href="portfolio/assets/files/Anes-Mehai-SWE-2025-Resume.pdf"
+          download="Anes-Mehai-Resume.pdf"
+        >
+          Résumé <span aria-hidden="true">↓</span>
+        </a>
+        <a class="header-contact" href="#contact">Contact me <span aria-hidden="true">↗</span></a>
+        <div class="theme-switch-wrapper">
         <label class="theme-switch" for="theme-toggle">
           <span class="sr-only">Toggle dark mode</span>
           <input type="checkbox" id="theme-toggle" />
@@ -47,6 +61,7 @@
             <span class="icon moon" aria-hidden="true">☾</span>
           </span>
         </label>
+        </div>
       </div>
     </header>
 
@@ -55,51 +70,28 @@
         <div class="hero-copy portfolio-hero-copy">
           <p class="hero-availability">
             <span class="hero-status-dot" aria-hidden="true"></span>
-            Software Engineer
+            Open to software engineering roles
           </p>
           <h1 id="hero-title">
-            Building dependable software for
-            <span>systems that matter.</span>
+            I build reliable software for systems that <span>matter.</span>
           </h1>
           <p class="hero-summary">
-            I’m Anes Mehai, a software engineer focused on
-            <strong>Java, Spring, cloud infrastructure, and DevOps</strong>—with
-            experience delivering reliable, accessible public-sector
-            applications.
+            Java and Spring engineer with <strong>7+ years</strong> across
+            modernization, cloud delivery, accessibility, and production
+            support.
           </p>
 
           <div class="hero-actions" aria-label="Primary actions">
             <a class="hero-button hero-button-primary" href="#projects">
-              View projects
-              <span aria-hidden="true">↗</span>
-            </a>
-            <a
-              class="hero-button hero-button-secondary"
-              href="mailto:nessworkdc@gmail.com"
-              aria-label="Email Anes Mehai at nessworkdc@gmail.com"
-            >
-              <svg class="inline-icon" aria-hidden="true" viewBox="0 0 24 24">
-                <path d="M4 6h16v12H4zM4 7l8 6 8-6" />
-              </svg>
-              nessworkdc@gmail.com
-            </a>
-            <a
-              class="hero-button hero-button-secondary"
-              href="tel:+12406606158"
-              aria-label="Call Anes Mehai at 240-660-6158"
-            >
-              <svg class="inline-icon" aria-hidden="true" viewBox="0 0 24 24">
-                <path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-4-1-2 2c-4-1.5-7.5-5-9-9l2-2-1-4z" />
-              </svg>
-              (240) 660-6158
+              Explore my work
+              <span aria-hidden="true">↘</span>
             </a>
             <a
               class="hero-button hero-button-secondary"
               href="portfolio/assets/files/Anes-Mehai-SWE-2025-Resume.pdf"
               download="Anes-Mehai-Resume.pdf"
             >
-              Download Resume
-              <span aria-hidden="true">↓</span>
+              Download résumé <span aria-hidden="true">↓</span>
             </a>
           </div>
 
@@ -113,31 +105,7 @@
         </div>
 
         <div class="hero-visual">
-          <figure class="profile-card">
-            <div class="profile-image-wrap">
-              <img
-                class="profile-image"
-                src="portfolio/assets/img/ppic.jpg"
-                alt="Portrait of Anes Mehai"
-                width="1344"
-                height="1768"
-              />
-            </div>
-            <figcaption>
-              <span>Anes Mehai</span>
-              <span class="profile-details">
-                <span class="profile-role"
-                  >Software Engineer<br />AI-Assisted Development</span
-                >
-                <span class="profile-credentials">
-                  <span class="profile-credential">U.S. Citizen</span>
-                  <span class="profile-credential">Public Trust Clearance</span>
-                </span>
-              </span>
-            </figcaption>
-          </figure>
-
-          <div class="terminal-wrap" aria-label="Animated engineering profile">
+          <div class="terminal-wrap profile-console" aria-label="Interactive engineering profile">
             <div class="terminal-glow" aria-hidden="true"></div>
             <div class="terminal">
               <div class="terminal-bar">
@@ -146,16 +114,45 @@
                   <span></span>
                   <span></span>
                 </div>
-                <p>anes@portfolio: ~</p>
+                <p>anes@portfolio / profile</p>
                 <span class="terminal-status">● online</span>
               </div>
-              <div
-                id="terminal-output"
-                class="terminal-body"
-                role="log"
-                aria-live="off"
-                aria-label="Terminal animation showing engineering specialties"
-              ></div>
+              <div class="console-tabs" role="tablist" aria-label="Profile details">
+                <button class="console-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="console-overview" id="tab-overview" data-console-tab="overview">01 / Overview</button>
+                <button class="console-tab" type="button" role="tab" aria-selected="false" aria-controls="console-impact" id="tab-impact" data-console-tab="impact">02 / Impact</button>
+                <button class="console-tab" type="button" role="tab" aria-selected="false" aria-controls="console-stack" id="tab-stack" data-console-tab="stack">03 / Stack</button>
+              </div>
+              <div class="terminal-body console-body">
+                <div class="console-panel" id="console-overview" role="tabpanel" aria-labelledby="tab-overview" data-console-panel="overview">
+                  <p><span class="terminal-prompt">$</span> cat recruiter-summary.json</p>
+                  <pre>{
+  <span>"role"</span>: "Software Engineer",
+  <span>"experience"</span>: "7+ years",
+  <span>"strengths"</span>: [
+    "Java + Spring",
+    "modernization",
+    "accessible delivery"
+  ]
+}</pre>
+                </div>
+                <div class="console-panel" id="console-impact" role="tabpanel" aria-labelledby="tab-impact" data-console-panel="impact" hidden>
+                  <p><span class="terminal-prompt">$</span> query impact.log</p>
+                  <ul>
+                    <li>Strengthened access control with MFA.</li>
+                    <li>Supported nationwide reporting workflows.</li>
+                    <li>Modernized legacy Java applications.</li>
+                    <li>Delivered Section 508-ready interfaces.</li>
+                  </ul>
+                </div>
+                <div class="console-panel" id="console-stack" role="tabpanel" aria-labelledby="tab-stack" data-console-panel="stack" hidden>
+                  <p><span class="terminal-prompt">$</span> inspect core.stack</p>
+                  <div class="console-stack-list">
+                    <span>Java</span><span>Spring</span><span>SQL</span>
+                    <span>AWS</span><span>GCP</span><span>Docker</span>
+                    <span>CI/CD</span><span>Accessibility</span>
+                  </div>
+                </div>
+              </div>
             </div>
             <p class="terminal-caption">
               <span aria-hidden="true">↳</span>
@@ -165,218 +162,166 @@
         </div>
       </section>
 
-      <section id="about" class="content-section">
-        <div class="section-heading">
-          <p class="eyebrow">About</p>
-          <h2>Practical engineering, polished delivery.</h2>
-        </div>
-        <div class="section-content prose">
-          <p>
-            I am a software engineer who can move between frontend details,
-            backend systems, cloud deployment, QA, documentation, and stakeholder
-            communication. My strongest work happens where reliability,
-            usability, and maintainability all matter.
-          </p>
-          <p>
-            Recently, I have been sharpening an AI-assisted workflow for faster
-            implementation, refactoring, and review while keeping the human
-            engineering standards intact: clear requirements, small modules,
-            accessible interfaces, useful tests, and readable code.
-          </p>
-        </div>
-      </section>
-
-      <section id="experience" class="content-section">
-        <div class="section-heading">
-          <p class="eyebrow">Experience</p>
-          <h2>Seven years shipping across public and private-sector work.</h2>
-        </div>
-        <div class="section-content timeline">
-          <article class="experience-item">
-            <div class="item-header">
-              <h3>Software Engineer II</h3>
-              <p>Department of Labor · Consultant via Alesig Consulting</p>
-              <span>May 2022 - Feb 2025</span>
-            </div>
-            <ul>
-              <li>
-                Implemented MFA with Java Spring Security to strengthen access
-                controls for an internal application handling sensitive data.
-              </li>
-              <li>
-                Helped migrate legacy Struts applications toward Java Spring,
-                improving maintainability, security posture, and performance.
-              </li>
-              <li>
-                Supported nationwide reporting workflows with SQL, Linux,
-                WinSCP, Putty, Git, and GitLab across all states and territories.
-              </li>
-              <li>
-                Performed QA, JUnit testing, code review, requirements writing,
-                and Section 508 accessibility checks.
-              </li>
-            </ul>
-          </article>
-
-          <article class="experience-item">
-            <div class="item-header">
-              <h3>Full-Stack Engineer</h3>
-              <p>Onyx LLC</p>
-              <span>May 2019 - Dec 2021</span>
-            </div>
-            <ul>
-              <li>
-                Deployed and supported application infrastructure on Google
-                Cloud Platform to improve reliability and scalability.
-              </li>
-              <li>
-                Contributed to mobile product development across Swift, Java,
-                Flutter, and Dart.
-              </li>
-              <li>
-                Maintained backend business logic in Python and collaborated
-                across design, engineering, and product needs.
-              </li>
-              <li>
-                Improved release quality through testing, debugging, and
-                cross-functional feature validation.
-              </li>
-            </ul>
-          </article>
-
-          <article class="experience-item">
-            <div class="item-header">
-              <h3>LAMP Stack Developer</h3>
-              <p>Opsmart</p>
-              <span>Jun 2017 - Feb 2019</span>
-            </div>
-            <ul>
-              <li>
-                Maintained and optimized a client-facing website with HTML,
-                JavaScript, PHP, and Linux.
-              </li>
-              <li>
-                Wrote PHPUnit test scripts to catch regressions earlier in the
-                development cycle.
-              </li>
-              <li>
-                Configured CentOS development environments for consistent
-                onboarding and team workflows.
-              </li>
-            </ul>
-          </article>
-        </div>
+      <section class="proof-strip" aria-label="Career highlights">
+        <article><strong>7+ years</strong><span>Shipping production software</span></article>
+        <article><strong>Public-sector systems</strong><span>Security · reporting · accessibility</span></article>
+        <article><strong>Full-stack range</strong><span>Frontend through cloud delivery</span></article>
+        <article><strong>Available</strong><span>Full-time SWE roles</span></article>
       </section>
 
       <section id="projects" class="content-section">
         <div class="section-heading">
           <p class="eyebrow">Selected Work</p>
-          <h2>Projects that show production judgment.</h2>
+          <h2>Evidence, decisions, outcomes.</h2>
+          <p class="section-intro">
+            A closer look at how I frame constraints, make technical choices,
+            and deliver software people can depend on.
+          </p>
         </div>
 
-        <div class="section-content project-grid">
-          <article class="project-card project-card-featured">
-            <div class="project-meta">
-              <span>Production Website</span>
-              <span>Case Study</span>
+        <div class="section-content work-grid">
+          <article class="work-card work-card-featured">
+            <div class="work-card-topline">
+              <span class="work-index">Case study 01</span>
+              <span class="work-status"><span aria-hidden="true"></span> Live in production</span>
             </div>
             <h3>Dr. Sadaf Ijaz MD Website</h3>
-            <p>
-              Client-ready static website for a physician specializing in
-              psychiatric care, medication management, women's mental health,
-              and virtual care.
+            <p class="work-summary">
+              A credible, accessible patient journey built for clarity, trust,
+              performance, and an easy client handoff.
             </p>
-            <ul class="project-points">
-              <li>Built responsive HTML, CSS, and JavaScript pages.</li>
-              <li>Structured content around patient intent and trust signals.</li>
-              <li>Added accessibility, reduced-motion, SEO, and handoff docs.</li>
-            </ul>
-            <div class="project-actions">
-              <a class="btn" href="https://sadafijazmd.com/" target="_blank" rel="noopener noreferrer">
-                Live Site
-                <svg class="inline-icon" aria-hidden="true" viewBox="0 0 24 24">
-                  <path d="M14 5h5v5M19 5l-9 9M19 13v6H5V5h6" />
-                </svg>
+            <dl class="work-evidence">
+              <div><dt>Challenge</dt><dd>Clarify care options and establish patient trust.</dd></div>
+              <div><dt>Decision</dt><dd>Use a fast, dependency-light static architecture.</dd></div>
+              <div><dt>Proof</dt><dd>Responsive production site with accessible paths.</dd></div>
+            </dl>
+            <div class="work-actions">
+              <a class="btn" href="portfolio/case-study-sadaf-ijaz-md.html">
+                Read case study <span aria-hidden="true">→</span>
               </a>
-              <a class="btn btn-secondary" href="portfolio/case-study-sadaf-ijaz-md.html">
-                Case Study
+              <a class="btn btn-secondary" href="https://sadafijazmd.com/" target="_blank" rel="noopener noreferrer">
+                Live site <span aria-hidden="true">↗</span>
               </a>
             </div>
           </article>
 
-          <article class="project-card">
-            <div class="project-meta">
-              <span>Java</span>
-              <span>Security</span>
+          <details class="work-card work-card-compact">
+            <summary>
+              <span class="work-summary-copy">
+                <span class="work-index">Confidential work / 02</span>
+                <strong>Federal Application Modernization</strong>
+                <small>Spring migration · MFA · nationwide reporting · Section 508</small>
+              </span>
+              <span class="summary-plus" aria-hidden="true"></span>
+            </summary>
+            <div class="work-detail-content">
+              <h4>Sanitized technical breakdown</h4>
+              <ul>
+                <li>Moved legacy Struts workflows toward maintainable Spring patterns.</li>
+                <li>Implemented MFA with Spring Security for stronger access control.</li>
+                <li>Supported SQL and Linux reporting workflows across U.S. jurisdictions.</li>
+                <li>Added QA, JUnit, code review, requirements, and accessibility validation.</li>
+              </ul>
             </div>
-            <h3>Federal Application Modernization</h3>
-            <p>
-              Modernized legacy government web application workflows, including
-              Spring migration support, MFA implementation, reporting, QA, and
-              accessibility validation.
-            </p>
+          </details>
+
+          <article class="work-card work-card-demo">
+            <div class="work-card-topline">
+              <span class="work-index">Interactive demo / 03</span>
+              <span class="demo-state" aria-live="polite">Request received</span>
+            </div>
+            <h3>Secure Request Path Explorer</h3>
+            <p class="work-summary">Explore a simplified MFA-protected Spring request flow. Select a stage to inspect its responsibility.</p>
+            <div class="system-flow" aria-label="Interactive secure request path">
+              <button class="flow-node is-active" type="button" data-flow-step="request"><span>01</span>Request</button>
+              <span class="flow-line" aria-hidden="true"></span>
+              <button class="flow-node" type="button" data-flow-step="auth"><span>02</span>MFA gate</button>
+              <span class="flow-line" aria-hidden="true"></span>
+              <button class="flow-node" type="button" data-flow-step="service"><span>03</span>Spring service</button>
+              <span class="flow-line" aria-hidden="true"></span>
+              <button class="flow-node" type="button" data-flow-step="data"><span>04</span>SQL data</button>
+            </div>
+            <div class="flow-inspector">
+              <p class="flow-label">Current responsibility</p>
+              <p id="flow-description">Validate the route, normalize input, and attach request context before authentication.</p>
+              <code id="flow-code">POST /reports/export</code>
+            </div>
           </article>
 
-          <article class="project-card">
-            <div class="project-meta">
-              <span>Mobile</span>
-              <span>Cloud</span>
+          <details class="work-card work-card-compact work-card-mobile">
+            <summary>
+              <span class="work-summary-copy">
+                <span class="work-index">Platform support / 04</span>
+                <strong>Social Mobile Platform Support</strong>
+                <small>Swift · Java · Flutter · Python · Google Cloud Platform</small>
+              </span>
+              <span class="summary-plus" aria-hidden="true"></span>
+            </summary>
+            <div class="work-detail-content">
+              <h4>Cross-platform delivery</h4>
+              <ul>
+                <li>Contributed to mobile feature implementation across native and Flutter stacks.</li>
+                <li>Maintained Python backend business logic supporting product workflows.</li>
+                <li>Supported cloud infrastructure, debugging, testing, and release validation.</li>
+              </ul>
             </div>
-            <h3>Social Mobile Platform Support</h3>
-            <p>
-              Supported cross-platform mobile features and backend logic across
-              Swift, Java, Flutter, Python, and Google Cloud Platform.
-            </p>
-          </article>
-
-          <article class="project-card">
-            <div class="project-meta">
-              <span>Frontend</span>
-              <span>Workflow</span>
-            </div>
-            <h3>Job Search Tooling Concepts</h3>
-            <p>
-              Portfolio roadmap item for recruiter-focused tooling such as job
-              tracking, structured outreach, and lightweight browser automation.
-            </p>
-          </article>
+          </details>
         </div>
+      </section>
 
-        <article id="sadaf-case-study" class="case-study section-content">
-          <div>
-            <p class="eyebrow">Case Study</p>
-            <h3>Dr. Sadaf Ijaz MD Website</h3>
-            <p>
-              The project needed to feel credible, warm, and easy for patients
-              to navigate. I kept the deliverable static and dependency-light so
-              it can be hosted broadly, maintained easily, and handed off without
-              locking the client into a complex build system.
-            </p>
-          </div>
-          <dl class="case-study-grid">
-            <div>
-              <dt>Role</dt>
-              <dd>Frontend implementation, UX structure, accessibility, docs.</dd>
+      <section id="experience" class="content-section experience-section">
+        <div class="section-heading">
+          <p class="eyebrow">Experience</p>
+          <h2>Seven years of practical delivery.</h2>
+          <p class="section-intro">Expand each role for responsibilities, tools, and impact.</p>
+        </div>
+        <div class="section-content experience-list">
+          <details class="experience-row" open>
+            <summary>
+              <span class="experience-date">2022–2025</span>
+              <span class="experience-title"><strong>Software Engineer II</strong><small>Department of Labor · Alesig Consulting</small></span>
+              <span class="experience-toggle">View impact <span aria-hidden="true">+</span></span>
+            </summary>
+            <div class="experience-impact">
+              <ul>
+                <li>Implemented MFA with Java Spring Security for sensitive internal systems.</li>
+                <li>Supported legacy Struts-to-Spring modernization and nationwide reporting.</li>
+                <li>Performed JUnit testing, code review, requirements work, QA, and Section 508 checks.</li>
+              </ul>
+              <p class="experience-tools">Java · Spring Security · SQL · Linux · GitLab · JUnit</p>
             </div>
-            <div>
-              <dt>Stack</dt>
-              <dd>HTML5, CSS3, vanilla JavaScript, static assets.</dd>
+          </details>
+          <details class="experience-row">
+            <summary>
+              <span class="experience-date">2019–2021</span>
+              <span class="experience-title"><strong>Full-Stack Engineer</strong><small>Onyx LLC</small></span>
+              <span class="experience-toggle">View impact <span aria-hidden="true">+</span></span>
+            </summary>
+            <div class="experience-impact">
+              <ul>
+                <li>Deployed and supported application infrastructure on Google Cloud Platform.</li>
+                <li>Contributed across Swift, Java, Flutter, Dart, and Python product surfaces.</li>
+                <li>Improved release quality through testing, debugging, and feature validation.</li>
+              </ul>
+              <p class="experience-tools">GCP · Swift · Java · Flutter · Dart · Python</p>
             </div>
-            <div>
-              <dt>Decisions</dt>
-              <dd>Small JS modules, standalone SEO pages, reduced-motion support.</dd>
+          </details>
+          <details class="experience-row">
+            <summary>
+              <span class="experience-date">2017–2019</span>
+              <span class="experience-title"><strong>LAMP Stack Developer</strong><small>Opsmart</small></span>
+              <span class="experience-toggle">View impact <span aria-hidden="true">+</span></span>
+            </summary>
+            <div class="experience-impact">
+              <ul>
+                <li>Maintained and optimized a client-facing LAMP website.</li>
+                <li>Wrote PHPUnit scripts to catch regressions earlier.</li>
+                <li>Configured CentOS environments for consistent team workflows.</li>
+              </ul>
+              <p class="experience-tools">HTML · JavaScript · PHP · PHPUnit · Linux · CentOS</p>
             </div>
-            <div>
-              <dt>Outcome</dt>
-              <dd>Production-ready site with clear service, bio, booking, and contact paths.</dd>
-            </div>
-          </dl>
-          <div class="case-study-actions">
-            <a class="btn" href="portfolio/case-study-sadaf-ijaz-md.html">
-              Read Full Case Study
-            </a>
-          </div>
-        </article>
+          </details>
+        </div>
       </section>
 
       <section id="skills" class="content-section">
@@ -394,13 +339,58 @@
             <p>Spring Boot, React, Maven, Hibernate, JPA, Selenium</p>
           </article>
           <article>
-            <h3>Cloud & Tools</h3>
+            <h3>Cloud &amp; Tools</h3>
             <p>AWS, GCP, Docker, Git, GitLab, Jenkins, Linux, CI/CD</p>
           </article>
           <article>
             <h3>Quality</h3>
             <p>JUnit, PHPUnit, accessibility, Section 508, QA, code review</p>
           </article>
+        </div>
+      </section>
+
+      <section id="about" class="content-section about-section">
+        <div class="section-heading">
+          <p class="eyebrow">About</p>
+          <h2>Practical engineering, polished delivery.</h2>
+        </div>
+        <div class="section-content about-grid">
+          <figure class="about-portrait">
+            <div class="about-image-frame">
+              <img
+                src="portfolio/assets/img/ppic.jpg"
+                alt="Portrait of Anes Mehai"
+                width="1344"
+                height="1768"
+              />
+            </div>
+            <figcaption>
+              <strong>Anes Mehai</strong>
+              <span>Software Engineer</span>
+            </figcaption>
+          </figure>
+          <div class="about-copy">
+            <p class="about-lead">
+              I work comfortably across frontend detail, backend systems,
+              cloud delivery, QA, documentation, and stakeholder communication.
+            </p>
+            <p>
+              My strongest work happens where reliability, usability, and
+              maintainability all matter. I favor clear requirements, focused
+              modules, accessible interfaces, useful tests, and code the next
+              engineer can understand.
+            </p>
+            <p>
+              I also use AI-assisted development to accelerate implementation,
+              refactoring, and review while keeping engineering judgment and
+              verification firmly human-led.
+            </p>
+            <ul class="about-credentials" aria-label="Professional credentials">
+              <li>U.S. Citizen</li>
+              <li>Public Trust Clearance</li>
+              <li>BS Computer Science</li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -450,13 +440,14 @@
           <p class="eyebrow">Contact</p>
           <h2>Open to software engineering roles.</h2>
         </div>
-        <div class="section-content contact-panel">
+        <div class="section-content contact-panel contact-panel-redesign">
+          <p class="contact-kicker">Let’s build something dependable.</p>
           <p>
-            I am looking for full-time SWE opportunities where I can contribute
-            across frontend, backend, full-stack product work, modernization, or
-            AI-assisted development workflows.
+            I’m looking for full-time software engineering roles where I can
+            contribute across Java, Spring, full-stack delivery, modernization,
+            cloud systems, and accessible product work.
           </p>
-          <div class="hero-actions">
+          <div class="contact-actions">
             <a class="btn" href="mailto:nessworkdc@gmail.com">
               <svg class="inline-icon" aria-hidden="true" viewBox="0 0 24 24">
                 <path d="M4 6h16v12H4zM4 7l8 6 8-6" />
@@ -469,6 +460,12 @@
               </svg>
               (240) 660-6158
             </a>
+            <button class="btn btn-secondary copy-email" type="button" data-copy-email="nessworkdc@gmail.com">
+              <svg class="inline-icon" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M8 8h11v11H8zM5 16H4V4h12v1" />
+              </svg>
+              <span>Copy email</span>
+            </button>
           </div>
           <ul class="social-links" aria-label="Professional links">
             <li>
