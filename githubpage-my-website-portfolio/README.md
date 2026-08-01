@@ -1,91 +1,52 @@
-# githubpage-portfolio
-Portfolio hosted on Github page
-
 # Portfolio Website
 
-A personal portfolio website for showcasing the skills, experience, and projects of **Anes Mehai**, a Full-Stack Software Engineer. This responsive and modern website highlights professional achievements, technical expertise, and creative endeavors, including photography.
+A responsive, framework-free portfolio for software engineer Anes Mehai. The site highlights professional experience, selected projects, technical skills, a production case study, and photography.
+
+Live site: [devness.dev](https://www.devness.dev)
 
 ## Features
 
-- **Responsive Design**: Optimized for desktop and mobile devices.
-- **Downloadable Resume**: Provides a downloadable PDF of the resume.
-- **Projects Showcase**: Highlights key projects with links to GitHub repositories.
-- **Skills Section**: Lists technical skills, tools, and frameworks.
-- **Experience Timeline**: Details professional roles and accomplishments.
-- **Photography Section**: Displays a carousel of personal photography.
-- **Contact Section**: Includes email, LinkedIn, GitHub, and phone details.
-- **Dark/Light Theme Toggle**: Allows users to switch between themes.
+- Responsive layout for desktop and mobile
+- Persistent dark and light themes
+- Accessible navigation, controls, and reduced-motion support
+- Animated engineering profile with a static reduced-motion fallback
+- Local photography carousel
+- Downloadable résumé
+- Dedicated project case study
 
-## Technologies Used
+## Technology
 
-- **Frontend**:
-  - HTML5
-  - CSS3 (with custom styles in `style.css`)
-  - JavaScript (for interactivity and dynamic elements)
-- **Icons**: Font Awesome for icons.
-- **Hosting**: GitHub Pages for static website hosting.
-- **Version Control**: Git & GitHub.
+The project uses semantic HTML, modern CSS, inline SVG icons, and native JavaScript modules. It has no runtime package dependencies or build step and is hosted with GitHub Pages.
 
-## Sections Overview
+## Run locally
 
-### 1. **About**
-- Introduces Anes Mehai with a professional summary.
-- Includes a headshot and links to email, LinkedIn, GitHub, and a downloadable resume.
+Clone the repository, then serve its root directory with any static HTTP server. For example:
 
-### 2. **Experience**
-- Lists professional roles with detailed accomplishments.
-- Highlights technical contributions and impact in each role.
+```bash
+python3 -m http.server 8000
+```
 
-### 3. **Projects**
-- Showcases key projects with brief descriptions and GitHub links.
-- Includes a variety of projects, such as web apps, mobile apps, and more.
+Open `http://localhost:8000`. Serving over HTTP is recommended because the JavaScript entry point uses ES modules.
 
-### 4. **Skills**
-- Categorized list of technical skills, frameworks, tools, and platforms.
+## Test
 
-### 5. **Education**
-- Details academic background, including degree and graduation date.
+The smoke test checks important content, assets, JavaScript behavior, responsive hero rules, and carousel coverage:
 
-### 6. **Photography**
-- Displays a carousel of personal photography hosted on AWS S3.
+```bash
+npm test
+```
 
-### 7. **Contact**
-- Provides contact details, including email, LinkedIn, GitHub, and phone number.
+## Structure
 
-## Getting Started
+- `index.html` — main portfolio
+- `portfolio/case-study-sadaf-ijaz-md.html` — project case study
+- `portfolio/assets/css/style.css` — shared site styles
+- `portfolio/assets/js/main.js` — JavaScript entry point
+- `portfolio/assets/img/` — portfolio and photography images
+- `hero-prototype.html` — retained standalone hero design prototype
+- `tests/site-smoke.test.mjs` — dependency-free smoke test
 
-### Prerequisites
-- A modern web browser (Chrome, Firefox, etc.).
+## Deployment
 
-### Running Locally
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/devness-portfolio/githubpage-portfolio.git
-   cd githubpage-portfolio
-
-   Open index.html in your browser to view the site.
-Deployment
-The website is hosted on GitHub Pages. To deploy:
-
-Push your changes to the main branch.
-Enable GitHub Pages in your repository settings, choosing the main branch and / (root) as the source.
-
-Future Enhancements
-Live Demo Links: Add live demo links for projects.
-Backend Integration: Implement a contact form with backend support.
-Performance Optimization: Minify CSS and JavaScript files.
-Accessibility Improvements: Ensure WCAG compliance.
-
-License
-This project is licensed under the MIT License. Feel free to use and modify it as needed.
-
-Contact
-For any questions or contributions, feel free to reach out:
-
-Email: nessworkdc@gmail.com
-LinkedIn: linkedin.com/in/anes-mehai
-GitHub: github.com/devness-portfolio
-
-
-
+GitHub Pages publishes the static files directly. Push updates to the configured Pages branch; no compilation step is required.
 

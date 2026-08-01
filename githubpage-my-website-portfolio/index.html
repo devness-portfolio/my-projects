@@ -10,12 +10,10 @@
     <title>Anes Mehai | Software Engineer</title>
     <link
       rel="icon"
-      href="./portfolio/assets/img/devness-favicon.ico"
-      type="image/x-icon"
+      href="./portfolio/assets/img/devness-logo-transparent.svg"
+      type="image/svg+xml"
     />
     <link rel="stylesheet" href="portfolio/assets/css/style.css" />
-    <link rel="stylesheet" href="portfolio/assets/css/hero-live.css" />
-    <link rel="stylesheet" href="portfolio/assets/fontawesome/css/all.min.css" />
   </head>
   <body>
     <header class="site-header">
@@ -45,8 +43,8 @@
           <span class="sr-only">Toggle dark mode</span>
           <input type="checkbox" id="theme-toggle" />
           <span class="slider round" aria-hidden="true">
-            <span class="icon sun"><i class="fas fa-sun"></i></span>
-            <span class="icon moon"><i class="fas fa-moon"></i></span>
+            <span class="icon sun" aria-hidden="true">☀</span>
+            <span class="icon moon" aria-hidden="true">☾</span>
           </span>
         </label>
       </div>
@@ -80,7 +78,9 @@
               href="mailto:nessworkdc@gmail.com"
               aria-label="Email Anes Mehai at nessworkdc@gmail.com"
             >
-              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <svg class="inline-icon" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M4 6h16v12H4zM4 7l8 6 8-6" />
+              </svg>
               nessworkdc@gmail.com
             </a>
             <a
@@ -88,7 +88,9 @@
               href="tel:+12406606158"
               aria-label="Call Anes Mehai at 240-660-6158"
             >
-              <i class="fas fa-phone" aria-hidden="true"></i>
+              <svg class="inline-icon" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-4-1-2 2c-4-1.5-7.5-5-9-9l2-2-1-4z" />
+              </svg>
               (240) 660-6158
             </a>
             <a
@@ -292,7 +294,9 @@
             <div class="project-actions">
               <a class="btn" href="https://sadafijazmd.com/" target="_blank" rel="noopener noreferrer">
                 Live Site
-                <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                <svg class="inline-icon" aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M14 5h5v5M19 5l-9 9M19 13v6H5V5h6" />
+                </svg>
               </a>
               <a class="btn btn-secondary" href="portfolio/case-study-sadaf-ijaz-md.html">
                 Case Study
@@ -420,13 +424,21 @@
         <div class="section-content">
           <div class="carousel-container">
             <div class="carousel-slide">
-              <img id="carousel-image" src="" alt="Photography showcase" />
+              <img
+                id="carousel-image"
+                src="portfolio/assets/img/photography/dsc00236.jpg"
+                alt="Night waterfront scene with glowing blue and orange lights"
+              />
             </div>
             <button class="carousel-button prev" id="prevBtn" type="button" aria-label="Previous photo">
-              <i class="fas fa-chevron-left" aria-hidden="true"></i>
+              <svg class="inline-icon" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="m15 18-6-6 6-6" />
+              </svg>
             </button>
             <button class="carousel-button next" id="nextBtn" type="button" aria-label="Next photo">
-              <i class="fas fa-chevron-right" aria-hidden="true"></i>
+              <svg class="inline-icon" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="m9 18 6-6-6-6" />
+              </svg>
             </button>
             <div class="carousel-dots" aria-label="Photography carousel pagination"></div>
           </div>
@@ -446,24 +458,26 @@
           </p>
           <div class="hero-actions">
             <a class="btn" href="mailto:nessworkdc@gmail.com">
-              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <svg class="inline-icon" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M4 6h16v12H4zM4 7l8 6 8-6" />
+              </svg>
               nessworkdc@gmail.com
             </a>
             <a class="btn btn-secondary" href="tel:+12406606158">
-              <i class="fas fa-phone" aria-hidden="true"></i>
+              <svg class="inline-icon" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-4-1-2 2c-4-1.5-7.5-5-9-9l2-2-1-4z" />
+              </svg>
               (240) 660-6158
             </a>
           </div>
           <ul class="social-links" aria-label="Professional links">
             <li>
               <a href="https://www.linkedin.com/in/anes-mehai/" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-linkedin" aria-hidden="true"></i>
                 LinkedIn
               </a>
             </li>
             <li>
               <a href="https://github.com/devness-portfolio" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-github" aria-hidden="true"></i>
                 GitHub
               </a>
             </li>
@@ -472,7 +486,9 @@
                 href="portfolio/assets/files/Anes-Mehai-SWE-2025-Resume.pdf"
                 download="Anes-Mehai-SWE-2025-Resume.pdf"
               >
-                <i class="fas fa-file-arrow-down" aria-hidden="true"></i>
+                <svg class="inline-icon" aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M6 3h8l4 4v14H6zM14 3v5h5M12 11v6m-3-3 3 3 3-3" />
+                </svg>
                 Resume PDF
               </a>
             </li>
