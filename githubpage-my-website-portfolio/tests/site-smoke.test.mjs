@@ -43,7 +43,7 @@ assert.match(html, /class="profile-credential">U\.S\. Citizen/);
 assert.match(html, /class="profile-credential">Public Trust Clearance/);
 assert.match(html, /Software Engineer<br \/>AI-Assisted Development/);
 assert.match(html, /src="portfolio\/assets\/img\/devness-logo-transparent\.svg"/);
-assert.match(logoSvg, /stroke="#16845b"/);
+assert.match(logoSvg, /stroke="#5ee6a8"/);
 assert.match(logoSvg, /<path d="M92 29 78 151" \/>/);
 assert.match(css, /\.brand-logo-frame\s*\{[^}]*background-color: var\(--primary-color\)/);
 assert.match(
