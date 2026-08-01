@@ -1,20 +1,39 @@
 import assert from "node:assert/strict";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { getNextIndex, photographyImages } from "../portfolio/assets/js/carousel.js";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const readProjectFile = (path) => readFileSync(join(root, path), "utf8");
 
+function assertLocalReferencesExist(htmlPath, source) {
+  const references = [...source.matchAll(/\b(?:href|src)="([^"]+)"/g)]
+    .map((match) => match[1])
+    .filter(
+      (reference) =>
+        reference &&
+        !reference.startsWith("#") &&
+        !/^(?:https?:|mailto:|tel:)/.test(reference),
+    );
+
+  references.forEach((reference) => {
+    const assetPath = reference.split(/[?#]/, 1)[0];
+    assert.ok(
+      existsSync(join(root, dirname(htmlPath), assetPath)),
+      `Missing local reference in ${htmlPath}: ${reference}`,
+    );
+  });
+}
+
 const html = readProjectFile("index.html");
 const sadafCaseStudyHtml = readProjectFile("portfolio/case-study-sadaf-ijaz-md.html");
 const css = readProjectFile("portfolio/assets/css/style.css");
-const heroLiveCss = readProjectFile("portfolio/assets/css/hero-live.css");
 const mainJs = readProjectFile("portfolio/assets/js/main.js");
 const heroJs = readProjectFile("portfolio/assets/js/hero.js");
 const heroPrototypeHtml = readProjectFile("hero-prototype.html");
 const heroPrototypeCss = readProjectFile("portfolio/assets/css/hero-prototype.css");
+const logoSvg = readProjectFile("portfolio/assets/img/devness-logo-transparent.svg");
 const heroPrototypeJs = readProjectFile("portfolio/assets/js/hero-prototype.js");
 
 assert.match(html, /<section class="hero portfolio-hero"/);
@@ -24,6 +43,17 @@ assert.match(html, /class="profile-credential">U\.S\. Citizen/);
 assert.match(html, /class="profile-credential">Public Trust Clearance/);
 assert.match(html, /Software Engineer<br \/>AI-Assisted Development/);
 assert.match(html, /src="portfolio\/assets\/img\/devness-logo-transparent\.svg"/);
+assert.match(logoSvg, /stroke="#16845b"/);
+assert.match(logoSvg, /<path d="M92 29 78 151" \/>/);
+assert.match(css, /\.brand-logo-frame\s*\{[^}]*background-color: var\(--primary-color\)/);
+assert.match(
+  heroPrototypeCss,
+  /\.brand-logo-frame\s*\{[^}]*background-color: var\(--green\)/,
+);
+assert.match(
+  html,
+  /rel="icon"[\s\S]*href="\.\/portfolio\/assets\/img\/devness-logo-transparent\.svg"[\s\S]*type="image\/svg\+xml"/
+);
 assert.match(html, /class="brand-wordmark"[^>]*>devness</);
 assert.match(html, /download="Anes-Mehai-Resume\.pdf"/);
 assert.match(html, /href="mailto:nessworkdc@gmail\.com"/);
@@ -33,29 +63,38 @@ assert.match(html, /https:\/\/sadafijazmd\.com\//);
 assert.match(html, /id="sadaf-case-study"/);
 assert.match(html, /portfolio\/case-study-sadaf-ijaz-md\.html/);
 assert.match(html, /type="module" src="portfolio\/assets\/js\/main\.js"/);
+assert.doesNotMatch(html, /fontawesome|class="(?:fas|fab|far)\b/);
+assert.match(html, /class="inline-icon"/);
 assert.doesNotMatch(html, /\[Brief description|\[Link to GitHub Repo/);
+assertLocalReferencesExist("index.html", html);
 
 assert.match(sadafCaseStudyHtml, /<title>Case Study \| Dr\. Sadaf Ijaz MD Website<\/title>/);
 assert.match(sadafCaseStudyHtml, /View Live Site/);
 assert.match(sadafCaseStudyHtml, /Client-ready static deliverable/);
 assert.match(sadafCaseStudyHtml, /type="module" src="assets\/js\/main\.js"/);
 assert.doesNotMatch(sadafCaseStudyHtml, /\[Brief description|\[Link to GitHub Repo/);
+assertLocalReferencesExist(
+  "portfolio/case-study-sadaf-ijaz-md.html",
+  sadafCaseStudyHtml,
+);
 
 assert.match(css, /--primary-color:/);
 assert.match(css, /\.project-card-featured/);
 assert.match(css, /\.case-hero/);
 assert.match(css, /\.carousel-slide-contained/);
+assert.match(css, /\.portfolio-hero/);
+assert.match(css, /\.terminal-glow/);
+assert.match(css, /\.inline-icon/);
 assert.doesNotMatch(css, /letter-spacing:\s*-/);
+assert.doesNotMatch(css, /\.(?:brand-mark|btn-muted|headshot|hero-media|signal-list)\b/);
 
 assert.match(mainJs, /setupTheme\(\)/);
 assert.match(mainJs, /setupHero\(\)/);
 assert.match(mainJs, /setupCarousel\(\)/);
 assert.match(heroJs, /deploy --target public-sector/);
 assert.match(heroJs, /prefers-reduced-motion: reduce/);
-assert.match(heroLiveCss, /\.portfolio-hero/);
-assert.match(heroLiveCss, /\.terminal-glow/);
 assert.match(
-  heroLiveCss,
+  css,
   /@media \(max-width: 540px\)[\s\S]*?\.profile-image-wrap\s*\{[^}]*align-self: center;[^}]*aspect-ratio: 4 \/ 5;[^}]*height: auto;[^}]*width: clamp\(9\.37125rem, 41\.895vw, 11\.57625rem\);/,
 );
 
@@ -87,6 +126,7 @@ assert.match(
   /href="portfolio\/assets\/files\/Anes-Mehai-SWE-2025-Resume\.pdf"/,
 );
 assert.match(heroPrototypeHtml, /download="Anes-Mehai-Resume\.pdf"/);
+assertLocalReferencesExist("hero-prototype.html", heroPrototypeHtml);
 assert.ok(
   existsSync(join(root, "portfolio/assets/files/Anes-Mehai-SWE-2025-Resume.pdf")),
   "Missing downloadable résumé",

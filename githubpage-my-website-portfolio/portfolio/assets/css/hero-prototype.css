@@ -117,22 +117,22 @@ footer {
 }
 
 .brand-logo-frame {
+  background-color: var(--green);
   display: block;
   flex: 0 0 auto;
   height: 2rem;
+  -webkit-mask: url("../img/devness-logo-transparent.svg") center / contain no-repeat;
+  mask: url("../img/devness-logo-transparent.svg") center / contain no-repeat;
   transform: translateY(-0.14rem);
+  transition: background-color 220ms ease;
   width: 1.9rem;
 }
 
 .brand-logo {
   display: block;
   height: 100%;
-  transition: filter 220ms ease;
+  opacity: 0;
   width: 100%;
-}
-
-[data-theme="dark"] .brand-logo {
-  filter: invert(1);
 }
 
 .brand-wordmark {
