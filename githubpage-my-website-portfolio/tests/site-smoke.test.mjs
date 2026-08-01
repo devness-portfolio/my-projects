@@ -33,7 +33,8 @@ const mainJs = readProjectFile("portfolio/assets/js/main.js");
 const heroJs = readProjectFile("portfolio/assets/js/hero.js");
 const heroPrototypeHtml = readProjectFile("hero-prototype.html");
 const heroPrototypeCss = readProjectFile("portfolio/assets/css/hero-prototype.css");
-const logoSvg = readProjectFile("portfolio/assets/img/devness-logo-transparent.svg");
+const logoV1Svg = readProjectFile("portfolio/assets/img/devness-logo-v1.svg");
+const logoV2Svg = readProjectFile("portfolio/assets/img/devness-logo-v2.svg");
 const heroPrototypeJs = readProjectFile("portfolio/assets/js/hero-prototype.js");
 
 assert.match(html, /<section class="hero portfolio-hero"/);
@@ -42,9 +43,12 @@ assert.match(html, /id="terminal-output"/);
 assert.match(html, /class="profile-credential">U\.S\. Citizen/);
 assert.match(html, /class="profile-credential">Public Trust Clearance/);
 assert.match(html, /Software Engineer<br \/>AI-Assisted Development/);
-assert.match(html, /src="portfolio\/assets\/img\/devness-logo-transparent\.svg"/);
-assert.match(logoSvg, /stroke="#5ee6a8"/);
-assert.match(logoSvg, /<path d="M92 29 78 151" \/>/);
+assert.match(html, /src="portfolio\/assets\/img\/devness-logo-v2\.svg"/);
+assert.match(logoV1Svg, /<title id="devness-logo-title">Devness<\/title>/);
+assert.match(logoV1Svg, /<path d="M92 29 78 151" \/>/);
+assert.match(logoV2Svg, /stroke="#5ee6a8"/);
+assert.match(logoV2Svg, /M58 42 20 90l38 48M122 42l38 48-38 48/);
+assert.equal((logoV2Svg.match(/<circle /g) || []).length, 3);
 assert.match(css, /\.brand-logo-frame\s*\{[^}]*background-color: var\(--primary-color\)/);
 assert.match(
   heroPrototypeCss,
@@ -52,9 +56,10 @@ assert.match(
 );
 assert.match(
   html,
-  /rel="icon"[\s\S]*href="\.\/portfolio\/assets\/img\/devness-logo-transparent\.svg"[\s\S]*type="image\/svg\+xml"/
+  /rel="icon"[\s\S]*href="\.\/portfolio\/assets\/img\/devness-logo-v2\.svg"[\s\S]*type="image\/svg\+xml"/
 );
 assert.match(html, /class="brand-wordmark"[^>]*>devness</);
+assert.match(html, /class="footer-logo" aria-hidden="true"/);
 assert.match(html, /download="Anes-Mehai-Resume\.pdf"/);
 assert.match(html, /href="mailto:nessworkdc@gmail\.com"/);
 assert.match(html, /href="tel:\+12406606158"/);
@@ -72,6 +77,7 @@ assert.match(sadafCaseStudyHtml, /<title>Case Study \| Dr\. Sadaf Ijaz MD Websit
 assert.match(sadafCaseStudyHtml, /View Live Site/);
 assert.match(sadafCaseStudyHtml, /Client-ready static deliverable/);
 assert.match(sadafCaseStudyHtml, /type="module" src="assets\/js\/main\.js"/);
+assert.match(sadafCaseStudyHtml, /class="footer-logo" aria-hidden="true"/);
 assert.doesNotMatch(sadafCaseStudyHtml, /\[Brief description|\[Link to GitHub Repo/);
 assertLocalReferencesExist(
   "portfolio/case-study-sadaf-ijaz-md.html",
@@ -102,7 +108,7 @@ assert.match(heroPrototypeHtml, /Building dependable software for/);
 assert.match(heroPrototypeHtml, /id="terminal-output"/);
 assert.match(heroPrototypeHtml, /id="theme-toggle"/);
 assert.match(heroPrototypeHtml, /src="portfolio\/assets\/img\/ppic\.jpg"/);
-assert.match(heroPrototypeHtml, /src="portfolio\/assets\/img\/devness-logo-transparent\.svg"/);
+assert.match(heroPrototypeHtml, /src="portfolio\/assets\/img\/devness-logo-v2\.svg"/);
 assert.match(heroPrototypeHtml, /class="brand-wordmark"[^>]*>devness</);
 assert.match(heroPrototypeHtml, /alt="Portrait of Anes Mehai"/);
 assert.match(heroPrototypeHtml, /Software Engineer<br \/>AI-Assisted Development/);

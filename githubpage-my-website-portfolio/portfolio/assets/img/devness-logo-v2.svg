@@ -1,0 +1,27 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 180 180"
+  role="img"
+  aria-labelledby="devness-logo-v2-title"
+>
+  <title id="devness-logo-v2-title">Devness Neural Code</title>
+  <g
+    fill="none"
+    stroke="#5ee6a8"
+    stroke-linejoin="miter"
+  >
+    <path
+      d="M58 42 20 90l38 48M122 42l38 48-38 48"
+      stroke-linecap="square"
+      stroke-width="16"
+    />
+    <path
+      d="M80 132 100 48M90 90h18"
+      stroke-linecap="round"
+      stroke-width="7"
+    />
+    <circle cx="80" cy="132" r="7" stroke-width="6" />
+    <circle cx="100" cy="48" r="7" stroke-width="6" />
+    <circle cx="108" cy="90" r="7" stroke-width="6" />
+  </g>
+</svg>
