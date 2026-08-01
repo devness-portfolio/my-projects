@@ -121,8 +121,8 @@ footer {
   display: block;
   flex: 0 0 auto;
   height: 2rem;
-  -webkit-mask: url("../img/devness-logo-transparent.svg") center / contain no-repeat;
-  mask: url("../img/devness-logo-transparent.svg") center / contain no-repeat;
+  -webkit-mask: url("../img/devness-logo-v2.svg") center / contain no-repeat;
+  mask: url("../img/devness-logo-v2.svg") center / contain no-repeat;
   transform: translateY(-0.14rem);
   transition: background-color 220ms ease;
   width: 1.9rem;
