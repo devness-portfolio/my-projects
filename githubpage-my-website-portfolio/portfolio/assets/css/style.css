@@ -891,7 +891,10 @@ body.dark-mode .btn-secondary:focus-visible {
 }
 
 .social-links a {
+  align-items: center;
   color: var(--text-color);
+  display: inline-flex;
+  gap: 0.38rem;
   font-weight: 800;
   text-decoration: none;
 }
@@ -934,6 +937,42 @@ body.dark-mode .btn-secondary:focus-visible {
   -webkit-mask: url("../img/devness-logo-v2.svg") center / contain no-repeat;
   mask: url("../img/devness-logo-v2.svg") center / contain no-repeat;
   width: 0.92rem;
+}
+
+.footer-socials {
+  align-items: center;
+  display: flex;
+  gap: 0.55rem;
+  justify-content: center;
+  margin-top: 0.85rem;
+}
+
+.footer-socials a {
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  color: var(--text-muted);
+  display: inline-flex;
+  height: 2.25rem;
+  justify-content: center;
+  transition:
+    border-color var(--transition-speed) ease,
+    color var(--transition-speed) ease,
+    transform var(--transition-speed) ease;
+  width: 2.25rem;
+}
+
+.footer-socials a:hover,
+.footer-socials a:focus-visible {
+  border-color: var(--primary-color);
+  color: var(--primary-bright);
+  transform: translateY(-2px);
+}
+
+.social-icon {
+  fill: currentColor;
+  height: 1.1rem;
+  width: 1.1rem;
 }
 
 @media (max-width: 900px) {
@@ -2443,10 +2482,8 @@ body.dark-mode .header-contact {
 }
 
 .about-image-frame img {
-  aspect-ratio: 4 / 5;
   display: block;
-  object-fit: cover;
-  object-position: center 30%;
+  height: auto;
   transition: transform 500ms ease;
   width: 100%;
 }
@@ -2571,7 +2608,7 @@ body.dark-mode .copy-email.is-copied {
 
   .about-portrait {
     margin-inline: auto;
-    max-width: 18rem;
+    max-width: min(18rem, 82vw);
     width: 100%;
   }
 }
