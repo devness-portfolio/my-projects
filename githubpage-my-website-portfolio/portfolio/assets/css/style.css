@@ -1757,6 +1757,22 @@ body.dark-mode .header-contact {
   padding-top: 1.35rem;
 }
 
+.terminal-identity {
+  border-bottom: 1px solid rgba(185, 227, 210, 0.1);
+  margin-bottom: 1.15rem;
+  padding-bottom: 1rem;
+}
+
+.terminal-identity p {
+  margin: 0;
+}
+
+.terminal-identity-response {
+  color: #cbdbd5;
+  font-weight: 500;
+  padding-left: 1.4rem;
+}
+
 .console-panel > p {
   color: var(--hero-green);
   margin-bottom: 1rem;

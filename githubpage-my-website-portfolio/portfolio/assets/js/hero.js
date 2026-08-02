@@ -13,17 +13,52 @@ function activatePanel(tab, tabs, panels) {
   });
 }
 
+const wait = (duration) =>
+  new Promise((resolve) => window.setTimeout(resolve, duration));
+
+async function runOverviewTyping(transcript, reducedMotion) {
+  const lines = [...transcript.querySelectorAll("[data-typing-line]")];
+  const cursor = transcript.querySelector("[data-typing-cursor]");
+  if (!lines.length || !cursor || reducedMotion.matches) return;
+
+  const textNodes = lines.flatMap((line) => {
+    const walker = document.createTreeWalker(line, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    return nodes;
+  });
+  const text = textNodes.map((node) => node.textContent);
+
+  textNodes.forEach((node) => {
+    node.textContent = "";
+  });
+
+  for (let index = 0; index < textNodes.length; index += 1) {
+    const node = textNodes[index];
+    node.parentNode.insertBefore(cursor, node.nextSibling);
+
+    for (const character of text[index]) {
+      node.textContent += character;
+      await wait(character === "\n" ? 45 : 24);
+    }
+
+    if (text[index].trim()) await wait(80);
+  }
+}
+
 export default function setupHero({
   terminalWrap = document.querySelector(".terminal-wrap"),
   hero = document.querySelector(".portfolio-hero"),
   tabs = [...document.querySelectorAll("[data-console-tab]")],
   panels = [...document.querySelectorAll("[data-console-panel]")],
+  transcript = document.querySelector("[data-overview-transcript]"),
   reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)"),
 } = {}) {
   if (!terminalWrap || !hero) return;
 
   const initialTab = tabs.find((tab) => tab.classList.contains("is-active")) || tabs[0];
   if (initialTab) activatePanel(initialTab, tabs, panels);
+  if (transcript) runOverviewTyping(transcript, reducedMotion);
 
   tabs.forEach((tab, index) => {
     tab.addEventListener("click", () => activatePanel(tab, tabs, panels));
