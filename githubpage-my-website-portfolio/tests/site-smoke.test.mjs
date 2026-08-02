@@ -49,6 +49,10 @@ assert.match(html, /requirements, system design, full-stack implementation/);
 assert.match(html, /AI-assisted development/);
 assert.match(html, /secure, scalable, production-grade systems/);
 assert.match(html, /class="proof-strip"/);
+assert.match(html, /class="career-status-card"/);
+assert.match(html, /<dt>7\+ years<\/dt>\s*<dd>production software<\/dd>/);
+assert.match(html, /<dt>U\.S\. Citizen<\/dt>\s*<dd>Public Trust<\/dd>/);
+assert.match(html, /<dt>Available<\/dt>\s*<dd>full-time<\/dd>/);
 assert.match(html, /data-console-tab="overview"/);
 assert.match(html, /data-console-tab="impact"/);
 assert.match(html, /data-console-tab="stack"/);
@@ -62,8 +66,10 @@ assert.match(
 );
 assert.match(html, /<li>7\+ years of experience<\/li>/);
 assert.match(html, /data-overview-transcript/);
-assert.equal((html.match(/data-typing-line/g) || []).length, 8);
+assert.equal((html.match(/data-typing-line/g) || []).length, 9);
 assert.match(html, /Anes Mehai — Software Engineer/);
+assert.match(html, /"core"<\/span>: "Java · Spring · Cloud"/);
+assert.match(html, /Tap a tab to inspect my work/);
 assert.match(
   html,
   /data-console-panel="overview"[\s\S]*deploy --target public-sector[\s\S]*data-console-panel="impact"/,
@@ -155,6 +161,8 @@ assert.match(css, /\.inline-icon/);
 assert.match(css, /\.footer-socials/);
 assert.match(css, /\.social-icon/);
 assert.match(css, /\.proof-strip/);
+assert.match(css, /\.career-status-card/);
+assert.match(css, /\.console-panel > \.terminal-inspect-hint/);
 assert.match(css, /\.about-grid/);
 assert.match(
   css,
