@@ -70,6 +70,13 @@ assert.match(
 );
 assert.match(html, /class="brand-wordmark"[^>]*>devness</);
 assert.match(html, /class="footer-logo" aria-hidden="true"/);
+assert.match(html, /class="footer-socials" aria-label="Social media"/);
+assert.match(html, /<span class="sr-only">GitHub<\/span>/);
+assert.match(html, /<span class="sr-only">LinkedIn<\/span>/);
+assert.match(
+  html,
+  /class="social-links"[\s\S]*class="social-icon"[\s\S]*LinkedIn[\s\S]*class="social-icon"[\s\S]*GitHub/,
+);
 assert.match(html, /download="Anes-Mehai-Resume\.pdf"/);
 assert.match(html, /href="mailto:nessworkdc@gmail\.com"/);
 assert.match(html, /href="tel:\+12406606158"/);
@@ -94,6 +101,7 @@ assert.match(sadafCaseStudyHtml, /View Live Site/);
 assert.match(sadafCaseStudyHtml, /Client-ready static deliverable/);
 assert.match(sadafCaseStudyHtml, /type="module" src="assets\/js\/main\.js"/);
 assert.match(sadafCaseStudyHtml, /class="footer-logo" aria-hidden="true"/);
+assert.match(sadafCaseStudyHtml, /class="footer-socials" aria-label="Social media"/);
 assert.doesNotMatch(sadafCaseStudyHtml, /\[Brief description|\[Link to GitHub Repo/);
 assertLocalReferencesExist(
   "portfolio/case-study-sadaf-ijaz-md.html",
@@ -107,8 +115,18 @@ assert.match(css, /\.carousel-slide-contained/);
 assert.match(css, /\.portfolio-hero/);
 assert.match(css, /\.terminal-glow/);
 assert.match(css, /\.inline-icon/);
+assert.match(css, /\.footer-socials/);
+assert.match(css, /\.social-icon/);
 assert.match(css, /\.proof-strip/);
 assert.match(css, /\.about-grid/);
+assert.match(
+  css,
+  /\.about-image-frame img\s*\{[^}]*height: auto;[^}]*width: 100%;/s,
+);
+assert.doesNotMatch(
+  css,
+  /\.about-image-frame img\s*\{[^}]*object-fit: cover;/s,
+);
 assert.match(css, /\.scroll-progress/);
 assert.match(css, /prefers-reduced-motion: reduce/);
 assert.doesNotMatch(css, /letter-spacing:\s*-/);
