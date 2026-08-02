@@ -1538,6 +1538,57 @@ body.dark-mode .hero-button-primary {
   color: var(--hero-green);
 }
 
+.career-status-card {
+  background: linear-gradient(145deg, rgba(16, 35, 29, 0.97), rgba(7, 17, 14, 0.99));
+  border: 1px solid rgba(123, 224, 182, 0.24);
+  border-radius: 1.35rem;
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.24),
+    inset 0 1px rgba(255, 255, 255, 0.035);
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr) minmax(0, 0.9fr);
+  margin: 0;
+  overflow: hidden;
+  padding: clamp(1.25rem, 2.4vw, 1.75rem) 0;
+  position: relative;
+}
+
+.career-status-card > div {
+  display: grid;
+  gap: 0.45rem;
+  min-width: 0;
+  padding: 0 clamp(0.7rem, 1.5vw, 1.1rem);
+}
+
+.career-status-card > div + div {
+  border-left: 1px solid rgba(123, 224, 182, 0.22);
+}
+
+.career-status-card dt {
+  color: var(--hero-green);
+  font-size: clamp(1.3rem, 2.35vw, 1.85rem);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.career-status-card > div:nth-child(2) dt {
+  color: #edf8f3;
+}
+
+.career-status-card > div:nth-child(n + 2) dt {
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+}
+
+.career-status-card dd {
+  color: #96aaa2;
+  font-size: clamp(0.75rem, 1.25vw, 0.95rem);
+  line-height: 1.35;
+  margin: 0;
+  white-space: nowrap;
+}
+
 @keyframes hero-blink {
   0%,
   48% {
@@ -1752,6 +1803,11 @@ body.dark-mode .header-contact {
     justify-self: end;
     width: 107%;
   }
+
+  .career-status-card {
+    justify-self: end;
+    width: 107%;
+  }
 }
 
 .console-tabs {
@@ -1832,6 +1888,25 @@ body.dark-mode .header-contact {
 
 .terminal-availability {
   margin-top: 0.25rem;
+}
+
+.console-panel > .terminal-inspect-hint {
+  color: #fff;
+  margin-top: 0.75rem;
+}
+
+.terminal-cursor-underscore {
+  background: transparent;
+  box-shadow: none;
+  color: #fff;
+  height: auto;
+  margin-left: 0;
+  transform: none;
+  width: auto;
+}
+
+.terminal-cursor-underscore::before {
+  content: "_";
 }
 
 .console-panel > p {
@@ -2054,6 +2129,29 @@ body.dark-mode .header-contact {
 
   .terminal-checks {
     gap: 0.1rem 0.65rem;
+  }
+
+  .career-status-card {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .career-status-card > div {
+    gap: 0.25rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .career-status-card > div + div {
+    border-left: 0;
+    border-top: 1px solid rgba(123, 224, 182, 0.22);
+  }
+
+  .career-status-card dt {
+    font-size: 1.3rem;
+  }
+
+  .career-status-card dd {
+    font-size: 0.78rem;
   }
 }
 
