@@ -11,7 +11,7 @@ Live site: [devness.dev](https://www.devness.dev)
 - Accessible navigation, controls, and reduced-motion support
 - Animated engineering profile with a static reduced-motion fallback
 - Local photography carousel
-- Downloadable résumé
+- Downloadable resume
 - Dedicated project case study
 
 ## Technology
@@ -49,4 +49,3 @@ npm test
 ## Deployment
 
 GitHub Pages publishes the static files directly. Push updates to the configured Pages branch; no compilation step is required.
-
