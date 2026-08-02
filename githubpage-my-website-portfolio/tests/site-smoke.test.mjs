@@ -84,7 +84,7 @@ assert.match(html, /legacy modernization/);
 assert.match(html, /Struts-to-Spring modernization/);
 assert.match(html, /Implemented MFA with Spring Security/);
 assert.match(html, /Full-SDLC experience, from requirements to production/);
-assert.match(html, /Modernization and production delivery, demonstrated/);
+assert.match(html, /Proof over promises\./);
 assert.match(html, /src="portfolio\/assets\/img\/ppic\.jpg"/);
 assert.match(html, /<li>U\.S\. Citizen<\/li>/);
 assert.match(html, /<li>Public Trust Clearance<\/li>/);
