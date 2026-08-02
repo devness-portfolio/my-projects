@@ -50,17 +50,21 @@ assert.match(html, /data-console-tab="overview"/);
 assert.match(html, /data-console-tab="impact"/);
 assert.match(html, /data-console-tab="stack"/);
 assert.match(html, /data-console-tab="qualifications"/);
-assert.match(html, /data-console-tab="status"/);
+assert.doesNotMatch(html, /data-console-tab="status"/);
 assert.match(html, /04 \/ Qualifications/);
-assert.match(html, /05 \/ Status/);
+assert.doesNotMatch(html, /05 \/ Status/);
 assert.match(
   html,
   /<li>U\.S\. Citizen<\/li>\s*<li>Public Trust Clearance<\/li>\s*<li>Bachelor of Science in Computer Science<\/li>\s*<li>7\+ years of experience<\/li>/,
 );
 assert.match(html, /<li>7\+ years of experience<\/li>/);
 assert.match(html, /data-overview-transcript/);
-assert.equal((html.match(/data-typing-line/g) || []).length, 4);
+assert.equal((html.match(/data-typing-line/g) || []).length, 8);
 assert.match(html, /Anes Mehai — Software Engineer/);
+assert.match(
+  html,
+  /data-console-panel="overview"[\s\S]*deploy --target public-sector[\s\S]*data-console-panel="impact"/,
+);
 assert.match(html, /deploy --target public-sector/);
 assert.match(html, /✓ secure/);
 assert.match(html, /✓ scalable/);

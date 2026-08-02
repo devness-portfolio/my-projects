@@ -1759,7 +1759,7 @@ body.dark-mode .header-contact {
   border-bottom: 1px solid rgba(185, 227, 210, 0.1);
   display: grid;
   gap: 0.35rem;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   padding: 0.85rem 1rem;
   position: relative;
   z-index: 2;
