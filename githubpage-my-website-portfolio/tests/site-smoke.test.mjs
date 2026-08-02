@@ -42,9 +42,11 @@ const heroPrototypeJs = readProjectFile("portfolio/assets/js/hero-prototype.js")
 
 assert.match(html, /<section class="hero portfolio-hero"/);
 assert.match(html, /<meta name="theme-color" content="#f5f8f6" \/>/);
-assert.match(html, /I modernize complex software into/);
-assert.match(html, /7\+ years of full-SDLC experience/);
-assert.match(html, /requirements and system design through implementation/);
+assert.match(html, /Senior Software Engineer Building/);
+assert.match(html, /Intelligent, Scalable Systems\./);
+assert.match(html, /7\+ years of engineering software from idea to production:/);
+assert.match(html, /requirements, system design, full-stack implementation/);
+assert.match(html, /AI-assisted development/);
 assert.match(html, /secure, scalable, production-grade systems/);
 assert.match(html, /class="proof-strip"/);
 assert.match(html, /data-console-tab="overview"/);
@@ -100,6 +102,14 @@ assert.match(html, /class="footer-logo" aria-hidden="true"/);
 assert.match(html, /class="footer-socials" aria-label="Social media"/);
 assert.match(html, /<span class="sr-only">GitHub<\/span>/);
 assert.match(html, /<span class="sr-only">LinkedIn<\/span>/);
+assert.match(
+  html,
+  /class="footer-socials"[\s\S]*LinkedIn[\s\S]*GitHub/,
+);
+assert.match(
+  sadafCaseStudyHtml,
+  /class="footer-socials"[\s\S]*LinkedIn[\s\S]*GitHub/,
+);
 assert.match(
   html,
   /class="social-links"[\s\S]*class="social-icon"[\s\S]*LinkedIn[\s\S]*class="social-icon"[\s\S]*GitHub/,
