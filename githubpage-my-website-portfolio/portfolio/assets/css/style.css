@@ -1747,12 +1747,19 @@ body.dark-mode .header-contact {
   min-height: 27.75rem;
 }
 
+@media (min-width: 981px) {
+  .profile-console {
+    justify-self: end;
+    width: 107%;
+  }
+}
+
 .console-tabs {
   align-items: center;
   border-bottom: 1px solid rgba(185, 227, 210, 0.1);
   display: grid;
   gap: 0.35rem;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   padding: 0.85rem 1rem;
   position: relative;
   z-index: 2;
@@ -1810,6 +1817,21 @@ body.dark-mode .header-contact {
   color: #cbdbd5;
   font-weight: 500;
   padding-left: 1.4rem;
+}
+
+.terminal-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 1rem;
+  margin: 0.2rem 0 1rem;
+}
+
+.terminal-command-spacer {
+  margin-top: 0.35rem;
+}
+
+.terminal-availability {
+  margin-top: 0.25rem;
 }
 
 .console-panel > p {
@@ -2020,6 +2042,10 @@ body.dark-mode .header-contact {
   .console-body {
     font-size: 0.69rem;
     padding-inline: 0.85rem;
+  }
+
+  .terminal-checks {
+    gap: 0.1rem 0.65rem;
   }
 }
 

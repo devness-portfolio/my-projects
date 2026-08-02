@@ -42,13 +42,17 @@ const heroPrototypeJs = readProjectFile("portfolio/assets/js/hero-prototype.js")
 
 assert.match(html, /<section class="hero portfolio-hero"/);
 assert.match(html, /<meta name="theme-color" content="#f5f8f6" \/>/);
-assert.match(html, /I build reliable software for systems that/);
+assert.match(html, /I turn complex software challenges into/);
+assert.match(html, /Java, Spring\/Spring Boot, and cloud infrastructure/);
+assert.match(html, /the full SDLC/);
 assert.match(html, /class="proof-strip"/);
 assert.match(html, /data-console-tab="overview"/);
 assert.match(html, /data-console-tab="impact"/);
 assert.match(html, /data-console-tab="stack"/);
 assert.match(html, /data-console-tab="qualifications"/);
+assert.match(html, /data-console-tab="status"/);
 assert.match(html, /04 \/ Qualifications/);
+assert.match(html, /05 \/ Status/);
 assert.match(
   html,
   /<li>U\.S\. Citizen<\/li>\s*<li>Public Trust Clearance<\/li>\s*<li>Bachelor of Science in Computer Science<\/li>\s*<li>7\+ years of experience<\/li>/,
@@ -57,6 +61,12 @@ assert.match(html, /<li>7\+ years of experience<\/li>/);
 assert.match(html, /data-overview-transcript/);
 assert.equal((html.match(/data-typing-line/g) || []).length, 4);
 assert.match(html, /Anes Mehai — Software Engineer/);
+assert.match(html, /deploy --target public-sector/);
+assert.match(html, /✓ secure/);
+assert.match(html, /✓ scalable/);
+assert.match(html, /✓ production-grade/);
+assert.match(html, /status --availability/);
+assert.match(html, /ready to build systems that serve people/);
 assert.match(html, /src="portfolio\/assets\/img\/ppic\.jpg"/);
 assert.match(html, /<li>U\.S\. Citizen<\/li>/);
 assert.match(html, /<li>Public Trust Clearance<\/li>/);
