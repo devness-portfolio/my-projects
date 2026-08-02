@@ -42,7 +42,7 @@
     </g>
     <g transform="translate(965 14)">
       <rect width="112" height="48" rx="10" fill="none" stroke="#416354"/>
-      <text x="25" y="30" class="sans white nav">Résumé ↓</text>
+      <text x="25" y="30" class="sans white nav">Resume ↓</text>
       <rect x="124" width="143" height="48" rx="10" fill="url(#accent)"/>
       <text x="151" y="30" class="sans nav" fill="#06110d">Contact me ↗</text>
     </g>
@@ -62,7 +62,7 @@
         <rect width="171" height="54" rx="10" fill="url(#accent)"/>
         <text x="28" y="34" class="sans nav" fill="#06110d">Explore my work ↘</text>
         <rect x="184" width="162" height="54" rx="10" fill="none" stroke="#416354"/>
-        <text x="211" y="34" class="sans white nav">Download résumé</text>
+        <text x="211" y="34" class="sans white nav">Download resume</text>
       </g>
       <g transform="translate(0 385)">
         <text class="mono muted small">JAVA</text><text x="75" class="mono muted small">SPRING</text>
