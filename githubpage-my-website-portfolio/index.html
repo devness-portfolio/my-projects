@@ -49,7 +49,7 @@
           href="portfolio/assets/files/Anes-Mehai-SWE-2025-Resume.pdf"
           download="Anes-Mehai-Resume.pdf"
         >
-          Résumé <span aria-hidden="true">↓</span>
+          Resume <span aria-hidden="true">↓</span>
         </a>
         <a class="header-contact" href="#contact">Contact me <span aria-hidden="true">↗</span></a>
         <div class="theme-switch-wrapper">
@@ -91,7 +91,7 @@
               href="portfolio/assets/files/Anes-Mehai-SWE-2025-Resume.pdf"
               download="Anes-Mehai-Resume.pdf"
             >
-              Download résumé <span aria-hidden="true">↓</span>
+              Download resume <span aria-hidden="true">↓</span>
             </a>
           </div>
 
@@ -124,8 +124,19 @@
               </div>
               <div class="terminal-body console-body">
                 <div class="console-panel" id="console-overview" role="tabpanel" aria-labelledby="tab-overview" data-console-panel="overview">
-                  <p><span class="terminal-prompt">$</span> cat recruiter-summary.json</p>
-                  <pre>{
+                  <p class="sr-only">
+                    Terminal transcript. whoami. Anes Mehai, Software Engineer.
+                    cat recruiter-summary.json. Role: Software Engineer.
+                    Experience: 7+ years. Strengths: Java and Spring,
+                    modernization, and accessible delivery.
+                  </p>
+                  <div data-overview-transcript aria-hidden="true">
+                    <div class="terminal-identity">
+                      <p data-typing-line><span class="terminal-prompt">$</span><span>whoami</span></p>
+                      <p class="terminal-identity-response" data-typing-line>Anes Mehai — Software Engineer</p>
+                    </div>
+                    <p data-typing-line><span class="terminal-prompt">$</span>cat recruiter-summary.json</p>
+                    <pre data-typing-line>{
   <span>"role"</span>: "Software Engineer",
   <span>"experience"</span>: "7+ years",
   <span>"strengths"</span>: [
@@ -133,7 +144,8 @@
     "modernization",
     "accessible delivery"
   ]
-}</pre>
+}<span class="terminal-cursor" data-typing-cursor></span></pre>
+                  </div>
                 </div>
                 <div class="console-panel" id="console-impact" role="tabpanel" aria-labelledby="tab-impact" data-console-panel="impact" hidden>
                   <p><span class="terminal-prompt">$</span> query impact.log</p>

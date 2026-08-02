@@ -47,6 +47,9 @@ assert.match(html, /class="proof-strip"/);
 assert.match(html, /data-console-tab="overview"/);
 assert.match(html, /data-console-tab="impact"/);
 assert.match(html, /data-console-tab="stack"/);
+assert.match(html, /data-overview-transcript/);
+assert.equal((html.match(/data-typing-line/g) || []).length, 4);
+assert.match(html, /Anes Mehai — Software Engineer/);
 assert.match(html, /src="portfolio\/assets\/img\/ppic\.jpg"/);
 assert.match(html, /<li>U\.S\. Citizen<\/li>/);
 assert.match(html, /<li>Public Trust Clearance<\/li>/);
@@ -117,6 +120,7 @@ assert.match(mainJs, /setupWorkDemo\(\)/);
 assert.match(mainJs, /setupUi\(\)/);
 assert.match(mainJs, /setupCarousel\(\)/);
 assert.match(heroJs, /prefers-reduced-motion: reduce/);
+assert.match(heroJs, /runOverviewTyping/);
 assert.match(heroJs, /ArrowLeft/);
 assert.match(workJs, /SecurityFilterChain → MFA/);
 assert.match(uiJs, /IntersectionObserver/);
@@ -156,7 +160,7 @@ assert.match(heroPrototypeHtml, /download="Anes-Mehai-Resume\.pdf"/);
 assertLocalReferencesExist("hero-prototype.html", heroPrototypeHtml);
 assert.ok(
   existsSync(join(root, "portfolio/assets/files/Anes-Mehai-SWE-2025-Resume.pdf")),
-  "Missing downloadable résumé",
+  "Missing downloadable resume",
 );
 assert.match(heroPrototypeCss, /prefers-reduced-motion/);
 assert.match(heroPrototypeCss, /\[data-theme="dark"\]/);
