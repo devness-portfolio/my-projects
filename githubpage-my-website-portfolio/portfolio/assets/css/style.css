@@ -1572,9 +1572,8 @@ body.dark-mode .hero-button-primary {
 }
 
 .hero-technology-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem 1.2rem;
+  display: grid;
+  gap: 0.55rem;
   list-style: none;
   margin: 2.2rem 0 0;
   padding: 0;
@@ -2228,20 +2227,6 @@ body.dark-mode .header-contact {
   color: var(--hero-green);
   content: "✓";
   margin-right: 0.65rem;
-}
-
-.console-stack-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-}
-
-.console-stack-list span {
-  background: rgba(94, 230, 168, 0.08);
-  border: 1px solid rgba(94, 230, 168, 0.2);
-  border-radius: 999px;
-  color: #cbdbd5;
-  padding: 0.42rem 0.68rem;
 }
 
 .proof-strip {
