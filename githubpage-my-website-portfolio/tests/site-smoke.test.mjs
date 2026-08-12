@@ -161,6 +161,7 @@ assert.match(css, /\.work-card-featured/);
 assert.match(css, /\.case-hero/);
 assert.match(css, /\.carousel-slide-contained/);
 assert.match(css, /\.portfolio-hero/);
+assert.match(css, /\.portfolio-hero h1:focus\s*\{[^}]*outline: none;/s);
 assert.match(css, /\.matrix-intro/);
 assert.match(css, /\.matrix-intro\.is-warping/);
 assert.match(css, /\.terminal-glow/);

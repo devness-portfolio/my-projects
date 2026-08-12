@@ -1488,6 +1488,10 @@ body.dark-mode .portfolio-hero {
   max-width: 12ch;
 }
 
+.portfolio-hero h1:focus {
+  outline: none;
+}
+
 .portfolio-hero h1 span {
   color: var(--hero-green);
   display: block;
