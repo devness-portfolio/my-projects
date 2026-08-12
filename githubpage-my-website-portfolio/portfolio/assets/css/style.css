@@ -2721,6 +2721,66 @@ body.dark-mode .copy-email.is-copied {
   z-index: 1100;
 }
 
+/* Compact navigation after the page leaves the top. */
+.site-header.is-compact {
+  gap: 0.45rem;
+  padding-block: 0.38rem;
+  top: 0.45rem;
+  width: min(68rem, calc(100% - 2.5rem));
+}
+
+.site-header.is-compact .brand-logo-frame {
+  height: 1.75rem;
+  width: 1.65rem;
+}
+
+.site-header.is-compact .brand-wordmark {
+  font-size: 1rem;
+}
+
+.site-header.is-compact .main-nav a {
+  font-size: 0.84rem;
+  min-height: 2rem;
+  padding-block: 0.38rem;
+}
+
+.site-header.is-compact .header-resume,
+.site-header.is-compact .header-contact {
+  min-height: 2rem;
+  padding-block: 0.32rem;
+}
+
+.site-header,
+.site-header .brand-logo-frame,
+.site-header .brand-wordmark,
+.site-header .main-nav a,
+.site-header .header-resume,
+.site-header .header-contact {
+  transition-duration: var(--transition-speed);
+  transition-property: background, border-color, box-shadow, color, font-size,
+    gap, height, min-height, padding, top, transform, width;
+  transition-timing-function: ease;
+}
+
+@media (max-width: 680px) {
+  .site-header.is-compact {
+    padding: 0.34rem 0.5rem;
+    top: 0.3rem;
+    width: calc(100% - 1.25rem);
+  }
+
+  .site-header.is-compact .brand-logo-frame {
+    height: 1.6rem;
+    width: 1.5rem;
+  }
+
+  .site-header.is-compact .main-nav a {
+    font-size: 0.82rem;
+    min-height: 1.85rem;
+    padding-inline: 0.22rem;
+  }
+}
+
 .reveal-ready .reveal-target {
   opacity: 0;
   transform: translateY(18px);
@@ -2745,6 +2805,8 @@ body.dark-mode .copy-email.is-copied {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .site-header *,
   .about-image-frame img,
   .reveal-ready .reveal-target {
     transition: none;

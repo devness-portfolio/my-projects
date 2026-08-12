@@ -96,6 +96,26 @@ function setupScrollProgress() {
   window.addEventListener("resize", update);
 }
 
+function setupCompactHeader(root) {
+  const header = root.querySelector(".site-header");
+  if (!header) return;
+
+  let ticking = false;
+  const update = () => {
+    header.classList.toggle("is-compact", window.scrollY > 48);
+    ticking = false;
+  };
+
+  const requestUpdate = () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(update);
+  };
+
+  update();
+  window.addEventListener("scroll", requestUpdate, { passive: true });
+}
+
 export default function setupUi({
   root = document,
   reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)"),
@@ -104,4 +124,5 @@ export default function setupUi({
   setupReveal(root, reducedMotion);
   setupNavigationState(root);
   setupScrollProgress();
+  setupCompactHeader(root);
 }

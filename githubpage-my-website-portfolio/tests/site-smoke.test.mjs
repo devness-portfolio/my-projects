@@ -173,6 +173,7 @@ assert.doesNotMatch(
   /\.about-image-frame img\s*\{[^}]*object-fit: cover;/s,
 );
 assert.match(css, /\.scroll-progress/);
+assert.match(css, /\.site-header\.is-compact/);
 assert.match(css, /prefers-reduced-motion: reduce/);
 assert.doesNotMatch(css, /letter-spacing:\s*-/);
 assert.doesNotMatch(css, /\.(?:brand-mark|btn-muted|headshot|hero-media|signal-list)\b/);
@@ -188,6 +189,7 @@ assert.match(heroJs, /ArrowLeft/);
 assert.match(workJs, /SecurityFilterChain → MFA/);
 assert.match(uiJs, /IntersectionObserver/);
 assert.match(uiJs, /navigator\.clipboard/);
+assert.match(uiJs, /classList\.toggle\("is-compact", window\.scrollY > 48\)/);
 assert.match(themeJs, /savedTheme === "dark"/);
 assert.match(themeJs, /light: "#f5f8f6"/);
 assert.doesNotMatch(themeJs, /matchMedia\("\(prefers-color-scheme: dark\)"\)/);
