@@ -24,8 +24,58 @@
       type="image/svg+xml"
     />
     <link rel="stylesheet" href="portfolio/assets/css/style.css" />
+    <noscript>
+      <style>
+        body.intro-active { overflow: auto; }
+        .matrix-intro { display: none; }
+      </style>
+    </noscript>
   </head>
-  <body>
+  <body class="intro-active">
+    <section
+      class="matrix-intro"
+      data-matrix-intro
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="matrix-intro-title"
+    >
+      <canvas class="matrix-rain" data-matrix-canvas aria-hidden="true"></canvas>
+      <div class="matrix-vignette" aria-hidden="true"></div>
+      <div class="matrix-warp-flash" aria-hidden="true"></div>
+
+      <div class="matrix-entry-panel">
+        <p class="matrix-kicker"><span aria-hidden="true">●</span> Connection ready</p>
+        <h2 id="matrix-intro-title">Enter the system.</h2>
+        <p class="matrix-intro-copy">Identify yourself to initialize the portfolio.</p>
+
+        <form class="matrix-name-form" data-matrix-form novalidate>
+          <label for="visitor-name">Your name</label>
+          <div class="matrix-input-row">
+            <span aria-hidden="true">&gt;</span>
+            <input
+              id="visitor-name"
+              name="visitorName"
+              type="text"
+              autocomplete="name"
+              maxlength="40"
+              placeholder="type your name"
+              required
+            />
+            <button type="submit">Enter <span aria-hidden="true">↵</span></button>
+          </div>
+          <p class="matrix-form-message" data-matrix-message aria-live="polite"></p>
+        </form>
+
+        <button class="matrix-skip" type="button" data-matrix-skip>Skip intro</button>
+      </div>
+
+      <div class="matrix-warp-copy" data-matrix-warp-copy aria-live="polite">
+        <span>IDENTITY CONFIRMED</span>
+        <strong data-matrix-welcome>Welcome.</strong>
+        <small>Initializing portfolio…</small>
+      </div>
+    </section>
+
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Anes Mehai home">
         <span class="brand-logo-frame" aria-hidden="true">
@@ -73,9 +123,10 @@
         <div class="hero-copy portfolio-hero-copy">
           <p class="hero-availability">
             <span class="hero-status-dot" aria-hidden="true"></span>
+            <span class="visitor-greeting" data-visitor-greeting hidden></span>
             Open to software engineering roles
           </p>
-          <h1 id="hero-title">
+          <h1 id="hero-title" tabindex="-1">
             Senior Software Engineer Building
             <span>Intelligent, Scalable Systems.</span>
           </h1>

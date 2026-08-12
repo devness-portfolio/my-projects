@@ -84,6 +84,289 @@ body::before {
   z-index: -1;
 }
 
+body.intro-active {
+  overflow: hidden;
+}
+
+.matrix-intro {
+  align-items: center;
+  background: #020604;
+  color: #dfffea;
+  display: grid;
+  inset: 0;
+  isolation: isolate;
+  justify-items: center;
+  min-height: 100dvh;
+  overflow: hidden;
+  padding: 1.5rem;
+  position: fixed;
+  transition: opacity 420ms ease, visibility 420ms ease;
+  z-index: 2000;
+}
+
+.matrix-rain,
+.matrix-vignette,
+.matrix-warp-flash {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.matrix-rain {
+  height: 100%;
+  opacity: 0.88;
+  transform: scale(1.02);
+  transition: filter 700ms ease, opacity 700ms ease, transform 1.4s cubic-bezier(.2,.75,.2,1);
+  width: 100%;
+  z-index: -3;
+}
+
+.matrix-vignette {
+  background:
+    radial-gradient(circle at center, transparent 0 22%, rgba(1, 8, 4, 0.42) 58%, rgba(0, 2, 1, 0.93) 100%),
+    linear-gradient(transparent 50%, rgba(0, 0, 0, 0.14) 50%);
+  background-size: auto, 100% 4px;
+  z-index: -2;
+}
+
+.matrix-vignette::after {
+  border: 1px solid rgba(94, 230, 168, 0.14);
+  box-shadow: inset 0 0 110px rgba(14, 255, 116, 0.07);
+  content: "";
+  inset: clamp(0.75rem, 2vw, 1.5rem);
+  position: absolute;
+}
+
+.matrix-entry-panel {
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  background: linear-gradient(145deg, rgba(3, 14, 8, 0.84), rgba(2, 8, 5, 0.68));
+  border: 1px solid rgba(94, 230, 168, 0.32);
+  box-shadow: 0 0 60px rgba(46, 255, 128, 0.09), inset 0 0 30px rgba(50, 255, 135, 0.025);
+  max-width: 34rem;
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  position: relative;
+  width: 100%;
+}
+
+.matrix-entry-panel::before,
+.matrix-entry-panel::after {
+  border-color: #5ee6a8;
+  border-style: solid;
+  content: "";
+  height: 1rem;
+  position: absolute;
+  width: 1rem;
+}
+
+.matrix-entry-panel::before {
+  border-width: 2px 0 0 2px;
+  left: -1px;
+  top: -1px;
+}
+
+.matrix-entry-panel::after {
+  border-width: 0 2px 2px 0;
+  bottom: -1px;
+  right: -1px;
+}
+
+.matrix-kicker {
+  color: #5ee6a8;
+  font: 500 0.7rem/1.4 var(--font-mono);
+  letter-spacing: 0.14em;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.matrix-kicker span {
+  animation: matrix-pulse 1.4s ease-in-out infinite;
+  display: inline-block;
+  margin-right: 0.45rem;
+}
+
+.matrix-entry-panel h2 {
+  color: #f2fff7;
+  font-family: var(--font-mono);
+  font-size: clamp(2rem, 7vw, 3.5rem);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.05;
+}
+
+.matrix-intro-copy {
+  color: #8eaa9a;
+  font-family: var(--font-mono);
+  font-size: clamp(0.75rem, 2vw, 0.86rem);
+  margin-top: 0.9rem;
+}
+
+.matrix-name-form {
+  margin-top: 2rem;
+}
+
+.matrix-name-form label {
+  color: #5ee6a8;
+  display: block;
+  font: 500 0.68rem/1.4 var(--font-mono);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.55rem;
+  text-transform: uppercase;
+}
+
+.matrix-input-row {
+  align-items: center;
+  border-bottom: 1px solid rgba(94, 230, 168, 0.62);
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  padding-bottom: 0.5rem;
+}
+
+.matrix-input-row > span {
+  color: #5ee6a8;
+  font-family: var(--font-mono);
+}
+
+.matrix-input-row input {
+  background: transparent;
+  border: 0;
+  caret-color: #5ee6a8;
+  color: #effff5;
+  font: 500 clamp(1rem, 3vw, 1.2rem)/1.5 var(--font-mono);
+  min-width: 0;
+  outline: 0;
+  width: 100%;
+}
+
+.matrix-input-row input::placeholder {
+  color: #506b5c;
+}
+
+.matrix-input-row:focus-within {
+  border-color: #dfffea;
+  box-shadow: 0 7px 12px -12px #5ee6a8;
+}
+
+.matrix-input-row button,
+.matrix-skip {
+  color: #dfffea;
+  cursor: pointer;
+  font-family: var(--font-mono);
+}
+
+.matrix-input-row button {
+  background: rgba(94, 230, 168, 0.12);
+  border: 1px solid rgba(94, 230, 168, 0.5);
+  padding: 0.55rem 0.75rem;
+}
+
+.matrix-input-row button:hover,
+.matrix-input-row button:focus-visible {
+  background: #5ee6a8;
+  color: #041009;
+  outline: 0;
+}
+
+.matrix-form-message {
+  color: #7ff5b7;
+  font: 0.68rem/1.5 var(--font-mono);
+  min-height: 1.1rem;
+  padding-top: 0.55rem;
+}
+
+.matrix-skip {
+  background: transparent;
+  border: 0;
+  color: #789184;
+  font-size: 0.7rem;
+  margin-top: 1.25rem;
+  padding: 0.25rem 0;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
+.matrix-skip:hover,
+.matrix-skip:focus-visible {
+  color: #dfffea;
+  outline: 0;
+}
+
+.matrix-warp-copy {
+  display: grid;
+  gap: 0.55rem;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  transform: scale(0.75);
+  visibility: hidden;
+}
+
+.matrix-warp-copy span,
+.matrix-warp-copy small {
+  color: #5ee6a8;
+  font: 500 0.68rem/1.4 var(--font-mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.matrix-warp-copy strong {
+  color: #effff5;
+  font: 500 clamp(2.2rem, 9vw, 5rem)/1 var(--font-mono);
+  text-shadow: 0 0 26px rgba(94, 230, 168, 0.55);
+}
+
+.matrix-warp-flash {
+  background: #dfffea;
+  opacity: 0;
+  z-index: 3;
+}
+
+.matrix-intro.is-warping .matrix-entry-panel {
+  opacity: 0;
+  transform: scale(1.12);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.matrix-intro.is-warping .matrix-rain {
+  filter: blur(1px) brightness(1.8);
+  opacity: 1;
+  transform: perspective(500px) translateZ(120px) scale(1.35);
+}
+
+.matrix-intro.is-warping .matrix-warp-copy {
+  animation: matrix-welcome 1.25s 180ms both;
+  visibility: visible;
+}
+
+.matrix-intro.is-warping .matrix-warp-flash {
+  animation: matrix-flash 500ms 1.05s both;
+}
+
+.matrix-intro.is-complete {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.visitor-greeting {
+  color: var(--text-color);
+}
+
+@keyframes matrix-pulse {
+  50% { opacity: 0.25; }
+}
+
+@keyframes matrix-welcome {
+  0% { opacity: 0; transform: scale(0.72); }
+  30%, 72% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.6); }
+}
+
+@keyframes matrix-flash {
+  0%, 100% { opacity: 0; }
+  40% { opacity: 0.92; }
+}
+
 img {
   max-width: 100%;
 }
@@ -1691,6 +1974,12 @@ body.dark-mode .hero-button-primary {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .matrix-kicker span,
+  .matrix-intro.is-warping .matrix-warp-copy,
+  .matrix-intro.is-warping .matrix-warp-flash {
+    animation: none;
+  }
+
   .portfolio-hero *,
   .portfolio-hero *::before,
   .portfolio-hero *::after {

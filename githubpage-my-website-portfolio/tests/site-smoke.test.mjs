@@ -31,6 +31,7 @@ const sadafCaseStudyHtml = readProjectFile("portfolio/case-study-sadaf-ijaz-md.h
 const css = readProjectFile("portfolio/assets/css/style.css");
 const mainJs = readProjectFile("portfolio/assets/js/main.js");
 const heroJs = readProjectFile("portfolio/assets/js/hero.js");
+const matrixIntroJs = readProjectFile("portfolio/assets/js/matrix-intro.js");
 const workJs = readProjectFile("portfolio/assets/js/work.js");
 const uiJs = readProjectFile("portfolio/assets/js/ui.js");
 const themeJs = readProjectFile("portfolio/assets/js/theme.js");
@@ -41,6 +42,10 @@ const logoV2Svg = readProjectFile("portfolio/assets/img/devness-logo-v2.svg");
 const heroPrototypeJs = readProjectFile("portfolio/assets/js/hero-prototype.js");
 
 assert.match(html, /<section class="hero portfolio-hero"/);
+assert.match(html, /data-matrix-intro/);
+assert.match(html, /data-matrix-canvas/);
+assert.match(html, /id="visitor-name"/);
+assert.match(html, /data-matrix-skip/);
 assert.match(html, /<meta name="theme-color" content="#f5f8f6" \/>/);
 assert.match(html, /Senior Software Engineer Building/);
 assert.match(html, /Intelligent, Scalable Systems\./);
@@ -156,6 +161,8 @@ assert.match(css, /\.work-card-featured/);
 assert.match(css, /\.case-hero/);
 assert.match(css, /\.carousel-slide-contained/);
 assert.match(css, /\.portfolio-hero/);
+assert.match(css, /\.matrix-intro/);
+assert.match(css, /\.matrix-intro\.is-warping/);
 assert.match(css, /\.terminal-glow/);
 assert.match(css, /\.inline-icon/);
 assert.match(css, /\.footer-socials/);
@@ -180,6 +187,10 @@ assert.doesNotMatch(css, /\.(?:brand-mark|btn-muted|headshot|hero-media|signal-l
 
 assert.match(mainJs, /setupTheme\(\)/);
 assert.match(mainJs, /setupHero\(\)/);
+assert.match(mainJs, /setupMatrixIntro\(\)/);
+assert.match(matrixIntroJs, /requestAnimationFrame/);
+assert.match(matrixIntroJs, /prefers-reduced-motion: reduce/);
+assert.match(matrixIntroJs, /revealPortfolio/);
 assert.match(mainJs, /setupWorkDemo\(\)/);
 assert.match(mainJs, /setupUi\(\)/);
 assert.match(mainJs, /setupCarousel\(\)/);
