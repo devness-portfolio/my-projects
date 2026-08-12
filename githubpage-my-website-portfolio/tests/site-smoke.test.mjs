@@ -60,7 +60,7 @@ assert.match(html, /<dt>U\.S\. Citizen<\/dt>\s*<dd>Public Trust<\/dd>/);
 assert.match(html, /<dt>Available<\/dt>\s*<dd>Full-Time<\/dd>/);
 assert.match(html, /data-console-tab="overview"/);
 assert.match(html, /data-console-tab="impact"/);
-assert.match(html, /data-console-tab="stack"/);
+assert.match(html, /data-console-tab="approach"/);
 assert.match(html, /data-console-tab="qualifications"/);
 assert.doesNotMatch(html, /data-console-tab="status"/);
 assert.match(html, /04 \/ Qualifications/);
@@ -73,7 +73,11 @@ assert.match(html, /<li>7\+ years of experience<\/li>/);
 assert.match(html, /data-overview-transcript/);
 assert.equal((html.match(/data-typing-line/g) || []).length, 9);
 assert.match(html, /Anes Mehai — Software Engineer/);
-assert.match(html, /"core"<\/span>: "Java · Spring · Cloud"/);
+assert.match(html, /"focus"<\/span>: "modernization · secure systems"/);
+assert.match(html, /Java · Spring Boot · REST APIs · SQL/);
+assert.match(html, /JavaScript · React · HTML · CSS/);
+assert.match(html, /DevOps · Linux · CI\/CD Pipelines · Jenkins · AWS · GCP · Docker/);
+assert.match(html, /inspect engineering\.approach/);
 assert.match(html, /Tap a tab to inspect my work/);
 assert.match(
   html,
