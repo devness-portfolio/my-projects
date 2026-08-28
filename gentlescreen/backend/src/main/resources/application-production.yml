@@ -1,0 +1,19 @@
+spring:
+  config:
+    activate:
+      on-profile: production
+  datasource:
+    hikari:
+      data-source-properties:
+        sslmode: require
+
+logging:
+  structured:
+    format:
+      console: ecs
+
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false

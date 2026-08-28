@@ -10,14 +10,10 @@
       name="description"
       content="Welcome to Uptown Masjid al-Rahma, serving the Muslim community in New Orleans. Find prayer times, events, and more."
     />
-    <!-- Favicon (optional but recommended) -->
-    <link rel="icon" href="assets/img/favicon.svg" type="image/x-icon" />
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
 
-    <!-- Tailwind CSS (Choose Option A or B from Setup) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Option A: CDN -->
-    <link href="assets/css/style.css" rel="stylesheet" />
-    <!-- Option B: Local Build -->
+    <link href="assets/css/site.css" rel="stylesheet" />
 
     <!-- Optional: Link custom CSS for overrides if needed -->
     <!-- <link href=".assets/css/custom.css" rel="stylesheet"> -->
@@ -28,105 +24,96 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
-    <style>
-      /* Simple transition for mobile menu */
-      #mobile-menu {
-        transition: transform 0.3s ease-in-out;
-      }
-      .menu-hidden {
-        transform: translateX(-100%);
-      }
-      .menu-visible {
-        transform: translateX(0);
-      }
-    </style>
   </head>
   <body class="bg-gray-100 text-gray-800 font-sans">
     <!-- Header -->
-    <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <!-- Logo -->
-      <a href="/" class="flex items-center space-x-2">
-        <img
-          src="./assets/img/image.png"
-          alt="Mosque Logo"
-          class="h-20 w-auto"
-        />
-        <!-- Adjust height as needed -->
-        <span class="text-xl font-semibold text-green-700 hidden sm:inline"
-          >Uptown Masjid al-Rahma</span
-        >
-      </a>
-
-      <!-- Desktop Navigation -->
-      <ul class="hidden md:flex space-x-6 items-center">
-        <li>
-          <a
-            href="/"
-            class="text-gray-600 hover:text-green-600 font-medium border-b-2 border-green-600 pb-1"
-            >Home</a
-          >
-        </li>
-        <li>
-          <a
-            href="events.html"
-            class="text-gray-600 hover:text-green-600 font-medium"
-            >Events & News</a
-          >
-        </li>
-        <li>
-          <a
-            href="about.html"
-            class="text-gray-600 hover:text-green-600 font-medium"
-            >About Us</a
-          >
-        </li>
-        <li>
-          <a
-            href="documents.html"
-            class="text-gray-600 hover:text-green-600 font-medium"
-            >Documents</a
-          >
-        </li>
-        <li>
-          <a
-            href="contact.html"
-            class="text-gray-600 hover:text-green-600 font-medium"
-            >Contact Us</a
-          >
-        </li>
-      </ul>
-
-      <!-- Donate Button -->
-      <a
-        href="#"
-        id="donate-button"
-        class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-5 rounded-full transition duration-300 text-sm"
-      >
-        Donate Now
-      </a>
-
-      <!-- Mobile Menu Button -->
-      <button
-        id="mobile-menu-button"
-        class="md:hidden text-gray-700 hover:text-green-600 focus:outline-none"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16m-7 6h7"
-          />
-        </svg>
-      </button>
-    </nav>
     <header class="bg-white shadow-md sticky top-0 z-50">
+      <nav
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center space-x-2">
+          <img
+            src="./assets/img/image.png"
+            alt="Uptown Masjid al-Rahma logo"
+            class="h-20 w-auto"
+          />
+          <!-- Adjust height as needed -->
+          <span class="text-xl font-semibold text-green-700 hidden sm:inline"
+            >Uptown Masjid al-Rahma</span
+          >
+        </a>
+
+        <!-- Desktop Navigation -->
+        <ul class="hidden md:flex space-x-6 items-center">
+          <li>
+            <a
+              href="index.html"
+              class="text-gray-600 hover:text-green-600 font-medium border-b-2 border-green-600 pb-1"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="events.html"
+              class="text-gray-600 hover:text-green-600 font-medium"
+              >Events & News</a
+            >
+          </li>
+          <li>
+            <a
+              href="about.html"
+              class="text-gray-600 hover:text-green-600 font-medium"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a
+              href="documents.html"
+              class="text-gray-600 hover:text-green-600 font-medium"
+              >Documents</a
+            >
+          </li>
+          <li>
+            <a
+              href="contact.html"
+              class="text-gray-600 hover:text-green-600 font-medium"
+              >Contact Us</a
+            >
+          </li>
+        </ul>
+
+        <!-- Donate Button -->
+        <a
+          href="#"
+          id="donate-button"
+          class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-5 rounded-full transition duration-300 text-sm"
+        >
+          Donate Now
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobile-menu-button"
+          class="md:hidden text-gray-700 hover:text-green-600 focus:outline-none"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </button>
+      </nav>
+
       <!-- Mobile Menu (Initially Hidden) -->
       <div
         id="mobile-menu"
@@ -135,7 +122,7 @@
         <ul class="flex flex-col space-y-2 p-4">
           <li>
             <a
-              href="/"
+              href="index.html"
               class="block py-2 px-3 rounded text-gray-700 bg-green-50 hover:bg-green-100 font-medium"
               >Home</a
             >
@@ -265,7 +252,7 @@
     </footer>
 
     <!-- JavaScript Files -->
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/prayer-time.js"></script>
+    <script src="assets/js/prayer-time.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
   </body>
 </html>

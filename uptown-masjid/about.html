@@ -1,22 +1,18 @@
-<!-- This is the about.html file for the Uptown Masjid al-Rahma project -->
-<!-- <h1>About Us</h1> -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Tailwind CSS (Choose Option A or B from Setup) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Page Title -->
     <title>About Us - Uptown Masjid al-Rahma</title>
     <meta
       name="description"
-      content="Learn about the mission, history, and leadership of [Mosque Name] in New Orleans."
+      content="Learn about the mission, history, and leadership of Uptown Masjid al-Rahma in New Orleans."
     />
-    <!-- Favicon (optional but recommended) -->
-    <!-- <link rel="icon" href="/img/favicon.ico" type="image/x-icon"> -->
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
 
-    <link href="./css/style.css" rel="stylesheet" />
+    <link href="assets/css/site.css" rel="stylesheet" />
 
     <!-- Font Awesome for Icons (Optional, Example) -->
     <link
@@ -31,21 +27,23 @@
         class="container mx-auto px-4 py-3 flex justify-between items-center"
       >
         <!-- Logo -->
-        <a href="/" class="flex items-center space-x-2">
+        <a href="index.html" class="flex items-center space-x-2">
           <img
             src="./assets/img/image.png"
-            alt="Mosque Logo"
+            alt="Uptown Masjid al-Rahma logo"
             class="h-10 w-auto"
           />
           <span class="text-xl font-semibold text-green-700 hidden sm:inline"
-            >Mosque Name</span
+            >Uptown Masjid al-Rahma</span
           >
         </a>
 
         <!-- Desktop Navigation - About Us Active -->
         <ul class="hidden md:flex space-x-6 items-center">
           <li>
-            <a href="/" class="text-gray-600 hover:text-green-600 font-medium"
+            <a
+              href="index.html"
+              class="text-gray-600 hover:text-green-600 font-medium"
               >Home</a
             >
           </li>
@@ -118,7 +116,7 @@
         <ul class="flex flex-col space-y-2 p-4">
           <li>
             <a
-              href="/"
+              href="index.html"
               class="block py-2 px-3 rounded text-gray-700 hover:bg-green-100 font-medium"
               >Home</a
             >
@@ -207,8 +205,8 @@
     <footer class="bg-gray-800 text-gray-300 py-8 mt-12">
       <div class="container mx-auto px-4 text-center">
         <p>
-          © <span id="current-year"></span> [Mosque Name], New Orleans. All
-          Rights Reserved.
+          © <span id="current-year"></span> Uptown Masjid al-Rahma, New Orleans.
+          All Rights Reserved.
         </p>
         <!-- Optional: Add social media links here -->
         <div class="mt-4 space-x-4">
@@ -218,7 +216,7 @@
     </footer>
 
     <!-- JavaScript Files -->
-    <script src="./js/prayer-times.js" defer></script>
-    <script src="./js/script.js" defer></script>
+    <script src="assets/js/prayer-time.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
   </body>
 </html>

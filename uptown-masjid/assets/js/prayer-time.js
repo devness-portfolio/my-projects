@@ -75,7 +75,5 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initial call to fetch prayer times if the container exists on the page
   if (prayerTimesContainer) {
     fetchPrayerTimes();
-  } else {
-    console.log('Prayer times container not found on this page.');
   }
 });
