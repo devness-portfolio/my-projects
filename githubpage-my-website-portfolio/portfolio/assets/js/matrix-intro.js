@@ -30,7 +30,9 @@ function createRain(canvas, reducedMotion) {
   let stopped = false;
 
   const resize = () => {
-    const density = Math.min(window.devicePixelRatio || 1, 1.5);
+    const density = window.innerWidth < 600
+      ? 1
+      : Math.min(window.devicePixelRatio || 1, 1.5);
     canvas.width = Math.floor(window.innerWidth * density);
     canvas.height = Math.floor(window.innerHeight * density);
     canvas.style.width = `${window.innerWidth}px`;
