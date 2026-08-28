@@ -93,7 +93,7 @@ assert.match(html, /legacy modernization/);
 assert.match(html, /Struts-to-Spring modernization/);
 assert.match(html, /Implemented MFA with Spring Security for sensitive federal systems/);
 assert.match(html, /Full-SDLC and federal systems experience, from requirements to production/);
-assert.match(html, /<strong>Federal Systems<\/strong><span>Security · MFA · nationwide reporting<\/span>/);
+assert.match(html, /<strong>Production Engineering<\/strong><span>Security · Scalability · Readability<\/span>/);
 assert.match(html, /My experience spans federal application delivery, legacy modernization/);
 assert.match(html, /Proof over promises\./);
 assert.match(html, /src="portfolio\/assets\/img\/ppic-672\.jpg"/);
