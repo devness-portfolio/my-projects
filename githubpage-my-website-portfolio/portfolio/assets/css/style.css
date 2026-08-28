@@ -2251,6 +2251,7 @@ body.dark-mode .header-contact {
 .proof-strip article {
   display: grid;
   gap: 0.35rem;
+  min-width: 0;
   padding: clamp(1.1rem, 1.7vw, 1.35rem)
     clamp(1rem, 1.4vw, 1.2rem);
 }
@@ -2275,7 +2276,7 @@ body.dark-mode .header-contact {
   font-family: var(--font-mono);
   font-size: 0.69rem;
   line-height: 1.5;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 980px) {
