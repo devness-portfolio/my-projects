@@ -1,0 +1,22 @@
+.DS_Store
+.idea/
+.vscode/
+.env
+.env.local
+!.env.example
+
+# Java
+backend/target/
+*.log
+
+# Node / Expo
+mobile/node_modules/
+mobile/.expo/
+mobile/dist/
+mobile/web-build/
+mobile/.env
+
+# Test output
+coverage/
+test-results/
+

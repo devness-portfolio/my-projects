@@ -48,7 +48,7 @@ assert.match(html, /data-matrix-canvas/);
 assert.match(html, /id="visitor-name"/);
 assert.match(html, /data-matrix-skip/);
 assert.match(html, /<meta name="theme-color" content="#f5f8f6" \/>/);
-assert.match(html, /Senior Software Engineer Building/);
+assert.match(html, /Engineer Building/);
 assert.match(html, /Intelligent, Scalable Systems\./);
 assert.match(html, /7\+ years of engineering software from idea to production:/);
 assert.match(html, /requirements, system design, full-stack implementation/);

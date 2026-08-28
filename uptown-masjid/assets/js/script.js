@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', (event) => {
     if (
       mobileMenu &&
+      mobileMenuButton &&
       !mobileMenu.contains(event.target) &&
       !mobileMenuButton.contains(event.target)
     ) {

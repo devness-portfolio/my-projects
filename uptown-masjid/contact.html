@@ -3,18 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Tailwind CSS (Choose Option A or B from Setup) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Page Title -->
     <title>Contact Us - Uptown Masjid al-Rahma</title>
     <meta
       name="description"
-      content="Find the address, phone number, email, and location of [Mosque Name] in New Orleans."
+      content="Find the address, phone number, email, and location of Uptown Masjid al-Rahma in New Orleans."
     />
-    <!-- Favicon (optional but recommended) -->
-    <!-- <link rel="icon" href="/img/favicon.ico" type="image/x-icon"> -->
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
 
-    <link href="./css/style.css" rel="stylesheet" />
+    <link href="assets/css/site.css" rel="stylesheet" />
 
     <!-- Font Awesome for Icons (Optional, Example) -->
     <link
@@ -29,10 +27,10 @@
         class="container mx-auto px-4 py-3 flex justify-between items-center"
       >
         <!-- Logo -->
-        <a href="/" class="flex items-center space-x-2">
+        <a href="index.html" class="flex items-center space-x-2">
           <img
             src="./assets/img/image.png"
-            alt="Mosque Logo"
+            alt="Uptown Masjid al-Rahma logo"
             class="h-10 w-auto"
           />
           <span class="text-xl font-semibold text-green-700 hidden sm:inline"
@@ -43,7 +41,9 @@
         <!-- Desktop Navigation - Contact Us Active -->
         <ul class="hidden md:flex space-x-6 items-center">
           <li>
-            <a href="/" class="text-gray-600 hover:text-green-600 font-medium"
+            <a
+              href="index.html"
+              class="text-gray-600 hover:text-green-600 font-medium"
               >Home</a
             >
           </li>
@@ -116,7 +116,7 @@
         <ul class="flex flex-col space-y-2 p-4">
           <li>
             <a
-              href="/"
+              href="index.html"
               class="block py-2 px-3 rounded text-gray-700 hover:bg-green-100 font-medium"
               >Home</a
             >
@@ -149,7 +149,6 @@
               >Contact Us</a
             >
           </li>
-          {/* Active Link */}
         </ul>
       </div>
     </header>
@@ -162,17 +161,13 @@
 
       <!-- Contact Info & Map Section -->
       <section class="bg-white p-6 rounded-lg shadow-md max-w-4xl mx-auto">
-        {/* Added max-w-4xl and mx-auto for centering */}
         <h2 class="text-2xl font-semibold text-green-800 mb-6 text-center">
           Our Location & Contact Information
         </h2>
 
         <div class="grid md:grid-cols-2 gap-8 items-start">
-          {/* Use grid to place info beside map on medium screens */}
-
           <!-- Contact Details -->
           <div class="space-y-4 text-gray-700 text-base md:text-lg">
-            {/* Slightly larger text */}
             <div class="flex items-start space-x-3">
               <i
                 class="fas fa-map-marker-alt mt-1 text-green-600 w-5 text-center"
@@ -233,8 +228,8 @@
     <footer class="bg-gray-800 text-gray-300 py-8 mt-12">
       <div class="container mx-auto px-4 text-center">
         <p>
-          © <span id="current-year"></span> [Mosque Name], New Orleans. All
-          Rights Reserved.
+          © <span id="current-year"></span> Uptown Masjid al-Rahma, New Orleans.
+          All Rights Reserved.
         </p>
         <!-- Optional: Add social media links here -->
         <div class="mt-4 space-x-4">
@@ -244,7 +239,7 @@
     </footer>
 
     <!-- JavaScript Files -->
-    <script src="./js/prayer-times.js" defer></script>
-    <script src="./js/script.js" defer></script>
+    <script src="assets/js/prayer-time.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
   </body>
 </html>

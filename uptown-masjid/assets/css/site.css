@@ -1,0 +1,17 @@
+#mobile-menu {
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-hidden {
+  transform: translateX(-100%);
+}
+
+.menu-visible {
+  transform: translateX(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #mobile-menu {
+    transition: none;
+  }
+}

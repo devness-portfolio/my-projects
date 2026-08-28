@@ -1,22 +1,18 @@
-<!-- This is the (EVENTS & ANNOUNCEMENTS PAGE) events.html file for the Uptown Masjid al-Rahma project -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Tailwind CSS (Choose Option A or B from Setup) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Page Title -->
     <title>Events & News - Uptown Masjid al-Rahma</title>
     <meta
       name="description"
-      content="Upcoming events, announcements, and news from [Mosque Name] in New Orleans."
+      content="Upcoming events, announcements, and news from Uptown Masjid al-Rahma in New Orleans."
     />
-    <!-- Favicon (optional but recommended) -->
-    <!-- <link rel="icon" href="/img/favicon.ico" type="image/x-icon"> -->
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
 
-    <!-- Link to the compiled Tailwind CSS -->
-    <link href="./css/style.css" rel="stylesheet" />
+    <link href="assets/css/site.css" rel="stylesheet" />
 
     <!-- Font Awesome for Icons (Optional, if you use icons like in documents.html) -->
     <link
@@ -31,21 +27,23 @@
         class="container mx-auto px-4 py-3 flex justify-between items-center"
       >
         <!-- Logo -->
-        <a href="/" class="flex items-center space-x-2">
+        <a href="index.html" class="flex items-center space-x-2">
           <img
             src="./assets/img/image.png"
-            alt="Mosque Logo"
+            alt="Uptown Masjid al-Rahma logo"
             class="h-10 w-auto"
           />
           <span class="text-xl font-semibold text-green-700 hidden sm:inline"
-            >Mosque Name</span
+            >Uptown Masjid al-Rahma</span
           >
         </a>
 
         <!-- Desktop Navigation - Events & News Active -->
         <ul class="hidden md:flex space-x-6 items-center">
           <li>
-            <a href="/" class="text-gray-600 hover:text-green-600 font-medium"
+            <a
+              href="index.html"
+              class="text-gray-600 hover:text-green-600 font-medium"
               >Home</a
             >
           </li>
@@ -55,6 +53,8 @@
               class="text-green-600 hover:text-green-600 font-medium border-b-2 border-green-600 pb-1"
               >Events & News</a
             >
+          </li>
+          <li>
             <a
               href="about.html"
               class="text-gray-600 hover:text-green-600 font-medium"
@@ -116,7 +116,7 @@
         <ul class="flex flex-col space-y-2 p-4">
           <li>
             <a
-              href="/"
+              href="index.html"
               class="block py-2 px-3 rounded text-gray-700 hover:bg-green-100 font-medium"
               >Home</a
             >
@@ -128,7 +128,6 @@
               >Events & News</a
             >
           </li>
-          {/* <-- Active Link */}
           <li>
             <a
               href="about.html"
@@ -160,17 +159,13 @@
         Events & Announcements
       </h1>
 
-      {/*
       <!-- Add a section for upcoming events -->
-      */}
       <section class="mb-10">
         <h2 class="text-2xl font-semibold text-green-800 mb-4">
           Upcoming Events
         </h2>
 
-        {/*
         <!-- Example Event Card 1 -->
-        */}
         <article
           class="bg-white p-6 rounded-lg shadow-md mb-6 transition duration-300 hover:shadow-lg"
         >
@@ -192,9 +187,7 @@
           ></a>
         </article>
 
-        {/*
         <!-- Example Event Card 2 -->
-        */}
         <article
           class="bg-white p-6 rounded-lg shadow-md mb-6 transition duration-300 hover:shadow-lg"
         >
@@ -218,25 +211,19 @@
           ></a>
         </article>
 
-        {/*
         <!-- Add more event cards here as needed -->
-        */}
         <p class="text-center text-gray-600 mt-8">
           Check back regularly for more event updates!
         </p>
       </section>
 
-      {/*
       <!-- Add a section for general announcements/news -->
-      */}
       <section>
         <h2 class="text-2xl font-semibold text-green-800 mb-4">
           Announcements & News
         </h2>
 
-        {/*
         <!-- Example Announcement 1 -->
-        */}
         <article
           class="bg-blue-50 p-6 rounded-lg shadow-sm mb-6 border-l-4 border-blue-500"
         >
@@ -251,9 +238,7 @@
           </p>
         </article>
 
-        {/*
         <!-- Example Announcement 2 -->
-        */}
         <article
           class="bg-yellow-50 p-6 rounded-lg shadow-sm mb-6 border-l-4 border-yellow-500"
         >
@@ -275,9 +260,7 @@
           ></a>
         </article>
 
-        {/*
         <!-- Add more announcements here -->
-        */}
       </section>
     </main>
 
@@ -285,8 +268,8 @@
     <footer class="bg-gray-800 text-gray-300 py-8 mt-12">
       <div class="container mx-auto px-4 text-center">
         <p>
-          © <span id="current-year"></span> [Mosque Name], New Orleans. All
-          Rights Reserved.
+          © <span id="current-year"></span> Uptown Masjid al-Rahma, New Orleans.
+          All Rights Reserved.
         </p>
         <!-- Optional: Add social media links here -->
         <div class="mt-4 space-x-4">
@@ -296,7 +279,7 @@
     </footer>
 
     <!-- JavaScript Files (Add defer for better performance) -->
-    <script src="./js/prayer-times.js" defer></script>
-    <script src="./js/script.js" defer></script>
+    <script src="assets/js/prayer-time.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
   </body>
 </html>
