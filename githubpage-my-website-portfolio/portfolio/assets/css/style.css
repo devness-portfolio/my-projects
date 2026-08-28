@@ -23,8 +23,8 @@
   --radius: 12px;
   --max-width: 1120px;
   --transition-speed: 0.2s;
-  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "DM Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+  --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Consolas, monospace;
 }
 
 body.dark-mode {
@@ -1479,8 +1479,8 @@ body.dark-mode .btn-secondary:focus-visible {
   --hero-card-border: rgba(20, 75, 55, 0.16);
   --hero-card-shadow: rgba(19, 56, 43, 0.18);
   --hero-terminal-caption: #61766e;
-  --hero-font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --hero-font-mono: "DM Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+  --hero-font-sans: var(--font-sans);
+  --hero-font-mono: var(--font-mono);
   align-items: center;
   display: grid;
   font-family: var(--hero-font-sans);
@@ -3097,8 +3097,8 @@ body.dark-mode .copy-email.is-copied {
 .site-header .header-resume,
 .site-header .header-contact {
   transition-duration: var(--transition-speed);
-  transition-property: background, border-color, box-shadow, color, font-size,
-    gap, height, min-height, padding, top, transform, width;
+  transition-property: background-color, border-color, box-shadow, color,
+    opacity, transform;
   transition-timing-function: ease;
 }
 

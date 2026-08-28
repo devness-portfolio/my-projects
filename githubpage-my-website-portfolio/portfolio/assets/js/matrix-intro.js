@@ -123,6 +123,14 @@ export default function setupMatrixIntro({
     return false;
   }
 
+  if (window.matchMedia("(max-width: 680px)").matches) {
+    intro.classList.add("is-complete");
+    intro.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("intro-active");
+    onReveal();
+    return false;
+  }
+
   if (hasSeenIntro(storage)) {
     intro.classList.add("is-complete");
     intro.setAttribute("aria-hidden", "true");

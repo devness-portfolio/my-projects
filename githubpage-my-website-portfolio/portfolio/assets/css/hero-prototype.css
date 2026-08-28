@@ -18,8 +18,8 @@
   --profile-card: rgba(255, 255, 255, 0.86);
   --profile-card-border: rgba(20, 75, 55, 0.16);
   --profile-card-shadow: rgba(19, 56, 43, 0.18);
-  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "DM Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+  --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Consolas, monospace;
 }
 
 [data-theme="dark"] {
