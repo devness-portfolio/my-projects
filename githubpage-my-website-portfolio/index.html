@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta
       name="description"
       content="Portfolio of Anes Mehai, a software engineer with over 5 years of full-SDLC experience modernizing Java and Spring applications and building secure, scalable, production-grade federal systems."
@@ -36,7 +36,7 @@
       media="print"
       onload="this.media='all'"
     />
-    <link rel="stylesheet" href="portfolio/assets/css/style.css?v=20260828-3" />
+    <link rel="stylesheet" href="portfolio/assets/css/style.css?v=20260828-4" />
     <noscript>
       <link
         rel="stylesheet"
@@ -108,7 +108,7 @@
         <span class="brand-wordmark" aria-hidden="true">devness</span>
       </a>
 
-      <nav class="main-nav" aria-label="Main navigation">
+      <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
         <ul>
           <li><a href="#projects">Work</a></li>
           <li><a href="#experience">Experience</a></li>
@@ -117,6 +117,15 @@
       </nav>
 
       <div class="header-actions">
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="main-navigation"
+        >
+          <span class="nav-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="sr-only">Open menu</span>
+        </button>
         <a
           class="header-resume"
           href="portfolio/assets/files/Anes-Mehai-SWE-2025-Resume.pdf"

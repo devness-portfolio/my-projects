@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta
       name="description"
       content="Case study for the Dr. Sadaf Ijaz MD production website, covering frontend implementation, UX structure, accessibility, SEO, and client handoff."
@@ -33,7 +33,7 @@
         href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap"
       />
     </noscript>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css?v=20260828-4" />
   </head>
   <body class="case-page">
     <header class="site-header">
@@ -51,7 +51,7 @@
         <span class="brand-wordmark" aria-hidden="true">devness</span>
       </a>
 
-      <nav class="main-nav" aria-label="Case study navigation">
+      <nav class="main-nav" id="main-navigation" aria-label="Case study navigation">
         <ul>
           <li><a href="../index.html#projects">Projects</a></li>
           <li><a href="#overview">Overview</a></li>
@@ -60,15 +60,26 @@
         </ul>
       </nav>
 
-      <div class="theme-switch-wrapper">
-        <label class="theme-switch" for="theme-toggle">
-          <span class="sr-only">Toggle dark mode</span>
-          <input type="checkbox" id="theme-toggle" />
-          <span class="slider round" aria-hidden="true">
-            <span class="icon sun" aria-hidden="true">☀</span>
-            <span class="icon moon" aria-hidden="true">☾</span>
-          </span>
-        </label>
+      <div class="header-actions">
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="main-navigation"
+        >
+          <span class="nav-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="sr-only">Open menu</span>
+        </button>
+        <div class="theme-switch-wrapper">
+          <label class="theme-switch" for="theme-toggle">
+            <span class="sr-only">Toggle dark mode</span>
+            <input type="checkbox" id="theme-toggle" />
+            <span class="slider round" aria-hidden="true">
+              <span class="icon sun" aria-hidden="true">☀</span>
+              <span class="icon moon" aria-hidden="true">☾</span>
+            </span>
+          </label>
+        </div>
       </div>
     </header>
 

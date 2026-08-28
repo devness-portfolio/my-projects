@@ -116,6 +116,50 @@ function setupCompactHeader(root) {
   window.addEventListener("scroll", requestUpdate, { passive: true });
 }
 
+function setupMobileNavigation(root) {
+  const header = root.querySelector(".site-header");
+  const toggle = header?.querySelector(".nav-toggle");
+  const navigation = header?.querySelector(".main-nav");
+  if (!header || !toggle || !navigation) return;
+
+  const toggleLabel = toggle.querySelector(".sr-only");
+  const mobileViewport = window.matchMedia("(max-width: 680px)");
+
+  const setOpen = (open) => {
+    const shouldOpen = Boolean(open && mobileViewport.matches);
+    header.classList.toggle("nav-open", shouldOpen);
+    toggle.setAttribute("aria-expanded", String(shouldOpen));
+    if (toggleLabel) toggleLabel.textContent = shouldOpen ? "Close menu" : "Open menu";
+  };
+
+  document.body.classList.add("mobile-nav-ready");
+  toggle.addEventListener("click", () => {
+    setOpen(toggle.getAttribute("aria-expanded") !== "true");
+  });
+
+  navigation.addEventListener("click", (event) => {
+    if (event.target.closest("a")) setOpen(false);
+  });
+
+  root.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape" || !header.classList.contains("nav-open")) return;
+    setOpen(false);
+    toggle.focus();
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!header.classList.contains("nav-open") || header.contains(event.target)) return;
+    setOpen(false);
+  });
+
+  const handleViewportChange = () => setOpen(false);
+  if (mobileViewport.addEventListener) {
+    mobileViewport.addEventListener("change", handleViewportChange);
+  } else {
+    mobileViewport.addListener?.(handleViewportChange);
+  }
+}
+
 export default function setupUi({
   root = document,
   reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)"),
@@ -125,4 +169,5 @@ export default function setupUi({
   setupNavigationState(root);
   setupScrollProgress();
   setupCompactHeader(root);
+  setupMobileNavigation(root);
 }

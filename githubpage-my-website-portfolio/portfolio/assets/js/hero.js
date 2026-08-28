@@ -19,7 +19,8 @@ const wait = (duration) =>
 async function runOverviewTyping(transcript, reducedMotion) {
   const lines = [...transcript.querySelectorAll("[data-typing-line]")];
   const cursor = transcript.querySelector("[data-typing-cursor]");
-  if (!lines.length || !cursor || reducedMotion.matches) return;
+  const compactViewport = window.matchMedia("(max-width: 680px)");
+  if (!lines.length || !cursor || reducedMotion.matches || compactViewport.matches) return;
 
   const textNodes = lines.flatMap((line) => {
     const walker = document.createTreeWalker(line, NodeFilter.SHOW_TEXT);
