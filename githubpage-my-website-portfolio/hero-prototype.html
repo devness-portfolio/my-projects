@@ -17,6 +17,25 @@
         document.documentElement.dataset.theme = savedTheme || systemTheme;
       })();
     </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap"
+      as="style"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap"
+      />
+    </noscript>
     <link rel="stylesheet" href="portfolio/assets/css/hero-prototype.css" />
   </head>
   <body>
@@ -27,6 +46,9 @@
             class="brand-logo"
             src="portfolio/assets/img/devness-logo-v2.svg"
             alt=""
+            width="180"
+            height="180"
+            decoding="async"
           />
         </span>
         <span class="brand-wordmark" aria-hidden="true">devness</span>
@@ -125,10 +147,17 @@
             <div class="profile-image-wrap">
               <img
                 class="profile-image"
-                src="portfolio/assets/img/ppic.jpg"
+                src="portfolio/assets/img/ppic-672.jpg"
+                srcset="
+                  portfolio/assets/img/ppic-672.jpg 672w,
+                  portfolio/assets/img/ppic.jpg 1344w
+                "
+                sizes="(max-width: 540px) 42vw, 184px"
                 alt="Portrait of Anes Mehai"
                 width="1344"
                 height="1768"
+                decoding="async"
+                fetchpriority="high"
               />
             </div>
             <figcaption>

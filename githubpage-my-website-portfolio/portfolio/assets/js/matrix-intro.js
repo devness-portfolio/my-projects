@@ -1,5 +1,22 @@
 const MATRIX_GLYPHS =
   "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ<>[]{}/*+=-アイウエオカキクケコサシスセソタチツテト";
+const INTRO_SEEN_KEY = "portfolio-intro-seen";
+
+function hasSeenIntro(storage) {
+  try {
+    return storage.getItem(INTRO_SEEN_KEY) === "true";
+  } catch {
+    return false;
+  }
+}
+
+function markIntroSeen(storage) {
+  try {
+    storage.setItem(INTRO_SEEN_KEY, "true");
+  } catch {
+    // Storage can be unavailable in private or locked-down browsing contexts.
+  }
+}
 
 function createRain(canvas, reducedMotion) {
   const context = canvas.getContext("2d");
@@ -95,10 +112,21 @@ export default function setupMatrixIntro({
   welcome = document.querySelector("[data-matrix-welcome]"),
   heroGreeting = document.querySelector("[data-visitor-greeting]"),
   reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)"),
+  storage = window.sessionStorage,
+  onReveal = () => {},
 } = {}) {
   if (!intro || !canvas || !form || !input || !skip) {
     document.body.classList.remove("intro-active");
-    return;
+    onReveal();
+    return false;
+  }
+
+  if (hasSeenIntro(storage)) {
+    intro.classList.add("is-complete");
+    intro.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("intro-active");
+    onReveal();
+    return false;
   }
 
   const rain = createRain(canvas, reducedMotion);
@@ -117,6 +145,7 @@ export default function setupMatrixIntro({
     pageRegions.forEach((region) => { region.inert = false; });
     rain.stop();
     document.querySelector("#hero-title")?.focus({ preventScroll: true });
+    onReveal();
   };
 
   const revealPortfolio = (name = "") => {
@@ -129,6 +158,7 @@ export default function setupMatrixIntro({
       heroGreeting.textContent = `Welcome, ${safeName} /`;
       heroGreeting.hidden = false;
     }
+    markIntroSeen(storage);
 
     if (reducedMotion.matches) {
       finishReveal();
@@ -137,7 +167,7 @@ export default function setupMatrixIntro({
 
     rain.warp();
     intro.classList.add("is-warping");
-    window.setTimeout(finishReveal, 1550);
+    window.setTimeout(finishReveal, 800);
   };
 
   form.addEventListener("submit", (event) => {
@@ -160,4 +190,5 @@ export default function setupMatrixIntro({
   });
   skip.addEventListener("click", () => revealPortfolio());
   window.setTimeout(() => input.focus(), 350);
+  return true;
 }
