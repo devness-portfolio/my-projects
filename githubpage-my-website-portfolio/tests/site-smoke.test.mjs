@@ -91,7 +91,7 @@ assert.match(html, /status --availability/);
 assert.match(html, /ready to build systems that serve people/);
 assert.match(html, /legacy modernization/);
 assert.match(html, /Struts-to-Spring modernization/);
-assert.match(html, /Implemented MFA with Spring Security for sensitive federal systems/);
+assert.match(html, /Engineered and integrated a Java-based MFA workflow for sensitive federal systems/);
 assert.match(html, /Full-SDLC and federal systems experience, from requirements to production/);
 assert.match(html, /<strong>Production Engineering<\/strong><span>Security · Scalability · Readability<\/span>/);
 assert.match(html, /My experience spans federal application delivery, legacy modernization/);
