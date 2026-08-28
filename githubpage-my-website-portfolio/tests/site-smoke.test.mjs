@@ -3,6 +3,7 @@ import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { getNextIndex, photographyImages } from "../portfolio/assets/js/carousel.js";
+import setupHero, { activatePanel } from "../portfolio/assets/js/hero.js";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const readProjectFile = (path) => readFileSync(join(root, path), "utf8");
@@ -202,6 +203,7 @@ assert.match(mainJs, /setupCarousel\(\)/);
 assert.match(heroJs, /prefers-reduced-motion: reduce/);
 assert.match(heroJs, /runOverviewTyping/);
 assert.match(heroJs, /ArrowLeft/);
+assert.match(heroJs, /pointerdown/);
 assert.match(workJs, /SecurityFilterChain → MFA/);
 assert.match(uiJs, /IntersectionObserver/);
 assert.match(uiJs, /navigator\.clipboard/);
@@ -270,5 +272,64 @@ photographyImages.forEach((imagePath) => {
     `Missing carousel image: ${imagePath}`,
   );
 });
+
+class MockTab extends EventTarget {
+  constructor(name, active = false) {
+    super();
+    this.dataset = { consoleTab: name };
+    this.tabIndex = 0;
+    this.attributes = new Map();
+    this.classes = new Set(active ? ["is-active"] : []);
+    this.classList = {
+      contains: (className) => this.classes.has(className),
+      toggle: (className, force) => {
+        if (force) this.classes.add(className);
+        else this.classes.delete(className);
+      },
+    };
+  }
+
+  setAttribute(name, value) {
+    this.attributes.set(name, value);
+  }
+
+  focus() {}
+}
+
+const overviewTab = new MockTab("overview", true);
+const impactTab = new MockTab("impact");
+const mockTabs = [overviewTab, impactTab];
+const mockPanels = [
+  { dataset: { consolePanel: "overview" }, hidden: false },
+  { dataset: { consolePanel: "impact" }, hidden: true },
+];
+const mockHero = new EventTarget();
+const mockTerminalWrap = {
+  style: { setProperty() {} },
+};
+
+setupHero({
+  terminalWrap: mockTerminalWrap,
+  hero: mockHero,
+  tabs: mockTabs,
+  panels: mockPanels,
+  transcript: null,
+  reducedMotion: { matches: true },
+});
+
+const primaryPress = new Event("pointerdown");
+Object.defineProperties(primaryPress, {
+  button: { value: 0 },
+  isPrimary: { value: true },
+});
+impactTab.dispatchEvent(primaryPress);
+assert.equal(impactTab.attributes.get("aria-selected"), "true");
+assert.equal(overviewTab.attributes.get("aria-selected"), "false");
+assert.equal(mockPanels[0].hidden, true);
+assert.equal(mockPanels[1].hidden, false);
+
+activatePanel(overviewTab, mockTabs, mockPanels);
+assert.equal(overviewTab.tabIndex, 0);
+assert.equal(impactTab.tabIndex, -1);
 
 console.log("Portfolio smoke test passed.");

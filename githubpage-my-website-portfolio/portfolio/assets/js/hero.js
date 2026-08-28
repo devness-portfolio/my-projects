@@ -1,4 +1,4 @@
-function activatePanel(tab, tabs, panels) {
+export function activatePanel(tab, tabs, panels) {
   const panelName = tab.dataset.consoleTab;
 
   tabs.forEach((item) => {
@@ -61,6 +61,14 @@ export default function setupHero({
   if (transcript) runOverviewTyping(transcript, reducedMotion);
 
   tabs.forEach((tab, index) => {
+    // Activate on press as well as click. The console has a subtle pointer-driven
+    // tilt, so its hit target can move between pointerdown and pointerup and cause
+    // browsers to cancel the resulting click. Keeping click provides keyboard,
+    // assistive-technology, and older-browser support.
+    tab.addEventListener("pointerdown", (event) => {
+      if (event.button !== 0 || event.isPrimary === false) return;
+      activatePanel(tab, tabs, panels);
+    });
     tab.addEventListener("click", () => activatePanel(tab, tabs, panels));
     tab.addEventListener("keydown", (event) => {
       if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
