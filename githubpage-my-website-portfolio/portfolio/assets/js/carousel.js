@@ -33,6 +33,10 @@ function getOptimizedSource(source) {
   return source.replace("/photography/", "/photography/optimized/");
 }
 
+function getMobileSource(source) {
+  return source.replace("/photography/", "/photography/mobile/");
+}
+
 export function getNextIndex(currentIndex, direction, itemCount) {
   if (itemCount <= 0) return 0;
   if (direction === "previous") {
@@ -44,14 +48,15 @@ export function getNextIndex(currentIndex, direction, itemCount) {
 function normalizeImage(image, index) {
   if (typeof image === "string") {
     const optimizedSource = getOptimizedSource(image);
+    const mobileSource = getMobileSource(image);
     return {
       alt: `Photography showcase ${index + 1}`,
       fit: "cover",
       position: "center",
       src: optimizedSource,
-      srcset: `${optimizedSource} 900w, ${image} 1800w`,
+      srcset: `${mobileSource} 600w, ${optimizedSource} 900w, ${image} 1800w`,
       sizes: "(max-width: 768px) calc(100vw - 2rem), 736px",
-      background: optimizedSource,
+      background: window.innerWidth <= 768 ? mobileSource : optimizedSource,
       ...photographyImageDisplay[image],
     };
   }
