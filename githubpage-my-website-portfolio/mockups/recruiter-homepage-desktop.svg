@@ -56,7 +56,7 @@
       <text x="32" y="22" class="mono green label">OPEN TO SWE ROLES</text>
       <text y="94" class="sans white h1">I build reliable software</text>
       <text y="166" class="sans white h1">for systems that <tspan class="green">matter.</tspan></text>
-      <text y="218" class="sans muted body">Java / Spring engineer with 7+ years across modernization,</text>
+      <text y="218" class="sans muted body">Java / Spring engineer with over 5 years of experience in modernization,</text>
       <text y="246" class="sans muted body">cloud delivery, accessibility, and production support.</text>
       <g transform="translate(0 286)">
         <rect width="171" height="54" rx="10" fill="url(#accent)"/>
@@ -85,7 +85,7 @@
         <text y="76" class="mono green small">$ cat recruiter-summary.json</text>
         <text y="118" class="mono white small">{</text>
         <text x="18" y="148" class="mono muted small">"role": <tspan class="green">"Software Engineer"</tspan>,</text>
-        <text x="18" y="178" class="mono muted small">"experience": <tspan class="green">"7+ years"</tspan>,</text>
+        <text x="18" y="178" class="mono muted small">"experience": <tspan class="green">"over 5 years of experience"</tspan>,</text>
         <text x="18" y="208" class="mono muted small">"strengths": [</text>
         <text x="36" y="238" class="mono green small">"Java + Spring", "modernization",</text>
         <text x="36" y="268" class="mono green small">"accessible delivery", "cloud ops"</text>
@@ -100,7 +100,7 @@
   <g transform="translate(108 700)">
     <rect width="1224" height="112" rx="18" fill="#0d1e18" stroke="#29473b"/>
     <g class="sans">
-      <text x="34" y="44" class="green" font-size="26" font-weight="800">7+ years</text><text x="34" y="72" class="muted small">shipping production software</text>
+      <text x="34" y="44" class="green" font-size="23" font-weight="800">Over 5 years</text><text x="34" y="72" class="muted small">of experience</text>
       <line x1="280" x2="280" y1="24" y2="88" class="line"/>
       <text x="318" y="44" class="white" font-size="21" font-weight="750">Public-sector systems</text><text x="318" y="72" class="muted small">security · reporting · accessibility</text>
       <line x1="646" x2="646" y1="24" y2="88" class="line"/>
