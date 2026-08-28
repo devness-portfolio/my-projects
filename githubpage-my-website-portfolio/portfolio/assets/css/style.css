@@ -1702,6 +1702,7 @@ body.dark-mode .hero-button-primary {
   background: rgba(53, 207, 145, 0.16);
   filter: blur(55px);
   inset: 12% 5%;
+  pointer-events: none;
   position: absolute;
   transform: translateZ(-30px);
 }
@@ -2122,6 +2123,7 @@ body.dark-mode .header-contact {
   font-weight: 500;
   min-height: 2.3rem;
   padding: 0.45rem 0.3rem;
+  touch-action: manipulation;
   text-transform: uppercase;
   transition: background-color var(--transition-speed) ease,
     border-color var(--transition-speed) ease,
