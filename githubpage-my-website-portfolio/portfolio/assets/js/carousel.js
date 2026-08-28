@@ -29,6 +29,10 @@ const photographyImageDisplay = {
   },
 };
 
+function getOptimizedSource(source) {
+  return source.replace("/photography/", "/photography/optimized/");
+}
+
 export function getNextIndex(currentIndex, direction, itemCount) {
   if (itemCount <= 0) return 0;
   if (direction === "previous") {
@@ -39,11 +43,15 @@ export function getNextIndex(currentIndex, direction, itemCount) {
 
 function normalizeImage(image, index) {
   if (typeof image === "string") {
+    const optimizedSource = getOptimizedSource(image);
     return {
       alt: `Photography showcase ${index + 1}`,
       fit: "cover",
       position: "center",
-      src: image,
+      src: optimizedSource,
+      srcset: `${optimizedSource} 900w, ${image} 1800w`,
+      sizes: "(max-width: 768px) calc(100vw - 2rem), 736px",
+      background: optimizedSource,
       ...photographyImageDisplay[image],
     };
   }
@@ -95,6 +103,10 @@ export default function setupCarousel({
     const currentImage = normalizeImage(images[currentIndex], currentIndex);
 
     imageElement.src = currentImage.src;
+    if (currentImage.srcset) imageElement.srcset = currentImage.srcset;
+    else imageElement.removeAttribute("srcset");
+    if (currentImage.sizes) imageElement.sizes = currentImage.sizes;
+    else imageElement.removeAttribute("sizes");
     imageElement.alt = currentImage.alt;
     imageElement.style.objectFit = currentImage.fit;
     imageElement.style.objectPosition = currentImage.position;
@@ -106,7 +118,7 @@ export default function setupCarousel({
       );
       slideElement.style.setProperty(
         "--carousel-background",
-        `url("${currentImage.src}")`,
+        `url("${currentImage.background || currentImage.src}")`,
       );
     }
 

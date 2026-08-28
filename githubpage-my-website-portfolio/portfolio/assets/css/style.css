@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap");
-
 :root {
   color-scheme: light;
   --bg-color: #f5f8f6;
@@ -100,7 +98,7 @@ body.intro-active {
   overflow: hidden;
   padding: 1.5rem;
   position: fixed;
-  transition: opacity 420ms ease, visibility 420ms ease;
+  transition: opacity 220ms ease, visibility 220ms ease;
   z-index: 2000;
 }
 
@@ -335,12 +333,12 @@ body.intro-active {
 }
 
 .matrix-intro.is-warping .matrix-warp-copy {
-  animation: matrix-welcome 1.25s 180ms both;
+  animation: matrix-welcome 650ms 80ms both;
   visibility: visible;
 }
 
 .matrix-intro.is-warping .matrix-warp-flash {
-  animation: matrix-flash 500ms 1.05s both;
+  animation: matrix-flash 260ms 520ms both;
 }
 
 .matrix-intro.is-complete {
@@ -725,6 +723,8 @@ body.dark-mode .btn-secondary:focus-visible {
 
 .content-section {
   border-top: 1px solid var(--border-color);
+  contain-intrinsic-size: auto 720px;
+  content-visibility: auto;
   padding: clamp(2.5rem, 6vw, 4.75rem) 0;
   position: relative;
 }

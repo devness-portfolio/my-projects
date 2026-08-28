@@ -23,8 +23,25 @@
       href="./portfolio/assets/img/devness-logo-v2.svg"
       type="image/svg+xml"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap"
+      as="style"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
     <link rel="stylesheet" href="portfolio/assets/css/style.css" />
     <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap"
+      />
       <style>
         body.intro-active { overflow: auto; }
         .matrix-intro { display: none; }
@@ -83,6 +100,9 @@
             class="brand-logo"
             src="portfolio/assets/img/devness-logo-v2.svg"
             alt=""
+            width="180"
+            height="180"
+            decoding="async"
           />
         </span>
         <span class="brand-wordmark" aria-hidden="true">devness</span>
@@ -466,10 +486,18 @@
           <figure class="about-portrait">
             <div class="about-image-frame">
               <img
-                src="portfolio/assets/img/ppic.jpg"
+                src="portfolio/assets/img/ppic-672.jpg"
+                srcset="
+                  portfolio/assets/img/ppic-672.jpg 672w,
+                  portfolio/assets/img/ppic.jpg 1344w
+                "
+                sizes="(max-width: 720px) 82vw, 330px"
                 alt="Portrait of Anes Mehai"
                 width="1344"
                 height="1768"
+                loading="lazy"
+                decoding="async"
+                fetchpriority="low"
               />
             </div>
             <figcaption>
@@ -524,8 +552,18 @@
             <div class="carousel-slide">
               <img
                 id="carousel-image"
-                src="portfolio/assets/img/photography/dsc00236.jpg"
+                src="portfolio/assets/img/photography/optimized/dsc00236.jpg"
+                srcset="
+                  portfolio/assets/img/photography/optimized/dsc00236.jpg 900w,
+                  portfolio/assets/img/photography/dsc00236.jpg 1800w
+                "
+                sizes="(max-width: 768px) calc(100vw - 2rem), 736px"
                 alt="Night waterfront scene with glowing blue and orange lights"
+                width="1800"
+                height="1440"
+                loading="lazy"
+                decoding="async"
+                fetchpriority="low"
               />
             </div>
             <button class="carousel-button prev" id="prevBtn" type="button" aria-label="Previous photo">
