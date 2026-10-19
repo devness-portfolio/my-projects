@@ -149,6 +149,7 @@ export default function setupMatrixIntro({
   pageRegions.forEach((region) => { region.inert = true; });
 
   const finishReveal = () => {
+    intro.classList.remove("is-warping");
     intro.classList.add("is-complete");
     intro.setAttribute("aria-hidden", "true");
     document.body.classList.remove("intro-active");

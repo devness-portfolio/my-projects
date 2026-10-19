@@ -344,6 +344,12 @@ body.intro-active {
 
 .matrix-intro.is-complete {
   opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.matrix-intro.is-complete * {
+  pointer-events: none;
   visibility: hidden;
 }
 
