@@ -59,7 +59,10 @@ export default function setupHero({
 
   const initialTab = tabs.find((tab) => tab.classList.contains("is-active")) || tabs[0];
   if (initialTab) activatePanel(initialTab, tabs, panels);
-  if (transcript) runOverviewTyping(transcript, reducedMotion);
+  // The editorial console lives below the fold: show its transcript immediately
+  // so late visitors never encounter a half-written profile or shifting layout.
+  const isEditorialConsole = Boolean(terminalWrap.closest?.(".engineering-section"));
+  if (transcript && !isEditorialConsole) runOverviewTyping(transcript, reducedMotion);
 
   tabs.forEach((tab, index) => {
     // Activate on press as well as click. The console has a subtle pointer-driven
@@ -85,6 +88,9 @@ export default function setupHero({
       tabs[nextIndex].focus();
     });
   });
+
+  // Keep the relocated console stable while visitors use its tabs and command input.
+  if (isEditorialConsole) return;
 
   const updateTilt = (event) => {
     if (reducedMotion.matches || window.innerWidth < 981) return;

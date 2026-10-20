@@ -16,6 +16,7 @@ function setupEnhancements() {
 
 // Bind controls immediately, including carousel controls before scrolling to them.
 initializeFeature("./work.js");
+initializeFeature("./terminal.js");
 initializeFeature("./ui.js");
 initializeFeature("./scroll.js");
 initializeFeature("./footer.js");

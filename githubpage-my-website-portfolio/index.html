@@ -24,6 +24,7 @@
       type="image/svg+xml"
     />
     <link rel="stylesheet" href="portfolio/assets/css/style.css?v=20260828-5" />
+    <link rel="stylesheet" href="portfolio/assets/css/editorial.css?v=20261020-1" />
     <noscript>
       <style>
         body.intro-active { overflow: auto; }
@@ -33,7 +34,7 @@
     <link rel="stylesheet" href="portfolio/assets/css/appearance.css?v=20261020-1" />
   <link rel="stylesheet" href="portfolio/assets/css/fieldnotes-card.css">
   </head>
-  <body class="intro-active">
+  <body class="intro-active editorial-design">
     <section
       class="matrix-intro"
       data-matrix-intro
@@ -95,9 +96,10 @@
 
       <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
         <ul>
-          <li><a href="#projects">Projects</a></li>
           <li><a href="#experience">Experience</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#engineering">Behind the code</a></li>
+          <li><a href="#photography">Photography</a></li>
         </ul>
       </nav>
 
@@ -143,19 +145,17 @@
             Open to software engineering roles
           </p>
           <h1 id="hero-title" tabindex="-1">
-            Software Engineer
-            <span>Building Intelligent, Scalable Systems.</span>
+            Software engineer.
+            <span>Built for production.</span>
           </h1>
           <p class="hero-summary">
-            <strong>+5 years of experience taking software from idea to production, including federal systems.</strong>
-            I work across requirements, system design, full-stack implementation,
-            testing, deployment, and ongoing support—using AI-assisted development
-            to deliver secure, maintainable systems efficiently.
+            I’m Anes Mehai. I turn complex requirements into secure, maintainable
+            software—from federal systems to the web.
           </p>
 
           <div class="hero-actions" aria-label="Primary actions">
-            <a class="hero-button hero-button-primary" href="#projects">
-              Explore my work
+            <a class="hero-button hero-button-primary" href="#experience">
+              Explore my career
               <span aria-hidden="true">↘</span>
             </a>
             <a
@@ -167,13 +167,219 @@
             </a>
           </div>
 
+
+        </div>
+
+          <dl class="career-status-card" aria-label="Career status">
+            <div>
+              <dt>+5 years</dt>
+              <dd>of Experience</dd>
+            </div>
+            <div>
+              <dt>U.S. Citizen</dt>
+              <dd>Public Trust</dd>
+            </div>
+            <div>
+              <dt>Available</dt>
+              <dd>Full-Time</dd>
+            </div>
+          </dl>
+
+      </section>
+
+
+      <section id="experience" class="content-section experience-section">
+        <div class="section-heading">
+          <p class="eyebrow">Experience</p>
+          <h2>Experience that ships.</h2>
+          <p class="section-intro">Expand each role to see engineering ownership, technologies, and impact.</p>
+        </div>
+        <div class="section-content experience-list">
+          <details class="experience-row" open>
+            <summary>
+              <span class="experience-date">2022–2025</span>
+              <span class="experience-title"><strong>Software Engineer II</strong><small>Department of Labor · Alesig Consulting</small></span>
+              <span class="experience-toggle">View impact <span aria-hidden="true">+</span></span>
+            </summary>
+            <div class="experience-impact">
+              <ul>
+                <li>Engineered and integrated a Java-based MFA workflow for sensitive federal systems, strengthening identity verification and access control.</li>
+                <li>Supported legacy Struts-to-Spring modernization and nationwide reporting.</li>
+                <li>Performed JUnit testing, code review, requirements work, QA, and Section 508 checks.</li>
+              </ul>
+              <p class="experience-tools">Java · Spring · SQL · JUnit · TDD · BDD · Fullstack Development · Agile</p>
+            </div>
+          </details>
+          <details class="experience-row">
+            <summary>
+              <span class="experience-date">2019–2021</span>
+              <span class="experience-title"><strong>Full-Stack Engineer</strong><small>Onyx LLC</small></span>
+              <span class="experience-toggle">View impact <span aria-hidden="true">+</span></span>
+            </summary>
+            <div class="experience-impact">
+              <ul>
+                <li>Deployed and supported application infrastructure on Google Cloud Platform.</li>
+                <li>Contributed across Swift, Java, Flutter, Dart, and Python product surfaces.</li>
+                <li>Improved release quality through testing, debugging, and feature validation.</li>
+              </ul>
+              <p class="experience-tools">GCP · Swift · Java · Flutter · Dart · Python · Android · Design</p>
+            </div>
+          </details>
+          <details class="experience-row">
+            <summary>
+              <span class="experience-date">2017–2019</span>
+              <span class="experience-title"><strong>LAMP Stack Developer</strong><small>Opsmart</small></span>
+              <span class="experience-toggle">View impact <span aria-hidden="true">+</span></span>
+            </summary>
+            <div class="experience-impact">
+              <ul>
+                <li>Maintained and optimized a client-facing LAMP website.</li>
+                <li>Wrote PHPUnit scripts to catch regressions earlier.</li>
+                <li>Configured CentOS environments for consistent team workflows.</li>
+              </ul>
+              <p class="experience-tools">HTML · JavaScript · PHP · PHPUnit · Linux · CentOS</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section id="projects" class="content-section">
+        <div class="section-heading">
+          <p class="eyebrow">Selected Work</p>
+          <h2>Useful software. Thoughtful engineering.</h2>
+          <p class="section-intro">
+            Selected production work, followed by an interactive look at how I engineer secure systems.
+          </p>
+        </div>
+
+        <div class="section-content work-grid">
+          <article class="work-card work-card-featured">
+            <div class="patient-preview" aria-label="Patient care project illustration">
+              <span class="patient-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z" />
+                  <path d="M3 12h4l2-4 4 8 2-4h6" />
+                </svg>
+              </span>
+              <div class="patient-preview-copy">
+                <p class="patient-site-caption">Psychiatry &amp; mental wellness</p>
+                <p class="patient-preview-heading">Care begins<br />with connection.</p>
+                <p>Dr. Sadaf Ijaz, MD</p>
+              </div>
+            </div>
+            <div class="patient-project-copy">
+            <div class="work-card-topline">
+              <span class="work-index">Case study / 01</span>
+              <span class="work-status"><span aria-hidden="true"></span> Live in production</span>
+            </div>
+            <h3>Dr. Sadaf Ijaz MD Website</h3>
+            <p class="work-summary">
+              A credible, accessible patient journey built for clarity, trust,
+              performance, and an easy client handoff.
+            </p>
+            <dl class="work-evidence">
+              <div><dt>Challenge</dt><dd>Clarify care options and establish patient trust.</dd></div>
+              <div><dt>Decision</dt><dd>Use a fast, dependency-light static architecture.</dd></div>
+              <div><dt>Proof</dt><dd>Responsive production site with accessible paths.</dd></div>
+            </dl>
+            <div class="work-actions">
+              <a class="btn" href="portfolio/case-study-sadaf-ijaz-md.html">
+                Read case study <span aria-hidden="true">→</span>
+              </a>
+              <a class="btn btn-secondary" href="https://sadafijazmd.com/" target="_blank" rel="noopener noreferrer">
+                Live site <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            </div>
+          </article>
+
+          <article class="work-card fieldnotes-card" id="fieldnotes" aria-labelledby="fieldnotes-title">
+            <div class="fieldnotes-preview" aria-hidden="true"><strong>Fieldnotes</strong><p>A clear next step.</p><div class="fieldnotes-preview-progress"><span></span></div><small>Release progress · 67%</small><div class="fieldnotes-preview-board"><span>Ready</span><span>In progress</span><span>Done</span></div></div>
+            <div class="fieldnotes-copy"><div class="work-card-topline"><span class="work-index">Personal software / 02</span><span class="work-status">Interactive demo</span></div>
+            <h3 id="fieldnotes-title">Your projects. A clear next step.</h3><p class="work-summary">A local-first workspace for project planning, release progress, and picking up where you left off.</p>
+            <dl class="work-evidence"><div><dt>Challenge</dt><dd>Keep unfinished work easy to resume.</dd></div><div><dt>Decision</dt><dd>A small Python service and dependency-free interface.</dd></div><div><dt>Try it</dt><dd>Move tasks and watch release progress update.</dd></div></dl>
+            <div class="work-actions"><a class="btn" href="portfolio/fieldnotes/">Try Fieldnotes <span aria-hidden="true">→</span></a><a class="btn btn-secondary" href="https://github.com/devness-portfolio/fieldnotes" target="_blank" rel="noopener noreferrer">View source ↗</a></div></div></article>
+
+          <article class="work-card work-card-demo" id="pipeline" aria-labelledby="pipeline-title">
+            <div class="work-card-topline">
+              <span class="work-index">Interactive demo / 03</span>
+              <span class="demo-state" aria-live="polite">Request received</span>
+            </div>
+            <h3 id="pipeline-title">Secure Request Path Explorer</h3>
+            <p class="work-summary">Explore a simplified MFA-protected Spring request flow. Select a stage to inspect its responsibility.</p>
+            <div class="system-flow" aria-label="Interactive secure request path">
+              <button class="flow-node is-active" type="button" data-flow-step="request"><span>01</span>Request</button>
+              <span class="flow-line" aria-hidden="true"></span>
+              <button class="flow-node" type="button" data-flow-step="auth"><span>02</span>MFA gate</button>
+              <span class="flow-line" aria-hidden="true"></span>
+              <button class="flow-node" type="button" data-flow-step="service"><span>03</span>Spring service</button>
+              <span class="flow-line" aria-hidden="true"></span>
+              <button class="flow-node" type="button" data-flow-step="data"><span>04</span>SQL data</button>
+            </div>
+            <div class="flow-inspector" aria-live="polite" aria-atomic="true">
+              <p class="flow-label">Current responsibility</p>
+              <p id="flow-description">Validate the route, normalize input, and attach request context before authentication.</p>
+              <code id="flow-code">POST /reports/export</code>
+            </div>
+          </article>
+
+          <details class="work-card work-card-compact">
+            <summary>
+              <span class="work-summary-copy">
+                <span class="work-index">Confidential work / 04</span>
+                <strong>Federal Application Modernization</strong>
+                <small>Struts-to-Spring modernization · MFA · nationwide reporting · Section 508</small>
+              </span>
+              <span class="summary-plus" aria-hidden="true"></span>
+            </summary>
+            <div class="work-detail-content">
+              <h4>Sanitized technical breakdown</h4>
+              <ul>
+                <li>Moved legacy Struts workflows toward maintainable Spring patterns.</li>
+                <li>Engineered and integrated a Java-based MFA workflow for sensitive federal systems, strengthening identity verification and access control.</li>
+                <li>Supported SQL and Linux reporting workflows across U.S. jurisdictions.</li>
+                <li>Added QA, JUnit, code review, requirements, and accessibility validation.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="work-card work-card-compact work-card-mobile">
+            <summary>
+              <span class="work-summary-copy">
+                <span class="work-index">Platform support / 05</span>
+                <strong>Social Mobile Platform Support</strong>
+                <small>Swift · Java · Flutter · Python · Google Cloud Platform</small>
+              </span>
+              <span class="summary-plus" aria-hidden="true"></span>
+            </summary>
+            <div class="work-detail-content">
+              <h4>Cross-platform delivery</h4>
+              <ul>
+                <li>Contributed to mobile feature implementation across native and Flutter stacks.</li>
+                <li>Maintained Python backend business logic supporting product workflows.</li>
+                <li>Supported cloud infrastructure, debugging, testing, and release validation.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section id="engineering" class="content-section engineering-section" aria-labelledby="engineering-title">
+        <div class="engineering-layout">
+          <div class="engineering-copy">
+            <p class="eyebrow">Behind the code</p>
+            <h2 id="engineering-title">Modernize deliberately.<br />Engineer for production.</h2>
+            <p>Explore my engineering profile, approach, and qualifications. I work across requirements,
+              system design, full-stack implementation, testing, deployment, and ongoing support.</p>
+            <p>I use AI-assisted development with human-led review and verification.</p>
+            <p id="terminal-help">Select a profile tab or run a command: <code>whoami</code>,
+              <code>impact</code>, <code>approach</code>, <code>skills</code>, or <code>help</code>.</p>
           <ul class="hero-technology-list" aria-label="Core technologies">
             <li>Java · Spring Boot · REST APIs · SQL</li>
             <li>JavaScript · React · HTML · CSS</li>
             <li>DevOps · Linux · CI/CD Pipelines · Jenkins · AWS · GCP · Docker</li>
           </ul>
-        </div>
-
+          </div>
         <div class="hero-visual">
           <div class="terminal-wrap profile-console" aria-label="Interactive engineering profile">
             <div class="terminal-glow" aria-hidden="true"></div>
@@ -262,196 +468,24 @@
                   </ul>
                 </div>
               </div>
+            <form class="terminal-command-form" data-terminal-form hidden>
+              <label for="terminal-command"><span aria-hidden="true">$</span><span class="sr-only">Terminal command</span></label>
+              <input id="terminal-command" name="command" data-terminal-input
+                placeholder="Try help or skills" autocomplete="off" spellcheck="false" maxlength="80"
+                aria-describedby="terminal-help" />
+              <button type="submit">Run <span aria-hidden="true">↵</span></button>
+            </form>
+            <pre class="terminal-command-output" data-terminal-output role="status" aria-live="polite" aria-atomic="true" hidden></pre>
             </div>
+            <noscript><p class="terminal-caption">The profile overview is available above. Enable JavaScript to explore tabs and run demo commands.</p></noscript>
             <p class="terminal-caption">
               <span aria-hidden="true">↳</span>
               Modernize deliberately. Engineer for production.
             </p>
           </div>
 
-          <dl class="career-status-card" aria-label="Career status">
-            <div>
-              <dt>+5 years</dt>
-              <dd>of Experience</dd>
-            </div>
-            <div>
-              <dt>U.S. Citizen</dt>
-              <dd>Public Trust</dd>
-            </div>
-            <div>
-              <dt>Available</dt>
-              <dd>Full-Time</dd>
-            </div>
-          </dl>
+
         </div>
-      </section>
-
-      <section class="proof-strip" aria-label="Career highlights">
-        <article><strong>+5 years</strong><span>of experience in end-to-end software delivery</span></article>
-        <article><strong>Modernization</strong><span>Legacy Java to Spring systems</span></article>
-        <article><strong>Production Engineering</strong><span>Security · Scalability · Readability</span></article>
-        <article><strong>Full SDLC</strong><span>Plan · Build · Test · Deploy · Support</span></article>
-      </section>
-
-      <section id="projects" class="content-section">
-        <div class="section-heading">
-          <p class="eyebrow">Selected Work</p>
-          <h2>Proof over promises.</h2>
-          <p class="section-intro">
-            A closer look at how I translate requirements into technical
-            decisions, maintainable implementations, and production outcomes.
-          </p>
-        </div>
-
-        <div class="section-content work-grid">
-          <article class="work-card work-card-featured">
-            <div class="work-card-topline">
-              <span class="work-index">Case study / 01</span>
-              <span class="work-status"><span aria-hidden="true"></span> Live in production</span>
-            </div>
-            <h3>Dr. Sadaf Ijaz MD Website</h3>
-            <p class="work-summary">
-              A credible, accessible patient journey built for clarity, trust,
-              performance, and an easy client handoff.
-            </p>
-            <dl class="work-evidence">
-              <div><dt>Challenge</dt><dd>Clarify care options and establish patient trust.</dd></div>
-              <div><dt>Decision</dt><dd>Use a fast, dependency-light static architecture.</dd></div>
-              <div><dt>Proof</dt><dd>Responsive production site with accessible paths.</dd></div>
-            </dl>
-            <div class="work-actions">
-              <a class="btn" href="portfolio/case-study-sadaf-ijaz-md.html">
-                Read case study <span aria-hidden="true">→</span>
-              </a>
-              <a class="btn btn-secondary" href="https://sadafijazmd.com/" target="_blank" rel="noopener noreferrer">
-                Live site <span aria-hidden="true">↗</span>
-              </a>
-            </div>
-          </article>
-
-          <details class="work-card work-card-compact">
-            <summary>
-              <span class="work-summary-copy">
-                <span class="work-index">Personal software / 02</span>
-                <strong>Federal Application Modernization</strong>
-                <small>Struts-to-Spring modernization · MFA · nationwide reporting · Section 508</small>
-              </span>
-              <span class="summary-plus" aria-hidden="true"></span>
-            </summary>
-            <div class="work-detail-content">
-              <h4>Sanitized technical breakdown</h4>
-              <ul>
-                <li>Moved legacy Struts workflows toward maintainable Spring patterns.</li>
-                <li>Engineered and integrated a Java-based MFA workflow for sensitive federal systems, strengthening identity verification and access control.</li>
-                <li>Supported SQL and Linux reporting workflows across U.S. jurisdictions.</li>
-                <li>Added QA, JUnit, code review, requirements, and accessibility validation.</li>
-              </ul>
-            </div>
-          </details>
-
-          <article class="work-card fieldnotes-card" id="fieldnotes" aria-labelledby="fieldnotes-title">
-            <div class="fieldnotes-preview" aria-hidden="true"><strong>Fieldnotes</strong><p>A clear next step.</p><div class="fieldnotes-preview-progress"><span></span></div><small>Release progress · 67%</small><div class="fieldnotes-preview-board"><span>Ready</span><span>In progress</span><span>Done</span></div></div>
-            <div class="fieldnotes-copy"><div class="work-card-topline"><span class="work-index">Interactive demo / 03</span><span class="work-status">Interactive demo</span></div>
-            <h3 id="fieldnotes-title">Your projects. A clear next step.</h3><p class="work-summary">A local-first workspace for project planning, release progress, and picking up where you left off.</p>
-            <dl class="work-evidence"><div><dt>Challenge</dt><dd>Keep unfinished work easy to resume.</dd></div><div><dt>Decision</dt><dd>A small Python service and dependency-free interface.</dd></div><div><dt>Try it</dt><dd>Move tasks and watch release progress update.</dd></div></dl>
-            <div class="work-actions"><a class="btn" href="portfolio/fieldnotes/">Try Fieldnotes <span aria-hidden="true">→</span></a><a class="btn btn-secondary" href="https://github.com/devness-portfolio/fieldnotes" target="_blank" rel="noopener noreferrer">View source ↗</a></div></div></article>
-
-          <article class="work-card work-card-demo">
-            <div class="work-card-topline">
-              <span class="work-index">Confidential work / 04</span>
-              <span class="demo-state" aria-live="polite">Request received</span>
-            </div>
-            <h3>Secure Request Path Explorer</h3>
-            <p class="work-summary">Explore a simplified MFA-protected Spring request flow. Select a stage to inspect its responsibility.</p>
-            <div class="system-flow" aria-label="Interactive secure request path">
-              <button class="flow-node is-active" type="button" data-flow-step="request"><span>01</span>Request</button>
-              <span class="flow-line" aria-hidden="true"></span>
-              <button class="flow-node" type="button" data-flow-step="auth"><span>02</span>MFA gate</button>
-              <span class="flow-line" aria-hidden="true"></span>
-              <button class="flow-node" type="button" data-flow-step="service"><span>03</span>Spring service</button>
-              <span class="flow-line" aria-hidden="true"></span>
-              <button class="flow-node" type="button" data-flow-step="data"><span>04</span>SQL data</button>
-            </div>
-            <div class="flow-inspector">
-              <p class="flow-label">Current responsibility</p>
-              <p id="flow-description">Validate the route, normalize input, and attach request context before authentication.</p>
-              <code id="flow-code">POST /reports/export</code>
-            </div>
-          </article>
-
-          <details class="work-card work-card-compact work-card-mobile">
-            <summary>
-              <span class="work-summary-copy">
-                <span class="work-index">Platform support / 05</span>
-                <strong>Social Mobile Platform Support</strong>
-                <small>Swift · Java · Flutter · Python · Google Cloud Platform</small>
-              </span>
-              <span class="summary-plus" aria-hidden="true"></span>
-            </summary>
-            <div class="work-detail-content">
-              <h4>Cross-platform delivery</h4>
-              <ul>
-                <li>Contributed to mobile feature implementation across native and Flutter stacks.</li>
-                <li>Maintained Python backend business logic supporting product workflows.</li>
-                <li>Supported cloud infrastructure, debugging, testing, and release validation.</li>
-              </ul>
-            </div>
-          </details>
-        </div>
-      </section>
-
-      <section id="experience" class="content-section experience-section">
-        <div class="section-heading">
-          <p class="eyebrow">Experience</p>
-          <h2>Full-SDLC and federal systems experience, from requirements to production.</h2>
-          <p class="section-intro">Expand each role to see engineering ownership, technologies, and impact.</p>
-        </div>
-        <div class="section-content experience-list">
-          <details class="experience-row" open>
-            <summary>
-              <span class="experience-date">2022–2025</span>
-              <span class="experience-title"><strong>Software Engineer II</strong><small>Department of Labor · Alesig Consulting</small></span>
-              <span class="experience-toggle">View impact <span aria-hidden="true">+</span></span>
-            </summary>
-            <div class="experience-impact">
-              <ul>
-                <li>Engineered and integrated a Java-based MFA workflow for sensitive federal systems, strengthening identity verification and access control.</li>
-                <li>Supported legacy Struts-to-Spring modernization and nationwide reporting.</li>
-                <li>Performed JUnit testing, code review, requirements work, QA, and Section 508 checks.</li>
-              </ul>
-              <p class="experience-tools">Java · Spring · SQL · JUnit · TDD · BDD · Fullstack Development · Agile</p>
-            </div>
-          </details>
-          <details class="experience-row">
-            <summary>
-              <span class="experience-date">2019–2021</span>
-              <span class="experience-title"><strong>Full-Stack Engineer</strong><small>Onyx LLC</small></span>
-              <span class="experience-toggle">View impact <span aria-hidden="true">+</span></span>
-            </summary>
-            <div class="experience-impact">
-              <ul>
-                <li>Deployed and supported application infrastructure on Google Cloud Platform.</li>
-                <li>Contributed across Swift, Java, Flutter, Dart, and Python product surfaces.</li>
-                <li>Improved release quality through testing, debugging, and feature validation.</li>
-              </ul>
-              <p class="experience-tools">GCP · Swift · Java · Flutter · Dart · Python · Android · Design</p>
-            </div>
-          </details>
-          <details class="experience-row">
-            <summary>
-              <span class="experience-date">2017–2019</span>
-              <span class="experience-title"><strong>LAMP Stack Developer</strong><small>Opsmart</small></span>
-              <span class="experience-toggle">View impact <span aria-hidden="true">+</span></span>
-            </summary>
-            <div class="experience-impact">
-              <ul>
-                <li>Maintained and optimized a client-facing LAMP website.</li>
-                <li>Wrote PHPUnit scripts to catch regressions earlier.</li>
-                <li>Configured CentOS environments for consistent team workflows.</li>
-              </ul>
-              <p class="experience-tools">HTML · JavaScript · PHP · PHPUnit · Linux · CentOS</p>
-            </div>
-          </details>
         </div>
       </section>
 

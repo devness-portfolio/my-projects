@@ -9,7 +9,9 @@ Live site: [devness.dev](https://www.devness.dev)
 - Responsive layout for desktop and mobile
 - Persistent dark and light themes
 - Accessible navigation, controls, and reduced-motion support
-- Animated engineering profile with a static reduced-motion fallback
+- Career-first editorial layout with a concise introduction and visible actions
+- Interactive engineering profile and local terminal command demo
+- Secure request pipeline with accessible selected-state feedback
 - Local photography carousel
 - Downloadable resume
 - Dedicated project case study
@@ -30,7 +32,7 @@ Open `http://localhost:8000`. Serving over HTTP is recommended because the JavaS
 
 ## Test
 
-The smoke test checks important content, assets, JavaScript behavior, responsive hero rules, and carousel coverage:
+The dependency-free tests cover preserved content/assets, section ordering, accessible control relationships, terminal commands, pipeline state, navigation history/focus, and photography coverage:
 
 ```bash
 npm test
@@ -41,14 +43,46 @@ npm test
 - `index.html` — main portfolio
 - `portfolio/case-study-sadaf-ijaz-md.html` — project case study
 - `portfolio/assets/css/style.css` — shared site styles
+- `portfolio/assets/css/editorial.css` — homepage-only editorial layout and accessibility adaptations
+- `portfolio/assets/js/terminal.js` — isolated command resolver and progressive form enhancement
+- `portfolio/assets/js/scroll.js` — same-page history, focus, and motion preferences
 - `portfolio/assets/js/main.js` — JavaScript entry point
 - `portfolio/assets/img/` — portfolio and photography images
 - `hero-prototype.html` — retained standalone hero design prototype
-- `tests/site-smoke.test.mjs` — dependency-free smoke test
+- `tests/site-smoke.test.mjs` — existing feature and asset regression coverage
+- `tests/redesign-structure.test.mjs` — document order, IDs, links, and accessibility relationships
+- `tests/redesign-interactions.test.mjs` — terminal, pipeline, and navigation behavior
 
 ## Deployment
 
 GitHub Pages publishes the static files directly. Push updates to the configured Pages branch; no compilation step is required.
+
+## Redesign verification
+
+The `apple-design-skill-redesign` branch keeps the existing case study, intro,
+photography carousel, credentials, and contact actions. Homepage presentation is
+scoped with `body.editorial-design`; the case study continues using shared styles.
+The terminal transcript is immediately readable in its new section. Typed commands
+are handled locally with a fixed response map and text-only output; the form is
+revealed only after its handler initializes.
+
+For browser review after `npm test`:
+
+1. At 320px, 390px, tablet, and desktop widths, check that primary actions are
+   visible, navigation fits, and content has no horizontal overflow.
+2. Expand each career role; follow career/work/terminal/photo links and use Back.
+   Check that the hash and focus destination follow navigation.
+3. Select all four pipeline stages; verify the explanation and selected state.
+4. Use the terminal tabs with arrow keys, Home, and End. Submit `whoami`, `skills`,
+   `help`, and an unknown command using Enter.
+5. Switch light/dark themes; browse photos in both directions and follow the case
+   study link. Verify resume and contact destinations.
+6. With system accessibility preferences enabled, check reduced motion,
+   reduced transparency, and increased contrast. At 200% text/zoom, verify reflow.
+7. Disable JavaScript and reload: career/project/profile content remains readable,
+   navigation uses native anchors, and the command form is hidden.
+
+No new runtime dependencies or build step are required.
 
 
 ## Fieldnotes demo
