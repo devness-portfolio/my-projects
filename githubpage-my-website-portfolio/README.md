@@ -88,3 +88,7 @@ No new runtime dependencies or build step are required.
 ## Fieldnotes demo
 
 `portfolio/fieldnotes/` contains the browser-only sample board with release progress. Task state is in a pure model module, presentation is scoped, and samples reset on reload. Run `node --test tests/fieldnotes-model.test.mjs` to check state transitions and reset isolation.
+
+## Design and performance references
+
+See the [portfolio reference library](docs/portfolio-references/README.md) for handoff notes, mockups, Lighthouse baselines, and archived v2/v3 screenshots.
