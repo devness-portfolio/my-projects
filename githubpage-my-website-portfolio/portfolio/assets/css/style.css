@@ -3665,3 +3665,37 @@ body.dark-mode .copy-email.is-copied {
     transform: none;
   }
 }
+
+/* A quiet appearance disc with a full-size native checkbox hit target. */
+.theme-switch.appearance-switch {
+  height: 2.75rem;
+  width: 2.75rem;
+  flex-shrink: 0;
+}
+.appearance-disc {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  color: var(--text-color);
+}
+.appearance-disc svg { width: 1.3125rem; height: 1.3125rem; }
+.appearance-switch:hover .appearance-disc,
+.appearance-switch input:active + .appearance-disc {
+  background: var(--surface-muted, var(--switch-bg));
+}
+.appearance-switch input:active + .appearance-disc svg { transform: scale(0.94); }
+.appearance-switch input:checked + .appearance-disc svg { rotate: 180deg; }
+.appearance-switch input:focus-visible + .appearance-disc {
+  outline: 2px solid var(--text-color);
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .appearance-switch input:active + .appearance-disc svg { transform: none; }
+}
+@media (prefers-contrast: more) {
+  .appearance-disc { border: 1px solid currentColor; }
+}
+
+.appearance-switch input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; z-index: 3; cursor: pointer; }
