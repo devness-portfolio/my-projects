@@ -16,6 +16,48 @@ export function activatePanel(tab, tabs, panels) {
 const wait = (duration) =>
   new Promise((resolve) => window.setTimeout(resolve, duration));
 
+function setupTerminalFinish(transcript, reducedMotion) {
+  const command = transcript.querySelector("[data-terminal-finish]");
+  const response = transcript.querySelector(".terminal-availability");
+  if (!command || !response || reducedMotion.matches || !window.IntersectionObserver || !command.animate) return;
+
+  // Clip the existing text so its full space and accessible content stay intact.
+  command.style.display = "inline-block";
+  command.style.clipPath = "inset(0 100% 0 0)";
+  response.style.opacity = "0";
+  const reveal = () => {
+    command.style.clipPath = "";
+    response.style.opacity = "";
+  };
+  const observer = new window.IntersectionObserver((entries) => {
+    if (!entries.some((entry) => entry.isIntersecting)) return;
+    observer.disconnect();
+    const compact = window.matchMedia("(max-width: 680px)").matches;
+    const duration = compact ? 620 : 1100;
+    const delay = compact ? 120 : 180;
+    const typing = command.animate([
+      { clipPath: "inset(0 100% 0 0)" },
+      { clipPath: "inset(0 0% 0 0)" },
+    ], { duration, delay, easing: `steps(${command.textContent.length}, end)`, fill: "both" });
+    const fade = response.animate([{ opacity: 0 }, { opacity: 1 }], {
+      duration: compact ? 180 : 240, delay: delay + duration, fill: "both",
+    });
+    Promise.all([typing.finished, fade.finished]).then(() => {
+      reveal();
+      typing.cancel();
+      fade.cancel();
+    }).catch(reveal);
+  }, { threshold: 0.5 });
+  observer.observe(transcript);
+  reducedMotion.addEventListener("change", () => {
+    if (!reducedMotion.matches) return;
+    observer.disconnect();
+    command.getAnimations().forEach((animation) => animation.cancel());
+    response.getAnimations().forEach((animation) => animation.cancel());
+    reveal();
+  });
+}
+
 async function runOverviewTyping(transcript, reducedMotion) {
   const lines = [...transcript.querySelectorAll("[data-typing-line]")];
   const cursor = transcript.querySelector("[data-typing-cursor]");
@@ -59,9 +101,9 @@ export default function setupHero({
 
   const initialTab = tabs.find((tab) => tab.classList.contains("is-active")) || tabs[0];
   if (initialTab) activatePanel(initialTab, tabs, panels);
-  // The editorial console lives below the fold: show its transcript immediately
-  // so late visitors never encounter a half-written profile or shifting layout.
+  // Keep the profile readable and animate only its final command on arrival.
   const isEditorialConsole = Boolean(terminalWrap.closest?.(".engineering-section"));
+  if (transcript && isEditorialConsole) setupTerminalFinish(transcript, reducedMotion);
   if (transcript && !isEditorialConsole) runOverviewTyping(transcript, reducedMotion);
 
   tabs.forEach((tab, index) => {
