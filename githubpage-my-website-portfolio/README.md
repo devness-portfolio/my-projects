@@ -49,3 +49,8 @@ npm test
 ## Deployment
 
 GitHub Pages publishes the static files directly. Push updates to the configured Pages branch; no compilation step is required.
+
+
+## Fieldnotes demo
+
+`portfolio/fieldnotes/` contains the browser-only sample board with release progress. Task state is in a pure model module, presentation is scoped, and samples reset on reload. Run `node --test tests/fieldnotes-model.test.mjs` to check state transitions and reset isolation.
