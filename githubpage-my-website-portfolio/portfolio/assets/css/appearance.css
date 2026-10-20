@@ -1,0 +1,54 @@
+/* Shared header control: independent of the legacy pill-switch styles. */
+.site-header .theme-switch-wrapper { display: flex; align-items: center; flex: 0 0 auto; }
+.site-header .theme-switch.appearance-switch {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 2.75rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  margin: 0;
+  vertical-align: middle;
+  border-radius: 50%;
+  color: var(--text-color);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.site-header .appearance-switch input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+.appearance-switch .appearance-disc {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  color: inherit;
+  pointer-events: none;
+}
+.appearance-disc svg { display: block; width: 1.3125rem; height: 1.3125rem; flex: none; }
+.appearance-switch:hover .appearance-disc,
+.appearance-switch input:active + .appearance-disc {
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+.appearance-switch input:active + .appearance-disc svg { transform: scale(0.94); }
+.appearance-switch input:checked + .appearance-disc svg { rotate: 180deg; }
+.appearance-switch input:focus-visible + .appearance-disc {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .appearance-switch input:active + .appearance-disc svg { transform: none; }
+}
+@media (prefers-contrast: more) {
+  .appearance-switch .appearance-disc { border: 1px solid currentColor; }
+}
