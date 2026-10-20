@@ -160,7 +160,18 @@ body.editorial-design .engineering-layout .terminal-caption { color: var(--text-
 body.editorial-design .main-nav ul { flex-wrap: wrap; }
 
 @media (max-width: 680px) {
-  body.editorial-design .main-nav ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  html:has(body.editorial-design) {
+    scroll-padding-top: calc(8.5rem + env(safe-area-inset-top));
+  }
+
+  body.editorial-design.mobile-nav-ready:has(.site-header.nav-open) main {
+    padding-top: calc(8.5rem + env(safe-area-inset-top));
+  }
+
+  body.editorial-design .main-nav ul,
+  body.editorial-design .site-header.is-compact .main-nav ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 /* Keep the native theme input actionable across its entire visible switch. */
 body.editorial-design .theme-switch input {
