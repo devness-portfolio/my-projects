@@ -52,13 +52,13 @@ assert.match(html, /id="visitor-name"/);
 assert.match(html, /data-matrix-skip/);
 assert.match(html, /<meta name="theme-color" content="#f5f8f6" \/>/);
 assert.match(html, /Software Engineer\s*<span>Building Intelligent, Scalable Systems\.<\/span>/);
-assert.match(html, /Over 5 years of experience taking software from idea to production, including federal systems\./);
+assert.match(html, /\+5 years of experience taking software from idea to production, including federal systems\./);
 assert.match(html, /I work across requirements, system design, full-stack implementation/);
 assert.match(html, /AI-assisted development/);
 assert.match(html, /secure, scalable, production-grade federal systems/);
 assert.match(html, /class="proof-strip"/);
 assert.match(html, /class="career-status-card"/);
-assert.match(html, /<dt>Over 5 years<\/dt>\s*<dd>of Experience<\/dd>/);
+assert.match(html, /<dt>\+5 years<\/dt>\s*<dd>of Experience<\/dd>/);
 assert.match(html, /<dt>U\.S\. Citizen<\/dt>\s*<dd>Public Trust<\/dd>/);
 assert.match(html, /<dt>Available<\/dt>\s*<dd>Full-Time<\/dd>/);
 assert.match(html, /data-console-tab="overview"/);
@@ -70,9 +70,9 @@ assert.match(html, /04 \/ Qualifications/);
 assert.doesNotMatch(html, /05 \/ Status/);
 assert.match(
   html,
-  /<li>U\.S\. Citizen<\/li>\s*<li>Public Trust Clearance<\/li>\s*<li>Bachelor of Science in Computer Science<\/li>\s*<li>Over 5 years of experience<\/li>/,
+  /<li>U\.S\. Citizen<\/li>\s*<li>Public Trust Clearance<\/li>\s*<li>Bachelor of Science in Computer Science<\/li>\s*<li>\+5 years of experience<\/li>/,
 );
-assert.match(html, /<li>Over 5 years of experience<\/li>/);
+assert.match(html, /<li>\+5 years of experience<\/li>/);
 assert.match(html, /data-overview-transcript/);
 assert.equal((html.match(/data-typing-line/g) || []).length, 9);
 assert.match(html, /Anes Mehai — Software Engineer/);
