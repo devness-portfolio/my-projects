@@ -105,3 +105,5 @@ navigation keeps the current photo visible until the requested photo has decoded
 ### Seasonal Matrix intro
 
 Every year from September 15 through November 1 (inclusive), the desktop intro uses a Halloween theme with code pumpkins, cobwebs, green fog, and amber accents. Dates follow the visitor’s local calendar; the standard Matrix theme returns November 2. The existing mobile bypass, once-per-session behavior, name entry, skip action, and reduced-motion preference remain in effect. No scheduled job or annual deployment is needed.
+
+The standard Matrix intro uses a cinematic green wallpaper with reflective water, ground fog, and static code along the edges, plus live canvas rain and a drifting fog layer. Reduced-motion visitors retain the wallpaper with no animated fog. Halloween scenery still activates only during the seasonal window.
