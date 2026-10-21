@@ -88,7 +88,6 @@ export default function setupCarousel({
   const doc = imageElement.ownerDocument;
   const view = doc.defaultView;
   let currentIndex = 0;
-  const reducedMotion = () => view.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
   const panels = [];
   const photos = [];
   dotsContainer.replaceChildren();
@@ -138,9 +137,13 @@ export default function setupCarousel({
     updatePagination(index);
     photos[index].loading = "eager";
     photos[index].fetchPriority = "high";
-    slideElement.scrollTo({ left: index * slideElement.clientWidth, behavior: reducedMotion() ? "instant" : "smooth" });
+    // Buttons must not queue or restart a browser-controlled smooth scroll.
+    // Instant positioning also avoids traversing every photo when wrapping.
+    slideElement.scrollTo({ left: index * slideElement.clientWidth, behavior: "instant" });
   }
   function navigate(direction) {
+    // A swipe can finish before scrollend (or its fallback timer) fires.
+    settleScroll();
     selectPhoto(getNextIndex(currentIndex, direction, images.length));
   }
   // Native scrolling provides finger tracking, momentum, and interruptible snapping.
