@@ -3665,3 +3665,74 @@ body.dark-mode .copy-email.is-copied {
     transform: none;
   }
 }
+
+/* Keep gestures horizontal so the page still scrolls naturally on touchscreens. */
+.carousel-slide {
+  touch-action: pan-y pinch-zoom;
+}
+
+.carousel-slide img {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.carousel-slide:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: -3px;
+}
+
+/* Preserve comfortable hit areas with a smaller, quieter visible arrow. */
+.carousel-button {
+  background-color: transparent;
+  border-color: transparent;
+  height: 2.75rem;
+  width: 2.75rem;
+  isolation: isolate;
+}
+
+.carousel-button::before {
+  background: rgba(17, 24, 39, 0.48);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50%;
+  content: "";
+  inset: 0.375rem;
+  position: absolute;
+  z-index: -1;
+}
+
+.carousel-button:hover,
+.carousel-button:focus-visible {
+  background-color: transparent;
+}
+
+.carousel-button:hover::before,
+.carousel-button:focus-visible::before {
+  background: rgba(17, 24, 39, 0.85);
+}
+
+.carousel-dots {
+  bottom: 0.4rem;
+  gap: 0;
+}
+
+.carousel-dots .dot {
+  background: transparent;
+  height: 2.75rem;
+  width: 2rem;
+  display: grid;
+  place-items: center;
+}
+
+.carousel-dots .dot::before {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+  content: "";
+  height: 0.4rem;
+  width: 0.4rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.carousel-dots .dot.active::before {
+  background: #fff;
+  width: 1rem;
+}

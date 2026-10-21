@@ -30,11 +30,15 @@ export default function setupWorkDemo({
   if (!buttons.length || !description || !code || !state) return;
 
   buttons.forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.classList.contains("is-active")));
     button.addEventListener("click", () => {
       const step = flowSteps[button.dataset.flowStep];
       if (!step) return;
 
-      buttons.forEach((item) => item.classList.toggle("is-active", item === button));
+      buttons.forEach((item) => {
+        item.classList.toggle("is-active", item === button);
+        item.setAttribute("aria-pressed", String(item === button));
+      });
       description.textContent = step.description;
       code.textContent = step.code;
       state.textContent = step.state;
