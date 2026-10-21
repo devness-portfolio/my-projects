@@ -18,7 +18,32 @@ function markIntroSeen(storage) {
   }
 }
 
-function createRain(canvas, reducedMotion) {
+// Inclusive September 15–November 1, using the visitor's local calendar.
+export function isHalloweenSeason(date = new Date()) {
+  const day = (date.getMonth() + 1) * 100 + date.getDate();
+  return day >= 915 && day <= 1101;
+}
+
+function applyHalloweenTheme(intro, date) {
+  const active = isHalloweenSeason(date);
+  intro.classList.toggle("is-halloween", active);
+  if (!active) return false;
+  intro.querySelector(".matrix-kicker").textContent = "● Halloween protocol active";
+  intro.querySelector("h2").textContent = "Enter the haunted system.";
+  const scenery = document.createElement("div");
+  scenery.className = "matrix-halloween-scenery";
+  scenery.setAttribute("aria-hidden", "true");
+  scenery.innerHTML = `<div class="matrix-web matrix-web-left"></div>
+    <div class="matrix-web matrix-web-right"></div>
+    <div class="matrix-fog"></div>
+    <div class="matrix-pumpkin matrix-pumpkin-left"></div>
+    <div class="matrix-pumpkin matrix-pumpkin-right"></div>
+    <span class="matrix-season-caption">HALLOWEEN PROTOCOL // the code is alive</span>`;
+  intro.append(scenery);
+  return true;
+}
+
+function createRain(canvas, reducedMotion, halloween = false) {
   const context = canvas.getContext("2d");
   if (!context) return { warp() {}, stop() {} };
 
@@ -70,9 +95,10 @@ function createRain(canvas, reducedMotion) {
       for (let trail = 0; trail < column.length; trail += 1) {
         const y = (head - trail) * fontSize;
         if (y < -fontSize || y > window.innerHeight + fontSize) continue;
-        const glyph = MATRIX_GLYPHS[Math.floor(Math.random() * MATRIX_GLYPHS.length)];
+        const hauntedGlyph = halloween && Math.random() < 0.025;
+        const glyph = hauntedGlyph ? "✦" : MATRIX_GLYPHS[Math.floor(Math.random() * MATRIX_GLYPHS.length)];
         const opacity = Math.max(0.06, 1 - trail / column.length);
-        context.fillStyle = trail === 0
+        context.fillStyle = hauntedGlyph ? `rgba(255, 155, 48, ${opacity})` : trail === 0
           ? `rgba(225, 255, 238, ${opacity})`
           : `rgba(65, 255, 145, ${opacity * 0.78})`;
         context.fillText(glyph, column.x, y);
@@ -85,12 +111,13 @@ function createRain(canvas, reducedMotion) {
       }
     });
 
-    frameId = window.requestAnimationFrame(draw);
+    if (!reducedMotion.matches) frameId = window.requestAnimationFrame(draw);
   };
 
   resize();
   window.addEventListener("resize", resize);
   if (!reducedMotion.matches) frameId = window.requestAnimationFrame(draw);
+  else draw(42);
 
   return {
     warp() {
@@ -116,6 +143,7 @@ export default function setupMatrixIntro({
   reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)"),
   storage = window.sessionStorage,
   onReveal = () => {},
+  date = new Date(),
 } = {}) {
   if (!intro || !canvas || !form || !input || !skip) {
     document.body.classList.remove("intro-active");
@@ -139,7 +167,8 @@ export default function setupMatrixIntro({
     return false;
   }
 
-  const rain = createRain(canvas, reducedMotion);
+  const halloween = applyHalloweenTheme(intro, date);
+  const rain = createRain(canvas, reducedMotion, halloween);
   let exiting = false;
   const pageRegions = [
     document.querySelector(".site-header"),

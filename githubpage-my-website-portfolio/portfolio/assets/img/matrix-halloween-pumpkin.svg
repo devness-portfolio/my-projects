@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 250">
+<defs><pattern id="code" width="24" height="30" patternUnits="userSpaceOnUse"><text x="2" y="12" fill="#65e99a" font-family="monospace" font-size="10">01</text><text x="4" y="26" fill="#239452" font-family="monospace" font-size="10">10</text></pattern><radialGradient id="glow"><stop stop-color="#ffb541"/><stop offset="1" stop-color="#ee780c"/></radialGradient></defs>
+<path d="M130 53 Q124 18 153 10 L163 24 Q141 28 146 56" fill="url(#code)" stroke="#5ee6a8"/>
+<path d="M140 60 C32 12 -10 121 30 193 Q58 237 140 218 Q225 237 253 193 C293 121 249 12 140 60Z" fill="#03140b" stroke="#369b5d"/>
+<path d="M140 60 C32 12 -10 121 30 193 Q58 237 140 218 Q225 237 253 193 C293 121 249 12 140 60Z" fill="url(#code)"/>
+<g fill="none" stroke="#4dd582" opacity=".5"><ellipse cx="140" cy="140" rx="48" ry="80"/><ellipse cx="140" cy="140" rx="91" ry="80"/></g>
+<path d="M56 125 L103 100 L100 139Z M179 100 L225 125 L182 139Z M140 131 L125 155 L155 155Z M60 164 L86 178 L99 166 L116 187 L140 176 L164 187 L182 166 L195 178 L222 164 Q201 216 140 209 Q80 216 60 164Z" fill="url(#glow)"/>
+</svg>
