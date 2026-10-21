@@ -33,14 +33,14 @@ function setupTerminalFinish(transcript, reducedMotion) {
     if (!entries.some((entry) => entry.isIntersecting)) return;
     observer.disconnect();
     const compact = window.matchMedia("(max-width: 680px)").matches;
-    const duration = compact ? 620 : 1100;
-    const delay = compact ? 120 : 180;
+    const duration = compact ? 1200 : 1800;
+    const delay = compact ? 200 : 250;
     const typing = command.animate([
       { clipPath: "inset(0 100% 0 0)" },
       { clipPath: "inset(0 0% 0 0)" },
     ], { duration, delay, easing: `steps(${command.textContent.length}, end)`, fill: "both" });
     const fade = response.animate([{ opacity: 0 }, { opacity: 1 }], {
-      duration: compact ? 180 : 240, delay: delay + duration, fill: "both",
+      duration: compact ? 250 : 300, delay: delay + duration, fill: "both",
     });
     Promise.all([typing.finished, fade.finished]).then(() => {
       reveal();
