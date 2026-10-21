@@ -160,6 +160,23 @@ body.editorial-design .engineering-layout .terminal-caption { color: var(--text-
 body.editorial-design .main-nav ul { flex-wrap: wrap; }
 
 @media (max-width: 680px) {
+  body.editorial-design .social-links {
+    flex-wrap: nowrap;
+    gap: clamp(0.5rem, 2.5vw, 1rem);
+  }
+
+  body.editorial-design .social-links a {
+    gap: 0.25rem;
+    font-size: clamp(0.75rem, 3vw, 0.9rem);
+    white-space: nowrap;
+  }
+
+  body.editorial-design .social-links svg {
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+  }
+
   html:has(body.editorial-design) {
     scroll-padding-top: calc(8.5rem + env(safe-area-inset-top));
   }
