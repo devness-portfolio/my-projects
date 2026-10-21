@@ -37,6 +37,9 @@ function applyHalloweenTheme(intro, date) {
     <div class="matrix-bats">${Array.from({ length: 14 }, (_, i) =>
       `<span class="matrix-bat" style="--x:${(i * 37 + 7) % 100}%;--delay:-${i * 2.3}s;--duration:${13 + i % 6 * 2}s;--size:${16 + i % 4 * 6}px"><svg viewBox="0 0 64 32"><path d="M32 14 27 6 26 13Q17 2 0 0L9 17Q16 12 20 24L28 23 32 32 36 23 44 24Q48 12 55 17L64 0Q47 2 38 13L37 6Z"/></svg></span>`
     ).join("")}</div>
+    <div class="matrix-falling-pumpkins">${Array.from({ length: 10 }, (_, i) =>
+      `<span class="matrix-falling-pumpkin" style="--x:${(i * 29 + 3) % 97}%;--delay:-${i * 3.7}s;--duration:${18 + i % 5 * 3}s;--size:${22 + i % 4 * 7}px"></span>`
+    ).join("")}</div>
     <span class="matrix-season-caption">HALLOWEEN PROTOCOL // the code is alive</span>`;
   intro.append(scenery);
   return true;

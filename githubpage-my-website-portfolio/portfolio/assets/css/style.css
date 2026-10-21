@@ -3784,3 +3784,26 @@ body.dark-mode .copy-email.is-copied {
 
 body.editorial-design .is-halloween .matrix-input-row input:focus-visible { outline: none; }
 .is-halloween .matrix-input-row:focus-within { border-color: #baffcc; box-shadow: 0 0 14px #5ee6a833; }
+
+.matrix-falling-pumpkins { position: absolute; inset: 0; overflow: hidden; }
+.matrix-falling-pumpkin {
+  position: absolute;
+  left: var(--x);
+  top: -12%;
+  width: var(--size);
+  aspect-ratio: 280 / 250;
+  background: url("../img/matrix-halloween-pumpkin.svg") center / contain no-repeat;
+  filter: drop-shadow(0 0 7px #ff9c3666);
+  animation: halloween-pumpkin-fall var(--duration) var(--delay) linear infinite;
+  will-change: transform;
+}
+@keyframes halloween-pumpkin-fall {
+  0% { transform: translate(0, -5vh) rotate(-18deg); opacity: 0; }
+  8%, 85% { opacity: .9; }
+  50% { transform: translate(-28px, 50vh) rotate(20deg); }
+  100% { transform: translate(24px, 120vh) rotate(-12deg); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .matrix-falling-pumpkins { display: none; }
+  .matrix-falling-pumpkin { animation: none; }
+}
