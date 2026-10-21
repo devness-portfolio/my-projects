@@ -3791,17 +3791,17 @@ body.editorial-design .is-halloween .matrix-input-row input:focus-visible { outl
   left: var(--x);
   top: -12%;
   width: var(--size);
-  aspect-ratio: 280 / 250;
-  background: url("../img/matrix-halloween-pumpkin.svg") center / contain no-repeat;
-  filter: drop-shadow(0 0 7px #ff9c3666);
+  aspect-ratio: 1;
+  background: url("../img/matrix-halloween-pumpkin-3d.png") center / contain no-repeat;
+  filter: drop-shadow(0 0 4px #ff9c3640);
   animation: halloween-pumpkin-fall var(--duration) var(--delay) linear infinite;
   will-change: transform;
 }
 @keyframes halloween-pumpkin-fall {
-  0% { transform: translate(0, -5vh) rotate(-18deg); opacity: 0; }
+  0% { transform: translate(0, -5vh) rotate(-8deg); opacity: 0; }
   8%, 85% { opacity: .9; }
-  50% { transform: translate(-28px, 50vh) rotate(20deg); }
-  100% { transform: translate(24px, 120vh) rotate(-12deg); opacity: 0; }
+  50% { transform: translate(-28px, 50vh) rotate(10deg); }
+  100% { transform: translate(24px, 120vh) rotate(-6deg); opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .matrix-falling-pumpkins { display: none; }
