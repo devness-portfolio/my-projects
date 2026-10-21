@@ -594,13 +594,14 @@
             <div class="carousel-slide">
               <img
                 id="carousel-image"
-                src="portfolio/assets/img/photography/optimized/dsc00236.jpg"
+                src="portfolio/assets/img/photography/responsive/dsc00236-480.webp"
                 srcset="
-                  portfolio/assets/img/photography/mobile/dsc00236.jpg 600w,
-                  portfolio/assets/img/photography/optimized/dsc00236.jpg 900w,
-                  portfolio/assets/img/photography/dsc00236.jpg 1800w
+                  portfolio/assets/img/photography/responsive/dsc00236-480.webp 480w,
+                  portfolio/assets/img/photography/responsive/dsc00236-800.webp 800w,
+                  portfolio/assets/img/photography/responsive/dsc00236-1200.webp 1200w,
+                  portfolio/assets/img/photography/responsive/dsc00236-1600.webp 1600w
                 "
-                sizes="(max-width: 768px) calc(100vw - 2rem), 736px"
+                sizes="(max-width: 768px) calc(100vw - 2 * clamp(1rem, 3vw, 2rem) - 2px), 734px"
                 alt="Night waterfront scene with glowing blue and orange lights"
                 width="1800"
                 height="1440"

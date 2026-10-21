@@ -92,3 +92,12 @@ No new runtime dependencies or build step are required.
 ## Design and performance references
 
 See the [portfolio reference library](docs/portfolio-references/README.md) for handoff notes, mockups, Lighthouse baselines, and archived v2/v3 screenshots.
+
+## Photography assets
+
+The gallery uses 480/800/1200/1600px WebP variants and tiny pre-blurred backdrops.
+Original JPEGs remain the source assets. To regenerate after replacing a photo,
+install Pillow in a Python environment and run `python scripts/optimize-photography.py`.
+Pillow is an offline asset tool; the published site still has no runtime dependencies.
+Adjacent photos are prefetched near the gallery unless Data Saver is enabled, and
+navigation keeps the current photo visible until the requested photo has decoded.
