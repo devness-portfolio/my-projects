@@ -3742,6 +3742,29 @@ body.dark-mode .copy-email.is-copied {
   width: 1rem;
 }
 
+/* Cinematic year-round Matrix scene; the seasonal skin overrides the wallpaper. */
+.matrix-intro:not(.is-halloween) {
+  background: #020604 url("../img/matrix-regular-scene.png") center / cover no-repeat;
+}
+.matrix-intro:not(.is-halloween) .matrix-rain { opacity: .24; mix-blend-mode: screen; }
+.matrix-intro:not(.is-halloween) .matrix-vignette {
+  background: radial-gradient(ellipse at center, transparent 35%, #0004 100%);
+}
+.matrix-intro:not(.is-halloween) .matrix-vignette::after { border: 0; box-shadow: none; }
+.matrix-intro:not(.is-halloween)::before {
+  content: "";
+  position: absolute;
+  inset: 64% -15% -8%;
+  pointer-events: none;
+  z-index: -1;
+  background: radial-gradient(ellipse at 20% 70%, #4be27b22, transparent 45%), radial-gradient(ellipse at 80% 80%, #39d87730, transparent 50%);
+  filter: blur(30px);
+  animation: halloween-fog 10s ease-in-out infinite alternate;
+}
+@media (prefers-reduced-motion: reduce) {
+  .matrix-intro:not(.is-halloween)::before { animation: none; }
+}
+
 /* Recurring September 15–November 1 intro skin. */
 .is-halloween {
   background: #020604 url("../img/matrix-halloween-scene.png") center / cover no-repeat;
