@@ -100,8 +100,8 @@ assert.match(html, /portfolio\/assets\/img\/ppic\.jpg 1344w/);
 assert.match(html, /loading="lazy"/);
 assert.match(html, /decoding="async"/);
 assert.match(html, /ppic-560\.jpg 560w/);
-assert.match(html, /photography\/mobile\/dsc00236\.jpg 600w/);
-assert.match(html, /photography\/optimized\/dsc00236\.jpg 900w/);
+assert.match(html, /photography\/responsive\/dsc00236-480\.webp 480w/);
+assert.match(html, /photography\/responsive\/dsc00236-1200\.webp 1200w/);
 assert.match(html, /<li>U\.S\. Citizen<\/li>/);
 assert.match(html, /<li>Public Trust Clearance<\/li>/);
 assert.match(html, /src="portfolio\/assets\/img\/devness-logo-v2\.svg"/);
@@ -222,7 +222,7 @@ assert.match(mainJs, /initializeFeature\("\.\/carousel\.js"\)/);
 assert.doesNotMatch(mainJs, /IntersectionObserver|Promise\.all\(/);
 assert.match(matrixIntroJs, /intro\.classList\.remove\("is-warping"\)/);
 assert.match(css, /\.matrix-intro\.is-complete \*\s*\{\s*pointer-events: none;\s*visibility: hidden;/);
-assert.match(readProjectFile("portfolio/assets/js/carousel.js"), /mobileSource/);
+assert.match(readProjectFile("portfolio/assets/js/carousel.js"), /getResponsiveSource/);
 assert.match(matrixIntroJs, /portfolio-intro-seen/);
 assert.match(heroJs, /prefers-reduced-motion: reduce/);
 assert.match(heroJs, /max-width: 680px/);
@@ -300,6 +300,10 @@ photographyImages.forEach((imagePath) => {
     existsSync(join(root, imagePath)),
     `Missing carousel image: ${imagePath}`,
   );
+  for (const size of [480, 800, 1200, 1600, "backdrop"]) {
+    const variant = imagePath.replace("/photography/", "/photography/responsive/").replace(/\.jpg$/, `-${size}.webp`);
+    assert.ok(existsSync(join(root, variant)), `Missing responsive image: ${variant}`);
+  }
 });
 
 class MockTab extends EventTarget {

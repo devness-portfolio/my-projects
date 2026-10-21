@@ -85,15 +85,22 @@ function setupScrollProgress() {
   progress.setAttribute("aria-hidden", "true");
   document.body.append(progress);
 
+  let ticking = false;
   const update = () => {
+    ticking = false;
     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
     const ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
     progress.style.transform = `scaleX(${Math.min(1, Math.max(0, ratio))})`;
   };
 
   update();
-  window.addEventListener("scroll", update, { passive: true });
-  window.addEventListener("resize", update);
+  const requestUpdate = () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(update);
+  };
+  window.addEventListener("scroll", requestUpdate, { passive: true });
+  window.addEventListener("resize", requestUpdate);
 }
 
 function setupCompactHeader(root) {

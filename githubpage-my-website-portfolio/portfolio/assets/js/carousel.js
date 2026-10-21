@@ -29,12 +29,10 @@ const photographyImageDisplay = {
   },
 };
 
-function getOptimizedSource(source) {
-  return source.replace("/photography/", "/photography/optimized/");
-}
+const imageSizes = "(max-width: 768px) calc(100vw - 2 * clamp(1rem, 3vw, 2rem) - 2px), 734px";
 
-function getMobileSource(source) {
-  return source.replace("/photography/", "/photography/mobile/");
+function getResponsiveSource(source, size) {
+  return source.replace("/photography/", "/photography/responsive/").replace(/\.jpg$/, `-${size}.webp`);
 }
 
 export function getNextIndex(currentIndex, direction, itemCount) {
@@ -47,15 +45,15 @@ export function getNextIndex(currentIndex, direction, itemCount) {
 
 function normalizeImage(image, index) {
   if (typeof image === "string") {
-    const optimizedSource = getOptimizedSource(image);
-    const mobileSource = getMobileSource(image);
+    const mobileSource = getResponsiveSource(image, 480);
     return {
       alt: `Photography showcase ${index + 1}`,
       fit: "cover",
       position: "center",
-      src: optimizedSource,
-      srcset: `${mobileSource} 600w, ${optimizedSource} 900w, ${image} 1800w`,
-      sizes: "(max-width: 768px) calc(100vw - 2rem), 736px",
+      src: mobileSource,
+      srcset: [480, 800, 1200, 1600].map((width) => `${getResponsiveSource(image, width)} ${width}w`).join(", "),
+      sizes: imageSizes,
+      backdrop: getResponsiveSource(image, "backdrop"),
       ...photographyImageDisplay[image],
     };
   }
@@ -90,45 +88,58 @@ export default function setupCarousel({
   let currentIndex = 0;
   const view = imageElement.ownerDocument.defaultView;
   const preloaded = new Map();
+  let requestedIndex = 0;
+  let requestVersion = 0;
   let isNearViewport = false;
   imageElement.draggable = false;
 
-  // Reuse the browser-selected responsive image for the backdrop, avoiding a
-  // second request for a differently sized copy of the same photograph.
-  function updateBackground() {
-    if (!slideElement) return;
-    const source = imageElement.currentSrc || imageElement.src;
-    slideElement.style.setProperty("--carousel-background", `url("${source}")`);
-  }
-  imageElement.addEventListener("load", () => {
-    updateBackground();
-    preloadNext();
-  });
-
-  function preloadNext() {
-    if (!isNearViewport || images.length < 2 || view.navigator?.connection?.saveData) return;
-    const index = getNextIndex(currentIndex, "next", images.length);
-    if (preloaded.has(index)) return;
+  // Cache loaded AND decoded images; failed requests are evicted so users can retry.
+  function prepareImage(index, priority = "low") {
+    const cached = preloaded.get(index);
+    if (cached) {
+      if (priority === "high") cached.image.fetchPriority = "high";
+      return cached.ready;
+    }
     const source = normalizeImage(images[index], index);
-    const preload = new view.Image();
-    preloaded.set(index, preload);
-    preload.decoding = "async";
-    preload.fetchPriority = "low";
-    if (source.sizes) preload.sizes = source.sizes;
-    if (source.srcset) preload.srcset = source.srcset;
-    preload.src = source.src;
+    const image = new view.Image();
+    image.decoding = "async";
+    image.fetchPriority = priority;
+    const ready = new Promise((resolve, reject) => {
+      image.onload = async () => {
+        try {
+          if (image.decode) await image.decode();
+          resolve(image);
+        } catch (error) { reject(error); }
+      };
+      image.onerror = () => reject(new Error(`Unable to load photo ${index + 1}`));
+    }).catch((error) => {
+      preloaded.delete(index);
+      throw error;
+    });
+    preloaded.set(index, { image, ready });
+    if (source.sizes) image.sizes = source.sizes;
+    if (source.srcset) image.srcset = source.srcset;
+    image.src = source.src;
+    return ready;
   }
 
-  // Start just before the gallery is visible, rather than fetching the whole
-  // collection during the initial page load.
+  function preloadNeighbors() {
+    if (!isNearViewport || images.length < 2 || view.navigator?.connection?.saveData) return;
+    for (const direction of ["previous", "next"]) {
+      const index = getNextIndex(currentIndex, direction, images.length);
+      prepareImage(index).catch(() => {});
+    }
+  }
+
+  // Give both neighbors a head start without competing with the initial page load.
   if (slideElement && view.IntersectionObserver) {
     const observer = new view.IntersectionObserver((entries) => {
       if (!entries.some((entry) => entry.isIntersecting)) return;
       isNearViewport = true;
       imageElement.loading = "eager";
-      preloadNext();
+      preloadNeighbors();
       observer.disconnect();
-    }, { rootMargin: "300px" });
+    }, { rootMargin: "1000px" });
     observer.observe(slideElement);
   } else {
     isNearViewport = true;
@@ -141,8 +152,7 @@ export default function setupCarousel({
     dot.type = "button";
     dot.setAttribute("aria-label", `Show photo ${index + 1}`);
     dot.addEventListener("click", () => {
-      currentIndex = index;
-      updateCarousel();
+      selectPhoto(index);
     });
     dotsContainer.appendChild(dot);
     return dot;
@@ -151,6 +161,7 @@ export default function setupCarousel({
   function updateCarousel() {
     const currentImage = normalizeImage(images[currentIndex], currentIndex);
 
+    // Use the same responsive selection as the decoded preload, including after resize.
     if (currentImage.sizes) imageElement.sizes = currentImage.sizes;
     else imageElement.removeAttribute("sizes");
     if (currentImage.srcset) imageElement.srcset = currentImage.srcset;
@@ -165,11 +176,12 @@ export default function setupCarousel({
         "carousel-slide-contained",
         currentImage.fit === "contain",
       );
-      slideElement.style.removeProperty("--carousel-background");
-      if (imageElement.complete && imageElement.naturalWidth) updateBackground();
+      if (currentImage.backdrop) {
+        slideElement.style.setProperty("--carousel-background", `url("${currentImage.backdrop}")`);
+      } else slideElement.style.removeProperty("--carousel-background");
     }
 
-    if (isNearViewport) preloadNext();
+    preloadNeighbors();
     dotsContainer.setAttribute("aria-label", `Photo ${currentIndex + 1} of ${images.length}`);
     dots.forEach((dot, index) => {
       const isActive = index === currentIndex;
@@ -178,9 +190,27 @@ export default function setupCarousel({
     });
   }
 
+  async function selectPhoto(index) {
+    requestedIndex = index;
+    const version = ++requestVersion;
+    slideElement?.setAttribute("aria-busy", "true");
+    try {
+      await prepareImage(index, "high");
+      // Rapid clicks/swipes must never let an older request overwrite the latest target.
+      if (version !== requestVersion) return;
+      currentIndex = index;
+      updateCarousel();
+    } catch {
+      if (version !== requestVersion) return;
+      requestedIndex = currentIndex;
+      // Keep the last successfully displayed image when a request fails.
+    } finally {
+      if (version === requestVersion) slideElement?.setAttribute("aria-busy", "false");
+    }
+  }
+
   function navigate(direction) {
-    currentIndex = getNextIndex(currentIndex, direction, images.length);
-    updateCarousel();
+    selectPhoto(getNextIndex(requestedIndex, direction, images.length));
   }
 
   if (slideElement) {
@@ -214,13 +244,11 @@ export default function setupCarousel({
   }
 
   previousButton.addEventListener("click", () => {
-    currentIndex = getNextIndex(currentIndex, "previous", images.length);
-    updateCarousel();
+    navigate("previous");
   });
 
   nextButton.addEventListener("click", () => {
-    currentIndex = getNextIndex(currentIndex, "next", images.length);
-    updateCarousel();
+    navigate("next");
   });
 
   updateCarousel();
