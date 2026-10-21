@@ -101,3 +101,7 @@ install Pillow in a Python environment and run `python scripts/optimize-photogra
 Pillow is an offline asset tool; the published site still has no runtime dependencies.
 Adjacent photos are prefetched near the gallery unless Data Saver is enabled, and
 navigation keeps the current photo visible until the requested photo has decoded.
+
+### Seasonal Matrix intro
+
+Every year from September 15 through November 1 (inclusive), the desktop intro uses a Halloween theme with code pumpkins, cobwebs, green fog, and amber accents. Dates follow the visitor’s local calendar; the standard Matrix theme returns November 2. The existing mobile bypass, once-per-session behavior, name entry, skip action, and reduced-motion preference remain in effect. No scheduled job or annual deployment is needed.
