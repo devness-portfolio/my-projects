@@ -33,11 +33,10 @@ function applyHalloweenTheme(intro, date) {
   const scenery = document.createElement("div");
   scenery.className = "matrix-halloween-scenery";
   scenery.setAttribute("aria-hidden", "true");
-  scenery.innerHTML = `<div class="matrix-web matrix-web-left"></div>
-    <div class="matrix-web matrix-web-right"></div>
-    <div class="matrix-fog"></div>
-    <div class="matrix-pumpkin matrix-pumpkin-left"></div>
-    <div class="matrix-pumpkin matrix-pumpkin-right"></div>
+  scenery.innerHTML = `<div class="matrix-fog"></div>
+    <div class="matrix-bats">${Array.from({ length: 14 }, (_, i) =>
+      `<span class="matrix-bat" style="--x:${(i * 37 + 7) % 100}%;--delay:-${i * 2.3}s;--duration:${13 + i % 6 * 2}s;--size:${16 + i % 4 * 6}px"><svg viewBox="0 0 64 32"><path d="M32 14 27 6 26 13Q17 2 0 0L9 17Q16 12 20 24L28 23 32 32 36 23 44 24Q48 12 55 17L64 0Q47 2 38 13L37 6Z"/></svg></span>`
+    ).join("")}</div>
     <span class="matrix-season-caption">HALLOWEEN PROTOCOL // the code is alive</span>`;
   intro.append(scenery);
   return true;
