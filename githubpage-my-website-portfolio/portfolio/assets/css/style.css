@@ -3743,8 +3743,8 @@ body.dark-mode .copy-email.is-copied {
 }
 
 /* Cinematic year-round Matrix scene; the seasonal skin overrides the wallpaper. */
-.matrix-intro:not(.is-halloween) {
-  background: #020604 url("../img/matrix-regular-scene.png") center / cover no-repeat;
+html[data-intro="regular"] .matrix-intro:not(.is-complete) {
+  background: #020604 url("../img/matrix-regular-scene.webp") center / cover no-repeat;
 }
 .matrix-intro:not(.is-halloween) .matrix-rain { opacity: .24; mix-blend-mode: screen; }
 .matrix-intro:not(.is-halloween) .matrix-vignette {
@@ -3766,14 +3766,14 @@ body.dark-mode .copy-email.is-copied {
 }
 
 /* Recurring September 15–November 1 intro skin. */
-.is-halloween {
-  background: #020604 url("../img/matrix-halloween-scene.png") center / cover no-repeat;
+html[data-intro="halloween"] .matrix-intro:not(.is-complete) {
+  background: #020604 url("../img/matrix-halloween-scene.webp") center / cover no-repeat;
 }
-.is-halloween .matrix-rain { opacity: .22; mix-blend-mode: screen; }
-.is-halloween .matrix-vignette { background: radial-gradient(ellipse at center, transparent 35%, #0004 100%); }
-.is-halloween .matrix-vignette::after { border: 0; box-shadow: none; }
+:is(.is-halloween, html[data-intro="halloween"] .matrix-intro) .matrix-rain { opacity: .22; mix-blend-mode: screen; }
+:is(.is-halloween, html[data-intro="halloween"] .matrix-intro) .matrix-vignette { background: radial-gradient(ellipse at center, transparent 35%, #0004 100%); }
+:is(.is-halloween, html[data-intro="halloween"] .matrix-intro) .matrix-vignette::after { border: 0; box-shadow: none; }
 .matrix-halloween-scenery { position: absolute; inset: 0; pointer-events: none; z-index: -1; }
-.is-halloween .matrix-entry-panel {
+:is(.is-halloween, html[data-intro="halloween"] .matrix-intro) .matrix-entry-panel {
   max-width: 50rem;
   padding: clamp(2rem, 4vw, 3.25rem);
   text-align: center;
@@ -3782,10 +3782,10 @@ body.dark-mode .copy-email.is-copied {
   box-shadow: 0 0 60px #35e57612, inset 0 0 40px #49f16b06;
   backdrop-filter: blur(4px);
 }
-.is-halloween .matrix-entry-panel::before,
-.is-halloween .matrix-entry-panel::after { border-color: #ffa033; width: 1.4rem; }
-.is-halloween .matrix-kicker { color: #ffa033; letter-spacing: .18em; font-size: .7rem; }
-.is-halloween .matrix-entry-panel h2 {
+:is(.is-halloween, html[data-intro="halloween"] .matrix-intro) .matrix-entry-panel::before,
+:is(.is-halloween, html[data-intro="halloween"] .matrix-intro) .matrix-entry-panel::after { border-color: #ffa033; width: 1.4rem; }
+:is(.is-halloween, html[data-intro="halloween"] .matrix-intro) .matrix-kicker { color: #ffa033; letter-spacing: .18em; font-size: .7rem; }
+:is(.is-halloween, html[data-intro="halloween"] .matrix-intro) .matrix-entry-panel h2 {
   color: #ecfff1;
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2rem, 3.6vw, 3rem);
@@ -3794,13 +3794,13 @@ body.dark-mode .copy-email.is-copied {
   text-shadow: 0 0 24px #4aff8866;
   margin: 1.4rem 0 .8rem;
 }
-.is-halloween .matrix-intro-copy { color: #b3ddc1; }
-.is-halloween .matrix-name-form { text-align: left; margin-top: 2rem; }
-.is-halloween .matrix-input-row { border: 1px solid #6ee49d; border-radius: 4px; padding: .35rem .4rem .35rem .8rem; gap: .7rem; }
-.is-halloween .matrix-input-row input { outline: none; background: transparent; box-shadow: none; }
-.is-halloween .matrix-input-row button { color: #ffae4d; border: 1px solid #dc8b32; border-radius: 3px; background: #170e04; padding: .65rem 1.1rem; }
-.is-halloween .matrix-input-row button:hover,
-.is-halloween .matrix-input-row button:focus-visible { background: #ff9e3025; color: #ffd69b; }
+:is(.is-halloween, html[data-intro="halloween"] .matrix-intro) .matrix-intro-copy { color: #b3ddc1; }
+:is(.is-halloween, html[data-intro="halloween"] .matrix-intro) .matrix-name-form { text-align: left; margin-top: 2rem; }
+:is(.is-halloween, html[data-intro="halloween"] .matrix-intro) .matrix-input-row { border: 1px solid #6ee49d; border-radius: 4px; padding: .35rem .4rem .35rem .8rem; gap: .7rem; }
+:is(.is-halloween, html[data-intro="halloween"] .matrix-intro) .matrix-input-row input { outline: none; background: transparent; box-shadow: none; }
+:is(.is-halloween, html[data-intro="halloween"] .matrix-intro) .matrix-input-row button { color: #ffae4d; border: 1px solid #dc8b32; border-radius: 3px; background: #170e04; padding: .65rem 1.1rem; }
+:is(.is-halloween, html[data-intro="halloween"] .matrix-intro) .matrix-input-row button:hover,
+:is(.is-halloween, html[data-intro="halloween"] .matrix-intro) .matrix-input-row button:focus-visible { background: #ff9e3025; color: #ffd69b; }
 .matrix-fog { position: absolute; inset: 64% -15% -8%; background: radial-gradient(ellipse at 20% 70%, #4be27b22, transparent 45%), radial-gradient(ellipse at 80% 80%, #39d87730, transparent 50%); filter: blur(30px); animation: halloween-fog 10s ease-in-out infinite alternate; }
 .matrix-season-caption { position: absolute; bottom: 1.5rem; left: 0; right: 0; text-align: center; color: #89dba8; font: 400 .65rem/1.5 var(--font-mono); letter-spacing: .08em; }
 .matrix-bats { position: absolute; inset: 0; overflow: hidden; }
@@ -3810,10 +3810,10 @@ body.dark-mode .copy-email.is-copied {
 @keyframes halloween-bat-fall { 0% { transform: translate(0, -5vh) rotate(-12deg); opacity: 0; } 8%, 85% { opacity: .8; } 50% { transform: translate(35px, 50vh) rotate(10deg); } 100% { transform: translate(-20px, 115vh) rotate(-8deg); opacity: 0; } }
 @keyframes halloween-bat-flap { to { transform: scaleY(.5); } }
 @media (prefers-reduced-motion: reduce) { .matrix-fog, .matrix-bat, .matrix-bat svg { animation: none; } .matrix-bats { display: none; } }
-@media (max-height: 650px) { .is-halloween .matrix-entry-panel { padding: 1.5rem 2rem; } .matrix-season-caption { bottom: .4rem; } }
+@media (max-height: 650px) { :is(.is-halloween, html[data-intro="halloween"] .matrix-intro) .matrix-entry-panel { padding: 1.5rem 2rem; } .matrix-season-caption { bottom: .4rem; } }
 
-body.editorial-design .is-halloween .matrix-input-row input:focus-visible { outline: none; }
-.is-halloween .matrix-input-row:focus-within { border-color: #baffcc; box-shadow: 0 0 14px #5ee6a833; }
+body.editorial-design :is(.is-halloween, html[data-intro="halloween"] .matrix-intro) .matrix-input-row input:focus-visible { outline: none; }
+:is(.is-halloween, html[data-intro="halloween"] .matrix-intro) .matrix-input-row:focus-within { border-color: #baffcc; box-shadow: 0 0 14px #5ee6a833; }
 
 .matrix-falling-pumpkins { position: absolute; inset: 0; overflow: hidden; }
 .matrix-falling-pumpkin {
@@ -3822,7 +3822,7 @@ body.editorial-design .is-halloween .matrix-input-row input:focus-visible { outl
   top: -12%;
   width: var(--size);
   aspect-ratio: 1;
-  background: url("../img/matrix-halloween-pumpkin-3d.png") center / contain no-repeat;
+  background: url("../img/matrix-halloween-pumpkin-3d.webp") center / contain no-repeat;
   filter: drop-shadow(0 0 4px #ff9c3640);
   animation: halloween-pumpkin-fall var(--duration) var(--delay) linear infinite;
   will-change: transform;
