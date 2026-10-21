@@ -85,171 +85,138 @@ export default function setupCarousel({
     return;
   }
 
+  const doc = imageElement.ownerDocument;
+  const view = doc.defaultView;
   let currentIndex = 0;
-  const view = imageElement.ownerDocument.defaultView;
-  const preloaded = new Map();
-  let requestedIndex = 0;
-  let requestVersion = 0;
-  let isNearViewport = false;
-  imageElement.draggable = false;
-
-  // Cache loaded AND decoded images; failed requests are evicted so users can retry.
-  function prepareImage(index, priority = "low") {
-    const cached = preloaded.get(index);
-    if (cached) {
-      if (priority === "high") cached.image.fetchPriority = "high";
-      return cached.ready;
-    }
-    const source = normalizeImage(images[index], index);
-    const image = new view.Image();
-    image.decoding = "async";
-    image.fetchPriority = priority;
-    const ready = new Promise((resolve, reject) => {
-      image.onload = async () => {
-        try {
-          if (image.decode) await image.decode();
-          resolve(image);
-        } catch (error) { reject(error); }
-      };
-      image.onerror = () => reject(new Error(`Unable to load photo ${index + 1}`));
-    }).catch((error) => {
-      preloaded.delete(index);
-      throw error;
-    });
-    preloaded.set(index, { image, ready });
-    if (source.sizes) image.sizes = source.sizes;
-    if (source.srcset) image.srcset = source.srcset;
-    image.src = source.src;
-    return ready;
-  }
-
-  function preloadNeighbors() {
-    if (!isNearViewport || images.length < 2 || view.navigator?.connection?.saveData) return;
-    for (const direction of ["previous", "next"]) {
-      const index = getNextIndex(currentIndex, direction, images.length);
-      prepareImage(index).catch(() => {});
-    }
-  }
-
-  // Give both neighbors a head start without competing with the initial page load.
-  if (slideElement && view.IntersectionObserver) {
-    const observer = new view.IntersectionObserver((entries) => {
-      if (!entries.some((entry) => entry.isIntersecting)) return;
-      isNearViewport = true;
-      imageElement.loading = "eager";
-      preloadNeighbors();
-      observer.disconnect();
-    }, { rootMargin: "1000px" });
-    observer.observe(slideElement);
-  } else {
-    isNearViewport = true;
-  }
+  const reducedMotion = () => view.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+  const panels = [];
+  const photos = [];
   dotsContainer.replaceChildren();
-
   const dots = images.map((_, index) => {
-    const dot = document.createElement("button");
+    const dot = doc.createElement("button");
     dot.className = "dot";
     dot.type = "button";
     dot.setAttribute("aria-label", `Show photo ${index + 1}`);
-    dot.addEventListener("click", () => {
-      selectPhoto(index);
-    });
+    dot.addEventListener("click", () => selectPhoto(index));
     dotsContainer.appendChild(dot);
     return dot;
   });
 
-  function updateCarousel() {
-    const currentImage = normalizeImage(images[currentIndex], currentIndex);
+  // Keep each photo mounted: navigation never waits on a download or decode.
+  images.forEach((entry, index) => {
+    const source = normalizeImage(entry, index);
+    const panel = doc.createElement("div");
+    panel.className = "carousel-panel";
+    panel.setAttribute("role", "group");
+    panel.setAttribute("aria-label", `Photo ${index + 1} of ${images.length}`);
+    if (source.backdrop) panel.style.setProperty("--carousel-background", `url("${source.backdrop}")`);
+    const photo = index === 0 ? imageElement : doc.createElement("img");
+    photo.loading = "lazy";
+    photo.decoding = "async";
+    photo.draggable = false;
+    if (source.sizes) photo.sizes = source.sizes;
+    if (source.srcset) photo.srcset = source.srcset;
+    photo.src = source.src;
+    photo.alt = source.alt;
+    photo.style.objectFit = source.fit;
+    photo.style.objectPosition = source.position;
+    panel.appendChild(photo);
+    slideElement.appendChild(panel);
+    panels.push(panel);
+    photos.push(photo);
+  });
 
-    // Use the same responsive selection as the decoded preload, including after resize.
-    if (currentImage.sizes) imageElement.sizes = currentImage.sizes;
-    else imageElement.removeAttribute("sizes");
-    if (currentImage.srcset) imageElement.srcset = currentImage.srcset;
-    else imageElement.removeAttribute("srcset");
-    imageElement.src = currentImage.src;
-    imageElement.alt = currentImage.alt;
-    imageElement.style.objectFit = currentImage.fit;
-    imageElement.style.objectPosition = currentImage.position;
-
-    if (slideElement) {
-      slideElement.classList.toggle(
-        "carousel-slide-contained",
-        currentImage.fit === "contain",
-      );
-      if (currentImage.backdrop) {
-        slideElement.style.setProperty("--carousel-background", `url("${currentImage.backdrop}")`);
-      } else slideElement.style.removeProperty("--carousel-background");
-    }
-
-    preloadNeighbors();
-    dotsContainer.setAttribute("aria-label", `Photo ${currentIndex + 1} of ${images.length}`);
-    dots.forEach((dot, index) => {
-      const isActive = index === currentIndex;
-      dot.classList.toggle("active", isActive);
-      dot.setAttribute("aria-current", isActive ? "true" : "false");
+  function updatePagination(index) {
+    currentIndex = index;
+    dotsContainer.setAttribute("aria-label", `Photo ${index + 1} of ${images.length}`);
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === index);
+      dot.setAttribute("aria-current", String(i === index));
     });
   }
-
-  async function selectPhoto(index) {
-    requestedIndex = index;
-    const version = ++requestVersion;
-    slideElement?.setAttribute("aria-busy", "true");
-    try {
-      await prepareImage(index, "high");
-      // Rapid clicks/swipes must never let an older request overwrite the latest target.
-      if (version !== requestVersion) return;
-      currentIndex = index;
-      updateCarousel();
-    } catch {
-      if (version !== requestVersion) return;
-      requestedIndex = currentIndex;
-      // Keep the last successfully displayed image when a request fails.
-    } finally {
-      if (version === requestVersion) slideElement?.setAttribute("aria-busy", "false");
-    }
+  function selectPhoto(index) {
+    updatePagination(index);
+    photos[index].loading = "eager";
+    photos[index].fetchPriority = "high";
+    slideElement.scrollTo({ left: index * slideElement.clientWidth, behavior: reducedMotion() ? "instant" : "smooth" });
   }
-
   function navigate(direction) {
-    selectPhoto(getNextIndex(requestedIndex, direction, images.length));
+    selectPhoto(getNextIndex(currentIndex, direction, images.length));
   }
-
-  if (slideElement) {
-    slideElement.tabIndex = 0;
-    slideElement.setAttribute("role", "group");
-    slideElement.setAttribute("aria-roledescription", "carousel");
-    slideElement.setAttribute("aria-label", "Photography. Swipe or use left and right arrow keys to browse.");
-    slideElement.addEventListener("keydown", (event) => {
-      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
-      event.preventDefault();
-      navigate(event.key === "ArrowLeft" ? "previous" : "next");
-    });
-    let gesture = null;
-    slideElement.addEventListener("pointerdown", (event) => {
-      if (!event.isPrimary || event.button !== 0) return;
-      gesture = { id: event.pointerId, x: event.clientX, y: event.clientY };
+  // Native scrolling provides finger tracking, momentum, and interruptible snapping.
+  slideElement.classList.add("carousel-track");
+  slideElement.tabIndex = 0;
+  slideElement.setAttribute("role", "region");
+  slideElement.setAttribute("aria-roledescription", "carousel");
+  slideElement.setAttribute("aria-label", "Photography. Swipe or use left and right arrow keys to browse.");
+  let scrollTimer;
+  function settleScroll() {
+    if (!slideElement.clientWidth) return;
+    updatePagination(Math.max(0, Math.min(images.length - 1, Math.round(slideElement.scrollLeft / slideElement.clientWidth))));
+  }
+  slideElement.addEventListener("scroll", () => {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(settleScroll, 180);
+    if (!slideElement.clientWidth) return;
+    const index = Math.max(0, Math.min(images.length - 1, Math.round(slideElement.scrollLeft / slideElement.clientWidth)));
+    // Do not let intermediate scroll frames overwrite rapid button targets.
+    if (gesture) updatePagination(index);
+  }, { passive: true });
+  slideElement.addEventListener("scrollend", () => {
+    clearTimeout(scrollTimer);
+    settleScroll();
+  });
+  slideElement.addEventListener("keydown", (event) => {
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+    event.preventDefault();
+    navigate(event.key === "ArrowLeft" ? "previous" : "next");
+  });
+  let gesture = null;
+  slideElement.addEventListener("pointerdown", (event) => {
+    if (!event.isPrimary || event.button !== 0) return;
+    gesture = { id: event.pointerId, x: event.clientX, left: slideElement.scrollLeft, mouse: event.pointerType === "mouse" };
+    if (gesture.mouse) {
       slideElement.setPointerCapture(event.pointerId);
-    });
-    slideElement.addEventListener("pointerup", (event) => {
-      if (!gesture || gesture.id !== event.pointerId) return;
-      const dx = event.clientX - gesture.x;
-      const dy = event.clientY - gesture.y;
-      gesture = null;
-      if (Math.abs(dx) >= 45 && Math.abs(dx) > Math.abs(dy) * 1.5) {
-        navigate(dx < 0 ? "next" : "previous");
-      }
-    });
-    const cancelGesture = () => { gesture = null; };
-    slideElement.addEventListener("pointercancel", cancelGesture);
-    slideElement.addEventListener("lostpointercapture", cancelGesture);
+      slideElement.classList.add("is-dragging");
+    }
+  });
+  slideElement.addEventListener("pointermove", (event) => {
+    if (!gesture?.mouse || gesture.id !== event.pointerId) return;
+    slideElement.scrollLeft = gesture.left + gesture.x - event.clientX;
+  });
+  function finishGesture(event) {
+    if (!gesture || gesture.id !== event.pointerId) return;
+    const mouse = gesture.mouse;
+    gesture = null;
+    slideElement.classList.remove("is-dragging");
+    if (mouse) {
+      const index = Math.max(0, Math.min(images.length - 1, Math.round(slideElement.scrollLeft / slideElement.clientWidth)));
+      selectPhoto(index);
+    }
   }
+  slideElement.addEventListener("pointerup", finishGesture);
+  // Touch pointercancel means the browser took over native scrolling.
+  slideElement.addEventListener("pointercancel", finishGesture);
+  slideElement.addEventListener("lostpointercapture", finishGesture);
+  previousButton.addEventListener("click", () => navigate("previous"));
+  nextButton.addEventListener("click", () => navigate("next"));
 
-  previousButton.addEventListener("click", () => {
-    navigate("previous");
+  // Warm the small five-photo set before it enters view; honor data saver.
+  const warmPhotos = () => {
+    photos.forEach((photo, index) => {
+      if (index === 0 || !view.navigator?.connection?.saveData) photo.loading = "eager";
+    });
+  };
+  if (view.IntersectionObserver) {
+    const observer = new view.IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      warmPhotos();
+      observer.disconnect();
+    }, { rootMargin: "1000px" });
+    observer.observe(slideElement);
+  } else warmPhotos();
+  view.addEventListener?.("resize", () => {
+    slideElement.scrollTo({ left: currentIndex * slideElement.clientWidth, behavior: "instant" });
   });
-
-  nextButton.addEventListener("click", () => {
-    navigate("next");
-  });
-
-  updateCarousel();
+  updatePagination(0);
 }

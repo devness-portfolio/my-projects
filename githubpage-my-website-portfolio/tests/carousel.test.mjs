@@ -1,141 +1,62 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import setupCarousel from '../portfolio/assets/js/carousel.js';
-
 class Element extends EventTarget {
   constructor() {
-    super();
-    this.attributes = new Map();
-    this.style = { setProperty: (key, value) => this.attributes.set(key, value), removeProperty: (key) => this.attributes.delete(key) };
-    this.classList = { toggle() {} };
+    super(); this.attributes = new Map(); this.children = []; this.clientWidth = 600; this.scrollLeft = 0;
+    this.style = { setProperty() {} };
+    this.classList = { add() {}, remove() {}, toggle() {} };
   }
-  setAttribute(key, value) { this.attributes.set(key, value); }
-  removeAttribute(key) { this.attributes.delete(key); }
+  setAttribute(k, v) { this.attributes.set(k, v); }
+  appendChild(el) { this.children.push(el); }
+  replaceChildren() { this.children = []; }
   setPointerCapture() {}
+  scrollTo(options) { this.lastScroll = options; this.scrollLeft = options.left; }
 }
-function fixture(saveData = false, automatic = true) {
+function fixture(saveData = false, reduced = false) {
   const image = new Element(), slide = new Element(), previous = new Element(), next = new Element(), dots = new Element();
-  const preloads = [];
   let intersect;
   image.closest = () => slide;
-  image.ownerDocument = { defaultView: {
-    navigator: { connection: { saveData } },
-    Image: class {
-      constructor() { preloads.push(this); }
-      set src(value) {
-        this.url = value;
-        if (automatic) queueMicrotask(() => this.onload());
-      }
-      get src() { return this.url; }
-      decode() { this.decoded = true; return Promise.resolve(); }
-    },
-    IntersectionObserver: class {
-      constructor(callback) { intersect = callback; }
-      observe() {}
-      disconnect() {}
-    },
+  image.ownerDocument = { createElement: () => new Element(), defaultView: {
+    navigator: { connection: { saveData } }, matchMedia: () => ({ matches: reduced }),
+    IntersectionObserver: class { constructor(cb) { intersect = cb; } observe() {} disconnect() {} },
   } };
-  dots.children = [];
-  dots.replaceChildren = () => { dots.children = []; };
-  dots.appendChild = (dot) => dots.children.push(dot);
-  const oldDocument = globalThis.document;
-  globalThis.document = { createElement: () => new Element() };
-  try {
-    setupCarousel({ images: ['one', 'two', 'three'].map((src) => ({ src, srcset: `${src}-small 600w, ${src} 900w`, sizes: '90vw' })), imageElement: image, previousButton: previous, nextButton: next, dotsContainer: dots });
-  } finally { globalThis.document = oldDocument; }
-  return { image, slide, previous, next, dots, preloads, enter: () => intersect([{ isIntersecting: true }]) };
+  setupCarousel({ images: ['one', 'two', 'three'].map(src => ({ src })), imageElement: image, previousButton: previous, nextButton: next, dotsContainer: dots });
+  return { image, slide, previous, next, dots, photos: slide.children.map(p => p.children[0]), enter: () => intersect([{ isIntersecting: true }]) };
 }
-function dispatch(element, type, props = {}) {
-  const event = new Event(type, { cancelable: true });
-  Object.assign(event, props);
-  element.dispatchEvent(event);
-  return event;
+function dispatch(el, type, props = {}) {
+  const event = new Event(type, { cancelable: true }); Object.assign(event, props); el.dispatchEvent(event); return event;
 }
-function swipe(slide, dx, dy = 0, end = 'pointerup') {
-  dispatch(slide, 'pointerdown', { pointerId: 1, isPrimary: true, button: 0, clientX: 200, clientY: 100 });
-  dispatch(slide, end, { pointerId: 1, clientX: 200 + dx, clientY: 100 + dy });
-}
-const settle = () => new Promise((resolve) => setImmediate(resolve));
-
-test('horizontal swipes wrap; vertical, short and cancelled gestures preserve the photo', async () => {
-  const { image, slide } = fixture();
-  swipe(slide, -100); await settle(); assert.equal(image.src, 'two');
-  swipe(slide, 100); await settle(); assert.equal(image.src, 'one');
-  swipe(slide, 100); await settle(); assert.equal(image.src, 'three');
-  swipe(slide, -100, 140); assert.equal(image.src, 'three');
-  swipe(slide, -20); assert.equal(image.src, 'three');
-  swipe(slide, -100, 0, 'pointercancel');
-  dispatch(slide, 'pointerup', { pointerId: 1, clientX: 0, clientY: 100 });
-  assert.equal(image.src, 'three');
-});
-test('arrows, dots and keyboard navigation synchronize the selected photo', async () => {
-  const { image, slide, next, previous, dots } = fixture();
-  dispatch(next, 'click'); await settle(); assert.equal(image.src, 'two');
-  dispatch(previous, 'click'); await settle(); assert.equal(image.src, 'one');
-  assert.equal(dispatch(slide, 'keydown', { key: 'ArrowLeft' }).defaultPrevented, true);
-  await settle();
-  assert.equal(image.src, 'three');
-  dispatch(dots.children[1], 'click'); await settle(); assert.equal(image.src, 'two');
-  assert.equal(dots.children[1].attributes.get('aria-current'), 'true');
-});
-test('both neighbors preload near the viewport, decode, and respect data saver', async () => {
+test('navigation moves immediately even when images have never loaded; rapid clicks and wrap remain responsive', () => {
   const f = fixture();
-  assert.equal(f.preloads.length, 0);
-  f.enter();
-  assert.deepEqual(f.preloads.map((image) => image.src).sort(), ['three', 'two']);
-  assert.equal(f.preloads[1].srcset, 'two-small 600w, two 900w');
-  await settle();
-  assert.ok(f.preloads.every((image) => image.decoded));
+  assert.equal(f.photos.length, 3);
+  assert.equal(f.photos[0], f.image);
   dispatch(f.next, 'click');
-  await settle();
-  assert.equal(f.image.src, 'two');
-  assert.equal(f.preloads.length, 3);
-  const saver = fixture(true);
-  saver.enter();
-  assert.equal(saver.preloads.length, 0);
-  dispatch(saver.next, 'click');
-  await settle();
-  assert.equal(saver.image.src, 'two');
-  assert.equal(saver.preloads.length, 1);
+  assert.equal(f.slide.lastScroll.left, 600);
+  assert.equal(f.dots.children[1].attributes.get('aria-current'), 'true');
+  dispatch(f.next, 'click'); assert.equal(f.slide.lastScroll.left, 1200);
+  dispatch(f.next, 'click'); assert.equal(f.slide.lastScroll.left, 0);
+  dispatch(f.previous, 'click'); assert.equal(f.slide.lastScroll.left, 1200);
+  dispatch(f.dots.children[1], 'click'); assert.equal(f.slide.lastScroll.left, 600);
 });
-
-test('the visible image and pagination wait for decode; stale rapid requests cannot replace it', async () => {
-  const f = fixture(false, false);
-  dispatch(f.next, 'click');
-  dispatch(f.next, 'click');
-  assert.equal(f.image.src, 'one');
-  assert.equal(f.dots.children[0].attributes.get('aria-current'), 'true');
-  assert.equal(f.slide.attributes.get('aria-busy'), 'true');
-  let decode;
-  f.preloads[1].decode = () => new Promise((resolve) => { decode = resolve; });
-  f.preloads[1].onload();
-  await settle();
-  assert.equal(f.image.src, 'one');
-  decode();
-  await settle();
-  assert.equal(f.image.src, 'three');
-  f.preloads[0].onload();
-  await settle();
-  assert.equal(f.image.src, 'three');
+test('keyboard and reduced motion use immediate accessible navigation', () => {
+  const f = fixture(false, true);
+  assert.equal(dispatch(f.slide, 'keydown', { key: 'ArrowRight' }).defaultPrevented, true);
+  assert.equal(f.slide.lastScroll.behavior, 'instant');
+  assert.equal(f.photos[1].fetchPriority, 'high');
+});
+test('photos warm before entering view and respect data saver', () => {
+  const f = fixture(); f.enter(); assert.ok(f.photos.every(p => p.loading === 'eager'));
+  const saver = fixture(true); saver.enter();
+  assert.equal(saver.photos[0].loading, 'eager'); assert.equal(saver.photos[1].loading, 'lazy');
+  dispatch(saver.next, 'click'); assert.equal(saver.photos[1].loading, 'eager');
+});
+test('mouse drag tracks continuously; native touch settling updates pagination', () => {
+  const f = fixture();
+  dispatch(f.slide, 'pointerdown', { pointerId: 1, isPrimary: true, button: 0, pointerType: 'mouse', clientX: 500 });
+  dispatch(f.slide, 'pointermove', { pointerId: 1, clientX: 100 });
+  assert.equal(f.slide.scrollLeft, 400);
+  dispatch(f.slide, 'pointerup', { pointerId: 1 }); assert.equal(f.slide.lastScroll.left, 600);
+  f.slide.scrollLeft = 1200; dispatch(f.slide, 'scrollend');
   assert.equal(f.dots.children[2].attributes.get('aria-current'), 'true');
-  assert.equal(f.slide.attributes.get('aria-busy'), 'false');
-});
-
-test('failed downloads and decodes retain the photo and permit retry', async () => {
-  for (const failDecode of [false, true]) {
-    const f = fixture(false, false);
-    dispatch(f.previous, 'click');
-    if (failDecode) {
-      f.preloads[0].decode = () => Promise.reject(new Error('decode failed'));
-      f.preloads[0].onload();
-    } else f.preloads[0].onerror();
-    await settle();
-    assert.equal(f.image.src, 'one');
-    assert.equal(f.slide.attributes.get('aria-busy'), 'false');
-    dispatch(f.previous, 'click');
-    assert.equal(f.preloads.length, 2);
-    f.preloads[1].onload();
-    await settle();
-    assert.equal(f.image.src, 'three');
-  }
 });

@@ -3837,3 +3837,25 @@ body.editorial-design :is(.is-halloween, html[data-intro="halloween"] .matrix-in
   .matrix-falling-pumpkins { display: none; }
   .matrix-falling-pumpkin { animation: none; }
 }
+
+/* Native scroll snapping keeps touch motion on the browser's scrolling path. */
+.carousel-slide.carousel-track {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  touch-action: pan-x pan-y pinch-zoom;
+  overscroll-behavior-x: contain;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-track::before { content: none; }
+.carousel-panel {
+  flex: 0 0 100%;
+  min-width: 0;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  scroll-snap-align: start;
+  background: #0b111d var(--carousel-background) center / cover;
+}
+.carousel-track.is-dragging { scroll-snap-type: none; cursor: grabbing; }
