@@ -28,7 +28,25 @@
       href="./portfolio/assets/img/devness-logo-v2.svg"
       type="image/svg+xml"
     />
-    <link rel="stylesheet" href="portfolio/assets/css/style.css?v=20260828-5" />
+    <script>
+      // Decide before CSS loads so bypassed intros never download scenery or flash.
+      (() => {
+        document.documentElement.classList.add("mobile-nav-ready");
+        let seen = false;
+        try { seen = sessionStorage.getItem("portfolio-intro-seen") === "true"; } catch {}
+        const date = new Date();
+        const day = (date.getMonth() + 1) * 100 + date.getDate();
+        document.documentElement.dataset.intro = matchMedia("(max-width: 680px)").matches || seen
+          ? "skip" : day >= 915 && day <= 1101 ? "halloween" : "regular";
+      })();
+    </script>
+    <style>
+      html[data-intro="skip"] .matrix-intro { display: none; }
+      html[data-intro="skip"] body.intro-active { overflow: auto; }
+    </style>
+    <link rel="modulepreload" href="portfolio/assets/js/theme.js" />
+    <link rel="modulepreload" href="portfolio/assets/js/matrix-intro.js" />
+    <link rel="stylesheet" href="portfolio/assets/css/style.css?v=20261021-1" />
     <link rel="stylesheet" href="portfolio/assets/css/editorial.css?v=20261020-1" />
     <noscript>
       <style>
