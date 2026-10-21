@@ -33,11 +33,24 @@ test('navigation moves immediately even when images have never loaded; rapid cli
   assert.equal(f.photos[0], f.image);
   dispatch(f.next, 'click');
   assert.equal(f.slide.lastScroll.left, 600);
+  assert.equal(f.slide.lastScroll.behavior, 'instant');
   assert.equal(f.dots.children[1].attributes.get('aria-current'), 'true');
   dispatch(f.next, 'click'); assert.equal(f.slide.lastScroll.left, 1200);
   dispatch(f.next, 'click'); assert.equal(f.slide.lastScroll.left, 0);
   dispatch(f.previous, 'click'); assert.equal(f.slide.lastScroll.left, 1200);
   dispatch(f.dots.children[1], 'click'); assert.equal(f.slide.lastScroll.left, 600);
+});
+test('buttons use the visible photo after a swipe, before scroll settling fires', () => {
+  const f = fixture();
+  // Native touch scrolling has moved, but pagination still points at photo one.
+  f.slide.scrollLeft = 1100;
+  dispatch(f.previous, 'click');
+  assert.equal(f.slide.lastScroll.left, 600);
+  f.slide.scrollLeft = 650;
+  dispatch(f.next, 'click');
+  assert.equal(f.slide.lastScroll.left, 1200);
+  dispatch(f.next, 'click');
+  assert.deepEqual(f.slide.lastScroll, { left: 0, behavior: 'instant' });
 });
 test('keyboard and reduced motion use immediate accessible navigation', () => {
   const f = fixture(false, true);
