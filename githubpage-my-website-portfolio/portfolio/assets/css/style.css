@@ -58,6 +58,7 @@ body.dark-mode {
 }
 
 html {
+  scrollbar-gutter: stable;
   scroll-behavior: smooth;
   scroll-padding-top: 96px;
 }
@@ -99,7 +100,7 @@ body.intro-active {
   overflow: hidden;
   padding: 1.5rem;
   position: fixed;
-  transition: opacity 220ms ease, visibility 220ms ease;
+  transition: opacity 560ms cubic-bezier(.22, 1, .36, 1);
   z-index: 2000;
 }
 
@@ -115,7 +116,7 @@ body.intro-active {
   height: 100%;
   opacity: 0.88;
   transform: scale(1.02);
-  transition: filter 700ms ease, opacity 700ms ease, transform 1.4s cubic-bezier(.2,.75,.2,1);
+  transition: opacity 700ms ease, transform 1.1s cubic-bezier(.2,.75,.2,1);
   width: 100%;
   z-index: -3;
 }
@@ -328,9 +329,8 @@ body.intro-active {
 }
 
 .matrix-intro.is-warping .matrix-rain {
-  filter: blur(1px) brightness(1.8);
-  opacity: 1;
-  transform: perspective(500px) translateZ(120px) scale(1.35);
+  opacity: 0.65;
+  transform: scale(1.12);
 }
 
 .matrix-intro.is-warping .matrix-warp-copy {
@@ -339,13 +339,20 @@ body.intro-active {
 }
 
 .matrix-intro.is-warping .matrix-warp-flash {
-  animation: matrix-flash 260ms 520ms both;
+  animation: matrix-flash 360ms 380ms both;
+}
+
+.matrix-intro.is-revealing {
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
 }
 
 .matrix-intro.is-complete {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
+  transition: none;
 }
 
 .matrix-intro.is-complete * {
@@ -369,7 +376,7 @@ body.intro-active {
 
 @keyframes matrix-flash {
   0%, 100% { opacity: 0; }
-  40% { opacity: 0.92; }
+  40% { opacity: 0.12; }
 }
 
 img {

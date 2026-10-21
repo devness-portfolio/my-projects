@@ -179,7 +179,10 @@ export default function setupMatrixIntro({
   ].filter(Boolean);
   pageRegions.forEach((region) => { region.inert = true; });
 
+  let revealTimer;
   const finishReveal = () => {
+    window.clearTimeout(revealTimer);
+    intro.removeEventListener("transitionend", onFadeEnd);
     intro.classList.remove("is-warping");
     intro.classList.add("is-complete");
     intro.setAttribute("aria-hidden", "true");
@@ -188,6 +191,17 @@ export default function setupMatrixIntro({
     rain.stop();
     document.querySelector("#hero-title")?.focus({ preventScroll: true });
     onReveal();
+  };
+
+  const onFadeEnd = (event) => {
+    if (event.target === intro && event.propertyName === "opacity") finishReveal();
+  };
+
+  const beginFade = () => {
+    // Keep the scene and warp intact until the whole overlay has faded away.
+    intro.addEventListener("transitionend", onFadeEnd);
+    intro.classList.add("is-revealing");
+    revealTimer = window.setTimeout(finishReveal, 650);
   };
 
   const revealPortfolio = (name = "") => {
@@ -209,7 +223,7 @@ export default function setupMatrixIntro({
 
     rain.warp();
     intro.classList.add("is-warping");
-    window.setTimeout(finishReveal, 800);
+    window.setTimeout(beginFade, 520);
   };
 
   form.addEventListener("submit", (event) => {
