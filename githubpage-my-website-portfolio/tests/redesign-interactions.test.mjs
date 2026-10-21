@@ -55,6 +55,22 @@ test("pipeline synchronizes visual and pressed states", () => {
   click(buttons[2]); assert.equal(state.textContent, "Identity verified");
 });
 
+test("cross-page contact navigation restores the destination after page load", () => {
+  const contact = new Element(), view = new EventTarget();
+  view.location = { hash: "#contact" };
+  const root = { readyState: "interactive", querySelectorAll: () => [], getElementById: (id) => id === "contact" ? contact : null };
+  setupScrolling({ root, view, reducedMotion: { matches: false } });
+  assert.equal(contact.scrollOptions, undefined);
+  view.dispatchEvent(new Event("load"));
+  assert.deepEqual(contact.scrollOptions, { behavior: "instant", block: "start" });
+  assert.deepEqual(contact.focusOptions, { preventScroll: true });
+  assert.equal(contact.getAttribute("tabindex"), "-1");
+  delete contact.scrollOptions;
+  root.readyState = "complete";
+  setupScrolling({ root, view, reducedMotion: { matches: true } });
+  assert.equal(contact.scrollOptions.behavior, "instant");
+});
+
 test("section navigation preserves history, reduced motion, focus, and modifier clicks", () => {
   const anchor = new Element(), target = new Element(), top = new Element(), view = new EventTarget();
   anchor.setAttribute("href", "#career%20work");

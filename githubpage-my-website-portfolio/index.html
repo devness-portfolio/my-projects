@@ -36,7 +36,7 @@
         try { seen = sessionStorage.getItem("portfolio-intro-seen") === "true"; } catch {}
         const date = new Date();
         const day = (date.getMonth() + 1) * 100 + date.getDate();
-        document.documentElement.dataset.intro = matchMedia("(max-width: 680px)").matches || seen
+        document.documentElement.dataset.intro = location.hash || matchMedia("(max-width: 680px)").matches || seen
           ? "skip" : day >= 915 && day <= 1101 ? "halloween" : "regular";
       })();
     </script>

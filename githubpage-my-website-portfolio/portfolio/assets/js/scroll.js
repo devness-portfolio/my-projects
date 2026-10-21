@@ -35,4 +35,9 @@ export default function setupScrolling({
   });
   // Native history remains authoritative; restore both position and focus.
   view.addEventListener("popstate", () => navigate(view.location.hash || "#top", "instant"));
+  // Cross-page links arrive before images and layout have finished loading.
+  // Restore their destination after load, including focus for keyboard users.
+  const restoreDestination = () => navigate(view.location.hash, "instant");
+  if (root.readyState === "complete") restoreDestination();
+  else view.addEventListener("load", restoreDestination, { once: true });
 }

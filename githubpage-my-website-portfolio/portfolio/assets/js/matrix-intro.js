@@ -161,7 +161,7 @@ export default function setupMatrixIntro({
     return false;
   }
 
-  if (hasSeenIntro(storage)) {
+  if (window.location.hash || hasSeenIntro(storage)) {
     intro.classList.add("is-complete");
     intro.setAttribute("aria-hidden", "true");
     document.body.classList.remove("intro-active");
