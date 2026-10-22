@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="referrer" content="no-referrer" />
+    <title>Experience Timeline Concepts | devness.dev</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        font: 100%/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --page: #f4f6f2;
+        --surface: #fff;
+        --surface-soft: #eaf0ea;
+        --ink: #15221a;
+        --muted: #647168;
+        --line: #cbd5cd;
+        --accent: #167344;
+        --accent-soft: #dff2e5;
+        --warm: #a44f2b;
+        --shadow: 0 16px 48px rgb(23 45 31 / 8%);
+        background: var(--page);
+        color: var(--ink);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --page: #0d1511;
+          --surface: #151e18;
+          --surface-soft: #1b2920;
+          --ink: #edf4ee;
+          --muted: #a0afa4;
+          --line: #34463a;
+          --accent: #81dda2;
+          --accent-soft: #173b26;
+          --warm: #f0a27f;
+          --shadow: 0 16px 48px rgb(0 0 0 / 25%);
+        }
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; }
+      button { color: inherit; font: inherit; }
+      a { color: inherit; }
+
+      .page {
+        width: min(100% - 2rem, 1060px);
+        margin: 0 auto;
+        padding: clamp(2rem, 6vw, 5.5rem) 0 4rem;
+      }
+
+      .intro { max-width: 48rem; }
+      .eyebrow {
+        color: var(--accent);
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        margin: 0 0 0.85rem;
+        text-transform: uppercase;
+      }
+      h1, h2, h3, p { margin-top: 0; }
+      h1 {
+        font-size: clamp(2.65rem, 7vw, 5.4rem);
+        letter-spacing: -0.065em;
+        line-height: 0.98;
+        margin-bottom: 1.1rem;
+        max-width: 12ch;
+      }
+      .intro-copy {
+        color: var(--muted);
+        font-size: clamp(1rem, 2vw, 1.15rem);
+        max-width: 40rem;
+      }
+      .prototype-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--muted);
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+        padding: 0.4rem 0.75rem;
+      }
+      .prototype-label::before {
+        background: var(--accent);
+        border-radius: 50%;
+        content: "";
+        height: 0.45rem;
+        width: 0.45rem;
+      }
+
+      .concept-bar {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: space-between;
+        margin: clamp(2.5rem, 7vw, 4.5rem) 0 1rem;
+      }
+      .concept-bar h2 {
+        font-size: 1rem;
+        letter-spacing: -0.01em;
+        margin: 0;
+      }
+      .concept-controls {
+        background: var(--surface-soft);
+        border: 1px solid var(--line);
+        border-radius: 0.9rem;
+        display: flex;
+        gap: 0.25rem;
+        padding: 0.25rem;
+      }
+      .concept-choice, .replay {
+        border: 0;
+        border-radius: 0.65rem;
+        cursor: pointer;
+        min-height: 2.75rem;
+        padding: 0.55rem 0.85rem;
+        touch-action: manipulation;
+      }
+      .concept-choice { background: transparent; color: var(--muted); }
+      .concept-choice[aria-pressed="true"] {
+        background: var(--surface);
+        box-shadow: 0 1px 4px rgb(0 0 0 / 10%);
+        color: var(--ink);
+      }
+      .replay {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        font-size: 0.9rem;
+      }
+      :is(button, a):focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 3px;
+      }
+      button:active { transform: scale(0.98); }
+
+      .concept-note {
+        align-items: start;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+        padding: 0.35rem 0 1.2rem;
+      }
+      .concept-note p { color: var(--muted); margin: 0; }
+      .concept-number {
+        color: var(--accent);
+        flex: 0 0 auto;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+      }
+
+      .timeline {
+        margin: 2.5rem 0 0;
+        position: relative;
+      }
+      .timeline::before {
+        background: var(--line);
+        content: "";
+        left: 1rem;
+        position: absolute;
+        top: 1.25rem;
+        bottom: 2.5rem;
+        width: 1px;
+      }
+      .timeline-entry {
+        display: grid;
+        gap: 0 1.4rem;
+        grid-template-columns: 2rem minmax(0, 1fr);
+        padding: 0 0 2.4rem;
+        position: relative;
+      }
+      .marker {
+        align-items: center;
+        background: var(--page);
+        border: 2px solid var(--line);
+        border-radius: 50%;
+        color: var(--accent);
+        display: flex;
+        grid-column: 1;
+        height: 2rem;
+        justify-content: center;
+        margin-top: 0.35rem;
+        position: relative;
+        width: 2rem;
+      }
+      .marker svg { height: 1rem; width: 1rem; }
+      .entry-content { grid-column: 2; min-width: 0; }
+      .entry-kicker {
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 650;
+        letter-spacing: 0.06em;
+        margin: 0.35rem 0 0.65rem;
+        text-transform: uppercase;
+      }
+      .entry-card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 1.1rem;
+        box-shadow: var(--shadow);
+        padding: clamp(1.25rem, 3vw, 2rem);
+      }
+      .entry-topline {
+        align-items: baseline;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem 1rem;
+        justify-content: space-between;
+      }
+      .entry-date { color: var(--accent); font-size: 0.85rem; font-weight: 700; }
+      .entry-card h3 {
+        font-size: clamp(1.35rem, 3vw, 1.9rem);
+        letter-spacing: -0.045em;
+        line-height: 1.12;
+        margin: 0.55rem 0 0.25rem;
+      }
+      .entry-org { color: var(--muted); font-size: 0.95rem; margin: 0; }
+      .entry-card ul {
+        color: var(--muted);
+        margin: 1.15rem 0 0;
+        padding-left: 1.15rem;
+      }
+      .entry-card li + li { margin-top: 0.45rem; }
+      .tools {
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.78rem;
+        margin: 1.15rem 0 0;
+        padding-top: 0.9rem;
+      }
+
+      .graduation .marker {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: var(--page);
+      }
+      .graduation .entry-card {
+        background: var(--accent-soft);
+        border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+      }
+      .graduation .entry-card h3 { max-width: 22ch; }
+      .earlier-label {
+        color: var(--warm);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        margin: 0 0 1rem;
+        text-transform: uppercase;
+      }
+      .timeline-entry.earlier .entry-kicker { color: var(--warm); }
+
+      /* Concept 02: editorial chapters put the year in the margin. */
+      .prototype[data-concept="chapters"] .timeline::before { left: 8.5rem; }
+      .prototype[data-concept="chapters"] .timeline-entry {
+        gap: 0 1.5rem;
+        grid-template-columns: 7rem minmax(0, 1fr);
+      }
+      .prototype[data-concept="chapters"] .marker {
+        grid-column: 2;
+        grid-row: 1;
+        margin-left: -2.5rem;
+        z-index: 1;
+      }
+      .prototype[data-concept="chapters"] .entry-content {
+        grid-column: 2;
+        grid-row: 1;
+        padding-left: 1rem;
+      }
+      .prototype[data-concept="chapters"] .entry-kicker {
+        color: var(--accent);
+        font-size: clamp(1.2rem, 2.7vw, 1.8rem);
+        font-weight: 650;
+        letter-spacing: -0.045em;
+        margin: 0.45rem 0 0;
+        text-align: right;
+        text-transform: none;
+      }
+      .prototype[data-concept="chapters"] .entry-card { box-shadow: none; }
+      .prototype[data-concept="chapters"] .earlier-label {
+        margin-left: 8.5rem;
+      }
+
+      /* Concept 03: a looser, alternating route gives each milestone room. */
+      .prototype[data-concept="route"] .timeline::before { left: 50%; }
+      .prototype[data-concept="route"] .timeline-entry {
+        grid-template-columns: minmax(0, 1fr) 2rem minmax(0, 1fr);
+      }
+      .prototype[data-concept="route"] .marker {
+        grid-column: 2;
+        grid-row: 1;
+        z-index: 1;
+      }
+      .prototype[data-concept="route"] .entry-content {
+        grid-column: 1;
+        grid-row: 1;
+        padding-right: 1.2rem;
+        text-align: right;
+      }
+      .prototype[data-concept="route"] .timeline-entry:nth-of-type(even) .entry-content {
+        grid-column: 3;
+        padding-left: 1.2rem;
+        padding-right: 0;
+        text-align: left;
+      }
+      .prototype[data-concept="route"] .entry-topline { justify-content: flex-end; }
+      .prototype[data-concept="route"] .timeline-entry:nth-of-type(even) .entry-topline {
+        justify-content: flex-start;
+      }
+      .prototype[data-concept="route"] .entry-card {
+        box-shadow: none;
+        padding: clamp(1rem, 2vw, 1.5rem);
+      }
+      .prototype[data-concept="route"] .entry-card ul {
+        display: inline-block;
+        text-align: left;
+      }
+      .prototype[data-concept="route"] .graduation .entry-content {
+        grid-column: 1 / 4;
+        margin: 0 auto;
+        max-width: 38rem;
+        padding: 0;
+        text-align: center;
+      }
+      .prototype[data-concept="route"] .graduation .entry-topline { justify-content: center; }
+      .prototype[data-concept="route"] .graduation .marker { grid-column: 2; }
+      .prototype[data-concept="route"] .earlier-label {
+        background: var(--page);
+        margin-inline: auto;
+        max-width: max-content;
+        padding: 0.25rem 0.6rem;
+        position: relative;
+      }
+
+      .motion-note {
+        background: var(--surface-soft);
+        border-radius: 1rem;
+        color: var(--muted);
+        margin-top: 0.5rem;
+        padding: 1rem 1.15rem;
+      }
+      .motion-note strong { color: var(--ink); }
+      .motion-note p { margin: 0; }
+      .footer-note {
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.85rem;
+        margin-top: 3rem;
+        padding-top: 1rem;
+      }
+      .footer-note a { color: var(--accent); }
+
+      .reveal { opacity: 1; transform: none; }
+      .motion-ready .reveal {
+        opacity: 0;
+        transform: translateY(0.8rem);
+        transition: opacity 420ms ease, transform 420ms cubic-bezier(.2, .75, .25, 1);
+      }
+      .motion-ready .reveal.is-visible { opacity: 1; transform: none; }
+
+      @media (max-width: 680px) {
+        .page { width: min(100% - 1.25rem, 40rem); padding-top: 2.5rem; }
+        .concept-bar { align-items: stretch; flex-direction: column; }
+        .concept-controls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .concept-choice { padding-inline: 0.35rem; }
+        .concept-note { flex-direction: column; gap: 0.3rem; }
+        .prototype[data-concept="chapters"] .timeline::before { left: 0.9rem; }
+        .prototype[data-concept="chapters"] .timeline-entry {
+          gap: 0 0.8rem;
+          grid-template-columns: 1.8rem minmax(0, 1fr);
+        }
+        .prototype[data-concept="chapters"] .marker {
+          grid-column: 1;
+          grid-row: 1;
+          margin: 0.25rem 0 0 -0.05rem;
+        }
+        .prototype[data-concept="chapters"] .entry-content {
+          grid-column: 2;
+          grid-row: 1;
+          padding: 0;
+        }
+        .prototype[data-concept="chapters"] .entry-kicker {
+          font-size: 0.78rem;
+          letter-spacing: 0.06em;
+          margin: 0.35rem 0 0.65rem;
+          text-align: left;
+          text-transform: uppercase;
+        }
+        .prototype[data-concept="chapters"] .earlier-label { margin-left: 2.6rem; }
+        .prototype[data-concept="route"] .timeline::before { left: 0.9rem; }
+        .prototype[data-concept="route"] .timeline-entry {
+          gap: 0 0.8rem;
+          grid-template-columns: 1.8rem minmax(0, 1fr);
+        }
+        .prototype[data-concept="route"] .marker,
+        .prototype[data-concept="route"] .graduation .marker {
+          grid-column: 1;
+          grid-row: 1;
+          margin: 0.25rem 0 0 -0.05rem;
+        }
+        .prototype[data-concept="route"] .entry-content,
+        .prototype[data-concept="route"] .timeline-entry:nth-of-type(even) .entry-content,
+        .prototype[data-concept="route"] .graduation .entry-content {
+          grid-column: 2;
+          grid-row: 1;
+          margin: 0;
+          max-width: none;
+          padding: 0;
+          text-align: left;
+        }
+        .prototype[data-concept="route"] .entry-topline,
+        .prototype[data-concept="route"] .timeline-entry:nth-of-type(even) .entry-topline,
+        .prototype[data-concept="route"] .graduation .entry-topline {
+          justify-content: flex-start;
+        }
+        .prototype[data-concept="route"] .entry-card ul { display: block; }
+        .prototype[data-concept="route"] .earlier-label { margin-left: 2.6rem; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .motion-ready .reveal {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+        button:active { transform: none; }
+      }
+      @media (prefers-reduced-transparency: reduce) {
+        .concept-choice[aria-pressed="true"] { border: 1px solid var(--line); }
+      }
+      @media (prefers-contrast: more) {
+        .entry-card, .concept-controls, .replay { border-width: 2px; }
+        .timeline::before { background: var(--ink); }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page prototype" data-concept="thread">
+      <header class="intro">
+        <p class="eyebrow">devness.dev · experience concept</p>
+        <h1>A career, seen in motion.</h1>
+        <p class="intro-copy">
+          Start at the December 2021 graduation milestone, then follow the roles
+          from my résumé. Each chapter comes into view as you scroll—quietly,
+          with the content always in control.
+        </p>
+        <span class="prototype-label">Interactive mockup · not the live page</span>
+      </header>
+
+      <section aria-labelledby="concept-heading">
+        <div class="concept-bar">
+          <h2 id="concept-heading">Explore three directions</h2>
+          <div class="concept-controls" role="group" aria-label="Choose a timeline concept" hidden>
+            <button class="concept-choice" type="button" data-concept-choice="thread" aria-pressed="true">01 · Thread</button>
+            <button class="concept-choice" type="button" data-concept-choice="chapters" aria-pressed="false">02 · Chapters</button>
+            <button class="concept-choice" type="button" data-concept-choice="route" aria-pressed="false">03 · Route</button>
+          </div>
+        </div>
+
+        <div class="concept-note" aria-live="polite">
+          <span class="concept-number" data-concept-number>01 · THREAD</span>
+          <p data-concept-description>A continuous vertical line gives each milestone a clear place in the story.</p>
+        </div>
+
+        <div class="timeline" id="timeline">
+          <article class="timeline-entry graduation reveal">
+            <span class="marker" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m2.5 9 9.5-5 9.5 5-9.5 5-9.5-5Z"></path>
+                <path d="M6.5 11.2v5.2c3.3 2.2 7.7 2.2 11 0v-5.2M21.5 9v6"></path>
+              </svg>
+            </span>
+            <div class="entry-content">
+              <p class="entry-kicker">The starting point</p>
+              <div class="entry-card">
+                <div class="entry-topline"><span class="entry-date">December 2021</span><span class="entry-date">Graduation</span></div>
+                <h3>B.S. in Computer Science</h3>
+                <p class="entry-org">University of Maryland Global Campus · Adelphi, Maryland</p>
+                <p class="tools">A foundation in computer science, completed while building practical engineering experience.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-entry reveal">
+            <span class="marker" aria-hidden="true"></span>
+            <div class="entry-content">
+              <p class="entry-kicker">After graduation</p>
+              <div class="entry-card">
+                <div class="entry-topline"><span class="entry-date">2022–2025</span></div>
+                <h3>Software Engineer II</h3>
+                <p class="entry-org">Department of Labor · Alesig Consulting</p>
+                <ul>
+                  <li>Engineered a Java-based MFA workflow for sensitive federal systems.</li>
+                  <li>Supported Struts-to-Spring modernization and nationwide reporting.</li>
+                  <li>Contributed across testing, requirements, QA, and Section 508 checks.</li>
+                </ul>
+                <p class="tools">Java · Spring · SQL · JUnit · TDD · BDD · Agile</p>
+              </div>
+            </div>
+          </article>
+
+          <p class="earlier-label reveal">Earlier experience</p>
+
+          <article class="timeline-entry earlier reveal">
+            <span class="marker" aria-hidden="true"></span>
+            <div class="entry-content">
+              <p class="entry-kicker">Full-stack product work</p>
+              <div class="entry-card">
+                <div class="entry-topline"><span class="entry-date">2019–2021</span></div>
+                <h3>Full-Stack Engineer</h3>
+                <p class="entry-org">Onyx LLC</p>
+                <ul>
+                  <li>Deployed and supported application infrastructure on Google Cloud Platform.</li>
+                  <li>Built across Swift, Java, Flutter, Dart, and Python product surfaces.</li>
+                  <li>Improved release quality with testing, debugging, and feature validation.</li>
+                </ul>
+                <p class="tools">GCP · Swift · Java · Flutter · Dart · Python · Android</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-entry earlier reveal">
+            <span class="marker" aria-hidden="true"></span>
+            <div class="entry-content">
+              <p class="entry-kicker">Early engineering work</p>
+              <div class="entry-card">
+                <div class="entry-topline"><span class="entry-date">2017–2019</span></div>
+                <h3>LAMP Stack Developer</h3>
+                <p class="entry-org">Opsmart</p>
+                <ul>
+                  <li>Maintained and optimized a client-facing LAMP website.</li>
+                  <li>Wrote PHPUnit scripts to catch regressions earlier.</li>
+                  <li>Configured CentOS environments for consistent team workflows.</li>
+                </ul>
+                <p class="tools">HTML · JavaScript · PHP · PHPUnit · Linux · CentOS</p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="concept-bar">
+          <p class="motion-note"><strong>Motion direction:</strong> small opacity-and-position reveals, triggered as each milestone enters view. No scroll snapping, autoplay, or forced movement. Reduced-motion preferences show the content without travel.</p>
+          <button class="replay" type="button" data-replay hidden>Replay reveals</button>
+        </div>
+      </section>
+
+      <footer class="footer-note">
+        A standalone design study for the portfolio’s experience section. The live page and its résumé content are unchanged.
+      </footer>
+    </main>
+
+    <script>
+      (() => {
+        const root = document.querySelector(".prototype");
+        const buttons = [...document.querySelectorAll("[data-concept-choice]")];
+        const descriptions = {
+          thread: {
+            number: "01 · THREAD",
+            text: "A continuous vertical line gives each milestone a clear place in the story.",
+          },
+          chapters: {
+            number: "02 · CHAPTERS",
+            text: "Large year labels create an editorial rhythm; the role details stay in a calm reading column.",
+          },
+          route: {
+            number: "03 · ROUTE",
+            text: "Alternating milestones make the career path feel like a journey, without taking control of the scroll.",
+          },
+        };
+        const conceptNumber = document.querySelector("[data-concept-number]");
+        const conceptDescription = document.querySelector("[data-concept-description]");
+        const controls = document.querySelector(".concept-controls");
+        const replay = document.querySelector("[data-replay]");
+        const reveals = [...document.querySelectorAll(".reveal")];
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+        root.classList.add("motion-ready");
+        controls.hidden = false;
+        replay.hidden = false;
+
+        buttons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const concept = button.dataset.conceptChoice;
+            root.dataset.concept = concept;
+            buttons.forEach((choice) => {
+              choice.setAttribute("aria-pressed", String(choice === button));
+            });
+            conceptNumber.textContent = descriptions[concept].number;
+            conceptDescription.textContent = descriptions[concept].text;
+          });
+        });
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0.12, rootMargin: "0px 0px -5% 0px" });
+
+        reveals.forEach((item) => revealObserver.observe(item));
+
+        replay.addEventListener("click", () => {
+          reveals.forEach((item) => {
+            item.classList.remove("is-visible");
+            revealObserver.observe(item);
+          });
+          document.querySelector("#concept-heading").scrollIntoView({
+            behavior: reducedMotion.matches ? "auto" : "smooth",
+            block: "start",
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
