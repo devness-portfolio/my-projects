@@ -1151,6 +1151,7 @@ body.dark-mode .btn-secondary:focus-visible {
 }
 
 .carousel-button {
+  touch-action: manipulation;
   align-items: center;
   background-color: rgba(17, 24, 39, 0.72);
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -3721,6 +3722,7 @@ body.dark-mode .copy-email.is-copied {
 }
 
 .carousel-dots .dot {
+  touch-action: manipulation;
   background: transparent;
   height: 2.75rem;
   width: 2rem;
