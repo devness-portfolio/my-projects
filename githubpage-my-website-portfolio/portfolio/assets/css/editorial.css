@@ -112,7 +112,8 @@ body.editorial-design .terminal-command-form input::placeholder { color: #a6b6b0
 body.editorial-design .terminal-command-form button { background: #8cf5c5; border: 0; border-radius: 0.35rem; color: #07110e; cursor: pointer; font: 600 0.8rem/1.5 var(--font-mono); min-height: 2.75rem; padding: 0.6rem 1rem; }
 body.editorial-design .terminal-command-output { color: #c3d5cc; font: 0.8rem/1.7 var(--font-mono); margin: 0; padding: 0 1rem 1rem; }
 body.editorial-design :is(a, button, summary, input):focus-visible { outline: 3px solid var(--primary-color); outline-offset: 4px; }
-body.editorial-design :is(.hero-button, .btn, button, .main-nav a):active { filter: brightness(0.92); transform: scale(0.98); transition: none; }
+/* Carousel arrows use transform for centering; replacing it moves their hit area during a press. */
+body.editorial-design :is(.hero-button, .btn, button:where(:not(.carousel-button)), .main-nav a):active { filter: brightness(0.92); transform: scale(0.98); transition: none; }
 body.editorial-design summary:active { background-color: var(--surface-muted); }
 @media (max-width: 800px) {
   body.editorial-design .engineering-layout { grid-template-columns: minmax(0, 1fr); }
@@ -148,7 +149,7 @@ body.editorial-design summary:active { background-color: var(--surface-muted); }
 }
 @media (prefers-reduced-motion: reduce) {
   body.editorial-design *, body.editorial-design *::before, body.editorial-design *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-  body.editorial-design :is(.hero-button, .btn, button, .main-nav a):active { transform: none; }
+  body.editorial-design :is(.hero-button, .btn, button:where(:not(.carousel-button)), .main-nav a):active { transform: none; }
 }
 /* The console stays dark in both themes; its semantic colors must stay bright. */
 body.editorial-design .engineering-layout .hero-visual {
